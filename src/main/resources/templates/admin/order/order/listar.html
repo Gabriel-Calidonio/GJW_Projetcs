@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" 
+      xmlns:layout="http://ultraq.net.nz" 
+      layout:decorate="~{admin/layouts/main-layout}">
+<head>
+    <title>Gestão de Pedidos - Admin</title>
+</head>
+<body>
+    
+    <main layout:fragment="content" class="gwj-p-4">
+        
+        <!-- Breadcrumb / Header -->
+        <div class="gwj-d-flex gwj-justify-between gwj-align-center gwj-mb-4">
+            <div>
+                <h1 style="font-size: 1.8rem; margin: 0;">Gestão de Pedidos</h1>
+                <p style="color: var(--gwj-text-muted); margin: 0;">Gerencie os pedidos feitos no mini-shopping da barbearia</p>
+            </div>
+            <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+                <i class="bi bi-arrow-left"></i> Voltar ao Painel
+            </a>
+        </div>
+
+        <!-- Tabela Card -->
+        <div class="gwj-card">
+            <div class="gwj-card-header">
+                <h5 class="gwj-card-title">Todos os Pedidos</h5>
+            </div>
+            <div class="gwj-card-body gwj-p-0">
+                <div class="gwj-table-responsive">
+                    <table class="gwj-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 100px;">Pedido</th>
+                                <th>Cliente / Retirante</th>
+                                <th>Data do Pedido</th>
+                                <th>Pagamento</th>
+                                <th>Valor Total</th>
+                                <th style="width: 180px;">Status</th>
+                                <th class="gwj-text-end" style="width: 150px; padding-right: 2rem;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="gwj-table-row" th:each="pedido : ${pedidos}">
+                                <td style="font-weight: bold;" th:text="'#PED-' + ${pedido.id}">#PED-1</td>
+                                <td>
+                                    <!-- Cliente Cadastrado -->
+                                    <div th:if="${pedido.cliente != null}">
+                                        <span style="font-weight: 600; color: var(--gwj-text-dark);" th:text="${pedido.cliente.nome} + ' ' + ${pedido.cliente.sobrenome}">João Silva</span>
+                                        <small style="display: block; color: var(--gwj-text-muted);" th:text="${pedido.cliente.telefone}">(11) 99999-9999</small>
+                                    </div>
+                                    <!-- Visitante -->
+                                    <div th:if="${pedido.cliente == null}">
+                                        <span style="font-weight: 600; color: var(--gwj-text-dark);" th:text="${pedido.nomeVisitante}">Carlos Visitante</span>
+                                        <small style="display: block; color: var(--gwj-text-muted);" th:text="${pedido.telefoneVisitante}">(11) 98888-8888</small>
+                                        <span class="gwj-badge gwj-badge-secondary" style="font-size: 0.7rem; margin-top: 4px;">Visitante</span>
+                                    </div>
+                                </td>
+                                <td th:text="${#temporals.format(pedido.dataPedido, 'dd/MM/yyyy HH:mm')}">16/06/2026 14:00</td>
+                                <td th:text="${pedido.formaPagamento}">PIX</td>
+                                <td style="font-weight: bold; color: var(--gwj-text-dark);" th:text="'R$ ' + ${#numbers.formatDecimal(pedido.valorTotal, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</td>
+                                <td>
+                                    <span th:if="${pedido.status == 'Aguardando Retirada'}" class="gwj-badge gwj-badge-warning">Aguardando Retirada</span>
+                                    <span th:if="${pedido.status == 'Retirado'}" class="gwj-badge gwj-badge-success">Retirado</span>
+                                    <span th:if="${pedido.status == 'Cancelado'}" class="gwj-badge gwj-badge-danger">Cancelado</span>
+                                </td>
+                                <td class="gwj-text-end" style="padding-right: 2rem;">
+                                    <a th:href="@{/MRYnZpAsC9sp/pedidos/detalhe(id=${pedido.id})}" class="gwj-btn gwj-btn-sm gwj-btn-primary">
+                                        <i class="bi bi-eye"></i> Detalhes
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr th:if="${#lists.isEmpty(pedidos)}">
+                                <td colspan="7" class="gwj-text-center" style="padding: 3rem 0; color: var(--gwj-text-muted);">
+                                    <i class="bi bi-receipt-cutoff" style="font-size: 2.5rem; display: block; margin-bottom: 1rem;"></i>
+                                    Nenhum pedido realizado no momento.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

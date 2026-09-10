@@ -1,0 +1,21 @@
+<!-- Fragmento apenas para o Link do CSS -->
+<th:block th:fragment="header-css">
+</th:block>
+
+<!-- Fragmento apenas para o conteúdo HTML -->
+<header class="gwj-header" th:fragment="header">
+    <div class="gwj-header-container">
+        <div class="gwj-header-logo">
+            <a href="/MRYnZpAsC9sp/">
+                <img th:src="@{${empresa.logo_url}}" th:alt="${empresa.logo_alt}" class="gwj-logo">
+                <span>Painel</span> Administrativo
+            </a>
+        </div>
+        <div>
+            <ul class="gwj-navbar">
+                <li><a href="/MRYnZpAsC9sp/"><i class="bi bi-house-door"></i> Início</a></li>
+                <li><a href="/" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Ver Site</a></li>
+            </ul>
+        </div>
+    </div>
+</header>

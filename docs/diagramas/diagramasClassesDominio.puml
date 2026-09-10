@@ -1,0 +1,152 @@
+    ' Diagrama focado exclusivamente na camada de Domínio.
+    ' Este diagrama destaca a hierarquia de herança e as associações (1:N e N:N) mapeadas no banco de dados.
+
+    @startuml
+    package com.gwj.model.domain {
+        interface IEntity {
+            +getId(): Long
+            +setId(id: Long)
+        }
+
+        package entities {
+            abstract class Usuario {
+                -id: Long
+                -perfil: Perfil
+                -nomeUsuario: String
+                -email: String
+                -status: Boolean
+                -senha: String
+                -token: String
+                -ip: String
+                -dataCadastro: LocalDateTime
+                +hasPermissao(nomePermissao: String): boolean
+                +criptografarSenha()
+            }
+
+            class Cliente {
+                -nome: String
+                -sobrenome: String
+                -telefone: String
+                -cpf: String
+                -observacao: String
+                -listaEndereco: List<Endereco>
+                +addEndereco(endereco: Endereco)
+            }
+
+            class Profissional {
+                -nome: String
+                -sobrenome: String
+                -telefone: String
+                -cpf: String
+                -observacao: String
+                -listaEndereco: List<Endereco>
+            }
+
+            class Perfil {
+                -id: Long
+                -nome: String
+                -permissoes: List<Permissao>
+            }
+
+            class Permissao {
+                -id: Long
+                -nome: String
+                -descricao: String
+            }
+
+            class Endereco {
+                -id: Long
+                -nome: String
+                -cep: String
+                -logradouro: String
+                -numero: int
+                -complemento: String
+                -bairro: String
+                -cidade: String
+                -estado: String
+                -dataCadastro: LocalDateTime
+                -observacao: String
+            }
+
+            class Servico {
+                -id: Long
+                -nome: String
+                -descricao: String
+                -preco: BigDecimal
+                -duracao: int
+                -tipo: String
+                -ativo: Boolean
+                -imagem: String
+            }
+
+
+            class Agendamento {
+                -id: Long
+                -clienteNome: String
+                -clienteTelefone: String
+                -dataAgendamento: LocalDate
+                -horaInicio: LocalTime
+                -horaFim: LocalTime
+                -status: String
+                -profissional: Profissional
+                -servico: Servico
+                -gradeHorarios: GradeHorarios
+            }
+
+            class DiasFuncionamento {
+                -id: Long
+                -diaSemana: Integer
+                -nome: String
+                -aberto: Boolean
+                -horarioInicio: LocalTime
+                -horarioFim: LocalTime
+                -gradeHorarios: List<GradeHorarios>
+            }
+
+            class GradeHorarios {
+                -id: Long
+                -diaFuncionamento: DiasFuncionamento
+                -horarioInicio: LocalTime
+                -horarioFim: LocalTime
+            }
+
+            class Produto {
+                -Id: Long
+                -nome: String
+                -descricao: String
+                -preco: BigDecimal
+                -estoque: Integer
+                -marca: String
+                -categoria: String
+                -dataCadastro: LocalDateTime
+            }
+        }
+    }
+
+    ' Relacionamentos de Herança e Interface
+    IEntity <|.. Usuario
+    IEntity <|.. Perfil
+    IEntity <|.. Permissao
+    IEntity <|.. Endereco
+    IEntity <|.. Servico
+    IEntity <|.. Agendamento
+    IEntity <|.. DiasFuncionamento
+    IEntity <|.. GradeHorarios
+    IEntity <|.. Produto
+
+    Usuario <|-- Cliente
+    Usuario <|-- Profissional
+
+    ' Relacionamentos de Associação
+    Usuario "0..*" --> "1" Perfil : perfil
+    Perfil "0..*" o--> "0..*" Permissao : @ManyToMany (permissoes)
+    Cliente "0..*" o--> "0..*" Endereco : @ManyToMany (listaEndereco)
+    Profissional "0..*" o--> "0..*" Endereco : @ManyToMany (listaEndereco)
+
+    Agendamento "0..*" --> "1" Profissional : profissional
+    Agendamento "0..*" --> "1" Servico : servico
+    Agendamento "0..*" --> "0..1" GradeHorarios : gradeHorarios
+
+    DiasFuncionamento "1" *--> "0..*" GradeHorarios : @OneToMany (gradeHorarios)
+
+    @enduml

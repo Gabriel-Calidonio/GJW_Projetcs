@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente de Instalação - Barbearia GWJ</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #e5c07b;
+            --primary-gold-hover: #d4ae68;
+            --accent-gold: #c5a880;
+            --card-bg: rgba(30, 32, 44, 0.75);
+            --border-glass: rgba(229, 192, 123, 0.18);
+            --text-muted-dark: #9ca3af;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top right, #1f2330, #0d0e12);
+            color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .wizard-container {
+            width: 100%;
+            max-width: 780px;
+        }
+
+        .wizard-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .wizard-header {
+            padding: 2.25rem 2.5rem 1.5rem 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            background: linear-gradient(180deg, rgba(229, 192, 123, 0.05) 0%, transparent 100%);
+        }
+
+        .brand-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            cursor: default;
+            flex: 1;
+        }
+
+        .step-bubble {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #181a20;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 600;
+            color: var(--text-muted-dark);
+            transition: all 0.3s ease;
+        }
+
+        .step-item.active .step-bubble {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            color: #121318;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 15px rgba(229, 192, 123, 0.4);
+        }
+
+        .step-item.completed .step-bubble {
+            background: #10b981;
+            border-color: #10b981;
+            color: #ffffff;
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            color: var(--text-muted-dark);
+            font-weight: 500;
+        }
+
+        .step-item.active .step-label {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .wizard-body {
+            padding: 2.25rem 2.5rem;
+        }
+
+        .step-panel {
+            display: none;
+            animation: fadeIn 0.35s ease forwards;
+        }
+
+        .step-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-control, .form-select {
+            background: rgba(18, 20, 26, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #f3f4f6;
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background: rgba(22, 24, 32, 0.95);
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 0.2rem rgba(229, 192, 123, 0.18);
+            color: #ffffff;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #d1d5db;
+            margin-bottom: 0.4rem;
+        }
+
+        .input-group-text {
+            background: rgba(18, 20, 26, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-muted-dark);
+            border-radius: 10px 0 0 10px;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            color: #121318;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.25s ease;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, var(--primary-gold-hover), #b89870);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(229, 192, 123, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .btn-outline-gold:hover {
+            background: rgba(229, 192, 123, 0.12);
+            color: #ffffff;
+            border-color: var(--primary-gold);
+        }
+
+        .btn-dark-glass {
+            background: rgba(255, 255, 255, 0.06);
+            color: #d1d5db;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-dark-glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .check-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .check-badge.success {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .check-badge.danger {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .wizard-footer {
+            padding: 1.25rem 2.5rem 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .progress-indicator {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+
+        .progress-bar-custom {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-gold), #10b981);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wizard-container">
+    <div class="wizard-card">
+        <!-- Header -->
+        <div class="wizard-header">
+            <h1 class="brand-title">Tgo's Barbearia</h1>
+            <p class="text-secondary mb-0 small">Assistente de Configuração e Instalação do Sistema</p>
+
+            <!-- Steps Breadcrumb -->
+            <div class="wizard-steps">
+                <div class="step-item active" id="stepIndicator1">
+                    <div class="step-bubble"><i class="bi bi-info-circle"></i></div>
+                    <div class="step-label">1. Início</div>
+                </div>
+                <div class="step-item" id="stepIndicator2">
+                    <div class="step-bubble"><i class="bi bi-database"></i></div>
+                    <div class="step-label">2. Banco</div>
+                </div>
+                <div class="step-item" id="stepIndicator3">
+                    <div class="step-bubble"><i class="bi bi-person-shield"></i></div>
+                    <div class="step-label">3. Administrador</div>
+                </div>
+                <div class="step-item" id="stepIndicator4">
+                    <div class="step-bubble"><i class="bi bi-check-circle"></i></div>
+                    <div class="step-label">4. Instalação</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="wizard-body">
+            <form id="setupForm" onsubmit="return false;">
+                
+                <!-- PASSO 1: Boas-vindas e Pré-requisitos -->
+                <div class="step-panel active" id="panelStep1">
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-3" style="background: rgba(229, 192, 123, 0.1); color: var(--primary-gold); font-size: 2rem;">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h4 class="fw-bold">Bem-vindo ao Setup Wizard!</h4>
+                        <p class="text-secondary small">
+                            Detectamos que o sistema ainda não foi inicializado. Em poucos passos você irá configurar o banco de dados e criar seu acesso de administrador master.
+                        </p>
+                    </div>
+
+                    <div class="card p-3 mb-4" style="background: rgba(18, 20, 26, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <h6 class="fw-semibold mb-3 text-light"><i class="bi bi-cpu me-2 text-warning"></i>Verificação do Ambiente</h6>
+                        
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                            <span class="small text-secondary">Versão do Java:</span>
+                            <span class="check-badge success">
+                                <i class="bi bi-check2"></i> Java <span th:text="${sysInfo['javaVersion']}">21</span>
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                            <span class="small text-secondary">Permissão de Escrita no Diretório (.env):</span>
+                            <span th:if="${sysInfo['canWrite']}" class="check-badge success">
+                                <i class="bi bi-check2"></i> Concedida
+                            </span>
+                            <span th:unless="${sysInfo['canWrite']}" class="check-badge danger">
+                                <i class="bi bi-x-circle"></i> Bloqueada
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center pt-2">
+                            <span class="small text-secondary">Segurança de Credenciais:</span>
+                            <span class="check-badge success">
+                                <i class="bi bi-shield-lock"></i> .gitignore Ativo
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-dark border-0 p-3 small d-flex align-items-start gap-2" style="background: rgba(255,255,255,0.04);">
+                        <i class="bi bi-lightbulb text-warning fs-5"></i>
+                        <div>
+                            Ao avançar, o assistente irá testar os dados de conexão do seu banco de dados (MariaDB ou PostgreSQL) e gerar automaticamente o arquivo <code>.env</code> local sem expor senhas no GitHub.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PASSO 2: Banco de Dados -->
+                <div class="step-panel" id="panelStep2">
+                    <h5 class="fw-bold mb-1"><i class="bi bi-database-gear me-2 text-warning"></i>Conexão com o Banco de Dados</h5>
+                    <p class="text-secondary small mb-3">Selecione o gerenciador de banco de dados e informe as credenciais de acesso.</p>
+
+                    <!-- Seleção de Banco: MariaDB vs PostgreSQL -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <div class="card p-3 db-option-card active" id="cardDbMaria" onclick="selectDatabaseType('mariadb')" style="cursor: pointer; background: rgba(18, 20, 26, 0.9); border: 2px solid var(--primary-gold); border-radius: 12px; transition: all 0.2s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="fs-2">🐬</div>
+                                    <div>
+                                        <div class="fw-bold text-light">MariaDB / MySQL</div>
+                                        <div class="small text-secondary">Recomendado (Porta 3306)</div>
+                                    </div>
+                                    <div class="ms-auto text-warning fs-5 check-icon"><i class="bi bi-check-circle-fill"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card p-3 db-option-card" id="cardDbPostgres" onclick="selectDatabaseType('postgres')" style="cursor: pointer; background: rgba(18, 20, 26, 0.6); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 12px; transition: all 0.2s ease;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="fs-2">🐘</div>
+                                    <div>
+                                        <div class="fw-bold text-light">PostgreSQL</div>
+                                        <div class="small text-secondary">Suportado (Porta 5432)</div>
+                                    </div>
+                                    <div class="ms-auto text-secondary fs-5 check-icon"><i class="bi bi-circle"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="dbType" name="dbType" value="mariadb">
+
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label" for="dbHost">Servidor (Host)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-hdd-network"></i></span>
+                                <input type="text" class="form-control" id="dbHost" name="dbHost" value="localhost" placeholder="localhost" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label" for="dbPort">Porta</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-plug"></i></span>
+                                <input type="number" class="form-control" id="dbPort" name="dbPort" value="3306" placeholder="3306" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="dbName">Nome do Banco de Dados</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-database"></i></span>
+                                <input type="text" class="form-control" id="dbName" name="dbName" value="gwj2" placeholder="gwj2" required>
+                            </div>
+                            <small class="text-muted">Se o banco não existir, o assistente tentará criá-lo automaticamente.</small>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="dbUser">Usuário do Banco</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="dbUser" name="dbUser" value="desenvolvedor" placeholder="desenvolvedor" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="dbPassword">Senha do Banco</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="dbPassword" name="dbPassword" placeholder="Digite a senha do banco">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Testar Conexão -->
+                    <div class="mt-4 pt-2">
+                        <button type="button" class="btn btn-outline-gold w-100" id="btnTestConnection" onclick="testDatabaseConnection()">
+                            <i class="bi bi-lightning-charge me-2"></i>Testar Conexão com o Banco
+                        </button>
+                    </div>
+
+                    <!-- Alerta de resultado do teste -->
+                    <div id="dbTestResult" class="mt-3 d-none"></div>
+                </div>
+
+                <!-- PASSO 3: Administrador Master -->
+                <div class="step-panel" id="panelStep3">
+                    <h5 class="fw-bold mb-1"><i class="bi bi-shield-lock me-2 text-warning"></i>Conta do Administrador Master</h5>
+                    <p class="text-secondary small mb-4">Crie as credenciais de acesso para gerenciar agendamentos, equipe e produtos.</p>
+
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label" for="adminName">Nome Completo</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                                <input type="text" class="form-control" id="adminName" name="adminName" value="Administrador" placeholder="Ex: Tiago Administrador" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="adminEmail">E-mail de Login</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="adminEmail" name="adminEmail" value="admin@tgosbarbearia.com" placeholder="admin@tgosbarbearia.com" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="adminPassword">Senha de Acesso</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                <input type="password" class="form-control" id="adminPassword" name="adminPassword" placeholder="Mínimo 4 caracteres" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="adminPasswordConfirm">Confirmar Senha</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                                <input type="password" class="form-control" id="adminPasswordConfirm" name="adminPasswordConfirm" placeholder="Repita a senha" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="adminValidationAlert" class="alert alert-danger mt-3 d-none small"></div>
+                </div>
+
+                <!-- PASSO 4: Resumo e Instalação -->
+                <div class="step-panel" id="panelStep4">
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center p-3 rounded-circle mb-3" style="background: rgba(16, 185, 129, 0.1); color: #10b981; font-size: 2.2rem;">
+                            <i class="bi bi-check2-all"></i>
+                        </div>
+                        <h4 class="fw-bold">Tudo Pronto para a Instalação!</h4>
+                        <p class="text-secondary small">
+                            Confirme os dados abaixo para gerar o arquivo <code>.env</code> e aplicar as migrações do banco.
+                        </p>
+                    </div>
+
+                    <div class="card p-3 mb-3" style="background: rgba(18, 20, 26, 0.6); border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <h6 class="text-warning small text-uppercase fw-bold mb-2">Resumo da Configuração</h6>
+                        <ul class="list-unstyled small mb-0">
+                            <li class="py-1 d-flex justify-content-between border-bottom border-secondary border-opacity-25">
+                                <span class="text-secondary">Banco de Dados:</span>
+                                <span class="fw-semibold" id="summaryDb">localhost:3306 / gwj2</span>
+                            </li>
+                            <li class="py-1 d-flex justify-content-between border-bottom border-secondary border-opacity-25">
+                                <span class="text-secondary">Usuário BD:</span>
+                                <span class="fw-semibold" id="summaryDbUser">desenvolvedor</span>
+                            </li>
+                            <li class="py-1 d-flex justify-content-between">
+                                <span class="text-secondary">Administrador Master:</span>
+                                <span class="fw-semibold text-warning" id="summaryAdminEmail">admin@tgosbarbearia.com</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="installProgressArea" class="d-none">
+                        <p class="small text-secondary mb-1" id="installStatusText">Inicializando criação de tabelas...</p>
+                        <div class="progress-indicator">
+                            <div class="progress-bar-custom" id="installProgressBar"></div>
+                        </div>
+                    </div>
+
+                    <div id="finishResultAlert" class="alert d-none mt-3"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <div class="wizard-footer">
+            <button type="button" class="btn btn-dark-glass" id="btnPrev" onclick="prevStep()" style="visibility: hidden;">
+                <i class="bi bi-arrow-left me-1"></i> Voltar
+            </button>
+
+            <button type="button" class="btn btn-gold" id="btnNext" onclick="nextStep()">
+                Próximo <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    let currentStep = 1;
+    const totalSteps = 4;
+    let isDbTested = false;
+
+    function selectDatabaseType(type) {
+        document.getElementById('dbType').value = type;
+        const cardMaria = document.getElementById('cardDbMaria');
+        const cardPostgres = document.getElementById('cardDbPostgres');
+        const portInput = document.getElementById('dbPort');
+        const userInput = document.getElementById('dbUser');
+
+        if (type === 'postgres') {
+            cardPostgres.style.border = '2px solid var(--primary-gold)';
+            cardPostgres.style.background = 'rgba(18, 20, 26, 0.9)';
+            cardPostgres.querySelector('.check-icon').innerHTML = '<i class="bi bi-check-circle-fill text-warning"></i>';
+
+            cardMaria.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+            cardMaria.style.background = 'rgba(18, 20, 26, 0.6)';
+            cardMaria.querySelector('.check-icon').innerHTML = '<i class="bi bi-circle text-secondary"></i>';
+
+            if (portInput.value === '3306' || portInput.value === '') {
+                portInput.value = '5432';
+            }
+            if (userInput.value === 'desenvolvedor' || userInput.value === '') {
+                userInput.value = 'postgres';
+            }
+        } else {
+            cardMaria.style.border = '2px solid var(--primary-gold)';
+            cardMaria.style.background = 'rgba(18, 20, 26, 0.9)';
+            cardMaria.querySelector('.check-icon').innerHTML = '<i class="bi bi-check-circle-fill text-warning"></i>';
+
+            cardPostgres.style.border = '1px solid rgba(255, 255, 255, 0.12)';
+            cardPostgres.style.background = 'rgba(18, 20, 26, 0.6)';
+            cardPostgres.querySelector('.check-icon').innerHTML = '<i class="bi bi-circle text-secondary"></i>';
+
+            if (portInput.value === '5432' || portInput.value === '') {
+                portInput.value = '3306';
+            }
+            if (userInput.value === 'postgres' || userInput.value === '') {
+                userInput.value = 'desenvolvedor';
+            }
+        }
+        isDbTested = false;
+        const alertBox = document.getElementById('dbTestResult');
+        if (alertBox) alertBox.classList.add('d-none');
+    }
+
+    function updateWizardUI() {
+        // Atualiza painéis
+        for (let i = 1; i <= totalSteps; i++) {
+            const panel = document.getElementById('panelStep' + i);
+            const indicator = document.getElementById('stepIndicator' + i);
+
+            if (panel) {
+                panel.classList.toggle('active', i === currentStep);
+            }
+
+            if (indicator) {
+                indicator.classList.toggle('active', i === currentStep);
+                indicator.classList.toggle('completed', i < currentStep);
+            }
+        }
+
+        // Atualiza botões
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        if (btnPrev) {
+            btnPrev.style.visibility = (currentStep === 1) ? 'hidden' : 'visible';
+        }
+
+        if (btnNext) {
+            if (currentStep === totalSteps) {
+                btnNext.innerHTML = '<i class="bi bi-rocket-takeoff me-1"></i> Concluir e Iniciar Sistema';
+                btnNext.classList.remove('btn-gold');
+                btnNext.classList.add('btn-success');
+            } else {
+                btnNext.innerHTML = 'Próximo <i class="bi bi-arrow-right ms-1"></i>';
+                btnNext.classList.remove('btn-success');
+                btnNext.classList.add('btn-gold');
+            }
+        }
+
+        // Se estiver no passo 4, preenche o resumo
+        if (currentStep === 4) {
+            const dbType = (document.getElementById('dbType').value || 'mariadb').toLowerCase();
+            const dbLabel = dbType === 'postgres' ? '🐘 PostgreSQL' : '🐬 MariaDB / MySQL';
+            document.getElementById('summaryDb').innerText = 
+                dbLabel + ' (' +
+                (document.getElementById('dbHost').value || 'localhost') + ':' + 
+                (document.getElementById('dbPort').value || (dbType === 'postgres' ? '5432' : '3306')) + ' / ' + 
+                (document.getElementById('dbName').value || 'gwj2') + ')';
+            document.getElementById('summaryDbUser').innerText = document.getElementById('dbUser').value || (dbType === 'postgres' ? 'postgres' : 'desenvolvedor');
+            document.getElementById('summaryAdminEmail').innerText = document.getElementById('adminEmail').value || '';
+        }
+    }
+
+    function nextStep() {
+        if (currentStep === 1) {
+            currentStep++;
+            updateWizardUI();
+            return;
+        }
+
+        if (currentStep === 2) {
+            const dbHost = document.getElementById('dbHost').value.trim();
+            const dbName = document.getElementById('dbName').value.trim();
+            const dbUser = document.getElementById('dbUser').value.trim();
+
+            if (!dbHost || !dbName || !dbUser) {
+                alert('Preencha os campos obrigatórios do banco de dados.');
+                return;
+            }
+
+            currentStep++;
+            updateWizardUI();
+            return;
+        }
+
+        if (currentStep === 3) {
+            const email = document.getElementById('adminEmail').value.trim();
+            const pass = document.getElementById('adminPassword').value;
+            const passConf = document.getElementById('adminPasswordConfirm').value;
+            const alertBox = document.getElementById('adminValidationAlert');
+
+            if (!email || !email.includes('@')) {
+                alertBox.innerText = 'Informe um endereço de e-mail válido.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            if (!pass || pass.length < 4) {
+                alertBox.innerText = 'A senha deve ter pelo menos 4 caracteres.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            if (pass !== passConf) {
+                alertBox.innerText = 'A confirmação de senha não confere.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            alertBox.classList.add('d-none');
+            currentStep++;
+            updateWizardUI();
+            return;
+        }
+
+        if (currentStep === 4) {
+            finishInstallation();
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            currentStep--;
+            updateWizardUI();
+        }
+    }
+
+    async function testDatabaseConnection() {
+        const btn = document.getElementById('btnTestConnection');
+        const alertBox = document.getElementById('dbTestResult');
+
+        const dbType = document.getElementById('dbType').value || 'mariadb';
+        const payload = {
+            dbType: dbType,
+            dbHost: document.getElementById('dbHost').value.trim(),
+            dbPort: parseInt(document.getElementById('dbPort').value) || (dbType === 'postgres' ? 5432 : 3306),
+            dbName: document.getElementById('dbName').value.trim(),
+            dbUser: document.getElementById('dbUser').value.trim(),
+            dbPassword: document.getElementById('dbPassword').value
+        };
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Testando conexão...';
+        alertBox.classList.add('d-none');
+
+        try {
+            const res = await fetch('/setup/test-db', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+            alertBox.classList.remove('d-none', 'alert-success', 'alert-danger');
+
+            if (data.success) {
+                isDbTested = true;
+                alertBox.classList.add('alert', 'alert-success');
+                alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>' + data.message;
+            } else {
+                alertBox.classList.add('alert', 'alert-danger');
+                alertBox.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i>' + data.message;
+            }
+        } catch (err) {
+            alertBox.classList.remove('d-none', 'alert-success');
+            alertBox.classList.add('alert', 'alert-danger');
+            alertBox.innerHTML = '<i class="bi bi-wifi-off me-2"></i>Erro ao comunicar com o servidor: ' + err.message;
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="bi bi-lightning-charge me-2"></i>Testar Conexão com o Banco';
+        }
+    }
+
+    async function finishInstallation() {
+        const btnNext = document.getElementById('btnNext');
+        const btnPrev = document.getElementById('btnPrev');
+        const progressArea = document.getElementById('installProgressArea');
+        const progressBar = document.getElementById('installProgressBar');
+        const statusText = document.getElementById('installStatusText');
+        const alertBox = document.getElementById('finishResultAlert');
+
+        btnNext.disabled = true;
+        btnPrev.disabled = true;
+        progressArea.classList.remove('d-none');
+        alertBox.classList.add('d-none');
+
+        // Animação de progresso
+        progressBar.style.width = '30%';
+        statusText.innerText = 'Criando arquivo de configuração .env...';
+
+        const dbType = document.getElementById('dbType').value || 'mariadb';
+        const payload = {
+            dbType: dbType,
+            dbHost: document.getElementById('dbHost').value.trim(),
+            dbPort: parseInt(document.getElementById('dbPort').value) || (dbType === 'postgres' ? 5432 : 3306),
+            dbName: document.getElementById('dbName').value.trim(),
+            dbUser: document.getElementById('dbUser').value.trim(),
+            dbPassword: document.getElementById('dbPassword').value,
+            adminName: document.getElementById('adminName').value.trim(),
+            adminEmail: document.getElementById('adminEmail').value.trim(),
+            adminPassword: document.getElementById('adminPassword').value,
+            adminPasswordConfirm: document.getElementById('adminPasswordConfirm').value
+        };
+
+        setTimeout(() => {
+            progressBar.style.width = '70%';
+            statusText.innerText = 'Criando tabelas e aplicando migrações...';
+        }, 600);
+
+        try {
+            const res = await fetch('/setup/finish', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                progressBar.style.width = '100%';
+                statusText.innerText = 'Instalação concluída com sucesso!';
+                alertBox.classList.remove('d-none', 'alert-danger');
+                alertBox.classList.add('alert', 'alert-success');
+                alertBox.innerHTML = '<strong>Sucesso!</strong> ' + data.message + ' Redirecionando para o login...';
+
+                setTimeout(() => {
+                    window.location.href = data.redirectUrl || '/MRYnZpAsC9sp/login';
+                }, 1500);
+            } else {
+                progressBar.style.width = '0%';
+                progressArea.classList.add('d-none');
+                btnNext.disabled = false;
+                btnPrev.disabled = false;
+
+                alertBox.classList.remove('d-none', 'alert-success');
+                alertBox.classList.add('alert', 'alert-danger');
+                alertBox.innerHTML = '<i class="bi bi-x-circle me-2"></i>Erro ao finalizar: ' + data.message;
+            }
+        } catch (err) {
+            progressBar.style.width = '0%';
+            progressArea.classList.add('d-none');
+            btnNext.disabled = false;
+            btnPrev.disabled = false;
+
+            alertBox.classList.remove('d-none', 'alert-success');
+            alertBox.classList.add('alert', 'alert-danger');
+            alertBox.innerHTML = '<i class="bi bi-wifi-off me-2"></i>Erro na requisição: ' + err.message;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!-- Fragmento da Sidebar Administrativa Estilo E-commerce -->
+<aside id="sidebar" class="gwj-sidebar" th:fragment="sidebar">
+    <h6 class="gwj-sidebar-title">Menu Principal</h6>
+    <ul class="gwj-sidebar-nav">
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-sidebar-link" th:classappend="${requestURI != null and (requestURI.endsWith('/MRYnZpAsC9sp/') or requestURI.endsWith('/dashboard'))} ? 'gwj-active' : ''">
+                <i class="bi bi-speedometer2"></i> Painel de controle
+            </a>
+        </li>
+        
+        <li>
+            <h6 class="gwj-sidebar-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Catálogo</h6>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/produtos}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/produtos')} ? 'gwj-active' : ''">
+                <i class="bi bi-box"></i> Produtos
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/servicos}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/servicos')} ? 'gwj-active' : ''">
+                <i class="bi bi-scissors"></i> Serviços
+            </a>
+        </li>
+
+        <li>
+            <h6 class="gwj-sidebar-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Atendimento & Vendas</h6>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/agendamentos}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/agendamentos')} ? 'gwj-active' : ''">
+                <i class="bi bi-calendar-event"></i> Agendamentos
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/pedidos}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/pedidos')} ? 'gwj-active' : ''">
+                <i class="bi bi-receipt"></i> Pedidos
+            </a>
+        </li>
+
+        <li>
+            <h6 class="gwj-sidebar-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Pessoas</h6>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/clientes}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/clientes')} ? 'gwj-active' : ''">
+                <i class="bi bi-people"></i> Clientes
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/profissionais}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/profissionais')} ? 'gwj-active' : ''">
+                <i class="bi bi-person-badge"></i> Profissionais
+            </a>
+        </li>
+
+        <li>
+            <h6 class="gwj-sidebar-title" style="margin-top: 1rem; margin-bottom: 0.5rem;">Configurações</h6>
+        </li>
+        <li>
+            <a th:href="@{/MRYnZpAsC9sp/configuracoes}" class="gwj-sidebar-link" th:classappend="${requestURI != null and requestURI.contains('/configuracoes')} ? 'gwj-active' : ''">
+                <i class="bi bi-gear"></i> Configurações
+            </a>
+        </li>
+    </ul>
+</aside>

@@ -1,0 +1,123 @@
+# Projeto Integrador GWJ JAVA dinâmico, agora, utilizando o padrão Spring Boot MVC.
+## Padrões de projeto (GoF) aplicados até o momento:
+- Singleton (conexão com o BD)
+- Factory (construtor de objetos)
+- DAO  (persistir objetos no BD dinamicamente, inclusive recursivamente, persistindo classes filhas)
+- DTO (preenche objetos dinamicamente com dados do formulário HTTP ou com dados do BD)
+- Templante ou Decorator (Para construír páginas web).
+Esta é a outra forma de CRUD mais dinâmica e enxuta.
+
+---
+
+## 🛠️ Diagnóstico Rápido de Ambiente (Recomendado para Alunos)
+
+Antes de iniciar a aplicação, execute o verificador de ambiente para garantir que o **Java 21**, as portas e a conexão com o banco de dados estão corretos:
+
+- **Linux / macOS / WSL:**
+  ```bash
+  ./check.sh
+  ```
+- **Windows (Prompt / Duplo Clique):**
+  Dê dois cliques no arquivo `check.bat` ou execute no CMD:
+  ```cmd
+  check.bat
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  .\check.ps1
+  ```
+
+O verificador emitirá um relatório completo (✅ SUCESSO / ⚠️ AVISO / ❌ FALHA) e indicará a solução exata para qualquer pendência encontrada.
+
+---
+
+1. Primeiro, instale o banco de dados de testes:
+gwj5.sql ou gwj_criacao_usuario.sql
+
+2. Crie um usuário. A boa prática é criar um usuário específico para o banco de dados, ao invés de usar root:
+```
+-- MySQL 8.0+: O comando GRANT ... IDENTIFIED BY foi removido. Primeiro você deve criar o usuário e depois dar as permissões:
+-- 1. Cria o usuário primeiro
+CREATE USER 'desenvolvedor'@'%' IDENTIFIED BY 'b2#FbXPQTu4FYw';
+-- 2. Garante privilégios totais apenas no banco gwj2
+GRANT ALL PRIVILEGES ON `gwj2`.* TO 'desenvolvedor'@'%';
+-- 6. Aplica as mudanças
+FLUSH PRIVILEGES;
+```
+
+Agora, basta executar o arquivo src/main/java/com/gwj/AppConfig.java (botão rum).
+Atenção: A porta padrão do projeto é 8089. S der erro na inicialização, basta trovar por uma porta livre.
+
+Alterar a porta no projeto/
+Abra o arquivo src/main/resources/application.properties e adicione esta linha com a porta 8089 ou outra porta que não esteja em uso:
+```
+propertiesserver.port=8089
+```
+Observação: Se você alterar a porta, os comandos a seguir devem ser alterados pela porta nova, por exemplo, ao invés de 8080, digita 8089.
+
+
+Se não houver mensagens de erro, basta testar no navegador:\
+Thymeleaf:
+```
+http://localhost:8089/
+```
+
+3. Depois de implementar o banco de dados e inicializar o teu servidor, tu podes utilizar os seguintes comandos no navegador:\
+Ver a lista de clientes;
+```
+http://localhost:8089/read-json?entity=Cliente
+```
+Ver um cliente específico pelo número ID:
+```
+http://localhost:8089/read-json?entity=Cliente&id=29
+```
+Ver endereços:
+```
+http://localhost:8089/read-json?entity=Endereco
+```
+
+Agora, para simular as requisições POST, recomendo o uso de um aplicativo, por exemplo, o Postman.
+Isso é necessário para enviar dados via POST, para simular os comandos create, update e delete:
+```
+http://localhost:8089/create-json?entity=Cliente
+```
+acrescentar parâmetros no corpo da requisição (devem ser iguais aos nomes de atributos das classes domínio).
+```
+http://localhost:8089/update-json?entity=Cliente
+```
+acrescentar parâmetros no corpo da requisição (devem ser iguais aos nomes de atributos das classes domínio).
+```
+http://localhost:8089/delete-json?entity=Cliente
+```
+(acrescentar parâmetros no corpo da requisição com o key=id e Value= [número id do registro].
+
+Outras requisições:
+```
+http://localhost:8089
+http://localhost:8089/listar?entity=Cliente
+http://localhost:8089/listar?entity=Cliente&id=23
+http://localhost:8089/listar?entity=Cliente&nome=Tiago
+http://localhost:8089/listar?entity=Endereco
+http://localhost:8089/sobre-nos
+```
+
+Melhorias:
+1. Limpeza do Formulário: No arquivo create.js, usei form.reset() após a resposta positiva do servidor. Isso limpa todos os campos (exceto os hidden), permitindo que o usuário continue cadastrando.
+2. Lógica do ID: No HTML, o campo id agora é explicitamente um hidden com valor 0. Como observado, o DAO ignora o valor de entrada para gerar um novo ID no banco.
+3. Foco Automático: Adicionei uma linha no JS para colocar o cursor de volta no primeiro campo após o cadastro, melhorando a experiência de uso para cadastros em massa.
+
+Fase 2.
+1. Filtragem por Tipo: O método Collection.class.isAssignableFrom(field.getType()) verifica se o tipo do atributo é uma List, Set ou qualquer outra coleção. Ao usar o filter com a negação (!), garantimos que essas colunas sejam removidas da lista antes de chegar ao Thymeleaf.
+2. Impacto nos formulários: Agora, no create.html e edit.html, o loop th:each="coluna : ${colunas}" não encontrará mais atributos como enderecos ou telefones, evitando a criação de inputs inválidos.
+Preservação da Listagem: Note que não alteramos o método listar. Isso é importante porque na listagem (e nos detalhes), você já possui lógica no recursiveField.html para exibir essas coleções de forma elegante (como um dropdown), o que é desejável para visualização.
+3. Dica de especialista: Caso você precise cadastrar essas coleções no futuro, o ideal seria criar uma tela de "Gestão de Itens" separada ou usar um componente de sub-formulário dinâmico com JavaScript, mas para um CRUD enxuto, ignorá-las no formulário principal é a prática padrão.
+
+Fase 3 (Painel Administrativo & Tratamento de Erros):
+1. **Painel Administrativo Funcional:** O painel administrativo foi integrado com sucesso utilizando o padrão *Template/Decorator* do Thymeleaf (layouts e fragments). Isso permite menus dinâmicos e reaproveitamento de cabeçalhos genéricos.
+2. **Tratamento Global de Exceções (`GlobalExceptionHandler`)**: Utilização de `@ControllerAdvice` para interceptar e capturar erros em toda a aplicação (Padrão Interceptor).
+3. **Páginas de Erro Amigáveis**: Redirecionamento dinâmico para uma view `error.html` customizada, tratando:
+   - **Erro 404 (`NoHandlerFoundException`)**: Páginas e rotas que não existem.
+   - **Erro 404 (`NoResourceFoundException`)**: Arquivos estáticos ausentes (CSS, JS, requisições automáticas do Chrome DevTools), limpando o console de logs massivos de erro.
+   - **Erro 500 (`Exception` Genérica)**: Captura de erros internos do servidor. O stacktrace é impresso apenas no console para o desenvolvedor, enquanto o usuário vê uma tela elegante informando o problema.
+4. **Segurança por Obscuridade:** A rota de acesso principal ao painel administrativo foi mascarada de `/admin/` para `/MRYnZpAsC9sp/` como medida de proteção contra bots e varreduras automatizadas.
+5. **Honeypot (Armadilha):** Implementada uma rota falsa em `/admin` e `/admin/**` que devolve um erro 403 (Forbidden / Acesso Negado) instantâneo, consumindo zero processamento de views e despistando invasores.
