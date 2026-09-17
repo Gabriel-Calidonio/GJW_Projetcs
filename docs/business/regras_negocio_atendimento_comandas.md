@@ -19,7 +19,7 @@ Este documento especifica as regras de negócio relativas à recepção, execuç
 ### **RN-ATE-02: Comanda Dinâmica (Itens e Serviços Extras)**
 * **Contexto:** Cliente solicita serviços adicionais na cadeira (ex: Barboterapia ou Sobrancelha) ou adquire produtos cosméticos (ex: Pomada ou Óleo para Barba).
 * **Regra:** A comanda vinculada ao atendimento permite a inclusão de múltiplos itens extras antes do fechamento financeiro:
-  $$\text{Valor Total Comanda} = \text{tab\_servico.preco} + \sum (\text{Serviços Extras}) + \sum (\text{Produtos Adquiridos})$$
+  $$\text{Valor Total Comanda} = \text{tab-servico.preco} + \sum (\text{Serviços Extras}) + \sum (\text{Produtos Adquiridos})$$
 
 ---
 

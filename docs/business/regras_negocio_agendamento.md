@@ -8,8 +8,10 @@ Este documento especifica formalmente as **Regras de Negócio (RN)** aplicadas a
 
 ### **RN-AGE-01: Ocupação de Múltiplos Blocos Consecutivos**
 * **Contexto:** A barbearia possui uma grade base padronizada em blocos de **20 minutos** (`tab_grade_horarios`).
-* **Regra:** A quantidade de blocos ocupados por um agendamento é calculada pela fórmula:
-  $$\text{Blocos Necessários} = \lceil \frac{\text{tab\_servico.duracao}}{20} \rceil$$
+* **Regra:** A quantidade de blocos ocupados por um agendamento é calculada pela fórmula:  
+  $$\text{Blocos Necessários} = \lceil \frac{\text{tab-servico.duracao}}{20} \rceil$$ 
+
+
 * **Comportamento:**
   * Se um serviço tem duração de 40 minutos (2 blocos), o sistema só pode disponibilizar o horário $H$ se tanto o bloco $H$ quanto o bloco $H + 20\text{min}$ estiverem livres na agenda do profissional.
   * Se existir qualquer compromisso intermediário com status `'Confirmado'`, o horário inicial $H$ deve ser classificado como **Indisponível**.
@@ -20,7 +22,7 @@ Este documento especifica formalmente as **Regras de Negócio (RN)** aplicadas a
 ### **RN-AGE-02: Respeito ao Horário de Encerramento do Expediente**
 * **Contexto:** Cada dia da semana possui um horário máximo de encerramento cadastrado em `tab_dias_funcionamento.horario_fim` (ex: 19:00).
 * **Regra:** Nenhum agendamento pode ser iniciado se o horário previsto para a sua conclusão ultrapassar o fechamento do estabelecimento:
-  $$\text{Horário Início} + \text{Duração do Serviço} \le \text{tab\_dias\_funcionamento.horario\_fim}$$
+  $$\text{Horário Início} + \text{Duração do Serviço} \le \text{tab-dias-funcionamento.horario-fim}$$
 * **Exemplo:**
   * Fechamento às 19:00 com serviço de 40 minutos:
     * Início às 18:20 -> Término às 19:00 (**Permitido**).
