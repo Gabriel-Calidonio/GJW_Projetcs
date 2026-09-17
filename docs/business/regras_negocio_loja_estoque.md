@@ -32,3 +32,12 @@ Este documento define as regras aplicáveis ao módulo de compras e-commerce, pr
 ### **RN-EST-04: Atomicidade e Limpeza de Sessão**
 * **Contexto:** Conclusão bem-sucedida do pedido.
 * **Regra:** A inserção do registro mestre em `tab_pedidos`, dos itens em `tab_itens_pedido` e o decremento em `tab_produto.estoque` devem ocorrer dentro da mesma transação JDBC. Somente após o commit da transação, o carrinho da sessão (`carrinho.limpar()`) deve ser esvaziado.
+
+---
+
+### **RN-EST-05: Precificação Mandatória e Desconto Mínimo de Kits Promocionais**
+* **Contexto:** Cadastro e precificação de kits promocionais no catálogo.
+* **Regra:** O preço final do kit deve ser estritamente inferior à soma dos preços regulares dos cosméticos avulsos que o compõem, com desconto mínimo garantido de **10%**. Se o valor for igual ou superior à soma, o cadastro é bloqueado.
+* **Especificação Detalhada:** [`RN-EST-005_precificacao_kits_promocionais.md`](/docs/requirements/business_rules/RN-EST-005_precificacao_kits_promocionais.md).
+* **Impacto no Código:** [`AdminProdutoController.java`](/src/main/java/com/gwj/controller/AdminProdutoController.java), [`Produto.java`](/src/main/java/com/gwj/model/domain/entities/Produto.java).
+

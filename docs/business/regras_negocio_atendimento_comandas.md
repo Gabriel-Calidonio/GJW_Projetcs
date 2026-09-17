@@ -32,3 +32,5 @@ Este documento especifica as regras de negócio relativas à recepção, execuç
 ### **RN-ATE-04: Rateio e Apuração de Comissões**
 * **Contexto:** Apuração financeira do profissional.
 * **Regra:** A comissão do barbeiro é calculada exclusivamente sobre o valor líquido dos **serviços prestados** por ele (e percentual diferenciado sobre produtos comercializados, quando parametrizado). Cancelamentos e No-Shows não geram comissão.
+* **Especificação Detalhada:** [`RN-FIN-001_rateio_comissoes_profissionais.md`](/docs/requirements/business_rules/RN-FIN-001_rateio_comissoes_profissionais.md).
+

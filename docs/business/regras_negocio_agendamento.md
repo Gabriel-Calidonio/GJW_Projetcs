@@ -59,3 +59,14 @@ Este documento especifica formalmente as **Regras de Negócio (RN)** aplicadas a
   ```
   Caso retorne valor maior que 0, a transação sofre Rollback e retorna erro amigável ao cliente.
 * **Impacto no Código:** [`AgendamentoService.java:L352-L368`](/src/main/java/com/gwj/service/AgendamentoService.java#L352-L368).
+
+---
+
+### **RN-AGE-06: Tolerância de Atraso, No-Show e Liberação para Encaixes**
+* **Contexto:** Comparecimento de clientes na recepção após o horário marcado.
+* **Regra:**
+  1. O cliente possui tolerância máxima de **10 minutos** a partir do horário de início (`hora_inicio`).
+  2. Ultrapassados 10 minutos sem check-in confirmado, o agendamento transita para `'No-Show'` e a cadeira fica liberada para clientes presenciais por encaixe rápido.
+* **Especificação Detalhada:** [`RN-AGE-006_tolerancia_atraso_e_no_show.md`](/docs/requirements/business_rules/RN-AGE-006_tolerancia_atraso_e_no_show.md).
+* **Impacto no Código:** [`AdminAgendamentoController.java`](/src/main/java/com/gwj/controller/AdminAgendamentoController.java), [`SettingService.java`](/src/main/java/com/gwj/service/SettingService.java).
+

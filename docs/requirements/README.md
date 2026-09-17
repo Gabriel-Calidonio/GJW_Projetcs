@@ -30,3 +30,29 @@ Localizados em [`docs/requirements/non_functional/`](/docs/requirements/non_func
 | [`RNF003_seguranca_e_autorizacao.md`](/docs/requirements/non_functional/RNF003_seguranca_e_autorizacao.md) | **Segurança, Criptografia e Interceptação** | Hashing SHA-256, PreparedStatement, `AdminInterceptor` | Alta |
 | [`RNF004_usabilidade_e_responsividade.md`](/docs/requirements/non_functional/RNF004_usabilidade_e_responsividade.md) | **Usabilidade, UX e Mobile-First** | CSS Vanilla, Design System Premium, Área de toque mínima | Média-Alta |
 | [`RNF005_arquitetura_e_manutenibilidade.md`](/docs/requirements/non_functional/RNF005_arquitetura_e_manutenibilidade.md) | **Arquitetura Desacoplada e Design Patterns** | Java 21, Spring Boot 3.2.5, DataMapper, Service Registry | Alta |
+
+---
+
+## 📜 3. Regras de Negócio (RN) e Diretrizes
+
+Localizadas em [`docs/requirements/business_rules/`](/docs/requirements/business_rules/) e [`docs/business/`](/docs/business/):
+
+* [`guia-para-preenchimento-da-regra-de-negocio.md`](/docs/requirements/business_rules/guia-para-preenchimento-da-regra-de-negocio.md): Guia oficial e tutorial para elaboração, padronização e preenchimento de Regras de Negócio com BDD (Gherkin), Metadados e Rastreabilidade.
+
+### 📋 Especificações Detalhadas de Regras de Negócio (`business_rules/`)
+
+| Código | Título da Regra | Módulo | Status |
+| :--- | :--- | :--- | :--- |
+| [`RN-AGE-006`](/docs/requirements/business_rules/RN-AGE-006_tolerancia_atraso_e_no_show.md) | **Tolerância de Atraso, No-Show e Liberação para Encaixes** | Agendamento & Atendimento | 🟢 Ativo |
+| [`RN-FIN-001`](/docs/requirements/business_rules/RN-FIN-001_rateio_comissoes_profissionais.md) | **Rateio e Apuração de Comissões de Serviços e Produtos** | Financeiro & Comandas | 🟢 Ativo |
+| [`RN-NOT-001`](/docs/requirements/business_rules/RN-NOT-001_disparo_lembretes_automaticos.md) | **Política e Janelas de Disparo de Lembretes Automáticos** | Mensageria & Background | 🟢 Ativo |
+| [`RN-EST-005`](/docs/requirements/business_rules/RN-EST-005_precificacao_kits_promocionais.md) | **Precificação Mandatória e Desconto Mínimo de Kits Promocionais** | Loja & Estoque | 🟢 Ativo |
+
+### 📂 Módulos de Regras Consolidadas (`docs/business/`):
+* Agendamento & Grade: [`regras_negocio_agendamento.md`](/docs/business/regras_negocio_agendamento.md) (`RN-AGE`)
+* Estoque & Loja: [`regras_negocio_loja_estoque.md`](/docs/business/regras_negocio_loja_estoque.md) (`RN-EST`)
+* Segurança & Perfis: [`regras_negocio_seguranca_perfis.md`](/docs/business/regras_negocio_seguranca_perfis.md) (`RN-SEG`)
+* Atendimento & Comandas: [`regras_negocio_atendimento_comandas.md`](/docs/business/regras_negocio_atendimento_comandas.md) (`RN-ATE`)
+* Cancelamento & Reagendamento: [`regras_negocio_cancelamento_reagendamento.md`](/docs/business/regras_negocio_cancelamento_reagendamento.md) (`RN-CAN`)
+
+
