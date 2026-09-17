@@ -41,8 +41,8 @@ actor "Barbeiro / Profissional\n(Perfil 2)" as Barbeiro <<Especialista>>
 actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
 
 ' Herança / Generalização de Atores Operacionais
-Recepcao -up-|> Admin : "Subconjunto de permissões"
-Barbeiro -up-|> Admin : "Acesso restrito"
+Admin -down-|> Recepcao
+Admin -down-|> Barbeiro
 
 ' --- Fronteira do Sistema ---
 rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {

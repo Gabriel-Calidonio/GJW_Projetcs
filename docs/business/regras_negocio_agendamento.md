@@ -9,8 +9,7 @@ Este documento especifica formalmente as **Regras de Negócio (RN)** aplicadas a
 ### **RN-AGE-01: Ocupação de Múltiplos Blocos Consecutivos**
 * **Contexto:** A barbearia possui uma grade base padronizada em blocos de **20 minutos** (`tab_grade_horarios`).
 * **Regra:** A quantidade de blocos ocupados por um agendamento é calculada pela fórmula:  
-  $$\text{Blocos Necessários} = \lceil \frac{\text{tab-servico.duracao}}{20} \rceil$$ 
-
+  $$\text{Blocos Necessários} = \lceil \frac{\text{tab-servico.duracao}}{20} \rceil
 
 * **Comportamento:**
   * Se um serviço tem duração de 40 minutos (2 blocos), o sistema só pode disponibilizar o horário $H$ se tanto o bloco $H$ quanto o bloco $H + 20\text{min}$ estiverem livres na agenda do profissional.
