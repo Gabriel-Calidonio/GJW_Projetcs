@@ -28,10 +28,10 @@ Para todo agendamento com status `'Confirmado'`, o sistema deve agendar e dispar
 
 1. **Lembrete de Véspera (Confirmação Prévia):**
    - Disparado **24 horas antes** do horário de início do agendamento:
-     $$T_{\text{disparo\_1}} = (\text{DataHora do Agendamento}) - 24\text{ horas}$$
+     $$T_{\text{disparo-1}} = (\text{DataHora do Agendamento}) - 24\text{ horas}$$
 2. **Lembrete de Proximidade (Alerta Imediato):**
    - Disparado **2 horas antes** do horário de início do agendamento:
-     $$T_{\text{disparo\_2}} = (\text{DataHora do Agendamento}) - 2\text{ horas}$$
+     $$T_{\text{disparo-2}} = (\text{DataHora do Agendamento}) - 2\text{ horas}$$
 
 ### 2.2 Regras de Supressão e Idempotência:
 1. **Idempotência Estrita:** Cada tipo de lembrete (24h ou 2h) só pode ser despachado **uma única vez** por agendamento. O sistema deve registrar a data/hora do disparo com flag de envio para evitar mensagens duplicadas ao cliente.

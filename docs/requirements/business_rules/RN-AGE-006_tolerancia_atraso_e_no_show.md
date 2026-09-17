@@ -26,7 +26,7 @@ O atraso de clientes sem aviso prévio compromete a grade de atendimentos dos ba
 ### 2.1 Limite de Tolerância:
 O tempo limite de tolerância para check-in do cliente presencialmente no salão é fixado em **10 minutos** a contar do horário previsto para início do agendamento:
 
-$$\text{Limite de Tolerância} = \text{tab\_agendamento.hora\_inicio} + 10\text{ minutos}$$
+$$\text{Limite de Tolerância} = \text{tab-agendamento.hora-inicio} + 10\text{ minutos}$$
 
 ### 2.2 Caracterização de No-Show e Liberação de Encaixe:
 1. **Até o Limite de Tolerância:** O profissional permanece reservado e bloqueado exclusivamente para o cliente agendado.
