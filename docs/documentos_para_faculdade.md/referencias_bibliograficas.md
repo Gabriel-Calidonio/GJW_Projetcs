@@ -4,7 +4,7 @@
 * **Autores:** Martin Fowler et. al.
 * **Obra de Referência:** *Patterns of Enterprise Application Architecture* (2002).
 * **Onde se aplica no projeto:**
-  * Fundamenta diretamente o [DataMapper.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/DataMapper.java), o [UnitOfWork.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) e o [QueryBuilder.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/QueryBuilder.java).
+  * Fundamenta diretamente o [DataMapper.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/DataMapper.java), o [UnitOfWork.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) e o [QueryBuilder.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/QueryBuilder.java).
 
 ---
 
@@ -12,10 +12,10 @@
 * **Autores:** Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides (*Gang of Four*).
 * **Obra de Referência:** *Design Patterns: Elements of Reusable Object-Oriented Software* (1994).
 * **Onde se aplica no projeto:**
-  * **Singleton:** Gerenciamento do ciclo de conexão única no banco em [ConnectionDB.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/ConnectionDB.java).
-  * **Factory Method / Simple Factory:** Criação e resolução dinâmica de instâncias de entidades via reflexão em [SimpleObjectFactory.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/factory/SimpleObjectFactory.java).
+  * **Singleton:** Gerenciamento do ciclo de conexão única no banco em [ConnectionDB.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataAccessObject/ConnectionDB.java).
+  * **Factory Method / Simple Factory:** Criação e resolução dinâmica de instâncias de entidades via reflexão em [SimpleObjectFactory.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/factory/SimpleObjectFactory.java).
   * **Template Method / Decorator:** Herança e reaproveitamento de layout com fragmentos no Thymeleaf (`main-layout.html`) e fluxo padronizado no CRUD genérico.
-  * **Strategy / Interceptor:** Interceptação centralizada de requisições e exceções em [GlobalExceptionHandler.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/GlobalExceptionHandler.java) e [AdminInterceptor.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java).
+  * **Strategy / Interceptor:** Interceptação centralizada de requisições e exceções em [GlobalExceptionHandler.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/GlobalExceptionHandler.java) e [AdminInterceptor.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java).
 
 ---
 
@@ -23,9 +23,9 @@
 * **Autores:** Deepak Alur, John Crupi e Dan Malks (Sun Microsystems).
 * **Obra de Referência:** *Core J2EE Patterns: Best Practices and Design Strategies* (2001/2003).
 * **Onde se aplica no projeto:**
-  * **Data Access Object (DAO):** Isolamento e abstração da camada relacional em [GenericRepository.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/repository/GenericRepository.java).
-  * **Data Transfer Object (DTO) / Entity Mapper:** Conversão e transporte dinâmico de parâmetros de formulários HTTP para o domínio em [EntityMapper.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataTransferObject/EntityMapper.java).
-  * **Service Locator / Registry:** Registro e despacho dinâmico de serviços em [ServiceRegistry.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/ServiceRegistry.java).
+  * **Data Access Object (DAO):** Isolamento e abstração da camada relacional em [GenericRepository.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/repository/GenericRepository.java).
+  * **Data Transfer Object (DTO) / Entity Mapper:** Conversão e transporte dinâmico de parâmetros de formulários HTTP para o domínio em [EntityMapper.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/dataTransferObject/EntityMapper.java).
+  * **Service Locator / Registry:** Registro e despacho dinâmico de serviços em [ServiceRegistry.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/ServiceRegistry.java).
 
 ---
 
@@ -36,7 +36,7 @@
   * *Clean Architecture: A Craftsman's Guide to Software Structure and Design* (2017).
   * *Agile Software Development, Principles, Patterns, and Practices* (2002).
 * **Onde se aplica no projeto:**
-  * **Princípios SOLID:** Separação estrita de responsabilidades (SRP) entre Controller, Service, Repository, Mapper e Builder; Inversão de Dependências (DIP) usando interfaces genéricas ([IRepository.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/repository/IRepository.java), [IService.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/IService.java)).
+  * **Princípios SOLID:** Separação estrita de responsabilidades (SRP) entre Controller, Service, Repository, Mapper e Builder; Inversão de Dependências (DIP) usando interfaces genéricas ([IRepository.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/repository/IRepository.java), [IService.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/IService.java)).
   * **Tratamento Limpo de Erros:** Exceções desacopladas do fluxo principal com capturas globais amigáveis.
 
 ---
@@ -45,7 +45,7 @@
 * **Autor:** Joshua Bloch (arquiteto de linguagem na Sun Microsystems/Google).
 * **Obra de Referência:** *Effective Java* (Java Efetivo - 3ª Edição, 2018).
 * **Onde se aplica no projeto:**
-  * **Gerenciamento de Recursos com `AutoCloseable`:** Uso de `try-with-resources` no [UnitOfWork.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) para fechamento determinístico de transações JDBC.
+  * **Gerenciamento de Recursos com `AutoCloseable`:** Uso de `try-with-resources` no [UnitOfWork.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) para fechamento determinístico de transações JDBC.
   * **Concorrência e `ThreadLocal`:** Isolamento de contexto transacional por thread de requisição.
   * **Java Reflection & Generics Seguros:** Boas práticas de introspecção dinâmica com tipos genéricos parametrizados (`<T extends IEntity>`).
 
@@ -57,8 +57,8 @@
   * Eric Evans: *Domain-Driven Design: Tackling Complexity in the Heart of Software* (2003).
   * Vaughn Vernon: *Implementing Domain-Driven Design* (2013).
 * **Onde se aplica no projeto:**
-  * **Entidades e Relacionamentos Ricos:** Modelagem do domínio ([Cliente.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Cliente.java), [Profissional.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Profissional.java), [Agendamento.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Agendamento.java)).
-  * **Serviços de Domínio:** Encapsulamento de regras complexas de negócio em [AgendamentoService.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) (cálculo de slots de horários, colisões e janelas de funcionamento).
+  * **Entidades e Relacionamentos Ricos:** Modelagem do domínio ([Cliente.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Cliente.java), [Profissional.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Profissional.java), [Agendamento.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Agendamento.java)).
+  * **Serviços de Domínio:** Encapsulamento de regras complexas de negócio em [AgendamentoService.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) (cálculo de slots de horários, colisões e janelas de funcionamento).
 
 ---
 
@@ -78,7 +78,7 @@
   * Peter Chen: *The Entity-Relationship Model: Toward a Unified View of Data* (1976).
   * Ramez Elmasri & Shamkant B. Navathe: *Sistemas de Banco de Dados* (7ª Edição, Pearson).
 * **Onde se aplica no projeto:**
-  * Modelagem EER, cardinalidades N:N com tabelas associativas (`tab_profissional_endereco`, `tab_agenda_servico`), chaves estrangeiras (`@JoinColumn`) e garantias ACID documentadas no [adr-0001.md](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/adr/adr-0001.md).
+  * Modelagem EER, cardinalidades N:N com tabelas associativas (`tab_profissional_endereco`, `tab_agenda_servico`), chaves estrangeiras (`@JoinColumn`) e garantias ACID documentadas no [adr-0001.md](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/adr/adr-0001.md).
 
 ---
 
@@ -86,16 +86,22 @@
 * **Autores:** Grady Booch, James Rumbaugh e Ivar Jacobson (*The Three Amigos*).
 * **Obra de Referência:** *The Unified Modeling Language User Guide* (2ª Edição).
 * **Onde se aplica no projeto:**
-  * Diagramas de classes de domínio, diagramas estruturais e diagramas de sequência em PlantUML localizados em [diagramas/](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/diagramas/).
+  * Diagramas de classes de domínio, diagramas estruturais e diagramas de sequência em PlantUML localizados em [diagramas/](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/diagramas/).
+
+### 10. Modelagem e Projetos Baseados em Objetos com UML 2
+ * **Autores: Michael Blaha e James Rumbaugh
+ * **Obra de Referência:** *Modelagem e Projetos Baseados em Objetos com UML 2* (2ª Edição, 2006).
+* **Onde se aplica no projeto:**
+  * Diagramas de classes de domínio, diagramas estruturais, diagramas de sequêsncia, diagramas de caso de uso, diagramas de atividade e diagramas de estado  localizados em [diagramas/](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/diagramas/).
 
 ---
 
-### 10. Segurança em Aplicações Web
+### 11. Segurança em Aplicações Web
 * **Referência:** OWASP Foundation (*Open Web Application Security Project*).
 * **Guias:** *OWASP Top 10 Web Application Security Risks* e *OWASP Testing Guide*.
 * **Onde se aplica no projeto:**
   * Prevenção de SQL Injection via queries parametrizadas (`PreparedStatement`) no `QueryBuilder`.
-  * Defesa ativa e armadilhas automatizadas via [HoneypotController.java](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/HoneypotController.java).
+  * Defesa ativa e armadilhas automatizadas via [HoneypotController.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/HoneypotController.java).
   * Controle de acesso baseado em papéis/permissões (RBAC).
 
 ---

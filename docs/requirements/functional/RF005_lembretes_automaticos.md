@@ -60,5 +60,5 @@ O sistema deve executar uma rotina automatizada em segundo plano (via tarefa age
 
 ## 7. Classes e Componentes Relacionados
 * **Agendador / Tarefas:** `TaskScheduler` (Spring `@Scheduled`)
-* **Serviços:** [`AgendamentoService.java`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java)
-* **Diagramas Relacionados:** [`envio_lembretes_automaticos.puml`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/workflows/activity/envio_lembretes_automaticos.puml), [`sequenceDiagramNotificationJob.puml`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/workflows/sequence/sequenceDiagramNotificationJob.puml)
+* **Serviços:** [`AgendamentoService.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java)
+* **Diagramas Relacionados:** [`envio_lembretes_automaticos.puml`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/workflows/activity/envio_lembretes_automaticos.puml), [`sequenceDiagramNotificationJob.puml`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/workflows/sequence/sequenceDiagramNotificationJob.puml)

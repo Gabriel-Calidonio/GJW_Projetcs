@@ -17,7 +17,7 @@ O sistema deve garantir a estrita integridade transacional (propriedades ACID: A
 ## 2. Padrões de Projeto e Arquitetura Aplicados
 
 1. **Unit of Work com `ThreadLocal`:**
-   * A classe [`UnitOfWork.java`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) gerencia a conexão JDBC ativa associada à thread da requisição HTTP corrente.
+   * A classe [`UnitOfWork.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java) gerencia a conexão JDBC ativa associada à thread da requisição HTTP corrente.
    * Garante que todas as operações de leitura, validação e inserção de uma mesma operação de negócio compartilhem a mesma conexão e o mesmo contexto transacional (`setAutoCommit(false)`).
 2. **Controle de Concorrência e Bloqueio de Intervalo:**
    * No `AgendamentoService`, a verificação de disponibilidade e a inserção do registro são executadas dentro do mesmo bloco transacional:

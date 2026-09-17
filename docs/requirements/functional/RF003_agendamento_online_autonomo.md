@@ -82,7 +82,7 @@ O sistema deve permitir que o cliente realize o agendamento de serviços de bele
 ---
 
 ## 7. Classes e Componentes Relacionados
-* **Controlador:** [`AgendaController.java`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendaController.java)
-* **Serviço:** [`AgendamentoService.java`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) (`confirmarReserva`, `determinarProfissionalLivre`)
-* **Transação:** [`UnitOfWork.java`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java)
+* **Controlador:** [`AgendaController.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendaController.java)
+* **Serviço:** [`AgendamentoService.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) (`confirmarReserva`, `determinarProfissionalLivre`)
+* **Transação:** [`UnitOfWork.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java)
 * **Templates:** `servicos.html`, `checkout.html`, `order-confirmation.html`

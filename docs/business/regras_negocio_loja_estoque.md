@@ -25,7 +25,7 @@ Este documento define as regras aplicáveis ao módulo de compras e-commerce, pr
 * **Regra:**
   * Se houver um usuário autenticado na sessão (`session.getAttribute("usuarioLogado") != null`), o pedido em `tab_pedidos` deve ser obrigatoriamente associado ao ID do cliente (`tab_pedidos.cliente_id`).
   * Se o comprador não estiver autenticado (checkout como visitante), os campos `nome_visitante` e `telefone_visitante` tornam-se de preenchimento obrigatório no pedido, e `cliente_id` permanece nulo.
-* **Impacto no Código:** [`CarrinhoController.java:L172-L185`](file:///home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java#L172-L185).
+* **Impacto no Código:** [`CarrinhoController.java:L172-L185`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java#L172-L185).
 
 ---
 

@@ -1,0 +1,156 @@
+@startuml general_dashboard
+
+' --- Configurações Visuais e Estilo ---
+skinparam theme cerulean
+skinparam Handwritten false
+skinparam Monochrome false
+skinparam Shadowing true
+skinparam packageStyle Rectangle
+skinparam defaultTextAlignment center
+skinparam roundCorner 10
+
+' Estilização dos Atores e Casos de Uso
+skinparam actor {
+    BackgroundColor #E0F2FE
+    BorderColor #0284C7
+    FontName "Helvetica"
+    FontSize 13
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #4F46E5
+    ArrowColor #4338CA
+    FontName "Helvetica"
+    FontSize 12
+}
+
+skinparam note {
+    BackgroundColor #FEF3C7
+    BorderColor #D97706
+    FontName "Helvetica"
+    FontSize 11
+}
+
+title **Diagrama de Casos de Uso - Painel Administrativo & Dashboard (GWJ Barbearia)**\nModulo: Dashboard Geral e Hub Operacional (/MRYnZpAsC9sp)
+
+' --- Atores ---
+actor "Administrador\n(Perfil 1)" as Admin <<Principal>>
+actor "Recepcionista\n(Perfil 3)" as Recepcao <<Operacional>>
+actor "Barbeiro / Profissional\n(Perfil 2)" as Barbeiro <<Especialista>>
+actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
+
+' Herança / Generalização de Atores Operacionais
+Recepcao -up-|> Admin : "Subconjunto de permissões"
+Barbeiro -up-|> Admin : "Acesso restrito"
+
+' --- Fronteira do Sistema ---
+rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
+
+    ' Bloco de Autenticação e Sessão
+    package "Controle de Acesso & Sessão" {
+        usecase "UC01 - Autenticar no Painel Administrativo\n(/MRYnZpAsC9sp/login)" as UC_Login
+        usecase "UC02 - Validar Sessão e Permissões RBAC" as UC_ValidarAcesso
+        usecase "UC03 - Encerrar Sessão (Logout)" as UC_Logout
+    }
+
+    ' Bloco de Indicadores e KPIs (AdminDashboardController)
+    package "Dashboard & Indicadores em Tempo Real" {
+        usecase "UC04 - Visualizar Dashboard Geral\n(/MRYnZpAsC9sp)" as UC_ViewDashboard
+        usecase "UC05 - Consultar Total de Agendamentos" as UC_KpiAgendamentos
+        usecase "UC06 - Consultar Total de Pedidos da Loja" as UC_KpiPedidos
+        usecase "UC07 - Consultar Total de Serviços Ativos" as UC_KpiServicos
+        usecase "UC08 - Consultar Total de Produtos em Estoque" as UC_KpiProdutos
+        usecase "UC09 - Consultar Total de Clientes Cadastrados" as UC_KpiClientes
+        usecase "UC10 - Consultar Total de Profissionais" as UC_KpiProfissionais
+    }
+
+    ' Bloco de Módulos Operacionais e Gerenciais (Acessíveis a partir do Dashboard)
+    package "Módulos de Gestão Operacional" {
+        usecase "UC11 - Gerenciar Agendamentos\n(/MRYnZpAsC9sp/agendamentos)" as UC_GestaoAgendamentos
+        usecase "UC12 - Filtrar Agenda por Data e Profissional" as UC_FiltrarAgenda
+        usecase "UC13 - Alterar Status do Agendamento\n(Confirmado, Finalizado, Cancelado)" as UC_StatusAgendamento
+
+        usecase "UC14 - Gerenciar Pedidos da Loja\n(/MRYnZpAsC9sp/pedidos)" as UC_GestaoPedidos
+        usecase "UC15 - Atualizar Status do Pedido\n(Aguardando Retirada, Retirado, Cancelado)" as UC_StatusPedido
+
+        usecase "UC16 - Gerenciar Base de Clientes\n(/MRYnZpAsC9sp/clientes)" as UC_GestaoClientes
+    }
+
+    ' Bloco de Módulos Administrativos e Estratégicos (Exclusivos do Administrador)
+    package "Módulos de Gestão Estratégica & Configurações" {
+        usecase "UC17 - Gerenciar Catálogo de Serviços\n(/MRYnZpAsC9sp/servicos)" as UC_GestaoServicos
+        usecase "UC18 - Gerenciar Produtos e Estoque\n(/MRYnZpAsC9sp/produtos)" as UC_GestaoProdutos
+        usecase "UC19 - Gerenciar Equipe de Profissionais\n(/MRYnZpAsC9sp/profissionais)" as UC_GestaoProfissionais
+        usecase "UC20 - Gerenciar Configurações da Barbearia\n(/MRYnZpAsC9sp/configuracoes)" as UC_GestaoConfig
+    }
+}
+
+' --- Relacionamentos de Acesso e Controle de Segurança ---
+Admin --> UC_Login
+Admin --> UC_Logout
+Admin --> UC_ViewDashboard
+
+UC_ViewDashboard .down.> UC_ValidarAcesso : <<include>>
+UC_ValidarAcesso -left-> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
+
+' Inclusões de KPIs no Dashboard Geral
+UC_ViewDashboard .down.> UC_KpiAgendamentos : <<include>>
+UC_ViewDashboard .down.> UC_KpiPedidos : <<include>>
+UC_ViewDashboard .down.> UC_KpiServicos : <<include>>
+UC_ViewDashboard .down.> UC_KpiProdutos : <<include>>
+UC_ViewDashboard .down.> UC_KpiClientes : <<include>>
+UC_ViewDashboard .down.> UC_KpiProfissionais : <<include>>
+
+' Navegação e Ações a partir do Dashboard para Módulos Operacionais
+Admin --> UC_GestaoAgendamentos
+Admin --> UC_GestaoPedidos
+Admin --> UC_GestaoClientes
+
+Recepcao --> UC_ViewDashboard
+Recepcao --> UC_GestaoAgendamentos
+Recepcao --> UC_GestaoPedidos
+Recepcao --> UC_GestaoClientes
+
+Barbeiro --> UC_GestaoAgendamentos : "Apenas própria agenda\n(VISUALIZAR_PROPRIA_AGENDA)"
+
+' Extensões operacionais
+UC_FiltrarAgenda .up.> UC_GestaoAgendamentos : <<extend>>
+UC_StatusAgendamento .up.> UC_GestaoAgendamentos : <<extend>>
+UC_StatusPedido .up.> UC_GestaoPedidos : <<extend>>
+
+' Acesso exclusivo do Administrador aos módulos estratégicos
+Admin --> UC_GestaoServicos
+Admin --> UC_GestaoProdutos
+Admin --> UC_GestaoProfissionais
+Admin --> UC_GestaoConfig
+
+' --- Notas de Regras de Negócio e Segurança ---
+note left of UC_ValidarAcesso
+  **RN-SEG-02 (Bloqueio de Clientes):**
+  Usuários do Perfil 'Cliente' (ID 4)
+  são estritamente bloqueados de qualquer
+  rota administrativa (/MRYnZpAsC9sp/*)
+  e redirecionados para a Home pública (/).
+end note
+
+note right of UC_ViewDashboard
+  **AdminDashboardController:**
+  Ao carregar a view, o controlador consulta
+  os serviços via **ServiceRegistry** para
+  computar as 6 métricas essenciais em tempo real:
+  - totalAgendamentos
+  - totalPedidos
+  - totalServicos
+  - totalProdutos
+  - totalClientes
+  - totalProfissionais
+end note
+
+note bottom of UC_GestaoConfig
+  **Configurações do Estabelecimento:**
+  Horários de abertura/fechamento semanais,
+  limites de tolerância e parâmetros institucionais.
+end note
+
+@enduml

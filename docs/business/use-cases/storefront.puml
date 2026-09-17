@@ -1,0 +1,150 @@
+@startuml storefront
+
+' --- Configurações Visuais e Estilo ---
+skinparam theme cerulean
+skinparam Handwritten false
+skinparam Monochrome false
+skinparam Shadowing true
+skinparam packageStyle Rectangle
+skinparam defaultTextAlignment center
+skinparam roundCorner 10
+
+' Estilização dos Atores e Casos de Uso
+skinparam actor {
+    BackgroundColor #E0F2FE
+    BorderColor #0284C7
+    FontName "Helvetica"
+    FontSize 13
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #2563EB
+    ArrowColor #1D4ED8
+    FontName "Helvetica"
+    FontSize 12
+}
+
+skinparam note {
+    BackgroundColor #FEF3C7
+    BorderColor #D97706
+    FontName "Helvetica"
+    FontSize 11
+}
+
+title **Diagrama de Casos de Uso - Storefront (GWJ Barbearia)**\nModulo: Vitrine Pública, E-Commerce de Produtos, Agendamento e Área do Cliente
+
+' --- Atores ---
+actor "Visitante\n(Não Autenticado)" as Visitante <<Público>>
+actor "Cliente\n(Perfil 4 - Autenticado)" as Cliente <<Registrado>>
+actor "Sistema / UnitOfWork\n(Controle Transacional)" as Sistema <<Backend>>
+
+' Generalização: Cliente Autenticado é um Visitante com privilégios adicionais
+Cliente -up-|> Visitante : "Especialização com conta e histórico"
+
+' --- Fronteira do Sistema: Storefront ---
+rectangle "Storefront GWJ - Barbearia & Loja Virtual" as StorefrontBoundary {
+
+    ' Bloco 1: E-Commerce e Vitrine de Cosméticos
+    package "Vitrine de Cosméticos & Kits Promocionais" {
+        usecase "UC01 - Navegar no Catálogo de Produtos e Kits\n(/loja)" as UC_CatalogoProdutos
+        usecase "UC02 - Visualizar Detalhes do Produto\n(/single-product)" as UC_DetalheProduto
+        usecase "UC03 - Adicionar Produto ao Carrinho\n(POST /carrinho/adicionar)" as UC_AddCarrinho
+        usecase "UC04 - Validar Saldo em Estoque\n(RN-EST-01)" as UC_ValidaEstoque
+    }
+
+    ' Bloco 2: Gestão do Carrinho na Sessão HTTP
+    package "Carrinho de Compras (HttpSession)" {
+        usecase "UC05 - Visualizar Carrinho de Compras\n(/carrinho)" as UC_VerCarrinho
+        usecase "UC06 - Alterar Quantidade do Item\n(POST /carrinho/atualizar)" as UC_AtualizarQtd
+        usecase "UC07 - Remover Item do Carrinho\n(POST /carrinho/remover)" as UC_RemoverItem
+        usecase "UC08 - Esvaziar Carrinho\n(POST /carrinho/limpar)" as UC_LimparCarrinho
+    }
+
+    ' Bloco 3: Checkout e Conclusão de Pedido de Produtos
+    package "Checkout & Pedido de Produtos" {
+        usecase "UC09 - Realizar Checkout de Produtos\n(/carrinho/checkout)" as UC_CheckoutProdutos
+        usecase "UC10 - Identificar Comprador\n(Cliente Logado vs Visitante - RN-EST-03)" as UC_IdentificarComprador
+        usecase "UC11 - Selecionar Forma de Pagamento\n(PIX, Dinheiro na Retirada, Cartão)" as UC_FormaPagamento
+        usecase "UC12 - Concluir Pedido com Baixa Atômica\n(/carrinho/checkout/confirmar)" as UC_ConcluirPedido
+        usecase "UC13 - Visualizar Confirmação de Compra\n(/compra-confirmada)" as UC_CompraConfirmada
+        usecase "UC14 - Esvaziar Carrinho Pós-Venda\n(RN-EST-04)" as UC_LimpezaPosVenda
+    }
+
+    ' Bloco 4: Vitrine de Serviços e Agendamento Online Autônomo
+    package "Agendamento Online de Serviços" {
+        usecase "UC15 - Consultar Catálogo de Serviços\n(/servicos)" as UC_CatalogoServicos
+        usecase "UC16 - Consultar Disponibilidade de Horários\n(/api/agendamentos/disponibilidade)" as UC_ConsultaDisponibilidade
+        usecase "UC17 - Realizar Checkout de Agendamento\n(/checkout)" as UC_CheckoutAgendamento
+        usecase "UC18 - Visualizar Comprovante do Agendamento\n(/order-confirmation)" as UC_ComprovanteAgendamento
+    }
+
+    ' Bloco 5: Conta do Cliente & Autenticação
+    package "Área e Conta do Cliente" {
+        usecase "UC19 - Cadastrar Nova Conta de Cliente\n(/cadastro)" as UC_Cadastro
+        usecase "UC20 - Autenticar no Sistema (Login)\n(/login)" as UC_LoginCliente
+        usecase "UC21 - Consultar Meus Agendamentos e Pedidos\n(/meus-agendamentos)" as UC_Historico
+        usecase "UC22 - Encerrar Sessão (Logout)\n(/logout)" as UC_LogoutCliente
+    }
+}
+
+' --- Relacionamentos do Visitante ---
+Visitante --> UC_CatalogoProdutos
+Visitante --> UC_DetalheProduto
+Visitante --> UC_AddCarrinho
+Visitante --> UC_VerCarrinho
+Visitante --> UC_CheckoutProdutos
+Visitante --> UC_CatalogoServicos
+Visitante --> UC_ConsultaDisponibilidade
+Visitante --> UC_CheckoutAgendamento
+Visitante --> UC_Cadastro
+Visitante --> UC_LoginCliente
+
+' Inclusões e Extensões do Carrinho
+UC_AddCarrinho .down.> UC_ValidaEstoque : <<include>>
+UC_AtualizarQtd .up.> UC_VerCarrinho : <<extend>>
+UC_RemoverItem .up.> UC_VerCarrinho : <<extend>>
+UC_LimparCarrinho .up.> UC_VerCarrinho : <<extend>>
+
+' Fluxo de Checkout de Produtos
+UC_CheckoutProdutos .down.> UC_IdentificarComprador : <<include>>
+UC_CheckoutProdutos .down.> UC_FormaPagamento : <<include>>
+UC_CheckoutProdutos .down.> UC_ConcluirPedido : <<include>>
+UC_ConcluirPedido .down.> UC_CompraConfirmada : <<include>>
+UC_ConcluirPedido .down.> UC_LimpezaPosVenda : <<include>>
+
+UC_ConcluirPedido -right-> Sistema : "Executa transação ACID\ncom UnitOfWork"
+
+' Fluxo de Agendamento
+UC_CheckoutAgendamento .down.> UC_ConsultaDisponibilidade : <<include>>
+UC_CheckoutAgendamento .down.> UC_ComprovanteAgendamento : <<include>>
+
+' --- Relacionamentos Exclusivos do Cliente Autenticado ---
+Cliente --> UC_Historico : "Consulta atendimentos vinculados\nao seu telefone"
+Cliente --> UC_LogoutCliente
+
+' --- Notas de Regras de Negócio ---
+note left of UC_IdentificarComprador
+  **RN-EST-03 (Identificação):**
+  - **Cliente autenticado:** O pedido é associado
+    automaticamente ao seu ID (tab_pedidos.cliente_id).
+  - **Visitante:** Solicita nome_visitante e
+    telefone_visitante obrigatoriamente.
+end note
+
+note right of UC_ConcluirPedido
+  **RN-EST-01 e RN-EST-04 (Atomicidade):**
+  A persistência do pedido, a inserção dos itens
+  e o decremento do estoque físico (tab_produto)
+  ocorrem em transação atômica única via UnitOfWork.
+  Se o saldo for insuficiente, ocorre Rollback.
+end note
+
+note bottom of UC_Historico
+  **Área do Cliente:**
+  Permite rever o histórico cronológico de
+  agendamentos e status de pedidos sem acessar
+  qualquer tela do painel administrativo.
+end note
+
+@enduml
