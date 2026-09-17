@@ -75,6 +75,6 @@ O sistema deve fornecer um mecanismo seguro de cadastro, autenticação (login/l
 ---
 
 ## 7. Classes e Componentes Relacionados
-* **Controladores & Interceptadores:** [`LoginController.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java), [`AdminInterceptor.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java)
-* **Utilitário:** [`PasswordUtil.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/PasswordUtil.java)
-* **Entidades:** [`Usuario.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Usuario.java), [`Perfil.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Perfil.java), [`Permissao.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Permissao.java)
+* **Controladores & Interceptadores:** [`LoginController.java`](/src/main/java/com/gwj/controller/LoginController.java), [`AdminInterceptor.java`](/src/main/java/com/gwj/controller/AdminInterceptor.java)
+* **Utilitário:** [`PasswordUtil.java`](/src/main/java/com/gwj/controller/PasswordUtil.java)
+* **Entidades:** [`Usuario.java`](/src/main/java/com/gwj/model/domain/entities/Usuario.java), [`Perfil.java`](/src/main/java/com/gwj/model/domain/entities/Perfil.java), [`Permissao.java`](/src/main/java/com/gwj/model/domain/entities/Permissao.java)

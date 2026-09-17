@@ -66,7 +66,7 @@ O banco de dados relacional (MySQL/MariaDB, schema `gwj5`) foi projetado adotand
 No nível de banco de dados relacional, representamos a herança de classes utilizando tabelas separadas. A tabela `tab_usuario` contém os atributos comuns (credenciais, e-mail, perfil, etc.). As tabelas `tab_cliente` e `tab_profissional` atuam como especializações (classes filhas). Elas compartilham a chave primária `id`, que também funciona como chave estrangeira (`FK`) apontando para `tab_usuario(id)` com restrição `ON DELETE CASCADE`.
 
 ### 3.2 Diagrama EER e Relações Críticas
-* O diagrama completo de tabelas e tipos de dados está documentado em [EER-diagram.puml](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/architecture/EER-diagram.puml).
+* O diagrama completo de tabelas e tipos de dados está documentado em [EER-diagram.puml](/docs/architecture/EER-diagram.puml).
 * **Associações N:M:** Relacionamentos do tipo Muitos-para-Muitos são resolvidos com tabelas associativas explícitas (`tab_cliente_endereco`, `tab_profissional_endereco`, `tab_perfil_permissao` e `tab_agenda_servico`).
 
 ---
@@ -86,7 +86,7 @@ No nível de banco de dados relacional, representamos a herança de classes util
 
 ## 5. Algoritmo Crítico: Grade e Validação de Slots de Agendamento
 
-O algoritmo implementado no método `getHorariosDisponiveis` em [AgendamentoService.java](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) funciona da seguinte forma:
+O algoritmo implementado no método `getHorariosDisponiveis` em [AgendamentoService.java](/src/main/java/com/gwj/service/AgendamentoService.java) funciona da seguinte forma:
 
 1. **Leitura da Duração e Parâmetros:** Obtém a duração do serviço escolhido (`tab_servico.duracao`) e a lista de profissionais aplicáveis.
 2. **Definição de Limites de Expediente:** Consulta `tab_dias_funcionamento` para obter as horas de abertura e fechamento da barbearia (ex: 09:00 e 19:00).
@@ -105,4 +105,4 @@ O algoritmo implementado no método `getHorariosDisponiveis` em [AgendamentoServ
 
 ## 6. Fluxo de Dados e Interações
 
-Os fluxos de execução referentes ao agendamento de horários (passos de consulta de horários livres e confirmação de reserva) estão representados e documentados de forma detalhada através de diagramas de sequência no arquivo [sequenceDiagramBooking.puml](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/sequence/sequenceDiagramBooking.puml).
+Os fluxos de execução referentes ao agendamento de horários (passos de consulta de horários livres e confirmação de reserva) estão representados e documentados de forma detalhada através de diagramas de sequência no arquivo [sequenceDiagramBooking.puml](/docs/sequence/sequenceDiagramBooking.puml).

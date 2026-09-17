@@ -62,6 +62,6 @@ O sistema deve fornecer um módulo de compras online (E-Commerce) integrado para
 ---
 
 ## 7. Classes e Componentes Relacionados
-* **Controlador:** [`CarrinhoController.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java)
-* **Modelos:** [`Carrinho.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/Carrinho.java), [`CarrinhoItem.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/CarrinhoItem.java), [`Pedido.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Pedido.java), [`ItemPedido.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/ItemPedido.java)
+* **Controlador:** [`CarrinhoController.java`](/src/main/java/com/gwj/controller/CarrinhoController.java)
+* **Modelos:** [`Carrinho.java`](/src/main/java/com/gwj/model/domain/Carrinho.java), [`CarrinhoItem.java`](/src/main/java/com/gwj/model/domain/CarrinhoItem.java), [`Pedido.java`](/src/main/java/com/gwj/model/domain/entities/Pedido.java), [`ItemPedido.java`](/src/main/java/com/gwj/model/domain/entities/ItemPedido.java)
 * **Templates:** `shop.html`, `carrinho.html`, `carrinho-checkout.html`, `compra-confirmada.html`

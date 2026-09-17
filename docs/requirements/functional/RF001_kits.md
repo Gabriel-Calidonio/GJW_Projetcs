@@ -78,7 +78,7 @@ O sistema deve disponibilizar um catálogo dinâmico e visualmente atraente de s
 ---
 
 ## 7. Classes e Componentes Relacionados
-* **Controladores:** [`Router.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java), [`CarrinhoController.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java)
-* **Entidades:** [`Produto.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Produto.java), [`Servico.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Servico.java)
+* **Controladores:** [`Router.java`](/src/main/java/com/gwj/controller/Router.java), [`CarrinhoController.java`](/src/main/java/com/gwj/controller/CarrinhoController.java)
+* **Entidades:** [`Produto.java`](/src/main/java/com/gwj/model/domain/entities/Produto.java), [`Servico.java`](/src/main/java/com/gwj/model/domain/entities/Servico.java)
 * **Serviços:** `GenericService<Produto>`, `ServiceRegistry`
 * **Views / Templates:** `shop.html`, `single-product.html`, `servicos.html`

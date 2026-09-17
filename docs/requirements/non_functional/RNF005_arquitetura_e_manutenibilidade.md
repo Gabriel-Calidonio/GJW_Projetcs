@@ -22,7 +22,7 @@ A arquitetura do backend deve ser estritamente desacoplada, modular e baseada em
    * Persistência: **JDBC Nativo** com driver MariaDB/MySQL.
    * Motor de Templates: **Thymeleaf**.
 2. **Padrões de Projeto Implementados:**
-   * **Service Layer & Service Registry:** Centralização das regras de negócio desacoplada dos controladores HTTP via [`ServiceRegistry.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/ServiceRegistry.java).
+   * **Service Layer & Service Registry:** Centralização das regras de negócio desacoplada dos controladores HTTP via [`ServiceRegistry.java`](/src/main/java/com/gwj/service/ServiceRegistry.java).
    * **Unit of Work:** Gestão atômica de transações e controle de ciclo de vida de conexões via `ThreadLocal`.
    * **Data Mapper & Generic Repository:** Separação estrita entre os objetos de domínio em memória e o schema relacional no banco de dados (`gwj5`).
    * **Simple Object Factory:** Instanciação dinâmica de entidades de domínio para operações CRUD genéricas.

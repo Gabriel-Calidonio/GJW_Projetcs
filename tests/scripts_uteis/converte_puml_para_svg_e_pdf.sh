@@ -1,6 +1,6 @@
 # Este script gera os documentos finais em PDF para a documentação do projeto para a faculdade
-DIR_ORIGEM="/home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs"
-DIR_DESTINO="/home/kiruma/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs"
+DIR_ORIGEM="/home/kiruma/docs"
+DIR_DESTINO="/home/kiruma/docs"
 
 echo "Limpando e gerando SVGs..."
 plantuml -tsvg "$DIR_ORIGEM/**.puml"

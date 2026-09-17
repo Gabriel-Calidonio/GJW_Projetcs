@@ -12,14 +12,14 @@ Este documento estabelece as diretrizes e regras de negócio para gestão de ide
   1. Nenhuma senha pode ser persistida em formato legível (plain text).
   2. Todas as senhas devem ser processadas com a função de hash SHA-256 e salvas com o prefixo `{sha256}`.
   3. No login, a senha digitada é submetida ao mesmo algoritmo antes da comparação com o valor persistido.
-* **Impacto no Código:** [`PasswordUtil.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/PasswordUtil.java), [`LoginController.java:L120-L132`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java#L120-L132).
+* **Impacto no Código:** [`PasswordUtil.java`](/src/main/java/com/gwj/controller/PasswordUtil.java), [`LoginController.java:L120-L132`](/src/main/java/com/gwj/controller/LoginController.java#L120-L132).
 
 ---
 
 ### **RN-SEG-02: Bloqueio de Clientes nas Rotas Administrativas**
 * **Contexto:** Tentativas de acesso ao painel ofuscado (`/MRYnZpAsC9sp/*`).
 * **Regra:** Usuários cujo perfil seja classificado como "Cliente" (`perfil_id = 4`) não possuem permissão de acesso a nenhuma página, relatório ou endpoint do painel administrativo. Qualquer tentativa deve resultar em redirecionamento compulsório para a Home (`/`).
-* **Impacto no Código:** [`AdminInterceptor.java:L33-L37`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java#L33-L37).
+* **Impacto no Código:** [`AdminInterceptor.java:L33-L37`](/src/main/java/com/gwj/controller/AdminInterceptor.java#L33-L37).
 
 ---
 
@@ -31,7 +31,7 @@ Este documento estabelece as diretrizes e regras de negócio para gestão de ide
     * Entidade `Cliente` -> Requer permissão `GERENCIAR_CLIENTES`.
     * Entidade `Servico` -> Requer permissão `GERENCIAR_SERVICOS`.
     * Entidade `Agenda` -> Requer permissão `AGENDAR_HORARIO` ou `GERENCIAR_TODAS_AGENDAS`.
-* **Impacto no Código:** [`AdminInterceptor.java:L45-L73`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java#L45-L73).
+* **Impacto no Código:** [`AdminInterceptor.java:L45-L73`](/src/main/java/com/gwj/controller/AdminInterceptor.java#L45-L73).
 
 ---
 

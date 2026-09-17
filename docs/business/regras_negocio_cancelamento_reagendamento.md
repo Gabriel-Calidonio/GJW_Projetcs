@@ -22,4 +22,4 @@ Este documento especifica as regras operacionais e políticas de desistência e 
 
 ### **RN-CAN-03: Reagendamento de Horário**
 * **Contexto:** Solicitação de alteração de data/hora pelo cliente ou recepcionista.
-* **Regra:** O reagendamento preserva o identificador do agendamento (`id`) e histórico do cliente, alterando os campos `data_agendamento`, `hora_inicio`, `hora_fim` e `grade_horarios_id`, desde que a nova data/horário satisfaça todas as regras de disponibilidade ([`RN-AGE-01`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md) a [`RN-AGE-05`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md)).
+* **Regra:** O reagendamento preserva o identificador do agendamento (`id`) e histórico do cliente, alterando os campos `data_agendamento`, `hora_inicio`, `hora_fim` e `grade_horarios_id`, desde que a nova data/horário satisfaça todas as regras de disponibilidade ([`RN-AGE-01`](/docs/business/regras_negocio_agendamento.md) a [`RN-AGE-05`](/docs/business/regras_negocio_agendamento.md)).

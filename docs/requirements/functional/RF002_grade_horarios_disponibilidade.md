@@ -75,6 +75,6 @@ O sistema deve calcular de forma dinâmica e automatizada as janelas de horário
 ---
 
 ## 7. Classes e Componentes Relacionados
-* **Controlador:** [`AgendaController.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendaController.java)
-* **Serviço de Negócio:** [`AgendamentoService.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) (`getHorariosDisponiveis`)
-* **Padrão Transacional:** [`UnitOfWork.java`](/Documentos/Projetos_JAVA_SpringBoot/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java)
+* **Controlador:** [`AgendaController.java`](/src/main/java/com/gwj/controller/AgendaController.java)
+* **Serviço de Negócio:** [`AgendamentoService.java`](/src/main/java/com/gwj/service/AgendamentoService.java) (`getHorariosDisponiveis`)
+* **Padrão Transacional:** [`UnitOfWork.java`](/src/main/java/com/gwj/service/transaction/UnitOfWork.java)
