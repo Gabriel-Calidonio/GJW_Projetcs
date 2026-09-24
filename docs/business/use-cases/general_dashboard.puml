@@ -1,7 +1,11 @@
 @startuml general_dashboard
 
+' --- Orientação Lateral (Esquerda para Direita) ---
+left to right direction
+
 ' --- Configurações Visuais e Estilo ---
 skinparam theme cerulean
+skinparam backgroundColor #FEFEFE
 skinparam Handwritten false
 skinparam Monochrome false
 skinparam Shadowing true
@@ -32,15 +36,15 @@ skinparam note {
     FontSize 11
 }
 
+
 title **Diagrama de Casos de Uso - Painel Administrativo & Dashboard (GWJ Barbearia)**\nModulo: Dashboard Geral e Hub Operacional (/MRYnZpAsC9sp)
 
-' --- Atores ---
+' --- Atores à Esquerda (Operadores / Usuários do Sistema) ---
 actor "Administrador\n(Perfil 1)" as Admin <<Principal>>
 actor "Recepcionista\n(Perfil 3)" as Recepcao <<Operacional>>
 actor "Barbeiro / Profissional\n(Perfil 2)" as Barbeiro <<Especialista>>
-actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
 
-' Herança / Generalização de Atores Operacionais
+' Herança entre Atores (organizados verticalmente na lateral esquerda)
 Admin -down-|> Recepcao
 Admin -down-|> Barbeiro
 
@@ -65,7 +69,7 @@ rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
         usecase "UC10 - Consultar Total de Profissionais" as UC_KpiProfissionais
     }
 
-    ' Bloco de Módulos Operacionais e Gerenciais (Acessíveis a partir do Dashboard)
+    ' Bloco de Módulos Operacionais e Gerenciais
     package "Módulos de Gestão Operacional" {
         usecase "UC11 - Gerenciar Agendamentos\n(/MRYnZpAsC9sp/agendamentos)" as UC_GestaoAgendamentos
         usecase "UC12 - Filtrar Agenda por Data e Profissional" as UC_FiltrarAgenda
@@ -77,7 +81,7 @@ rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
         usecase "UC16 - Gerenciar Base de Clientes\n(/MRYnZpAsC9sp/clientes)" as UC_GestaoClientes
     }
 
-    ' Bloco de Módulos Administrativos e Estratégicos (Exclusivos do Administrador)
+    ' Bloco de Módulos Administrativos e Estratégicos
     package "Módulos de Gestão Estratégica & Configurações" {
         usecase "UC17 - Gerenciar Catálogo de Serviços\n(/MRYnZpAsC9sp/servicos)" as UC_GestaoServicos
         usecase "UC18 - Gerenciar Produtos e Estoque\n(/MRYnZpAsC9sp/produtos)" as UC_GestaoProdutos
@@ -86,21 +90,24 @@ rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
     }
 }
 
+' --- Ator à Direita (Sistema Externo / Segurança) ---
+actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
+
 ' --- Relacionamentos de Acesso e Controle de Segurança ---
 Admin --> UC_Login
 Admin --> UC_Logout
 Admin --> UC_ViewDashboard
 
-UC_ViewDashboard .down.> UC_ValidarAcesso : <<include>>
-UC_ValidarAcesso -left-> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
+UC_ViewDashboard ..> UC_ValidarAcesso : <<include>>
+UC_ValidarAcesso -right-> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
 
 ' Inclusões de KPIs no Dashboard Geral
-UC_ViewDashboard .down.> UC_KpiAgendamentos : <<include>>
-UC_ViewDashboard .down.> UC_KpiPedidos : <<include>>
-UC_ViewDashboard .down.> UC_KpiServicos : <<include>>
-UC_ViewDashboard .down.> UC_KpiProdutos : <<include>>
-UC_ViewDashboard .down.> UC_KpiClientes : <<include>>
-UC_ViewDashboard .down.> UC_KpiProfissionais : <<include>>
+UC_ViewDashboard ..> UC_KpiAgendamentos : <<include>>
+UC_ViewDashboard ..> UC_KpiPedidos : <<include>>
+UC_ViewDashboard ..> UC_KpiServicos : <<include>>
+UC_ViewDashboard ..> UC_KpiProdutos : <<include>>
+UC_ViewDashboard ..> UC_KpiClientes : <<include>>
+UC_ViewDashboard ..> UC_KpiProfissionais : <<include>>
 
 ' Navegação e Ações a partir do Dashboard para Módulos Operacionais
 Admin --> UC_GestaoAgendamentos
@@ -115,9 +122,9 @@ Recepcao --> UC_GestaoClientes
 Barbeiro --> UC_GestaoAgendamentos : "Apenas própria agenda\n(VISUALIZAR_PROPRIA_AGENDA)"
 
 ' Extensões operacionais
-UC_FiltrarAgenda .up.> UC_GestaoAgendamentos : <<extend>>
-UC_StatusAgendamento .up.> UC_GestaoAgendamentos : <<extend>>
-UC_StatusPedido .up.> UC_GestaoPedidos : <<extend>>
+UC_GestaoAgendamentos <.. UC_FiltrarAgenda : <<extend>>
+UC_GestaoAgendamentos <.. UC_StatusAgendamento : <<extend>>
+UC_GestaoPedidos <.. UC_StatusPedido : <<extend>>
 
 ' Acesso exclusivo do Administrador aos módulos estratégicos
 Admin --> UC_GestaoServicos
@@ -126,7 +133,7 @@ Admin --> UC_GestaoProfissionais
 Admin --> UC_GestaoConfig
 
 ' --- Notas de Regras de Negócio e Segurança ---
-note left of UC_ValidarAcesso
+note bottom of UC_ValidarAcesso
   **RN-SEG-02 (Bloqueio de Clientes):**
   Usuários do Perfil 'Cliente' (ID 4)
   são estritamente bloqueados de qualquer

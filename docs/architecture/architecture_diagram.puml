@@ -1,6 +1,7 @@
 @startuml Diagrama de Arquitetura - GWJ Dinâmico (Proposta)
 
 ' --- Configurações Visuais ---
+skinparam backgroundColor White
 skinparam theme cerulean
 skinparam Handwritten false
 skinparam Monochrome false

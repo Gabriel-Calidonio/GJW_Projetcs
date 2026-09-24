@@ -1,7 +1,7 @@
 @startuml EER Diagram - GWJ Tgo's Barbearia
 
 ' --- Estilização Visual do EER ---
-skinparam theme cerulean
+skinparam backgroundColor White
 skinparam Linetype ortho
 skinparam roundcorner 5
 skinparam Shadowing true

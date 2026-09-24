@@ -1,7 +1,11 @@
 @startuml storefront
 
+' --- Orientação Lateral (Esquerda para Direita) ---
+left to right direction
+
 ' --- Configurações Visuais e Estilo ---
 skinparam theme cerulean
+skinparam backgroundColor #FEFEFE
 skinparam Handwritten false
 skinparam Monochrome false
 skinparam Shadowing true
@@ -32,12 +36,12 @@ skinparam note {
     FontSize 11
 }
 
+
 title **Diagrama de Casos de Uso - Storefront (GWJ Barbearia)**\nModulo: Vitrine Pública, E-Commerce de Produtos, Agendamento e Área do Cliente
 
-' --- Atores ---
+' --- Atores à Esquerda (Público e Clientes) ---
 actor "Visitante\n(Não Autenticado)" as Visitante <<Público>>
 actor "Cliente\n(Perfil 4 - Autenticado)" as Cliente <<Registrado>>
-actor "Sistema / UnitOfWork\n(Controle Transacional)" as Sistema <<Backend>>
 
 ' Generalização: Cliente Autenticado é um Visitante com privilégios adicionais
 Cliente -up-|> Visitante : "Especialização com conta e histórico"
@@ -88,6 +92,9 @@ rectangle "Storefront GWJ - Barbearia & Loja Virtual" as StorefrontBoundary {
     }
 }
 
+' --- Ator à Direita (Backend / Transações) ---
+actor "Sistema / UnitOfWork\n(Controle Transacional)" as Sistema <<Backend>>
+
 ' --- Relacionamentos do Visitante ---
 Visitante --> UC_CatalogoProdutos
 Visitante --> UC_DetalheProduto
@@ -101,30 +108,30 @@ Visitante --> UC_Cadastro
 Visitante --> UC_LoginCliente
 
 ' Inclusões e Extensões do Carrinho
-UC_AddCarrinho .down.> UC_ValidaEstoque : <<include>>
-UC_AtualizarQtd .up.> UC_VerCarrinho : <<extend>>
-UC_RemoverItem .up.> UC_VerCarrinho : <<extend>>
-UC_LimparCarrinho .up.> UC_VerCarrinho : <<extend>>
+UC_AddCarrinho ..> UC_ValidaEstoque : <<include>>
+UC_VerCarrinho <.. UC_AtualizarQtd : <<extend>>
+UC_VerCarrinho <.. UC_RemoverItem : <<extend>>
+UC_VerCarrinho <.. UC_LimparCarrinho : <<extend>>
 
 ' Fluxo de Checkout de Produtos
-UC_CheckoutProdutos .down.> UC_IdentificarComprador : <<include>>
-UC_CheckoutProdutos .down.> UC_FormaPagamento : <<include>>
-UC_CheckoutProdutos .down.> UC_ConcluirPedido : <<include>>
-UC_ConcluirPedido .down.> UC_CompraConfirmada : <<include>>
-UC_ConcluirPedido .down.> UC_LimpezaPosVenda : <<include>>
+UC_CheckoutProdutos ..> UC_IdentificarComprador : <<include>>
+UC_CheckoutProdutos ..> UC_FormaPagamento : <<include>>
+UC_CheckoutProdutos ..> UC_ConcluirPedido : <<include>>
+UC_ConcluirPedido ..> UC_CompraConfirmada : <<include>>
+UC_ConcluirPedido ..> UC_LimpezaPosVenda : <<include>>
 
 UC_ConcluirPedido -right-> Sistema : "Executa transação ACID\ncom UnitOfWork"
 
 ' Fluxo de Agendamento
-UC_CheckoutAgendamento .down.> UC_ConsultaDisponibilidade : <<include>>
-UC_CheckoutAgendamento .down.> UC_ComprovanteAgendamento : <<include>>
+UC_CheckoutAgendamento ..> UC_ConsultaDisponibilidade : <<include>>
+UC_CheckoutAgendamento ..> UC_ComprovanteAgendamento : <<include>>
 
 ' --- Relacionamentos Exclusivos do Cliente Autenticado ---
 Cliente --> UC_Historico : "Consulta atendimentos vinculados\nao seu telefone"
 Cliente --> UC_LogoutCliente
 
 ' --- Notas de Regras de Negócio ---
-note left of UC_IdentificarComprador
+note bottom of UC_IdentificarComprador
   **RN-EST-03 (Identificação):**
   - **Cliente autenticado:** O pedido é associado
     automaticamente ao seu ID (tab_pedidos.cliente_id).
