@@ -38,7 +38,7 @@ public final class AppConfig {
         props.clear();
         props.load(is);
       }
-    } catch (Exception e) {
+    } catch (java.io.IOException e) {
       System.err.println("Aviso: application.properties não encontrado, usando padrões.");
     }
 

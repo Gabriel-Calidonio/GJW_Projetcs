@@ -6,7 +6,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.io.File;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.net.URL;
@@ -78,16 +77,6 @@ public class SchemaValidator {
         }
       }
     }
-
-    // 2. Validação de Setters (O que já tínhamos antes)
-    for (Method method : clazz.getDeclaredMethods()) {
-      if (method.getName().startsWith("set") && method.getParameterCount() == 1) {
-        Class<?> paramType = method.getParameterTypes()[0];
-        if (IEntity.class.isAssignableFrom(paramType) && !method.getName().endsWith("Id")) {
-          // ... erro do sufixo Id ...
-        }
-      }
-    }
   }
 
   // Método auxiliar para ler as classes do classpath
@@ -102,17 +91,20 @@ public class SchemaValidator {
       File directory = new File(java.net.URLDecoder.decode(resource.getFile(), "UTF-8"));
 
       if (directory.exists() && directory.isDirectory()) {
-        for (File file : directory.listFiles()) {
-          if (file.getName().endsWith(".class")) {
-            // REMOVE o ".class" do final
-            String fileName = file.getName().replace(".class", "");
-            // MONTA o nome completo: pacote.Classe (sem barras!)
-            String className = packageName + "." + fileName;
+        File[] files = directory.listFiles();
+        if (files != null) {
+          for (File file : files) {
+            if (file.getName().endsWith(".class")) {
+              // REMOVE o ".class" do final
+              String fileName = file.getName().replace(".class", "");
+              // MONTA o nome completo: pacote.Classe (sem barras!)
+              String className = packageName + "." + fileName;
 
-            try {
-              classes.add(Class.forName(className));
-            } catch (ClassNotFoundException e) {
-              System.err.println("Não foi possível carregar: " + className);
+              try {
+                classes.add(Class.forName(className));
+              } catch (ClassNotFoundException e) {
+                System.err.println("Não foi possível carregar: " + className);
+              }
             }
           }
         }

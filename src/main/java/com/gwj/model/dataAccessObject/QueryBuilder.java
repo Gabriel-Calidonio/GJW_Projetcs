@@ -118,6 +118,9 @@ public class QueryBuilder {
           sql.append(wc);
         }
         break;
+
+      default:
+        throw new IllegalStateException("Tipo de operação SQL não suportado: " + type);
     }
     return sql.toString();
   }

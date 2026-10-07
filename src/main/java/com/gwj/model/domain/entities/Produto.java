@@ -15,7 +15,9 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tab_produto")
-public class Produto implements IEntity {
+public class Produto implements IEntity, java.io.Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long Id;
@@ -51,6 +53,24 @@ public class Produto implements IEntity {
       Integer estoque,
       String marca,
       String categoria) {
+    this.Id = id;
+    this.nome = nome;
+    this.descricao = descricao;
+    this.preco = preco;
+    this.estoque = estoque;
+    this.marca = marca;
+    this.categoria = categoria;
+  }
+
+  public Produto(
+      Long id,
+      String nome,
+      String descricao,
+      BigDecimal preco,
+      Integer estoque,
+      String marca,
+      String categoria,
+      String imagem) {
     this.Id = id;
     this.nome = nome;
     this.descricao = descricao;

@@ -45,11 +45,9 @@ public class GenericRepository<T extends IEntity> implements IRepository<T> {
       throws Exception {
     ArrayList<String> columns = new ArrayList<>();
     ArrayList<Object> values = new ArrayList<>();
-    ArrayList<String> placeholders = new ArrayList<>();
 
     if (parentId != null) {
       columns.add("id");
-      placeholders.add("?");
       values.add(parentId);
     }
 
@@ -64,7 +62,6 @@ public class GenericRepository<T extends IEntity> implements IRepository<T> {
           value = ((IEntity) value).getId();
         }
         columns.add(colName);
-        placeholders.add("?");
         values.add(value);
       }
     }
@@ -484,7 +481,7 @@ public class GenericRepository<T extends IEntity> implements IRepository<T> {
               conditions.add(columnName + " = '" + value + "'");
             }
           }
-        } catch (Exception ignored) {
+        } catch (ReflectiveOperationException ignored) {
         }
       }
     }

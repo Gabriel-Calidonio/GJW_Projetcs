@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+    <!-- 
+      1. Entidades de Domínio e Modelos (JPA / DTOs / Value Objects):
+      Em entidades de persistência e mappers, getters e setters expõem 
+      e atribuem coleções e referências diretas por design (DataMapper, Reflection e Thymeleaf).
+    -->
+    <Match>
+        <Package name="~com\.gwj\.model\.domain(\..*)?" />
+        <Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- 
+      2. Injeção de Repositório em Serviços Genéricos:
+      GenericService recebe e armazena IRepository por injeção de dependência.
+    -->
+    <Match>
+        <Class name="com.gwj.service.GenericService" />
+        <Bug pattern="EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- 
+      3. QueryBuilder: Armazenamento e manipulação de listas de colunas e cláusulas
+    -->
+    <Match>
+        <Class name="com.gwj.model.dataAccessObject.QueryBuilder" />
+        <Bug pattern="EI_EXPOSE_REP2" />
+    </Match>
+
+    <!-- 
+      4. Diagnóstico de Ambiente: Consulta dinâmica com prefixo de tabela validado
+    -->
+    <Match>
+        <Class name="com.gwj.tools.CheckEnvironment" />
+        <Bug pattern="SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING" />
+    </Match>
+
+    <!-- 
+      5. Classes de Conexão com Banco (DAO Manual):
+      Construtores com tratamento específico de exceção de inicialização
+    -->
+    <Match>
+        <Class name="~com\.gwj\.model\.dataAccessObject\.Connection.*" />
+        <Bug pattern="CT_CONSTRUCTOR_THROW" />
+    </Match>
+
+    <!-- 
+      6. Configuração Global da Aplicação (AppConfig):
+      Campos de configuração acessados e recarregados dinamicamente em tempo de execução
+    -->
+    <Match>
+        <Class name="com.gwj.AppConfig" />
+        <Bug pattern="PA_PUBLIC_PRIMITIVE_ATTRIBUTE" />
+    </Match>
+</FindBugsFilter>

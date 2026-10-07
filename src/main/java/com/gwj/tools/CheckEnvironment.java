@@ -9,8 +9,9 @@ import java.net.URI;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -166,7 +167,7 @@ public class CheckEnvironment {
       System.out.println(
           GREEN + "✅ OK! A porta " + port + " está livre para o servidor Spring Boot." + RESET);
       passedChecks++;
-    } catch (Exception e) {
+    } catch (java.io.IOException e) {
       System.out.println(
           YELLOW + "⚠️ OCUPADA! A porta " + port + " já está em uso por outro processo." + RESET);
       warningChecks++;
@@ -191,7 +192,7 @@ public class CheckEnvironment {
       socket.connect(new InetSocketAddress(host, port), 2500);
       System.out.println(GREEN + "✅ OK! Porta " + port + " respondendo ativamente." + RESET);
       passedChecks++;
-    } catch (Exception e) {
+    } catch (java.io.IOException e) {
       System.out.println(
           RED
               + "❌ INACESSÍVEL! Não foi possível conectar ao banco em "
@@ -320,12 +321,14 @@ public class CheckEnvironment {
       } else {
         // Checa quantidade de usuários cadastrados
         int userCount = 0;
-        try (Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM " + prefix + "usuario")) {
+        String safePrefix = prefix.replaceAll("[^a-zA-Z0-9_]", "");
+        String sql = "SELECT COUNT(*) FROM " + safePrefix + "usuario";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery()) {
           if (rs.next()) {
             userCount = rs.getInt(1);
           }
-        } catch (Exception ignored) {
+        } catch (SQLException ignored) {
         }
 
         System.out.println(
