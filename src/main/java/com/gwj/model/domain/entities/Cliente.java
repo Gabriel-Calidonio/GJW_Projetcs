@@ -1,88 +1,94 @@
 package com.gwj.model.domain.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
-
 @Entity
-public class Cliente extends Usuario { // A classe Cliente é uma especialização de Usuario, herdando atributos e métodos
-	
-	// Atributos primitivos:
-	protected String nome;
-	protected String sobrenome;
-	protected String telefone;
-	protected String cpf;
-	protected String observacao;
+public class Cliente
+    extends Usuario { // A classe Cliente é uma especialização de Usuario, herdando atributos e
+  // métodos
 
-	@ManyToMany
-    @JoinTable(
-        name = "tab_cliente_endereco",
-        joinColumns = @JoinColumn(name = "cliente_id"),
-        inverseJoinColumns = @JoinColumn(name = "endereco_id")
-    )
-	private List<Endereco> listaEndereco = new ArrayList<>(); // Declaração da lista de Endereço. Note que inicializei a lista com new ArrayList<>() para evitar que o método tente remover algo de uma lista nula.
+  // Atributos primitivos:
+  protected String nome;
+  protected String sobrenome;
+  protected String telefone;
+  protected String cpf;
+  protected String observacao;
 
-	public Cliente() {
-		super();
-		// Atribui o perfil padrão de Cliente (ID 4, conforme banco de dados)
-		Perfil perfilPadrao = new Perfil();
-		perfilPadrao.setId(4L);
-		this.setPerfil(perfilPadrao);
-	}
+  @ManyToMany
+  @JoinTable(
+      name = "tab_cliente_endereco",
+      joinColumns = @JoinColumn(name = "cliente_id"),
+      inverseJoinColumns = @JoinColumn(name = "endereco_id"))
+  private List<Endereco> listaEndereco =
+      new ArrayList<>(); // Declaração da lista de Endereço. Note que inicializei a lista com new
 
-	// Métodos:
+  // ArrayList<>() para evitar que o método tente remover algo de uma lista
+  // nula.
 
-	public String getNome() {
-		return nome;
-	}
+  public Cliente() {
+    super();
+    // Atribui o perfil padrão de Cliente (ID 4, conforme banco de dados)
+    Perfil perfilPadrao = new Perfil();
+    perfilPadrao.setId(4L);
+    this.setPerfil(perfilPadrao);
+  }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+  // Métodos:
 
-	public String getSobrenome() {
-		return sobrenome;
-	}
+  public String getNome() {
+    return nome;
+  }
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-	public String getTelefone() {
-		return telefone;
-	}
+  public String getSobrenome() {
+    return sobrenome;
+  }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+  public void setSobrenome(String sobrenome) {
+    this.sobrenome = sobrenome;
+  }
 
-	public String getCpf() {
-		return cpf;
-	}
+  public String getTelefone() {
+    return telefone;
+  }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+  public void setTelefone(String telefone) {
+    this.telefone = telefone;
+  }
 
-	public String getObservacao() {
-		return observacao;
-	}
+  public String getCpf() {
+    return cpf;
+  }
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
+  public void setCpf(String cpf) {
+    this.cpf = cpf;
+  }
 
-	public List<Endereco> getListaEndereco() {
-		return listaEndereco;
-	}
+  public String getObservacao() {
+    return observacao;
+  }
 
-	public void setListaEndereco(List<Endereco> listaEndereco) {
-		this.listaEndereco = listaEndereco;
-	}
-	public void addEndereco(Endereco endereco) {
-		this.listaEndereco.add(endereco);
-	}
+  public void setObservacao(String observacao) {
+    this.observacao = observacao;
+  }
+
+  public List<Endereco> getListaEndereco() {
+    return listaEndereco;
+  }
+
+  public void setListaEndereco(List<Endereco> listaEndereco) {
+    this.listaEndereco = listaEndereco;
+  }
+
+  public void addEndereco(Endereco endereco) {
+    this.listaEndereco.add(endereco);
+  }
 }

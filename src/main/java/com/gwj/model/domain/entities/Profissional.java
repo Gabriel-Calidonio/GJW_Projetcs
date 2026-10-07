@@ -1,87 +1,89 @@
 package com.gwj.model.domain.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
-
 @Entity
 public class Profissional extends Usuario {
-    // Atributos primitivos:
-    protected String nome;
-    protected String sobrenome;
-    protected String telefone;
-    protected String cpf;
-    protected String observacao;
-    // Atributos complexos:
-    @ManyToMany
-    @JoinTable(name = "tab_profissional_endereco", joinColumns = @JoinColumn(name = "profissional_id"), inverseJoinColumns = @JoinColumn(name = "endereco_id"))
-    private List<Endereco> listaEndereco = new ArrayList<>(); // Declaração da lista de Endereço.
+  // Atributos primitivos:
+  protected String nome;
+  protected String sobrenome;
+  protected String telefone;
+  protected String cpf;
+  protected String observacao;
 
-    public Profissional() {
-        super();
-        // Atribui o perfil padrão de Barbeiro/Profissional (ID 3, conforme banco de
-        // dados)
-        Perfil perfilPadrao = new Perfil();
-        perfilPadrao.setId(3L);
-        this.setPerfil(perfilPadrao);
-    }
+  // Atributos complexos:
+  @ManyToMany
+  @JoinTable(
+      name = "tab_profissional_endereco",
+      joinColumns = @JoinColumn(name = "profissional_id"),
+      inverseJoinColumns = @JoinColumn(name = "endereco_id"))
+  private List<Endereco> listaEndereco = new ArrayList<>(); // Declaração da lista de Endereço.
 
-    // Métodos
-    public String getNome() {
-        return nome;
-    }
+  public Profissional() {
+    super();
+    // Atribui o perfil padrão de Barbeiro/Profissional (ID 3, conforme banco de
+    // dados)
+    Perfil perfilPadrao = new Perfil();
+    perfilPadrao.setId(3L);
+    this.setPerfil(perfilPadrao);
+  }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  // Métodos
+  public String getNome() {
+    return nome;
+  }
 
-    public String getSobrenome() {
-        return sobrenome;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
+  public String getSobrenome() {
+    return sobrenome;
+  }
 
-    public String getTelefone() {
-        return telefone;
-    }
+  public void setSobrenome(String sobrenome) {
+    this.sobrenome = sobrenome;
+  }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+  public String getTelefone() {
+    return telefone;
+  }
 
-    public String getCpf() {
-        return cpf;
-    }
+  public void setTelefone(String telefone) {
+    this.telefone = telefone;
+  }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+  public String getCpf() {
+    return cpf;
+  }
 
-    public String getObservacao() {
-        return observacao;
-    }
+  public void setCpf(String cpf) {
+    this.cpf = cpf;
+  }
 
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
+  public String getObservacao() {
+    return observacao;
+  }
 
-    public List<Endereco> getListaEndereco() {
-        return listaEndereco;
-    }
+  public void setObservacao(String observacao) {
+    this.observacao = observacao;
+  }
 
-    public void setListaEndereco(List<Endereco> listaEndereco) {
-        this.listaEndereco = listaEndereco;
-    }
+  public List<Endereco> getListaEndereco() {
+    return listaEndereco;
+  }
 
-    @Override
-    public String toString() {
-        return nome + " " + sobrenome;
-    }
+  public void setListaEndereco(List<Endereco> listaEndereco) {
+    this.listaEndereco = listaEndereco;
+  }
 
+  @Override
+  public String toString() {
+    return nome + " " + sobrenome;
+  }
 }

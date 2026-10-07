@@ -1,119 +1,132 @@
 package com.gwj.model.domain.entities;
 
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gwj.model.domain.IEntity;
+import java.time.LocalDateTime;
 
 public class Endereco implements IEntity {
 
-	protected Long id = 0L; // Inicializa variável de índice
-	protected String nome;
-	protected String cep;
-	protected String logradouro;
-	protected int numero;
-	protected String complemento;
-	protected String bairro;
-	protected String cidade;
-	protected String estado;
+  protected Long id = 0L; // Inicializa variável de índice
+  protected String nome;
+  protected String cep;
+  protected String logradouro;
+  protected int numero;
+  protected String complemento;
+  protected String bairro;
+  protected String cidade;
+  protected String estado;
 
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") // Avisa ao módulo json utilizar este formato.
-	protected LocalDateTime dataCadastro;
-	protected String observacao;
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") // Avisa ao módulo json utilizar este formato.
+  protected LocalDateTime dataCadastro;
 
-	// Métodos
-	public Long getId() {
-		return id;
-	}
+  protected String observacao;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+  // Métodos
+  public Long getId() {
+    return id;
+  }
 
-	public String getNome() {
-		return nome;
-	}
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+  public String getNome() {
+    return nome;
+  }
 
-	public String getCep() {
-		return cep;
-	}
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+  public String getCep() {
+    return cep;
+  }
 
-	public String getLogradouro() {
-		return logradouro;
-	}
+  public void setCep(String cep) {
+    this.cep = cep;
+  }
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+  public String getLogradouro() {
+    return logradouro;
+  }
 
-	public int getNumero() {
-		return numero;
-	}
+  public void setLogradouro(String logradouro) {
+    this.logradouro = logradouro;
+  }
 
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
+  public int getNumero() {
+    return numero;
+  }
 
-	public String getComplemento() {
-		return complemento;
-	}
+  public void setNumero(int numero) {
+    this.numero = numero;
+  }
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+  public String getComplemento() {
+    return complemento;
+  }
 
-	public String getBairro() {
-		return bairro;
-	}
+  public void setComplemento(String complemento) {
+    this.complemento = complemento;
+  }
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+  public String getBairro() {
+    return bairro;
+  }
 
-	public String getCidade() {
-		return cidade;
-	}
+  public void setBairro(String bairro) {
+    this.bairro = bairro;
+  }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+  public String getCidade() {
+    return cidade;
+  }
 
-	public String getEstado() {
-		return estado;
-	}
+  public void setCidade(String cidade) {
+    this.cidade = cidade;
+  }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+  public String getEstado() {
+    return estado;
+  }
 
-	public LocalDateTime getDataCadastro() {
-		return dataCadastro;
-	}
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
 
-	public void setDataCadastro(LocalDateTime dataCadastro) {
-		this.dataCadastro = dataCadastro;
-	}
+  public LocalDateTime getDataCadastro() {
+    return dataCadastro;
+  }
 
-	public String getObservacao() {
-		return observacao;
-	}
+  public void setDataCadastro(LocalDateTime dataCadastro) {
+    this.dataCadastro = dataCadastro;
+  }
 
-	public void setObservacao(String observacao) {
-		this.observacao = observacao;
-	}
+  public String getObservacao() {
+    return observacao;
+  }
 
-	@Override
-	public String toString() {
-		return "Endereco:" + nome + ", " + logradouro + ", " + numero + ", "
-				+ complemento + ", " + bairro + ", " + cidade + ", " + estado + ", " + cep;
-	}
+  public void setObservacao(String observacao) {
+    this.observacao = observacao;
+  }
 
+  @Override
+  public String toString() {
+    return "Endereco:"
+        + nome
+        + ", "
+        + logradouro
+        + ", "
+        + numero
+        + ", "
+        + complemento
+        + ", "
+        + bairro
+        + ", "
+        + cidade
+        + ", "
+        + estado
+        + ", "
+        + cep;
+  }
 }

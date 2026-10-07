@@ -121,3 +121,54 @@ Fase 3 (Painel Administrativo & Tratamento de Erros):
    - **Erro 500 (`Exception` Genérica)**: Captura de erros internos do servidor. O stacktrace é impresso apenas no console para o desenvolvedor, enquanto o usuário vê uma tela elegante informando o problema.
 4. **Segurança por Obscuridade:** A rota de acesso principal ao painel administrativo foi mascarada de `/admin/` para `/MRYnZpAsC9sp/` como medida de proteção contra bots e varreduras automatizadas.
 5. **Honeypot (Armadilha):** Implementada uma rota falsa em `/admin` e `/admin/**` que devolve um erro 403 (Forbidden / Acesso Negado) instantâneo, consumindo zero processamento de views e despistando invasores.
+
+---
+
+## 🧪 Fase 4: Suíte de Testes Automatizados, BDD e Qualidade de Código
+
+Para garantir a confiabilidade da aplicação e aplicar boas práticas de Engenharia de Software (TDD, BDD e Clean Code), o projeto conta com uma suíte de testes e ferramentas de análise estática configuradas no `pom.xml`.
+
+### 📌 Comandos Essenciais para o Aluno e Desenvolvedor:
+
+> **Nota:** Como o ambiente Debian 13 pode ter múltiplas versões de Java instaladas, certifique-se de executar os comandos com o runtime **Java 21 LTS**:
+> ```bash
+> export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+> ```
+
+#### 1. Executar os Testes Automatizados de Autenticação (Login)
+Executa a suíte rápida com MockMvc (15 testes cobrindo fluxos de cliente, admin, anti-enumeração, logout e segurança):
+```bash
+./mvnw test -Dtest=LoginControllerTest
+```
+
+#### 2. Compilação Rápida de Testes (Sem executar)
+Valida a sintaxe, contratos e tipagens estritas em milissegundos:
+```bash
+./mvnw test-compile
+```
+
+#### 3. Executar Toda a Suíte de Testes do Projeto
+```bash
+./mvnw test
+```
+
+#### 4. Auto-Formatação de Código (Spotless / Google Java Format)
+Corrige automaticamente indentação, remoção de imports não utilizados e quebras de linha:
+```bash
+./mvnw spotless:apply
+```
+Para apenas verificar sem alterar arquivos:
+```bash
+./mvnw spotless:check
+```
+
+#### 5. Análise Estática de Bugs e Segurança (SpotBugs)
+Caça bugs silenciosos, vazamento de recursos (streams/conexões) e potenciais `NullPointerException`:
+```bash
+./mvnw spotbugs:check
+```
+
+#### 6. Especificação de Requisitos BDD
+A especificação comportamental dos cenários de teste em linguagem natural (Gherkin / Português) encontra-se em:
+- [Especificação de Requisitos BDD](/src/test/resources/features/login.feature)
+

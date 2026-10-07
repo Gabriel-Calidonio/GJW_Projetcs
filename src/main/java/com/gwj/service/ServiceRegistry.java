@@ -6,23 +6,34 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ServiceRegistry {
-    private static final Map<String, IService<? extends IEntity>> registry = new HashMap<>();
+  private static final Map<String, IService<? extends IEntity>> registry = new HashMap<>();
 
-    static {
-        // Registrar explicitamente serviços especializados
-        registry.put("Usuario", new UsuarioService());
-        registry.put("Agendamento", new AgendamentoService());
-        registry.put("Setting", new SettingService());
-    }
+  static {
+    // Registrar explicitamente serviços especializados
+    registry.put("Usuario", new UsuarioService());
+    registry.put("Agendamento", new AgendamentoService());
+    registry.put("Setting", new SettingService());
+  }
 
-    @SuppressWarnings("unchecked")
-    public static <T extends IEntity> IService<T> getService(String entityName) {
-        IService<? extends IEntity> service = registry.get(entityName);
-        if (service == null) {
-            // Fallback dinâmico para entidade desconhecida
-            IEntity entity = SimpleObjectFactory.create(entityName);
-            service = new GenericService<>(entity.getClass());
-        }
-        return (IService<T>) service;
+  public static void registerService(String entityName, IService<? extends IEntity> service) {
+    registry.put(entityName, service);
+  }
+
+  public static void reset() {
+    registry.clear();
+    registry.put("Usuario", new UsuarioService());
+    registry.put("Agendamento", new AgendamentoService());
+    registry.put("Setting", new SettingService());
+  }
+
+  @SuppressWarnings("unchecked")
+  public static <T extends IEntity> IService<T> getService(String entityName) {
+    IService<? extends IEntity> service = registry.get(entityName);
+    if (service == null) {
+      // Fallback dinâmico para entidade desconhecida
+      IEntity entity = SimpleObjectFactory.create(entityName);
+      service = new GenericService<>(entity.getClass());
     }
+    return (IService<T>) service;
+  }
 }
