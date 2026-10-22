@@ -94,12 +94,12 @@ rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
 actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
 
 ' --- Relacionamentos de Acesso e Controle de Segurança ---
-Admin --> UC_Login
-Admin --> UC_Logout
-Admin --> UC_ViewDashboard
+Admin -- UC_Login
+Admin -- UC_Logout
+Admin -- UC_ViewDashboard
 
 UC_ViewDashboard ..> UC_ValidarAcesso : <<include>>
-UC_ValidarAcesso -right-> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
+UC_ValidarAcesso --> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
 
 ' Inclusões de KPIs no Dashboard Geral
 UC_ViewDashboard ..> UC_KpiAgendamentos : <<include>>
@@ -110,16 +110,13 @@ UC_ViewDashboard ..> UC_KpiClientes : <<include>>
 UC_ViewDashboard ..> UC_KpiProfissionais : <<include>>
 
 ' Navegação e Ações a partir do Dashboard para Módulos Operacionais
-Admin --> UC_GestaoAgendamentos
-Admin --> UC_GestaoPedidos
-Admin --> UC_GestaoClientes
 
-Recepcao --> UC_ViewDashboard
-Recepcao --> UC_GestaoAgendamentos
-Recepcao --> UC_GestaoPedidos
-Recepcao --> UC_GestaoClientes
+Recepcao -- UC_ViewDashboard
+Recepcao -- UC_GestaoAgendamentos
+Recepcao -- UC_GestaoPedidos
+Recepcao -- UC_GestaoClientes
 
-Barbeiro --> UC_GestaoAgendamentos : "Apenas própria agenda\n(VISUALIZAR_PROPRIA_AGENDA)"
+Barbeiro -- UC_GestaoAgendamentos : "Apenas própria agenda\n(VISUALIZAR_PROPRIA_AGENDA)"
 
 ' Extensões operacionais
 UC_GestaoAgendamentos <.. UC_FiltrarAgenda : <<extend>>
@@ -127,13 +124,13 @@ UC_GestaoAgendamentos <.. UC_StatusAgendamento : <<extend>>
 UC_GestaoPedidos <.. UC_StatusPedido : <<extend>>
 
 ' Acesso exclusivo do Administrador aos módulos estratégicos
-Admin --> UC_GestaoServicos
-Admin --> UC_GestaoProdutos
-Admin --> UC_GestaoProfissionais
-Admin --> UC_GestaoConfig
+Admin -- UC_GestaoServicos
+Admin -- UC_GestaoProdutos
+Admin -- UC_GestaoProfissionais
+Admin -- UC_GestaoConfig
 
 ' --- Notas de Regras de Negócio e Segurança ---
-note bottom of UC_ValidarAcesso
+note right of UC_ValidarAcesso
   **RN-SEG-02 (Bloqueio de Clientes):**
   Usuários do Perfil 'Cliente' (ID 4)
   são estritamente bloqueados de qualquer
@@ -141,7 +138,7 @@ note bottom of UC_ValidarAcesso
   e redirecionados para a Home pública (/).
 end note
 
-note right of UC_ViewDashboard
+note left of UC_ViewDashboard
   **AdminDashboardController:**
   Ao carregar a view, o controlador consulta
   os serviços via **ServiceRegistry** para
@@ -154,7 +151,7 @@ note right of UC_ViewDashboard
   - totalProfissionais
 end note
 
-note bottom of UC_GestaoConfig
+note right of UC_GestaoConfig
   **Configurações do Estabelecimento:**
   Horários de abertura/fechamento semanais,
   limites de tolerância e parâmetros institucionais.

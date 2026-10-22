@@ -1,197 +1,1373 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2340px" preserveAspectRatio="none" style="width:1473px;height:2340px;background:#FEFEFE;" version="1.1" viewBox="0 0 1473 2340" width="1473px" zoomAndPan="magnify"><defs><filter height="300%" id="f8ywyuw10rfbn" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="713" x="391.5" y="19.2419">Diagrama de Casos de Uso - Painel Administrativo &amp; Dashboard (GWJ Barbearia)</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="534" x="481" y="43.7577">Modulo: Dashboard Geral e Hub Operacional (/MRYnZpAsC9sp)</text><!--MD5=[544d6a54f16933badd20a83031c4f0cc]
-cluster SystemBoundary--><rect fill="#FEFEFE" filter="url(#f8ywyuw10rfbn)" height="1692" rx="5" ry="5" style="stroke: #000000; stroke-width: 1.5;" width="934" x="528" y="508.3917"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="345" x="822.5" y="525.3576">Sistema GWJ - Painel Administrativo &amp; Dashboard</text><!--MD5=[00347a876c784c023d3b52ae916417d5]
-cluster Controle de Acesso & Sessão--><path d="M1137,1892.3917 L1332,1892.3917 A7.5,7.5 0 0 1 1337,1897.3917 L1344,1917.4596 L1424,1917.4596 A5,5 0 0 1 1429,1922.4596 L1429,2171.3917 A5,5 0 0 1 1424,2176.3917 L1137,2176.3917 A5,5 0 0 1 1132,2171.3917 L1132,1897.3917 A5,5 0 0 1 1137,1892.3917 " fill="#FEFEFE" filter="url(#f8ywyuw10rfbn)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="1132" x2="1344" y1="1917.4596" y2="1917.4596"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="199" x="1136" y="1909.3576">Controle de Acesso &amp; Sessão</text><!--MD5=[cd0b5dfae04d9fb83097fb28919f00c6]
-cluster Dashboard & Indicadores em Tempo Real--><path d="M597,970.3917 L879,970.3917 A7.5,7.5 0 0 1 884,975.3917 L891,995.4596 L1433,995.4596 A5,5 0 0 1 1438,1000.4596 L1438,1535.3917 A5,5 0 0 1 1433,1540.3917 L597,1540.3917 A5,5 0 0 1 592,1535.3917 L592,975.3917 A5,5 0 0 1 597,970.3917 " fill="#FEFEFE" filter="url(#f8ywyuw10rfbn)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="592" x2="891" y1="995.4596" y2="995.4596"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="286" x="596" y="987.3576">Dashboard &amp; Indicadores em Tempo Real</text><!--MD5=[3bff050bd9b7411cd240847a40bc1f63]
-cluster Módulos de Gestão Operacional--><path d="M587.5,1564.3917 L803.5,1564.3917 A7.5,7.5 0 0 1 808.5,1569.3917 L815.5,1589.4596 L1432,1589.4596 A5,5 0 0 1 1437,1594.4596 L1437,1863.3917 A5,5 0 0 1 1432,1868.3917 L587.5,1868.3917 A5,5 0 0 1 582.5,1863.3917 L582.5,1569.3917 A5,5 0 0 1 587.5,1564.3917 " fill="#FEFEFE" filter="url(#f8ywyuw10rfbn)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="582.5" x2="815.5" y1="1589.4596" y2="1589.4596"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="220" x="586.5" y="1581.3576">Módulos de Gestão Operacional</text><!--MD5=[5fdd1c9f67f0287caca28a102b9702ef]
-cluster Módulos de Gestão Estratégica & Configurações--><path d="M557,554.3917 L885,554.3917 A7.5,7.5 0 0 1 890,559.3917 L897,579.4596 L895,579.4596 A5,5 0 0 1 900,584.4596 L900,941.3917 A5,5 0 0 1 895,946.3917 L557,946.3917 A5,5 0 0 1 552,941.3917 L552,559.3917 A5,5 0 0 1 557,554.3917 " fill="#FEFEFE" filter="url(#f8ywyuw10rfbn)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="552" x2="897" y1="579.4596" y2="579.4596"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="332" x="556" y="571.3576">Módulos de Gestão Estratégica &amp; Configurações</text><ellipse cx="1280.362" cy="2050.2641" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="132.362" ry="28.8724" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="237" x="1161.862" y="2052.7308">UC01 - Autenticar no Painel Administrativo</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="131" x="1214.862" y="2069.0749">(/MRYnZpAsC9sp/login)</text><ellipse cx="1280.4018" cy="1958.2721" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="127.4018" ry="27.8804" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="235" x="1162.9018" y="1962.9441">UC02 - Validar Sessão e Permissões RBAC</text><ellipse cx="1280.2525" cy="2137.3422" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="102.7525" ry="22.9505" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="182" x="1189.2525" y="2142.0143">UC03 - Encerrar Sessão (Logout)</text><ellipse cx="725.3656" cy="1362.2648" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="117.3656" ry="25.8731" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="194" x="628.3656" y="1362.992">UC04 - Visualizar Dashboard Geral</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="675.3656" y="1379.3361">(/MRYnZpAsC9sp)</text><ellipse cx="1280.5145" cy="1312.3946" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="125.5145" ry="27.5029" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="231" x="1165.0145" y="1317.0667">UC05 - Consultar Total de Agendamentos</text><ellipse cx="1280.4577" cy="1222.5832" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="126.4577" ry="27.6915" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="233" x="1163.9577" y="1227.2553">UC06 - Consultar Total de Pedidos da Loja</text><ellipse cx="1280.5433" cy="1132.3003" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="125.0433" ry="27.4087" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="230" x="1165.5433" y="1136.9724">UC07 - Consultar Total de Serviços Ativos</text><ellipse cx="1280.6572" cy="1039.6231" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="141.6572" ry="30.7314" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="265" x="1148.1572" y="1044.2952">UC08 - Consultar Total de Produtos em Estoque</text><ellipse cx="1280.6572" cy="1493.6231" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="141.6572" ry="30.7314" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="265" x="1148.1572" y="1498.2952">UC09 - Consultar Total de Clientes Cadastrados</text><ellipse cx="1280.4388" cy="1401.5795" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="118.9388" ry="26.1878" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="217" x="1171.9388" y="1406.2515">UC10 - Consultar Total de Profissionais</text><ellipse cx="725.4964" cy="1808.191" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="126.9964" ry="27.7993" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="185" x="632.9964" y="1804.5198">UC11 - Gerenciar Agendamentos</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="188" x="631.4964" y="1820.8639">(/MRYnZpAsC9sp/agendamentos)</text><ellipse cx="1280.5088" cy="1728.1935" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="134.5088" ry="29.3018" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="250" x="1155.5088" y="1732.8655">UC12 - Filtrar Agenda por Data e Profissional</text><ellipse cx="1280.3182" cy="1822.4553" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="135.8182" ry="29.5636" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="217" x="1171.8182" y="1819.9783">UC13 - Alterar Status do Agendamento</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="201" x="1179.8182" y="1836.3224">(Confirmado, Finalizado, Cancelado)</text><ellipse cx="725.344" cy="1629.4605" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="120.844" ry="26.5688" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="187" x="631.844" y="1627.9589">UC14 - Gerenciar Pedidos da Loja</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="148" x="651.344" y="1644.303">(/MRYnZpAsC9sp/pedidos)</text><ellipse cx="1280.549" cy="1633.4015" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="140.549" ry="30.5098" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="187" x="1187.049" y="1626.0689">UC15 - Atualizar Status do Pedido</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="245" x="1158.049" y="1642.413">(Aguardando Retirada, Retirado, Cancelado)</text><ellipse cx="725.5738" cy="1718.2065" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="122.0738" ry="26.8148" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="193" x="629.0738" y="1717.0988">UC16 - Gerenciar Base de Clientes</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="147" x="652.0738" y="1733.4429">(/MRYnZpAsC9sp/clientes)</text><ellipse cx="725.4214" cy="717.476" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="128.4214" ry="28.0843" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="217" x="616.9214" y="717.7371">UC17 - Gerenciar Catálogo de Serviços</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="150" x="650.4214" y="734.0812">(/MRYnZpAsC9sp/servicos)</text><ellipse cx="725.5891" cy="808.6095" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="126.5891" ry="27.7178" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="208" x="621.5891" y="808.0996">UC18 - Gerenciar Produtos e Estoque</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="154" x="648.5891" y="824.4437">(/MRYnZpAsC9sp/produtos)</text><ellipse cx="725.681" cy="900.2279" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="134.681" ry="29.3362" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="229" x="611.181" y="900.0649">UC19 - Gerenciar Equipe de Profissionais</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="175" x="638.181" y="916.409">(/MRYnZpAsC9sp/profissionais)</text><ellipse cx="725.5013" cy="623.4919" fill="#FFFFFF" filter="url(#f8ywyuw10rfbn)" rx="143.5013" ry="31.1003" style="stroke: #4F46E5; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="257" x="597.0013" y="624.9723">UC20 - Gerenciar Configurações da Barbearia</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="183" x="634.0013" y="641.3164">(/MRYnZpAsC9sp/configuracoes)</text><!--MD5=[97ab183161fd5d1db7fba7485cf76add]
-entity Admin--><ellipse cx="49" cy="1490.4596" fill="#E0F2FE" filter="url(#f8ywyuw10rfbn)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M49,1498.4596 L49,1525.4596 M36,1506.4596 L62,1506.4596 M49,1525.4596 L36,1540.4596 M49,1525.4596 L62,1540.4596 " fill="none" filter="url(#f8ywyuw10rfbn)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="6" y="1559.8566">Administrador</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="48" x="25" y="1577.5626">(Perfil 1)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="70" x="14" y="1476.8576">«Principal»</text><!--MD5=[12fb500605056268c9a10fc61ae36e76]
-entity Recepcao--><ellipse cx="218.5" cy="1574.4596" fill="#E0F2FE" filter="url(#f8ywyuw10rfbn)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M218.5,1582.4596 L218.5,1609.4596 M205.5,1590.4596 L231.5,1590.4596 M218.5,1609.4596 L205.5,1624.4596 M218.5,1609.4596 L231.5,1624.4596 " fill="none" filter="url(#f8ywyuw10rfbn)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="82" x="177.5" y="1643.8566">Recepcionista</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="48" x="194.5" y="1661.5626">(Perfil 3)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="91" x="173" y="1560.8576">«Operacional»</text><!--MD5=[c210ea39cf5befe02a81bdc07a03b9bb]
-entity Barbeiro--><ellipse cx="218.5" cy="1882.4596" fill="#E0F2FE" filter="url(#f8ywyuw10rfbn)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M218.5,1890.4596 L218.5,1917.4596 M205.5,1898.4596 L231.5,1898.4596 M218.5,1917.4596 L205.5,1932.4596 M218.5,1917.4596 L231.5,1932.4596 " fill="none" filter="url(#f8ywyuw10rfbn)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="131" x="153" y="1951.8566">Barbeiro / Profissional</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="48" x="194.5" y="1969.5626">(Perfil 2)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="87" x="175" y="1868.8576">«Especialista»</text><!--MD5=[3e3b8ef699f11e0f7bfdcb530968b539]
-entity Interceptor--><ellipse cx="1280.5" cy="281.4596" fill="#E0F2FE" filter="url(#f8ywyuw10rfbn)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M1280.5,289.4596 L1280.5,316.4596 M1267.5,297.4596 L1293.5,297.4596 M1280.5,316.4596 L1267.5,331.4596 M1280.5,316.4596 L1293.5,331.4596 " fill="none" filter="url(#f8ywyuw10rfbn)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="107" x="1227" y="350.8566">AdminInterceptor</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="1211" y="368.5626">(Sistema de Segurança)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="1249" y="267.8576">«Sistema»</text><path d="M1160.5,411.8917 L1160.5,486.8011 A5,5 0 0 0 1165.5,491.8011 L1395.5,491.8011 A5,5 0 0 0 1400.5,486.8011 L1400.5,416.8917 L1390.5,406.8917 L1165.5,406.8917 A5,5 0 0 0 1160.5,411.8917 " fill="#FEF3C7" filter="url(#f8ywyuw10rfbn)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M1390.5,406.8917 L1390.5,414.3917 A2.5,2.5 0 0 0 1393,416.8917 L1400.5,416.8917 L1390.5,406.8917 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="182" x="1166.5" y="423.6506">RN-SEG-02 (Bloqueio de Clientes):</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="167" x="1166.5" y="438.6325">Usuários do Perfil 'Cliente' (ID 4)</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="219" x="1166.5" y="453.6144">são estritamente bloqueados de qualquer</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="203" x="1166.5" y="468.5963">rota administrativa (/MRYnZpAsC9sp/*)</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="215" x="1166.5" y="483.5782">e redirecionados para a Home pública (/).</text><path d="M1141.5,62.3917 L1141.5,212.2106 A5,5 0 0 0 1146.5,217.2106 L1414.5,217.2106 A5,5 0 0 0 1419.5,212.2106 L1419.5,67.3917 L1409.5,57.3917 L1146.5,57.3917 A5,5 0 0 0 1141.5,62.3917 " fill="#FEF3C7" filter="url(#f8ywyuw10rfbn)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M1409.5,57.3917 L1409.5,64.8917 A2.5,2.5 0 0 0 1412,67.3917 L1419.5,67.3917 L1409.5,57.3917 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="155" x="1147.5" y="74.1506">AdminDashboardController:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="224" x="1147.5" y="89.1325">Ao carregar a view, o controlador consulta</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="75" x="1147.5" y="104.1144">os serviços via</text><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="85" x="1225.5" y="104.1144">ServiceRegistry</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="1313.5" y="104.1144">para</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="257" x="1147.5" y="119.0963">computar as 6 métricas essenciais em tempo real:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="110" x="1147.5" y="134.0782">- totalAgendamentos</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="1147.5" y="149.06">- totalPedidos</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="74" x="1147.5" y="164.0419">- totalServicos</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="80" x="1147.5" y="179.0238">- totalProdutos</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="72" x="1147.5" y="194.0057">- totalClientes</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="98" x="1147.5" y="208.9876">- totalProfissionais</text><path d="M588.5,441.8917 L588.5,486.8374 A5,5 0 0 0 593.5,491.8374 L721.5,491.8374 L725.5,592.3417 L729.5,491.8374 L857.5,491.8374 A5,5 0 0 0 862.5,486.8374 L862.5,446.8917 L852.5,436.8917 L593.5,436.8917 A5,5 0 0 0 588.5,441.8917 " fill="#FEF3C7" filter="url(#f8ywyuw10rfbn)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M852.5,436.8917 L852.5,444.3917 A2.5,2.5 0 0 0 855,446.8917 L862.5,446.8917 L852.5,436.8917 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="195" x="594.5" y="453.6506">Configurações do Estabelecimento:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="231" x="594.5" y="468.6325">Horários de abertura/fechamento semanais,</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="253" x="594.5" y="483.6144">limites de tolerância e parâmetros institucionais.</text><!--MD5=[d4ee7f1f4b1a50c16c24a6707f14c04f]
-link Admin to Recepcao--><path d="M92.27,1542.5917 C111.21,1552.0917 133.94,1563.4917 154.81,1573.9517 " fill="none" id="Admin-&gt;Recepcao" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="none" points="158.16,1567.8017,172.9,1583.0317,151.89,1580.3217,158.16,1567.8017" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[d4f59c84fe8d540f28235556c6fee68a]
-link Admin to Barbeiro--><path d="M53.65,1581.1617 C59.88,1645.6317 76.68,1749.3717 122,1826.3917 C126.73,1834.4317 132.45,1842.1617 138.7,1849.4617 " fill="none" id="Admin-&gt;Barbeiro" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="none" points="144.02,1844.8917,152.62,1864.2617,133.82,1854.4817,144.02,1844.8917" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[89e4a812854ba76026a29176233e400d]
-link Admin to UC_Login--><path d="M54.31,1580.9417 C63.92,1695.0817 91.28,1937.9917 153,1990.3917 C300.42,2115.5617 890.79,2083.3117 1152.96,2062.0417 " fill="none" id="Admin-&gt;UC_Login" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="1157.94,2061.6317,1148.6489,2058.3643,1152.956,2062.0316,1149.2887,2066.3386,1157.94,2061.6317" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[c83a763039a3b10b803bec628ac459ae]
-link Admin to UC_Logout--><path d="M52.79,1581.3617 C59.98,1706.9517 83.7,1991.1717 153,2053.3917 C459.11,2328.2217 1019.91,2209.0617 1212.49,2157.0617 " fill="none" id="Admin-&gt;UC_Logout" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="1217.53,2155.6917,1207.7996,2154.169,1212.7019,2156.9916,1209.8794,2161.8939,1217.53,2155.6917" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[0c3c70790c40892f25fb161ab6231f56]
-link Admin to UC_ViewDashboard--><path d="M92.3,1504.3817 C101.97,1500.8117 112.27,1497.2717 122,1494.3917 C297.61,1442.5217 507.45,1401.0517 627.43,1379.2317 " fill="none" id="Admin-&gt;UC_ViewDashboard" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="632.37,1378.3317,622.8044,1375.9867,627.4488,1379.2161,624.2194,1383.8605,632.37,1378.3317" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[bf7f22459d744e2fe1291fa837847a7f]
-link UC_ViewDashboard to UC_ValidarAcesso--><path d="M758.57,1387.4717 C795.38,1415.6317 858.13,1461.7817 916,1495.3917 C998,1543.0317 1056.11,1507.6817 1109,1586.3917 C1144,1638.4817 1091.22,1814.8817 1124,1868.3917 C1142.1,1897.9317 1173.76,1918.7817 1203.81,1932.9217 " fill="none" id="UC_ViewDashboard-&gt;UC_ValidarAcesso" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1208.61,1935.1317,1202.0998,1927.7413,1204.066,1933.0455,1198.7619,1935.0117,1208.61,1935.1317" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1491.2887">«include»</text><!--MD5=[68bcfcbea614b94f6752a79053ac92a1]
-link UC_ValidarAcesso to Interceptor--><path d="M1215.1,1934.3117 C1183.51,1919.6617 1147.46,1897.9917 1124,1868.3917 C961.82,1663.8517 992.96,1564.1617 955,1305.8917 C924.88,1100.9917 998.39,554.0517 1124,389.3917 C1144.31,362.7717 1176.28,344.7817 1206.04,332.9317 " fill="none" id="UC_ValidarAcesso-&gt;Interceptor" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="1210.79,331.0817,1200.9524,330.6113,1206.1292,332.8919,1203.8486,338.0687,1210.79,331.0817" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="86" x="969.5" y="1283.7887">Verifica sessão</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="191" x="917" y="1301.4947">e perfis (RN-SEG-02 / RN-SEG-03)</text><!--MD5=[14eb74accde78000facc16cb34abfd5c]
-link UC_ViewDashboard to UC_KpiAgendamentos--><path d="M837.9,1354.7917 C914.27,1349.3017 1017.85,1341.3117 1109,1332.3917 C1127.17,1330.6217 1146.4,1328.5417 1165.15,1326.4217 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiAgendamentos" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1170.42,1325.8217,1161.0211,1322.8786,1165.4529,1326.3943,1161.9373,1330.826,1170.42,1325.8217" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1328.2887">«include»</text><!--MD5=[53448e3b09d06a43fefc77a271cf750f]
-link UC_ViewDashboard to UC_KpiPedidos--><path d="M765.5,1337.8417 C802.7,1315.6617 861.05,1284.0317 916,1267.3917 C991.93,1244.4117 1080.18,1233.1417 1150.71,1227.6217 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiPedidos" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1155.76,1227.2417,1146.4776,1223.9499,1150.775,1227.6285,1147.0964,1231.9259,1155.76,1227.2417" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1228.2887">«include»</text><!--MD5=[34768be0b618dfe026074fd600642208]
-link UC_ViewDashboard to UC_KpiServicos--><path d="M749.44,1336.6717 C782.56,1301.2417 847.36,1238.1317 916,1205.3917 C991.46,1169.4017 1083.92,1151.1417 1156.7,1141.8817 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiServicos" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1161.91,1141.2317,1152.4864,1138.3689,1156.948,1141.8466,1153.4702,1146.3081,1161.91,1141.2317" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1145.2887">«include»</text><!--MD5=[929141397ed8698327a8f9f07dc51487]
-link UC_ViewDashboard to UC_KpiProdutos--><path d="M739.34,1336.2717 C765.33,1286.3017 829.15,1177.2617 916,1122.3917 C982.8,1080.1917 1068.55,1059.3617 1139.98,1049.1217 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiProdutos" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1145.1,1048.4017,1135.6291,1045.6994,1140.1491,1049.1008,1136.7477,1053.6208,1145.1,1048.4017" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1051.2887">«include»</text><!--MD5=[ef90b120de79cccd8b7bfaf24af21be6]
-link UC_ViewDashboard to UC_KpiClientes--><path d="M782.95,1385.1217 C820.23,1399.4417 870.44,1417.4217 916,1429.3917 C994.37,1450.0017 1084.02,1465.8617 1154.68,1476.6417 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiClientes" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1159.73,1477.4117,1151.4244,1472.1185,1154.7855,1476.6686,1150.2355,1480.0297,1159.73,1477.4117" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1425.2887">«include»</text><!--MD5=[f01842668a764f82919422e43953bf7c]
-link UC_ViewDashboard to UC_KpiProfissionais--><path d="M815.84,1379.0317 C847.38,1384.2317 883.16,1389.4017 916,1392.3917 C995.81,1399.6717 1085.86,1401.9417 1156.36,1402.3817 " fill="none" id="UC_ViewDashboard-&gt;UC_KpiProfissionais" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="1161.4,1402.4117,1152.423,1398.3603,1156.4001,1402.3831,1152.3773,1406.3602,1161.4,1402.4117" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="984" y="1388.2887">«include»</text><!--MD5=[11ccfffc9361101ac93fa44db38ffbb1]
-link Admin to UC_GestaoAgendamentos--><path d="M62.12,1581.0117 C75.56,1631.2217 102.38,1700.8517 153,1739.3917 C219.99,1790.4017 446.39,1804.1617 593.33,1807.6017 " fill="none" id="Admin-&gt;UC_GestaoAgendamentos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="598.52,1807.7217,589.6138,1803.5171,593.5213,1807.6074,589.4309,1811.515,598.52,1807.7217" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[1e7099ebb67f5b6e75d46ee01ed8676b]
-link Admin to UC_GestaoPedidos--><path d="M92.04,1520.1917 C139.03,1519.4117 217.28,1519.8317 284,1528.3917 C413.08,1544.9617 559.81,1582.4617 647.13,1606.8117 " fill="none" id="Admin-&gt;UC_GestaoPedidos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="652.02,1608.1717,644.4256,1601.9007,647.2038,1606.8283,642.2762,1609.6065,652.02,1608.1717" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[eadcbc9a7f542aba9460902a2e792dda]
-link Admin to UC_GestaoClientes--><path d="M71.96,1581.2617 C88.46,1617.0917 114.83,1659.9117 153,1682.3917 C300.82,1769.4517 509.02,1755.5017 629.05,1737.1617 " fill="none" id="Admin-&gt;UC_GestaoClientes" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="634.34,1736.3417,624.8297,1733.7816,629.4001,1737.1149,626.0668,1741.6853,634.34,1736.3417" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[f59de0d0e8e673cf07091100996c932b]
-link Recepcao to UC_ViewDashboard--><path d="M264.32,1583.8317 C357.22,1539.1217 570.5,1436.4917 670.67,1388.2917 " fill="none" id="Recepcao-&gt;UC_ViewDashboard" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="675.36,1386.0417,665.516,1386.3505,670.8569,1388.2146,668.9927,1393.5555,675.36,1386.0417" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[f11a5ede91f27d7758260a512851ba6a]
-link Recepcao to UC_GestaoAgendamentos--><path d="M264,1643.0217 C279.27,1654.9017 296.85,1667.5017 314,1677.3917 C399.94,1726.9717 425.4,1733.5017 520,1763.3917 C552.66,1773.7117 588.97,1782.5317 621.83,1789.5517 " fill="none" id="Recepcao-&gt;UC_GestaoAgendamentos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="627.08,1790.6717,619.1133,1784.8811,622.1902,1789.628,617.4433,1792.7048,627.08,1790.6717" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[3c0715fc3b79de9b397d10e811772dc0]
-link Recepcao to UC_GestaoPedidos--><path d="M264.32,1607.5217 C339.34,1611.0917 492.87,1618.3817 601.93,1623.5717 " fill="none" id="Recepcao-&gt;UC_GestaoPedidos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="607.09,1623.8117,598.2826,1619.4037,602.0952,1623.5827,597.9163,1627.3953,607.09,1623.8117" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[f198b9801762420574b3b24cc98ec504]
-link Recepcao to UC_GestaoClientes--><path d="M264.19,1615.8817 C279.92,1619.5517 297.74,1623.6817 314,1627.3917 C423.56,1652.3817 549.78,1680.2217 633.02,1698.4517 " fill="none" id="Recepcao-&gt;UC_GestaoClientes" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="637.94,1699.5217,630.0057,1693.6867,633.0561,1698.4507,628.2921,1701.501,637.94,1699.5217" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[8e945e017effb5e2d4286ae994596702]
-link Barbeiro to UC_GestaoAgendamentos--><path d="M284.28,1903.9217 C343.75,1894.8417 434.17,1880.0817 512,1863.3917 C554.79,1854.2117 601.96,1842.2017 640.96,1831.7517 " fill="none" id="Barbeiro-&gt;UC_GestaoAgendamentos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="646.16,1830.3517,636.4296,1828.829,641.3319,1831.6516,638.5094,1836.5539,646.16,1830.3517" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="139" x="343.5" y="1841.2887">Apenas própria agenda</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="196" x="315" y="1858.9947">(VISUALIZAR_PROPRIA_AGENDA)</text><!--MD5=[6230f63d22043ef2669b65f5a617ab8d]
-reverse link UC_GestaoAgendamentos to UC_FiltrarAgenda--><path d="M837.25,1792.3717 C933.19,1778.4917 1071.31,1758.5117 1167.59,1744.5817 " fill="none" id="UC_GestaoAgendamentos&lt;-UC_FiltrarAgenda" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="832.14,1793.1117,841.6185,1795.7872,837.0889,1792.3986,840.4775,1787.869,832.14,1793.1117" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="984.5" y="1748.2887">«extend»</text><!--MD5=[d490e6dd6ddd81b5310c7f07e4bfb271]
-reverse link UC_GestaoAgendamentos to UC_StatusAgendamento--><path d="M857.14,1811.7017 C944,1813.9017 1057.77,1816.7817 1145.34,1819.0017 " fill="none" id="UC_GestaoAgendamentos&lt;-UC_StatusAgendamento" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="851.98,1811.5717,860.8742,1815.8017,856.9783,1811.7002,861.0798,1807.8044,851.98,1811.5717" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="984.5" y="1808.2887">«extend»</text><!--MD5=[c7234d476d71b7bfb04d415d944a00bd]
-reverse link UC_GestaoPedidos to UC_StatusPedido--><path d="M851.58,1630.3017 C937.28,1630.9217 1051.04,1631.7417 1139.72,1632.3817 " fill="none" id="UC_GestaoPedidos&lt;-UC_StatusPedido" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#4338CA" points="846.49,1630.2617,855.4554,1634.3387,851.4898,1630.3045,855.524,1626.339,846.49,1630.2617" style="stroke: #4338CA; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="984.5" y="1627.2887">«extend»</text><!--MD5=[3e01a99a131efa02b7b3fb2aeb44f6e3]
-link Admin to UC_GestaoServicos--><path d="M59,1461.7317 C72.28,1383.6817 101.33,1243.9717 153,1134.3917 C205.44,1023.1717 226.85,996.1417 314,909.3917 C393.53,830.2217 417.48,809.0417 520,763.3917 C549.19,750.4017 582.41,740.9017 613.47,734.0417 " fill="none" id="Admin-&gt;UC_GestaoServicos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="618.43,732.9617,608.7876,730.9555,613.5431,734.0191,610.4795,738.7745,618.43,732.9617" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[6d506b924adb459aa3aa0a51e259ec9d]
-link Admin to UC_GestaoProdutos--><path d="M68.99,1461.6917 C86.98,1409.0017 116.62,1331.0317 153,1268.3917 C276.66,1055.4817 304.61,972.6917 520,853.3917 C546.68,838.6217 577.84,828.6917 607.67,822.0317 " fill="none" id="Admin-&gt;UC_GestaoProdutos" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="612.83,820.9017,603.1821,818.9224,607.9461,821.9727,604.8957,826.7367,612.83,820.9017" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[e0d657d9edbe580472e1d534666ed0be]
-link Admin to UC_GestaoProfissionais--><path d="M90.1,1461.5917 C164.11,1355.0417 331.88,1130.5817 520,992.3917 C557.99,964.4917 605.79,942.4017 645.62,926.8717 " fill="none" id="Admin-&gt;UC_GestaoProfissionais" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="650.44,925.0017,640.6037,924.5052,645.7744,926.7995,643.4801,931.9702,650.44,925.0017" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[ba75dd5ba64f096bb324e47465821965]
-link Admin to UC_GestaoConfig--><path d="M52.88,1461.5517 C59.57,1363.2217 81.57,1163.2217 153,1011.3917 C247.66,810.2017 316.56,761.1217 520,671.3917 C546.97,659.5017 577.29,650.3317 606.16,643.3517 " fill="none" id="Admin-&gt;UC_GestaoConfig" style="stroke: #4338CA; stroke-width: 1.0;"/><polygon fill="#4338CA" points="611.16,642.1617,601.478,640.3563,606.2961,643.3204,603.332,648.1385,611.16,642.1617" style="stroke: #4338CA; stroke-width: 1.0;"/><!--MD5=[8f6869be61115daddbf4c9963bd08cfb]
-link UC_ValidarAcesso to GMN59--><path d="M1172.13,1943.4717 C1115.49,1929.5617 1050.87,1902.7117 1016,1850.8917 C911.65,1695.8517 975.13,1192.2617 1016,1009.8917 C1062.35,803.0517 1194,582.6417 1252.21,492.0217 " fill="none" id="UC_ValidarAcesso-GMN59" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[d93e175160fe7088edf96d34a5967df1]
-link UC_ViewDashboard to GMN62--><path d="M739.04,1336.5417 C770.16,1271.8317 852.4,1097.2217 908,946.3917 C1022.23,636.5217 923.69,497.9717 1124,235.3917 C1129.23,228.5417 1135.08,222.0517 1141.37,215.9117 " fill="none" id="UC_ViewDashboard-GMN62" style="stroke: #4338CA; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[18e36c3491374eb81498c35091787fda]
-@startuml
-
-left to right direction
-
-skinparam theme cerulean
-skinparam backgroundColor #FEFEFE
-skinparam Handwritten false
-skinparam Monochrome false
-skinparam Shadowing true
-skinparam packageStyle Rectangle
-skinparam defaultTextAlignment center
-skinparam roundCorner 10
-
-skinparam actor {
-    BackgroundColor #E0F2FE
-    BorderColor #0284C7
-    FontName "Helvetica"
-    FontSize 13
-}
-
-skinparam usecase {
-    BackgroundColor #FFFFFF
-    BorderColor #4F46E5
-    ArrowColor #4338CA
-    FontName "Helvetica"
-    FontSize 12
-}
-
-skinparam note {
-    BackgroundColor #FEF3C7
-    BorderColor #D97706
-    FontName "Helvetica"
-    FontSize 11
-}
-
-
-title **Diagrama de Casos de Uso - Painel Administrativo & Dashboard (GWJ Barbearia)**\nModulo: Dashboard Geral e Hub Operacional (/MRYnZpAsC9sp)
-
-actor "Administrador\n(Perfil 1)" as Admin <<Principal>>
-actor "Recepcionista\n(Perfil 3)" as Recepcao <<Operacional>>
-actor "Barbeiro / Profissional\n(Perfil 2)" as Barbeiro <<Especialista>>
-
-Admin -down-|> Recepcao
-Admin -down-|> Barbeiro
-
-rectangle "Sistema GWJ - Painel Administrativo & Dashboard" as SystemBoundary {
-
-    package "Controle de Acesso & Sessão" {
-        usecase "UC01 - Autenticar no Painel Administrativo\n(/MRYnZpAsC9sp/login)" as UC_Login
-        usecase "UC02 - Validar Sessão e Permissões RBAC" as UC_ValidarAcesso
-        usecase "UC03 - Encerrar Sessão (Logout)" as UC_Logout
-    }
-
-    package "Dashboard & Indicadores em Tempo Real" {
-        usecase "UC04 - Visualizar Dashboard Geral\n(/MRYnZpAsC9sp)" as UC_ViewDashboard
-        usecase "UC05 - Consultar Total de Agendamentos" as UC_KpiAgendamentos
-        usecase "UC06 - Consultar Total de Pedidos da Loja" as UC_KpiPedidos
-        usecase "UC07 - Consultar Total de Serviços Ativos" as UC_KpiServicos
-        usecase "UC08 - Consultar Total de Produtos em Estoque" as UC_KpiProdutos
-        usecase "UC09 - Consultar Total de Clientes Cadastrados" as UC_KpiClientes
-        usecase "UC10 - Consultar Total de Profissionais" as UC_KpiProfissionais
-    }
-
-    package "Módulos de Gestão Operacional" {
-        usecase "UC11 - Gerenciar Agendamentos\n(/MRYnZpAsC9sp/agendamentos)" as UC_GestaoAgendamentos
-        usecase "UC12 - Filtrar Agenda por Data e Profissional" as UC_FiltrarAgenda
-        usecase "UC13 - Alterar Status do Agendamento\n(Confirmado, Finalizado, Cancelado)" as UC_StatusAgendamento
-
-        usecase "UC14 - Gerenciar Pedidos da Loja\n(/MRYnZpAsC9sp/pedidos)" as UC_GestaoPedidos
-        usecase "UC15 - Atualizar Status do Pedido\n(Aguardando Retirada, Retirado, Cancelado)" as UC_StatusPedido
-
-        usecase "UC16 - Gerenciar Base de Clientes\n(/MRYnZpAsC9sp/clientes)" as UC_GestaoClientes
-    }
-
-    package "Módulos de Gestão Estratégica & Configurações" {
-        usecase "UC17 - Gerenciar Catálogo de Serviços\n(/MRYnZpAsC9sp/servicos)" as UC_GestaoServicos
-        usecase "UC18 - Gerenciar Produtos e Estoque\n(/MRYnZpAsC9sp/produtos)" as UC_GestaoProdutos
-        usecase "UC19 - Gerenciar Equipe de Profissionais\n(/MRYnZpAsC9sp/profissionais)" as UC_GestaoProfissionais
-        usecase "UC20 - Gerenciar Configurações da Barbearia\n(/MRYnZpAsC9sp/configuracoes)" as UC_GestaoConfig
-    }
-}
-
-actor "AdminInterceptor\n(Sistema de Segurança)" as Interceptor <<Sistema>>
-
-Admin - -> UC_Login
-Admin - -> UC_Logout
-Admin - -> UC_ViewDashboard
-
-UC_ViewDashboard ..> UC_ValidarAcesso : <<include>>
-UC_ValidarAcesso -right-> Interceptor : "Verifica sessão\ne perfis (RN-SEG-02 / RN-SEG-03)"
-
-UC_ViewDashboard ..> UC_KpiAgendamentos : <<include>>
-UC_ViewDashboard ..> UC_KpiPedidos : <<include>>
-UC_ViewDashboard ..> UC_KpiServicos : <<include>>
-UC_ViewDashboard ..> UC_KpiProdutos : <<include>>
-UC_ViewDashboard ..> UC_KpiClientes : <<include>>
-UC_ViewDashboard ..> UC_KpiProfissionais : <<include>>
-
-Admin - -> UC_GestaoAgendamentos
-Admin - -> UC_GestaoPedidos
-Admin - -> UC_GestaoClientes
-
-Recepcao - -> UC_ViewDashboard
-Recepcao - -> UC_GestaoAgendamentos
-Recepcao - -> UC_GestaoPedidos
-Recepcao - -> UC_GestaoClientes
-
-Barbeiro - -> UC_GestaoAgendamentos : "Apenas própria agenda\n(VISUALIZAR_PROPRIA_AGENDA)"
-
-UC_GestaoAgendamentos <.. UC_FiltrarAgenda : <<extend>>
-UC_GestaoAgendamentos <.. UC_StatusAgendamento : <<extend>>
-UC_GestaoPedidos <.. UC_StatusPedido : <<extend>>
-
-Admin - -> UC_GestaoServicos
-Admin - -> UC_GestaoProdutos
-Admin - -> UC_GestaoProfissionais
-Admin - -> UC_GestaoConfig
-
-note bottom of UC_ValidarAcesso
-  **RN-SEG-02 (Bloqueio de Clientes):**
-  Usuários do Perfil 'Cliente' (ID 4)
-  são estritamente bloqueados de qualquer
-  rota administrativa (/MRYnZpAsC9sp/*)
-  e redirecionados para a Home pública (/).
-end note
-
-note right of UC_ViewDashboard
-  **AdminDashboardController:**
-  Ao carregar a view, o controlador consulta
-  os serviços via **ServiceRegistry** para
-  computar as 6 métricas essenciais em tempo real:
-  - totalAgendamentos
-  - totalPedidos
-  - totalServicos
-  - totalProdutos
-  - totalClientes
-  - totalProfissionais
-end note
-
-note bottom of UC_GestaoConfig
-  **Configurações do Estabelecimento:**
-  Horários de abertura/fechamento semanais,
-  limites de tolerância e parâmetros institucionais.
-end note
-
-@enduml
-
-PlantUML version 1.2020.02(Sun Mar 01 07:22:07 GMT-03:00 2020)
-(GPL source distribution)
-Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
-Java Version: 25.0.4+7-1-deb13u1-Debian
-Operating System: Linux
-Default Encoding: UTF-8
-Language: pt
-Country: BR
---></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   contentScriptType="application/ecmascript"
+   contentStyleType="text/css"
+   height="1907px"
+   preserveAspectRatio="none"
+   style="width:1992px;height:1907px;background:#FEFEFE;"
+   version="1.1"
+   viewBox="0 0 1992 1907"
+   width="1992px"
+   zoomAndPan="magnify"
+   id="svg85"
+   sodipodi:docname="general_dashboard.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview85"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.98531725"
+     inkscape:cx="491.21235"
+     inkscape:cy="1010.3345"
+     inkscape:window-width="3840"
+     inkscape:window-height="2088"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg85" />
+  <defs
+     id="defs1">
+    <filter
+       height="1.94375"
+       id="fj8u2gj3j5ts3"
+       width="1.94375"
+       x="-0.346875"
+       y="-0.346875">
+      <feGaussianBlur
+         result="blurOut"
+         stdDeviation="2.0"
+         id="feGaussianBlur1" />
+      <feColorMatrix
+         in="blurOut"
+         result="blurOut2"
+         type="matrix"
+         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
+         id="feColorMatrix1" />
+      <feOffset
+         dx="4.0"
+         dy="4.0"
+         in="blurOut2"
+         result="blurOut3"
+         id="feOffset1" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut3"
+         mode="normal"
+         id="feBlend1" />
+    </filter>
+  </defs>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="18px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="713"
+     x="641.5"
+     y="19.241899"
+     id="text1">Diagrama de Casos de Uso - Painel Administrativo &amp; Dashboard (GWJ Barbearia)</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="18px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="534"
+     x="731"
+     y="43.757702"
+     id="text2">Modulo: Dashboard Geral e Hub Operacional (/MRYnZpAsC9sp)</text>
+  <rect
+     fill="#fefefe"
+     filter="url(#fj8u2gj3j5ts3)"
+     height="1692"
+     rx="5"
+     ry="5"
+     style="stroke:#000000;stroke-width:1.5"
+     width="824"
+     x="675"
+     y="129.03169"
+     id="rect2" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="345"
+     x="914.5"
+     y="145.9976"
+     id="text3">Sistema GWJ - Painel Administrativo &amp; Dashboard</text>
+  <path
+     d="m 1174,1513.0317 h 195 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 80 a 5,5 0 0 1 5,5 v 248.9321 a 5,5 0 0 1 -5,5 h -287 a 5,5 0 0 1 -5,-5 v -274 a 5,5 0 0 1 5,-5"
+     fill="#fefefe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#000000;stroke-width:1.5"
+     id="path3" />
+  <line
+     style="stroke:#000000;stroke-width:1.5"
+     x1="1169"
+     x2="1381"
+     y1="1538.0996"
+     y2="1538.0996"
+     id="line3" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="199"
+     x="1173"
+     y="1529.9976"
+     id="text4">Controle de Acesso &amp; Sessão</text>
+  <path
+     d="m 744,591.0317 h 282 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 432 a 5,5 0 0 1 5,5 v 534.9321 a 5,5 0 0 1 -5,5 H 744 a 5,5 0 0 1 -5,-5 v -560 a 5,5 0 0 1 5,-5"
+     fill="#fefefe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#000000;stroke-width:1.5"
+     id="path4" />
+  <line
+     style="stroke:#000000;stroke-width:1.5"
+     x1="739"
+     x2="1038"
+     y1="616.09961"
+     y2="616.09961"
+     id="line4" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="286"
+     x="743"
+     y="607.99762"
+     id="text5">Dashboard &amp; Indicadores em Tempo Real</text>
+  <path
+     d="m 734.5,1185.0317 h 216 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 H 1469 a 5,5 0 0 1 5,5 v 268.9321 a 5,5 0 0 1 -5,5 H 734.5 a 5,5 0 0 1 -5,-5 v -294 a 5,5 0 0 1 5,-5"
+     fill="#fefefe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#000000;stroke-width:1.5"
+     id="path5" />
+  <line
+     style="stroke:#000000;stroke-width:1.5"
+     x1="729.5"
+     x2="962.5"
+     y1="1210.0996"
+     y2="1210.0996"
+     id="line5" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="220"
+     x="733.5"
+     y="1201.9976"
+     id="text6">Módulos de Gestão Operacional</text>
+  <path
+     d="m 704,175.0317 h 328 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h -2 a 5,5 0 0 1 5,5 v 356.9321 a 5,5 0 0 1 -5,5 H 704 a 5,5 0 0 1 -5,-5 v -382 a 5,5 0 0 1 5,-5"
+     fill="#fefefe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#000000;stroke-width:1.5"
+     id="path6" />
+  <line
+     style="stroke:#000000;stroke-width:1.5"
+     x1="699"
+     x2="1044"
+     y1="200.09959"
+     y2="200.09959"
+     id="line6" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="332"
+     x="703"
+     y="191.9976"
+     id="text7">Módulos de Gestão Estratégica &amp; Configurações</text>
+  <ellipse
+     cx="1317.3621"
+     cy="1670.9041"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="132.362"
+     ry="28.8724"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse7" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="237"
+     x="1198.8621"
+     y="1673.3708"
+     id="text8">UC01 - Autenticar no Painel Administrativo</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="131"
+     x="1251.8621"
+     y="1689.7148"
+     id="text9">(/MRYnZpAsC9sp/login)</text>
+  <ellipse
+     cx="1317.4019"
+     cy="1578.9121"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="127.4018"
+     ry="27.8804"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse9" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="235"
+     x="1199.9019"
+     y="1583.5841"
+     id="text10">UC02 - Validar Sessão e Permissões RBAC</text>
+  <ellipse
+     cx="1317.2524"
+     cy="1757.9822"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="102.7525"
+     ry="22.9505"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse10" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="182"
+     x="1226.2524"
+     y="1762.6543"
+     id="text11">UC03 - Encerrar Sessão (Logout)</text>
+  <ellipse
+     cx="872.3656"
+     cy="968.90479"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="117.3656"
+     ry="25.8731"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse11" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="194"
+     x="775.3656"
+     y="969.63202"
+     id="text12">UC04 - Visualizar Dashboard Geral</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="100"
+     x="822.3656"
+     y="985.97607"
+     id="text13">(/MRYnZpAsC9sp)</text>
+  <ellipse
+     cx="1317.5145"
+     cy="657.03461"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="125.5145"
+     ry="27.502899"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse13" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="231"
+     x="1202.0145"
+     y="661.70673"
+     id="text14">UC05 - Consultar Total de Agendamentos</text>
+  <ellipse
+     cx="1317.4576"
+     cy="1117.2231"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="126.4577"
+     ry="27.6915"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse14" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="233"
+     x="1200.9576"
+     y="1121.8953"
+     id="text15">UC06 - Consultar Total de Pedidos da Loja</text>
+  <ellipse
+     cx="1317.5433"
+     cy="1026.9403"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="125.0433"
+     ry="27.408701"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse15" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="230"
+     x="1202.5433"
+     y="1031.6124"
+     id="text16">UC07 - Consultar Total de Serviços Ativos</text>
+  <ellipse
+     cx="1317.6572"
+     cy="934.26312"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="141.6572"
+     ry="30.7314"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse16" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="265"
+     x="1185.1572"
+     y="938.93518"
+     id="text17">UC08 - Consultar Total de Produtos em Estoque</text>
+  <ellipse
+     cx="1317.6572"
+     cy="838.26312"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="141.6572"
+     ry="30.7314"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse17" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="265"
+     x="1185.1572"
+     y="842.93518"
+     id="text18">UC09 - Consultar Total de Clientes Cadastrados</text>
+  <ellipse
+     cx="1317.4388"
+     cy="746.21948"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="118.9388"
+     ry="26.187799"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse18" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="217"
+     x="1208.9388"
+     y="750.89148"
+     id="text19">UC10 - Consultar Total de Profissionais</text>
+  <ellipse
+     cx="872.4964"
+     cy="1428.8311"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="126.9964"
+     ry="27.799299"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse19" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="185"
+     x="779.9964"
+     y="1425.1598"
+     id="text20">UC11 - Gerenciar Agendamentos</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="188"
+     x="778.4964"
+     y="1441.5039"
+     id="text21">(/MRYnZpAsC9sp/agendamentos)</text>
+  <ellipse
+     cx="1317.5088"
+     cy="1442.8335"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="134.5088"
+     ry="29.3018"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse21" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="250"
+     x="1192.5088"
+     y="1447.5055"
+     id="text22">UC12 - Filtrar Agenda por Data e Profissional</text>
+  <ellipse
+     cx="1317.3182"
+     cy="1349.0953"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="135.81821"
+     ry="29.563601"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse22" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="217"
+     x="1208.8182"
+     y="1346.6183"
+     id="text23">UC13 - Alterar Status do Agendamento</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="201"
+     x="1216.8182"
+     y="1362.9624"
+     id="text24">(Confirmado, Finalizado, Cancelado)</text>
+  <ellipse
+     cx="872.34399"
+     cy="1250.1005"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="120.844"
+     ry="26.5688"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse24" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="187"
+     x="778.84399"
+     y="1248.5989"
+     id="text25">UC14 - Gerenciar Pedidos da Loja</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="148"
+     x="798.34399"
+     y="1264.943"
+     id="text26">(/MRYnZpAsC9sp/pedidos)</text>
+  <ellipse
+     cx="1317.549"
+     cy="1254.0415"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="140.549"
+     ry="30.5098"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse26" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="187"
+     x="1224.049"
+     y="1246.7089"
+     id="text27">UC15 - Atualizar Status do Pedido</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="245"
+     x="1195.049"
+     y="1263.053"
+     id="text28">(Aguardando Retirada, Retirado, Cancelado)</text>
+  <ellipse
+     cx="872.57379"
+     cy="1338.8466"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="122.0738"
+     ry="26.8148"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse28" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="193"
+     x="776.07379"
+     y="1337.7388"
+     id="text29">UC16 - Gerenciar Base de Clientes</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="147"
+     x="799.07379"
+     y="1354.0829"
+     id="text30">(/MRYnZpAsC9sp/clientes)</text>
+  <ellipse
+     cx="872.42139"
+     cy="241.116"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="128.4214"
+     ry="28.084299"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse30" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="217"
+     x="763.92139"
+     y="241.37711"
+     id="text31">UC17 - Gerenciar Catálogo de Serviços</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="150"
+     x="797.42139"
+     y="257.72119"
+     id="text32">(/MRYnZpAsC9sp/servicos)</text>
+  <ellipse
+     cx="872.58911"
+     cy="332.24951"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="126.5891"
+     ry="27.7178"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse32" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="208"
+     x="768.58911"
+     y="331.73959"
+     id="text33">UC18 - Gerenciar Produtos e Estoque</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="154"
+     x="795.58911"
+     y="348.08371"
+     id="text34">(/MRYnZpAsC9sp/produtos)</text>
+  <ellipse
+     cx="872.68103"
+     cy="423.86789"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="134.681"
+     ry="29.336201"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse34" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="229"
+     x="758.18103"
+     y="423.7049"
+     id="text35">UC19 - Gerenciar Equipe de Profissionais</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="175"
+     x="785.18103"
+     y="440.04901"
+     id="text36">(/MRYnZpAsC9sp/profissionais)</text>
+  <ellipse
+     cx="872.50128"
+     cy="520.1319"
+     fill="#ffffff"
+     filter="url(#fj8u2gj3j5ts3)"
+     rx="143.5013"
+     ry="31.1003"
+     style="stroke:#4f46e5;stroke-width:1.5"
+     id="ellipse36" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="257"
+     x="744.00128"
+     y="521.6123"
+     id="text37">UC20 - Gerenciar Configurações da Barbearia</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="12px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="183"
+     x="781.00128"
+     y="537.95642"
+     id="text38">(/MRYnZpAsC9sp/configuracoes)</text>
+  <circle
+     cx="49"
+     cy="909.09961"
+     fill="#e0f2fe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="ellipse38"
+     r="8" />
+  <path
+     d="m 49,917.0996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+     fill="none"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="path38" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="86"
+     x="6"
+     y="978.49658"
+     id="text39">Administrador</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="48"
+     x="25"
+     y="996.20258"
+     id="text40">(Perfil 1)</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-style="italic"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="70"
+     x="14"
+     y="895.49762"
+     id="text41">«Principal»</text>
+  <circle
+     cx="292"
+     cy="1219.0996"
+     fill="#e0f2fe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="ellipse41"
+     r="8" />
+  <path
+     d="m 292,1227.0996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+     fill="none"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="path41" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="82"
+     x="251"
+     y="1288.4966"
+     id="text42">Recepcionista</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="48"
+     x="268"
+     y="1306.2026"
+     id="text43">(Perfil 3)</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-style="italic"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="91"
+     x="246.5"
+     y="1205.4976"
+     id="text44">«Operacional»</text>
+  <circle
+     cx="292"
+     cy="1381.0996"
+     fill="#e0f2fe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="ellipse44"
+     r="8" />
+  <path
+     d="m 292,1389.0996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+     fill="none"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="path44" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="131"
+     x="226.5"
+     y="1450.4966"
+     id="text45">Barbeiro / Profissional</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="48"
+     x="268"
+     y="1468.2026"
+     id="text46">(Perfil 2)</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-style="italic"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="87"
+     x="248.5"
+     y="1367.4976"
+     id="text47">«Especialista»</text>
+  <circle
+     cx="1858"
+     cy="1480.0996"
+     fill="#e0f2fe"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="ellipse47"
+     r="8" />
+  <path
+     d="m 1858,1488.0996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
+     fill="none"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#0284c7;stroke-width:1.5"
+     id="path47" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="107"
+     x="1804.5"
+     y="1549.4966"
+     id="text48">AdminInterceptor</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="139"
+     x="1788.5"
+     y="1567.2026"
+     id="text49">(Sistema de Segurança)</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="14px"
+     font-style="italic"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="63"
+     x="1826.5"
+     y="1466.4976"
+     id="text50">«Sistema»</text>
+  <path
+     d="m 1738,1610.5317 v 18.21 l -309.88,-35.66 309.88,43.66 v 48.6994 a 5,5 0 0 0 5,5 h 230 a 5,5 0 0 0 5,-5 v -69.9094 l -10,-10 h -225 a 5,5 0 0 0 -5,5"
+     fill="#fef3c7"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#d97706;stroke-width:1"
+     id="path50" />
+  <path
+     d="m 1968,1605.5317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
+     fill="#fef3c7"
+     style="stroke:#d97706;stroke-width:1"
+     id="path51" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="182"
+     x="1744"
+     y="1622.2906"
+     id="text51">RN-SEG-02 (Bloqueio de Clientes):</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="167"
+     x="1744"
+     y="1637.2725"
+     id="text52">Usuários do Perfil 'Cliente' (ID 4)</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="219"
+     x="1744"
+     y="1652.2544"
+     id="text53">são estritamente bloqueados de qualquer</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="203"
+     x="1744"
+     y="1667.2363"
+     id="text54">rota administrativa (/MRYnZpAsC9sp/*)</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="215"
+     x="1744"
+     y="1682.2181"
+     id="text55">e redirecionados para a Home pública (/).</text>
+  <path
+     d="m 153,998.0317 v 149.8189 a 5,5 0 0 0 5,5 h 268 a 5,5 0 0 0 5,-5 v -95.6589 l 349.8,-66.86 -349.8,58.86 v -41.16 l -10,-10 H 158 a 5,5 0 0 0 -5,5"
+     fill="#fef3c7"
+     filter="url(#fj8u2gj3j5ts3)"
+     style="stroke:#d97706;stroke-width:1"
+     id="path55" />
+  <path
+     d="m 421,993.0317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
+     fill="#fef3c7"
+     style="stroke:#d97706;stroke-width:1"
+     id="path56" />
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="155"
+     x="159"
+     y="1009.7906"
+     id="text56">AdminDashboardController:</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="224"
+     x="159"
+     y="1024.7725"
+     id="text57">Ao carregar a view, o controlador consulta</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="75"
+     x="159"
+     y="1039.7544"
+     id="text58">os serviços via</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     font-weight="bold"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="85"
+     x="237"
+     y="1039.7544"
+     id="text59">ServiceRegistry</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="24"
+     x="325"
+     y="1039.7544"
+     id="text60">para</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="257"
+     x="159"
+     y="1054.7363"
+     id="text61">computar as 6 métricas essenciais em tempo real:</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="110"
+     x="159"
+     y="1069.7181"
+     id="text62">- totalAgendamentos</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="73"
+     x="159"
+     y="1084.7"
+     id="text63">- totalPedidos</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="74"
+     x="159"
+     y="1099.6819"
+     id="text64">- totalServicos</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="80"
+     x="159"
+     y="1114.6638"
+     id="text65">- totalProdutos</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="72"
+     x="159"
+     y="1129.6458"
+     id="text66">- totalClientes</text>
+  <text
+     fill="#000000"
+     font-family="Helvetica"
+     font-size="11px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="98"
+     x="159"
+     y="1144.6276"
+     id="text67">- totalProfissionais</text>
+  <g
+     id="g85"
+     transform="translate(-99.752483,330.83378)">
+    <path
+       d="m 1180.5,62.5317 v 44.9457 a 5,5 0 0 0 5,5 h 264 a 5,5 0 0 0 5,-5 V 67.5317 l -10,-10 h -259 a 5,5 0 0 0 -5,5"
+       fill="#fef3c7"
+       filter="url(#fj8u2gj3j5ts3)"
+       style="stroke:#d97706;stroke-width:1"
+       id="path67" />
+    <path
+       d="m 1444.5,57.5317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
+       fill="#fef3c7"
+       style="stroke:#d97706;stroke-width:1"
+       id="path68" />
+    <text
+       fill="#000000"
+       font-family="Helvetica"
+       font-size="11px"
+       font-weight="bold"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="195"
+       x="1186.5"
+       y="74.290604"
+       id="text68">Configurações do Estabelecimento:</text>
+    <text
+       fill="#000000"
+       font-family="Helvetica"
+       font-size="11px"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="231"
+       x="1186.5"
+       y="89.272499"
+       id="text69">Horários de abertura/fechamento semanais,</text>
+    <text
+       fill="#000000"
+       font-family="Helvetica"
+       font-size="11px"
+       lengthAdjust="spacingAndGlyphs"
+       textLength="253"
+       x="1186.5"
+       y="104.2544"
+       id="text70">limites de tolerância e parâmetros institucionais.</text>
+  </g>
+  <path
+     d="m 65.45,999.5917 c 15.44,50.15 43.33,121.35 87.55,170.44 20.58,22.85 49.27,40.93 75.17,54.08"
+     fill="none"
+     id="Admin-&gt;Recepcao"
+     style="stroke:#4338ca;stroke-width:1" />
+  <polygon
+     fill="none"
+     points="225.31,1230.5017 231.35,1217.8717 246.37,1232.8117 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon70" />
+  <path
+     d="m 52.39,999.6317 c 6.05,81.45 27.17,228.65 100.61,327.4 14.49,19.48 34.89,35.49 55.57,48.15"
+     fill="none"
+     id="Admin-&gt;Barbeiro"
+     style="stroke:#4338ca;stroke-width:1" />
+  <polygon
+     fill="none"
+     points="205.43,1381.4417 212.34,1369.2717 226.27,1385.2317 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon71" />
+  <path
+     d="m 52.74,999.5717 c 7.18,127.8 31.01,422.27 100.26,489.46 145,140.67 759.51,172.62 1032.22,179.87"
+     fill="none"
+     id="Admin-UC_Login"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 50.25,999.7417 c 1.97,147.58 15.61,523.47 102.75,605.29 309.87,290.94 887.4,209.29 1090.55,169.11"
+     fill="none"
+     id="Admin-UC_Logout"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 92.15,941.5217 c 122.01,4.31 478.57,16.89 664.13,23.44"
+     fill="none"
+     id="Admin-UC_ViewDashboard"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 919.01,993.0817 c 63.84,36.56 177.71,112.71 226.99,213.95 27.47,56.43 -17.78,228.49 15,282 18.1,29.54 49.76,50.39 79.81,64.53"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_ValidarAcesso"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1241.066,1553.6855 1235.7619,1555.6517 1245.61,1555.7717 1239.0998,1548.3813 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon72" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="1122.9287"
+     id="text72">«include»</text>
+  <path
+     d="m 1428.45,1565.1517 c 105.82,-13.37 262.89,-33.2 354.58,-44.78"
+     fill="none"
+     id="UC_ValidarAcesso-&gt;Interceptor"
+     style="stroke:#4338ca;stroke-width:1" />
+  <polygon
+     fill="#4338ca"
+     points="1783.1995,1520.3489 1779.7328,1524.819 1788.16,1519.7217 1778.7293,1516.8822 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon73" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="86"
+     x="1568.5"
+     y="1508.9287"
+     id="text73">Verifica sessão</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="191"
+     x="1516"
+     y="1526.6346"
+     id="text74">e perfis (RN-SEG-02 / RN-SEG-03)</text>
+  <path
+     d="m 894,943.1517 c 43.46,-53.16 150.51,-175.19 267,-241.12 18.23,-10.32 39.02,-18.44 59.34,-24.77"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiAgendamentos"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1220.4408,677.2411 1217.793,682.24 1225.22,675.7717 1215.4419,674.5933 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon74" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="708.92871"
+     id="text75">«include»</text>
+  <path
+     d="m 932.6,991.4217 c 57.86,21.64 148.7,54.83 228.4,80.61 23.34,7.55 48.84,15.18 72.32,21.97"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiPedidos"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1233.4951,1094.0487 1228.5447,1096.7862 1238.3,1095.4317 1230.7576,1089.0983 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon75" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="1044.9287"
+     id="text76">«include»</text>
+  <path
+     d="m 974.02,982.1917 c 68.68,8.99 159.75,20.92 230.71,30.21"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiServicos"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1204.8534,1012.4046 1200.3624,1015.8443 1209.81,1013.0617 1201.4137,1007.9136 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon76" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="993.92871"
+     id="text77">«include»</text>
+  <path
+     d="m 983.29,960.3617 c 59.19,-4.68 132.8,-10.5 195.77,-15.47"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiProdutos"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1179.356,944.8716 1175.6887,949.1786 1184.34,944.4717 1175.0489,941.2043 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon77" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="944.92871"
+     id="text78">«include»</text>
+  <path
+     d="m 943.69,948.2717 c 77.15,-22.81 201.2,-59.49 284.79,-84.21"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiClientes"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1228.6339,864.0048 1225.9275,868.9723 1233.43,862.5917 1223.6664,861.2984 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon78" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="887.92871"
+     id="text79">«include»</text>
+  <path
+     d="m 906.72,943.9717 c 51.82,-38.05 156.14,-110.55 254.28,-153.94 21.56,-9.53 45.72,-17.55 68.45,-24.02"
+     fill="none"
+     id="UC_ViewDashboard-&gt;UC_KpiProfissionais"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1229.4676,766.0183 1226.7029,770.9536 1234.28,764.6617 1224.5323,763.2537 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon79" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="57"
+     x="1088"
+     y="793.92871"
+     id="text80">«include»</text>
+  <path
+     d="m 337.91,1228.2117 c 106.59,-51.77 374.13,-181.73 484.65,-235.41"
+     fill="none"
+     id="Recepcao-UC_ViewDashboard"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 337.67,1267.8317 c 79.0454,21.4886 275.43594,80.961 427.53,146.14"
+     fill="none"
+     id="Recepcao-UC_GestaoAgendamentos"
+     style="stroke:#4338ca;stroke-width:1"
+     sodipodi:nodetypes="cc" />
+  <path
+     d="m 337.91,1250.0317 c 87.81,0 284.84,0 413.34,0"
+     fill="none"
+     id="Recepcao-UC_GestaoPedidos"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 337.91,1256.9417 c 92.65,14.25 306.92,47.22 433.95,66.76"
+     fill="none"
+     id="Recepcao-UC_GestaoClientes"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 357.62,1414.4717 c 31.23,1.15 69.25,2.49 103.38,3.56 95.66,2.99 203.88,5.87 285.18,7.93"
+     fill="none"
+     id="Barbeiro-UC_GestaoAgendamentos"
+     style="stroke:#4338ca;stroke-width:1" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="139"
+     x="490.5"
+     y="1395.9287"
+     id="text81">Apenas própria agenda</text>
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="196"
+     x="462"
+     y="1413.6346"
+     id="text82">(VISUALIZAR_PROPRIA_AGENDA)</text>
+  <path
+     d="m 1003.5,1433.1417 c 56.86,1.8 123.49,3.9 180.63,5.71"
+     fill="none"
+     id="UC_GestaoAgendamentos&lt;-UC_FiltrarAgenda"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="1003.3675,1433.1392 1007.4915,1429.2672 998.37,1432.9817 1007.2395,1437.2632 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon82" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="56"
+     x="1088.5"
+     y="1431.9287"
+     id="text83">«extend»</text>
+  <path
+     d="m 976.33,1410.4617 c 70.93,-12.81 164.9,-29.78 236.09,-42.63"
+     fill="none"
+     id="UC_GestaoAgendamentos&lt;-UC_StatusAgendamento"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="976.1912,1410.4873 979.4206,1405.8429 971.27,1411.3717 980.8356,1413.7167 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon83" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="56"
+     x="1088.5"
+     y="1377.9287"
+     id="text84">«extend»</text>
+  <path
+     d="m 998.68,1251.1617 c 55.59,0.5 121.23,1.09 178.39,1.61"
+     fill="none"
+     id="UC_GestaoPedidos&lt;-UC_StatusPedido"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7" />
+  <polygon
+     fill="#4338ca"
+     points="998.6698,1251.1645 1002.704,1247.199 993.67,1251.1217 1002.6354,1255.1987 "
+     style="stroke:#4338ca;stroke-width:1"
+     id="polygon84" />
+  <text
+     fill="#000000"
+     font-family="sans-serif"
+     font-size="13px"
+     lengthAdjust="spacingAndGlyphs"
+     textLength="56"
+     x="1088.5"
+     y="1247.9287"
+     id="text85">«extend»</text>
+  <path
+     d="m 49.6,880.2717 c 2.5,-86.87 19.19,-248.82 103.4,-351.24 152.57,-185.55 442.37,-252.39 603.39,-275.84"
+     fill="none"
+     id="Admin-UC_GestaoServicos"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 58.49,880.3817 c 11.66,-62.9 38.01,-161.78 94.51,-227.35 164.11,-190.43 463.49,-272.95 618.91,-304.3"
+     fill="none"
+     id="Admin-UC_GestaoProdutos"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="m 80.72,880.2517 c 18.13,-31.43 43.2,-69.14 72.28,-97.22 192.25,-185.62 266.4,-211.46 514,-312 30.88,-12.54 65.82,-22.12 97.96,-29.26"
+     fill="none"
+     id="Admin-UC_GestaoProfissionais"
+     style="stroke:#4338ca;stroke-width:1" />
+  <path
+     d="M 92.18,916.5417 C 319.77675,790.34627 550.91593,637.5045 754.49376,537.66425"
+     fill="none"
+     id="Admin-UC_GestaoConfig"
+     style="stroke:#4338ca;stroke-width:1"
+     sodipodi:nodetypes="cc" />
+  <path
+     d="m 1004.4967,507.3768 c 42.7138,-12.83638 60.0863,-23.13686 90.416,-61.75839"
+     fill="none"
+     id="UC_GestaoConfig-GMN62"
+     style="stroke:#4338ca;stroke-width:1;stroke-dasharray:7, 7"
+     sodipodi:nodetypes="cc" />
+</svg>

@@ -96,16 +96,16 @@ rectangle "Storefront GWJ - Barbearia & Loja Virtual" as StorefrontBoundary {
 actor "Sistema / UnitOfWork\n(Controle Transacional)" as Sistema <<Backend>>
 
 ' --- Relacionamentos do Visitante ---
-Visitante --> UC_CatalogoProdutos
-Visitante --> UC_DetalheProduto
-Visitante --> UC_AddCarrinho
-Visitante --> UC_VerCarrinho
-Visitante --> UC_CheckoutProdutos
-Visitante --> UC_CatalogoServicos
-Visitante --> UC_ConsultaDisponibilidade
-Visitante --> UC_CheckoutAgendamento
-Visitante --> UC_Cadastro
-Visitante --> UC_LoginCliente
+Visitante -- UC_CatalogoProdutos
+Visitante -- UC_DetalheProduto
+Visitante -- UC_AddCarrinho
+Visitante -- UC_VerCarrinho
+Visitante -- UC_CheckoutProdutos
+Visitante -- UC_CatalogoServicos
+Visitante -- UC_ConsultaDisponibilidade
+Visitante -- UC_CheckoutAgendamento
+Visitante -- UC_Cadastro
+Visitante -- UC_LoginCliente
 
 ' Inclusões e Extensões do Carrinho
 UC_AddCarrinho ..> UC_ValidaEstoque : <<include>>
@@ -120,18 +120,18 @@ UC_CheckoutProdutos ..> UC_ConcluirPedido : <<include>>
 UC_ConcluirPedido ..> UC_CompraConfirmada : <<include>>
 UC_ConcluirPedido ..> UC_LimpezaPosVenda : <<include>>
 
-UC_ConcluirPedido -right-> Sistema : "Executa transação ACID\ncom UnitOfWork"
+UC_ConcluirPedido -left-> Sistema : "Executa transação ACID\ncom UnitOfWork"
 
 ' Fluxo de Agendamento
 UC_CheckoutAgendamento ..> UC_ConsultaDisponibilidade : <<include>>
 UC_CheckoutAgendamento ..> UC_ComprovanteAgendamento : <<include>>
 
 ' --- Relacionamentos Exclusivos do Cliente Autenticado ---
-Cliente --> UC_Historico : "Consulta atendimentos vinculados\nao seu telefone"
-Cliente --> UC_LogoutCliente
+Cliente -- UC_Historico : "Consulta atendimentos vinculados\nao seu telefone"
+Cliente -- UC_LogoutCliente
 
 ' --- Notas de Regras de Negócio ---
-note bottom of UC_IdentificarComprador
+note right of UC_IdentificarComprador
   **RN-EST-03 (Identificação):**
   - **Cliente autenticado:** O pedido é associado
     automaticamente ao seu ID (tab_pedidos.cliente_id).
@@ -147,7 +147,7 @@ note right of UC_ConcluirPedido
   Se o saldo for insuficiente, ocorre Rollback.
 end note
 
-note bottom of UC_Historico
+note right of UC_Historico
   **Área do Cliente:**
   Permite rever o histórico cronológico de
   agendamentos e status de pedidos sem acessar
