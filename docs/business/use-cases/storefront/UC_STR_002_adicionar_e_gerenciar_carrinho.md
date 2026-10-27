@@ -57,25 +57,50 @@ Permite que o usuário monte sua sacola de compras de cosméticos e kits promoci
 
 ---
 
-## 6. 🔀 Extensões Operacionais do Carrinho
+## 6. 🔀 Casos de Uso Complementares e Extensões do Carrinho
 
 ### **UC05 - Visualizar Carrinho de Compras (`/carrinho`)**
-* O usuário acessa a rota `/carrinho` (ou `/cart`). O sistema renderiza `site/cart/carrinho.html` exibindo a tabela completa com fotos, nomes, preços unitários, seletores numéricos de quantidade, subtotal por linha e valor total geral.
+* **Objetivo:** Exibir ao usuário o extrato analítico dos itens adicionados, subtotais individuais, valor total consolidado e opções de navegação para continuidade das compras ou avanço ao checkout.
+* **Fluxo Operacional:**
+  1. O usuário clica no ícone de sacola/carrinho no cabeçalho ou navega diretamente para `/carrinho` (ou `/cart`).
+  2. O controlador [`CarrinhoController.carrinho`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java) recupera a instância de `Carrinho` da `HttpSession`.
+  3. Injeta o objeto `carrinho` no modelo Thymeleaf.
+  4. Renderiza a view `site/cart/carrinho.html`. Se o carrinho estiver vazio, exibe o estado vazio (*empty state*) com botão convidando o cliente a explorar a `/loja`.
+* **Saída:** Tabela detalhada de itens contendo: foto miniatura, nome do produto/kit, valor unitário, seletor de quantidade `[-] Qtd [+]`, subtotal em reais e botão de remoção.
 
 ### **UC06 - Alterar Quantidade do Item (`POST /carrinho/atualizar`) (`<<extend>>`)**
-1. Na tela do carrinho, o usuário clica nos botões `+` ou `-` ou digita nova quantidade.
-2. Requisição AJAX submete `produtoId` e nova `quantidade`.
-3. O sistema valida se a nova quantidade respeita o saldo em estoque (`RN-EST-01`).
-4. Invoca `carrinho.atualizarQuantidade(produtoId, quantidade)` e devolve o novo valor total formatado.
+* **Objetivo:** Ajustar o quantitativo desejado de uma unidade específica sem necessidade de recarregar a página web.
+* **Fluxo Operacional:**
+  1. Na visualização do carrinho, o usuário interage com os botões de incremento/decremento ou altera o valor numérico.
+  2. O script cliente JavaScript dispara requisição assíncrona (Fetch/AJAX):
+     * **Método:** `POST`
+     * **Endpoint:** `/carrinho/atualizar`
+     * **Payload (Form Data):** `produtoId={id}&quantidade={novaQtd}`
+  3. O controlador valida se `novaQtd > 0` e se `novaQtd <= produto.getEstoque()` (`RN-EST-01`).
+  4. Executa `carrinho.atualizarQuantidade(produtoId, quantidade)`.
+  5. Retorna resposta JSON: `{"sucesso": true, "quantidadeTotal": N, "valorTotal": "R$ X,XX", "subtotalItem": "R$ Y,YY"}`.
+  6. A interface atualiza os valores na linha da tabela e no totalizador geral.
 
 ### **UC07 - Remover Item do Carrinho (`POST /carrinho/remover`) (`<<extend>>`)**
-1. O usuário clica no ícone de lixeira ao lado do item.
-2. Requisição AJAX submete `/carrinho/remover?produtoId={id}`.
-3. O controlador execute `carrinho.removerItem(produtoId)` e remove o produto da coleção da sessão.
+* **Objetivo:** Retirar uma linha de produto específica do carrinho da sessão.
+* **Fluxo Operacional:**
+  1. O usuário clica no ícone de exclusão / lixeira referente ao item indesejado.
+  2. A interface dispara requisição AJAX:
+     * **Método:** `POST`
+     * **Endpoint:** `/carrinho/remover`
+     * **Parâmetro:** `produtoId={id}`
+  3. O controlador executa `carrinho.removerItem(produtoId)`.
+  4. Retorna resposta JSON: `{"sucesso": true, "quantidadeTotal": N, "valorTotal": "R$ X,XX"}`.
+  5. O JavaScript remove a linha do produto do DOM com animação suave e recalcula o contador do mini-cart.
 
 ### **UC08 - Esvaziar Carrinho (`POST /carrinho/limpar`) (`<<extend>>`)**
-1. O usuário clica em "Limpar Carrinho".
-2. O sistema executa `carrinho.limpar()`, zerando a lista de itens, o contador e o montante financeiro.
+* **Objetivo:** Descartar todos os itens da sacola de compras de uma só vez.
+* **Fluxo Operacional:**
+  1. O usuário clica na ação "Limpar Carrinho".
+  2. Dispara requisição `POST /carrinho/limpar`.
+  3. O controlador executa `carrinho.limpar()`, esvaziando a coleção de itens na sessão HTTP.
+  4. Retorna resposta JSON: `{"sucesso": true, "quantidadeTotal": 0, "valorTotal": "R$ 0,00"}`.
+  5. A interface transiciona para o estado vazio convidativo.
 
 ---
 

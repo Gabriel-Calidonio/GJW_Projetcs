@@ -76,6 +76,11 @@ Permite a finalização da compra dos cosméticos e kits acumulados no carrinho 
   * `Dinheiro`: Pagamento presencial no ato da retirada no balcão da barbearia.
   * `Cartão (Débito/Crédito)`: Maquininha física no salão.
 
+### **UC13 - Visualizar Confirmação de Compra (`/compra-confirmada`)**
+* **Objetivo:** Apresentar o comprovante formal do pedido ao cliente com orientações de retirada.
+* **Mecanismo:** Redirecionamento HTTP 302 para `GET /compra-confirmada?id={pedidoId}` processado por [`Router.compraConfirmada`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java).
+* **Dados Exibidos:** Número de protocolo do pedido, data da compra, discriminação de cosméticos adquiridos, endereço físico da barbearia e status atualizado (`Aguardando Retirada`).
+
 ### **UC14 - Esvaziar Carrinho Pós-Venda (RN-EST-04)**
 * Garante que o carrinho só seja esvaziado após o sucesso incontestável da transação de persistência do pedido, evitando perda de carrinho em caso de falha de conexão.
 

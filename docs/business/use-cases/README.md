@@ -13,6 +13,14 @@ Este diretório contém a modelagem em **PlantUML** dos Casos de Uso do sistema 
 
 ---
 
+## 🧭 Matriz de Rastreabilidade Bidirecional (Traceability Matrix)
+
+Para atendimento aos mais rigorosos critérios acadêmicos e auditorias de engenharia de software corporativa, disponibilizamos a **matriz completa que mapeia cada uma das 42 elipses** dos diagramas PlantUML para suas respectivas seções nos documentos de especificação, rotas HTTP, controladores Spring Boot e regras de negócio:
+
+👉 **Acesse a [Matriz de Rastreabilidade de Casos de Uso](./matriz_rastreabilidade_casos_de_uso.md)**
+
+---
+
 ## 📑 Especificações Detalhadas de Casos de Uso
 
 ### 🖥️ Painel Administrativo & Dashboard (`dashboard/`)

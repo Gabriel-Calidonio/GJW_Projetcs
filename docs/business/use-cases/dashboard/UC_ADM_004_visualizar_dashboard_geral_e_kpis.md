@@ -71,26 +71,51 @@ Além dos cartões de métricas, o Dashboard atua como *Hub de Navegação*, dis
 
 ## 6. 🔀 Casos de Uso Incluídos (`<<include>>`)
 
-Os 6 indicadores abaixo operam de maneira desacoplada através de blocos `try/catch` independentes no controlador:
+Os 6 indicadores essenciais (KPIs) computados no Dashboard operam de maneira desacoplada através de blocos `try/catch` independentes no controlador [`AdminDashboardController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminDashboardController.java), assegurando alta resiliência e tolerância a falhas parciais:
 
 ### **UC05 - Consultar Total de Agendamentos**
-* Computa a contagem de todos os registros de agendamento na tabela `tab_agendamento`.
-* Permite ao gestor avaliar a demanda da agenda da barbearia.
+* **Objetivo:** Computar o volume acumulado de reservas de horários registradas no sistema.
+* **Mecanismo de Execução:** Invocação de `AgendamentoService.read(new Agendamento())` via `ServiceRegistry.getService(Agendamento.class)`.
+* **Entidade de Dados:** `tab_agendamento`.
+* **Atributo no Model:** `totalAgendamentos` *(Integer)*.
+* **Relevância Operacional:** Permite ao gestor monitorar a taxa de ocupação das cadeiras da barbearia e subsidiar decisões de escala e dimensionamento da equipe.
+* **Comportamento em Falha:** Caso ocorra indisponibilidade temporária na tabela, o sistema registra warning no log e injeta `0` no modelo, mantendo o carregamento dos demais cards.
 
 ### **UC06 - Consultar Total de Pedidos da Loja**
-* Computa a contagem global de compras realizadas na loja virtual da barbearia.
+* **Objetivo:** Computar a contagem de compras geradas na vitrine virtual e-commerce da barbearia.
+* **Mecanismo de Execução:** Invocação de `PedidoService.read(new Pedido())` via `ServiceRegistry.getService(Pedido.class)`.
+* **Entidade de Dados:** `tab_pedidos`.
+* **Atributo no Model:** `totalPedidos` *(Integer)*.
+* **Relevância Operacional:** Fornece visibilidade imediata da tração de vendas de produtos cosméticos e kits, alertando a recepção sobre a existência de ordens a processar para retirada no balcão.
+* **Comportamento em Falha:** Retorna `0` em caso de erro, garantindo a renderização do painel.
 
 ### **UC07 - Consultar Total de Serviços Ativos**
-* Retorna a quantidade de procedimentos capilares e de barba oferecidos no catálogo.
+* **Objetivo:** Retornar a quantidade de procedimentos capilares e de barba cadastrados e disponíveis no catálogo.
+* **Mecanismo de Execução:** Invocação de `ServicoService.read(new Servico())` via `ServiceRegistry.getService(Servico.class)`.
+* **Entidade de Dados:** `tab_servico`.
+* **Atributo no Model:** `totalServicos` *(Integer)*.
+* **Relevância Operacional:** Assegura que o catálogo corporativo possui serviços vigentes e atua como atalho para o módulo de cadastro e precificação de serviços (`UC_ADM_008`).
 
 ### **UC08 - Consultar Total de Produtos em Estoque**
-* Retorna a quantidade de cosméticos, pomadas e kits cadastrados para venda.
+* **Objetivo:** Apurar o número de itens físicos e kits promocionais cadastrados no inventário.
+* **Mecanismo de Execução:** Invocação de `ProdutoService.read(new Produto())` via `ServiceRegistry.getService(Produto.class)`.
+* **Entidade de Dados:** `tab_produto`.
+* **Atributo no Model:** `totalProdutos` *(Integer)*.
+* **Relevância Operacional:** Subsidia o controle de sortimento de produtos comercializáveis e previne ruptura de estoque de cosméticos de alta rotatividade.
 
 ### **UC09 - Consultar Total de Clientes Cadastrados**
-* Apura o tamanho da carteira de clientes registrada no sistema.
+* **Objetivo:** Mensurar a carteira consolidada de clientes cadastrados na base de dados.
+* **Mecanismo de Execução:** Invocação de `ClienteService.read(new Cliente())` via `ServiceRegistry.getService(Cliente.class)`.
+* **Entidade de Dados:** `tab_cliente` vinculada a `tab_usuario`.
+* **Atributo no Model:** `totalClientes` *(Integer)*.
+* **Relevância Operacional:** Indicador chave de crescimento da barbearia, retenção e alcance da base de consumidores fidelizados.
 
 ### **UC10 - Consultar Total de Profissionais**
-* Exibe o total de barbeiros e colaboradores ativos na equipe.
+* **Objetivo:** Exibir a quantidade de barbeiros e especialistas que compõem o corpo técnico da barbearia.
+* **Mecanismo de Execução:** Invocação de `ProfissionalService.read(new Profissional())` via `ServiceRegistry.getService(Profissional.class)`.
+* **Entidade de Dados:** `tab_profissional`.
+* **Atributo no Model:** `totalProfissionais` *(Integer)*.
+* **Relevância Operacional:** Quantifica a capacidade instalada de atendimento simultâneo do estabelecimento.
 
 ---
 

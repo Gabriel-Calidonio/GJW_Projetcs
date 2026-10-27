@@ -66,11 +66,27 @@ Permite o controle completo da agenda do estabelecimento no painel administrativ
 5. O sistema persiste a entidade via `service.create(ag)` e redireciona para a listagem.
 
 ### **UC12 - Filtrar Agenda por Data e Profissional (`<<extend>>`)**
-* Permite ao operador selecionar uma data específica no calendário e filtrar os agendamentos atribuídos a um determinado barbeiro, facilitando o acompanhamento diário da cadeira.
+* **Objetivo:** Permitir ao operador (especialmente Recepcionista ou Barbeiro com permissão `VISUALIZAR_PROPRIA_AGENDA`) segmentar a visualização da grade diária por colaborador e intervalo de datas.
+* **Fluxo Operacional:**
+  1. Na tela de agendamentos (`/MRYnZpAsC9sp/agendamentos`), o operador seleciona um filtro de data no seletor de calendário e/ou escolhe um profissional no menu suspenso.
+  2. Ao submeter a filtragem, a requisição envia os parâmetros `?data={data}&profissionalId={id}` via GET.
+  3. O controlador [`AdminAgendamentoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminAgendamentoController.java) instancia `Agendamento` como critério de filtro preenchendo `dataAgendamento` e `profissionalId`.
+  4. Caso o usuário logado seja um Barbeiro (*Perfil 2*), o sistema força `profissionalId` igual ao seu próprio identificador (`RN-SEG-03`), impedindo que o profissional visualize atendimentos de outras cadeiras.
+  5. A lista filtrada é retornada à view mantendo a ordenação cronológica das cadeiras.
+* **Campos de Entrada:** `data` *(LocalDate, formato YYYY-MM-DD)*, `profissionalId` *(Long, Opcional)*.
+* **Saída:** Tabela de agendamentos restrita ao escopo solicitado.
 
 ### **UC13 - Alterar Status do Agendamento / Cancelamento (`<<extend>>`)**
-* **Cancelamento Direto (`/cancelar/{id}`):** O sistema busca o agendamento pelo ID, atualiza seu status para `"CANCELADO"` e executa `service.update(ag)`. Os slots da grade são liberados instantaneamente para a vitrine pública (`RN-CAN-02`).
-* **Exclusão Física (`/excluir/{id}`):** Exclui o registro da base de dados via `service.delete(filtro)`.
+* **Objetivo:** Gerenciar a transição de estado da reserva durante o atendimento presencial ou processar cancelamentos solicitados pelo cliente.
+* **Estados Possíveis (`RN-ATE-01`):** `Confirmado` ➔ `Em Atendimento` ➔ `Concluído` OU `Cancelado`.
+* **Fluxo de Cancelamento Operacional (`/cancelar/{id}`):**
+  1. O operador localiza o agendamento na listagem e aciona a opção "Cancelar Reserva".
+  2. O sistema executa requisição GET para `/MRYnZpAsC9sp/agendamentos/cancelar/{id}`.
+  3. O controlador carrega a reserva pelo ID, altera seu status para `"CANCELADO"` e executa `AgendamentoService.update(agendamento)`.
+  4. O sistema libera imediatamente os slots correspondentes na grade pública da barbearia (`RN-CAN-02`), permitindo que novos clientes realizem reservas no mesmo horário.
+  5. Adiciona flash message `"Agendamento cancelado com sucesso. Horário liberado na grade pública."` e redireciona para a listagem.
+* **Fluxo de Exclusão Física (`/excluir/{id}`):**
+  1. O operador clica em "Excluir". O sistema confirma a intenção e executa `service.delete(filtro)`. Operação recomendada apenas para registros gerados indevidamente em testes.
 
 ---
 

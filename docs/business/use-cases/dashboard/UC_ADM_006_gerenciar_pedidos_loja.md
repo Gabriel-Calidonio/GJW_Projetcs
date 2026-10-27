@@ -65,10 +65,19 @@ Permite que a equipe de atendimento acompanhe as ordens de compra originadas na 
 5. Renderiza a view `admin/order/order/detalhe`.
 
 ### **UC15 - Atualizar Status do Pedido (`<<extend>>`)**
-1. Na tela de detalhes do pedido, o operador seleciona o novo status no formulário (ex: `"Retirado"` quando o cliente pega os cosméticos no balcão, ou `"Cancelado"`).
-2. O formulário submete via `POST /MRYnZpAsC9sp/pedidos/atualizar-status` com os parâmetros `id` e `status`.
-3. O controlador recupera o pedido, define `pedido.setStatus(status)` e invoca `service.update(pedido)`.
-4. O sistema redireciona de volta para `/MRYnZpAsC9sp/pedidos/detalhe?id={id}`, exibindo a situação atualizada.
+* **Objetivo:** Registrar o cumprimento físico da entrega dos produtos na barbearia ou o cancelamento do pedido pelo cliente/recepção.
+* **Máquina de Estados do Pedido:**
+  * `Aguardando Retirada` *(Estado Inicial)*: Pedido gerado online com baixa atômica de estoque efetuada; cosméticos separados na recepção.
+  * `Retirado` *(Estado Final de Sucesso)*: O cliente comparece à barbearia, efetua o pagamento presencial (se dinheiro/cartão) e recebe os produtos.
+  * `Cancelado` *(Estado Final de Interrupção)*: A compra é cancelada por desistência ou expiração de prazo de guarda.
+* **Fluxo Operacional de Transição:**
+  1. Na tela de detalhes do pedido (`/MRYnZpAsC9sp/pedidos/detalhe?id={id}`), o operador inspeciona a lista de itens e seleciona a nova situação no dropdown `status`.
+  2. O formulário envia requisição via `POST /MRYnZpAsC9sp/pedidos/atualizar-status` contendo `id={id}` e `status={novoStatus}`.
+  3. O controlador [`AdminPedidoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminPedidoController.java) recupera o pedido via `PedidoService.read(filtro)`.
+  4. Se o pedido for localizado, atribui o novo status (`pedido.setStatus(status)`) e executa `PedidoService.update(pedido)`.
+  5. Adiciona mensagem flash de sucesso e redireciona de volta para a tela de detalhes: `redirect:/MRYnZpAsC9sp/pedidos/detalhe?id={id}`.
+* **Campos de Entrada:** `id` *(Long, Obrigatório)*, `status` *(String: "Aguardando Retirada", "Retirado", "Cancelado")*.
+* **Saída:** Tela de detalhes atualizada com badge de status correspondente.
 
 ---
 

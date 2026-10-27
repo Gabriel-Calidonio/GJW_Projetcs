@@ -1,1533 +1,188 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   contentScriptType="application/ecmascript"
-   contentStyleType="text/css"
-   height="2020px"
-   preserveAspectRatio="none"
-   style="width:2059px;height:2020px;background:#FEFEFE;"
-   version="1.1"
-   viewBox="0 0 2059 2020"
-   width="2059px"
-   zoomAndPan="magnify"
-   id="svg95"
-   sodipodi:docname="storefront.svg"
-   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview95"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="0.93019802"
-     inkscape:cx="781.55402"
-     inkscape:cy="793.91698"
-     inkscape:window-width="3840"
-     inkscape:window-height="2088"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg95" />
-  <defs
-     id="defs1">
-    <filter
-       height="1.94375"
-       id="f1tgj41tyumr5c"
-       width="1.94375"
-       x="-0.346875"
-       y="-0.346875">
-      <feGaussianBlur
-         result="blurOut"
-         stdDeviation="2.0"
-         id="feGaussianBlur1" />
-      <feColorMatrix
-         in="blurOut"
-         result="blurOut2"
-         type="matrix"
-         values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"
-         id="feColorMatrix1" />
-      <feOffset
-         dx="4.0"
-         dy="4.0"
-         in="blurOut2"
-         result="blurOut3"
-         id="feOffset1" />
-      <feBlend
-         in="SourceGraphic"
-         in2="blurOut3"
-         mode="normal"
-         id="feBlend1" />
-    </filter>
-  </defs>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="18px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="493"
-     x="795"
-     y="19.241899"
-     id="text1">Diagrama de Casos de Uso - Storefront (GWJ Barbearia)</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="18px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="706"
-     x="688.5"
-     y="43.757702"
-     id="text2">Modulo: Vitrine Pública, E-Commerce de Produtos, Agendamento e Área do Cliente</text>
-  <rect
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     height="1642"
-     rx="5"
-     ry="5"
-     style="stroke:#000000;stroke-width:1.5"
-     width="1270.5"
-     x="778"
-     y="143.53169"
-     id="rect2" />
-  <path
-     d="m 813,591.5317 h 291 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 467.5 a 5,5 0 0 1 5,5 v 260.9321 a 5,5 0 0 1 -5,5 H 813 a 5,5 0 0 1 -5,-5 v -286 a 5,5 0 0 1 5,-5"
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#000000;stroke-width:1.5"
-     id="path3" />
-  <line
-     style="stroke:#000000;stroke-width:1.5"
-     x1="808"
-     x2="1116"
-     y1="616.59961"
-     y2="616.59961"
-     id="line3" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="295"
-     x="812"
-     y="608.49762"
-     id="text4">Vitrine de Cosméticos &amp; Kits Promocionais</text>
-  <path
-     d="m 831,911.5317 h 241 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 509.5 a 5,5 0 0 1 5,5 v 248.9321 a 5,5 0 0 1 -5,5 H 831 a 5,5 0 0 1 -5,-5 v -274 a 5,5 0 0 1 5,-5"
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#000000;stroke-width:1.5"
-     id="path4" />
-  <line
-     style="stroke:#000000;stroke-width:1.5"
-     x1="826"
-     x2="1084"
-     y1="936.59961"
-     y2="936.59961"
-     id="line4" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="245"
-     x="830"
-     y="928.49762"
-     id="text5">Carrinho de Compras (HttpSession)</text>
-  <path
-     d="m 830,1219.5317 h 218 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 959.5 a 5,5 0 0 1 5,5 v 266.9321 a 5,5 0 0 1 -5,5 H 830 a 5,5 0 0 1 -5,-5 v -292 a 5,5 0 0 1 5,-5"
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#000000;stroke-width:1.5"
-     id="path5" />
-  <line
-     style="stroke:#000000;stroke-width:1.5"
-     x1="825"
-     x2="1060"
-     y1="1244.5996"
-     y2="1244.5996"
-     id="line5" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="222"
-     x="829"
-     y="1236.4976"
-     id="text6">Checkout &amp; Pedido de Produtos</text>
-  <path
-     d="m 823,1545.5317 h 226 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 556 a 5,5 0 0 1 5,5 v 180.9321 a 5,5 0 0 1 -5,5 H 823 a 5,5 0 0 1 -5,-5 v -206 a 5,5 0 0 1 5,-5"
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#000000;stroke-width:1.5"
-     id="path6" />
-  <line
-     style="stroke:#000000;stroke-width:1.5"
-     x1="818"
-     x2="1061"
-     y1="1570.5996"
-     y2="1570.5996"
-     id="line6" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="230"
-     x="822"
-     y="1562.4976"
-     id="text7">Agendamento Online de Serviços</text>
-  <path
-     d="m 807,189.5317 h 159 a 7.5,7.5 0 0 1 5,5 l 7,20.0679 h 143 a 5,5 0 0 1 5,5 v 342.9321 a 5,5 0 0 1 -5,5 H 807 a 5,5 0 0 1 -5,-5 v -368 a 5,5 0 0 1 5,-5"
-     fill="#fefefe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#000000;stroke-width:1.5"
-     id="path7" />
-  <line
-     style="stroke:#000000;stroke-width:1.5"
-     x1="802"
-     x2="978"
-     y1="214.59959"
-     y2="214.59959"
-     id="line7" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-weight="bold"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="163"
-     x="806"
-     y="206.4976"
-     id="text8">Área e Conta do Cliente</text>
-  <ellipse
-     cx="964.22449"
-     cy="660.47662"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="140.2245"
-     ry="30.444901"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse8" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="262"
-     x="833.22449"
-     y="665.14862"
-     id="text9">UC01 - Navegar no Catálogo de Produtos e Kits</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="32"
-     x="948.22449"
-     y="681.4928"
-     id="text10">(/loja)</text>
-  <ellipse
-     cx="963.88092"
-     cy="753.30792"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="121.8809"
-     ry="26.776199"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse10" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="212"
-     x="857.88092"
-     y="755.38788"
-     id="text11">UC02 - Visualizar Detalhes do Produto</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="92"
-     x="917.88092"
-     y="771.73199"
-     id="text12">(/single-product)</text>
-  <ellipse
-     cx="963.85687"
-     cy="843.70312"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="126.3569"
-     ry="27.6714"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse12" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="210"
-     x="858.85687"
-     y="843.59821"
-     id="text13">UC03 - Adicionar Produto ao Carrinho</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="148"
-     x="889.85687"
-     y="859.94232"
-     id="text14">(POST /carrinho/adicionar)</text>
-  <ellipse
-     cx="1460.6669"
-     cy="836.36511"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="112.1669"
-     ry="24.833401"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse14" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="183"
-     x="1369.1669"
-     y="837.3009"
-     id="text15">UC04 - Validar Saldo em Estoque</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="67"
-     x="1427.1669"
-     y="853.64502"
-     id="text16">(RN-EST-01)</text>
-  <ellipse
-     cx="964.11548"
-     cy="1011.3548"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="122.1155"
-     ry="26.823099"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse16" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="218"
-     x="855.11548"
-     y="1014.5916"
-     id="text17">UC05 - Visualizar Carrinho de Compras</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="59"
-     x="934.61548"
-     y="1030.9357"
-     id="text18">(/carrinho)</text>
-  <ellipse
-     cx="1460.5472"
-     cy="1065.3412"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="122.0473"
-     ry="26.8095"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse18" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="194"
-     x="1363.5472"
-     y="1064.382"
-     id="text19">UC06 - Alterar Quantidade do Item</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="145"
-     x="1388.0472"
-     y="1080.7261"
-     id="text20">(POST /carrinho/atualizar)</text>
-  <ellipse
-     cx="1460.257"
-     cy="976.58313"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="120.757"
-     ry="26.551399"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse20" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="189"
-     x="1365.757"
-     y="975.37518"
-     id="text21">UC07 - Remover Item do Carrinho</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="144"
-     x="1388.257"
-     y="991.7193"
-     id="text22">(POST /carrinho/remover)</text>
-  <ellipse
-     cx="1460.6309"
-     cy="1153.3273"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="100.6308"
-     ry="25.795601"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse22" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="140"
-     x="1390.6309"
-     y="1150.2809"
-     id="text23">UC08 - Esvaziar Carrinho</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="132"
-     x="1394.6309"
-     y="1166.625"
-     id="text24">(POST /carrinho/limpar)</text>
-  <ellipse
-     cx="964.1217"
-     cy="1332.556"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="123.1217"
-     ry="27.0243"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse24" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="211"
-     x="858.6217"
-     y="1333.9128"
-     id="text25">UC09 - Realizar Checkout de Produtos</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="113"
-     x="907.6217"
-     y="1350.257"
-     id="text26">(/carrinho/checkout)</text>
-  <ellipse
-     cx="1460.6095"
-     cy="1381.4536"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="132.6095"
-     ry="28.9219"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse26" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="165"
-     x="1378.1095"
-     y="1374.3053"
-     id="text27">UC10 - Identificar Comprador</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="226"
-     x="1347.6095"
-     y="1390.6495"
-     id="text28">(Cliente Logado vs Visitante - RN-EST-03)</text>
-  <ellipse
-     cx="1460.5034"
-     cy="1475.5323"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="135.5034"
-     ry="29.5007"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse28" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="223"
-     x="1349.0034"
-     y="1474.0588"
-     id="text29">UC11 - Selecionar Forma de Pagamento</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="191"
-     x="1365.0034"
-     y="1490.403"
-     id="text30">(PIX, Dinheiro na Retirada, Cartão)</text>
-  <ellipse
-     cx="1460.735"
-     cy="1287.7787"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="136.735"
-     ry="29.747"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse30" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="238"
-     x="1341.735"
-     y="1288.4178"
-     id="text31">UC12 - Concluir Pedido com Baixa Atômica</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="172"
-     x="1374.735"
-     y="1304.7618"
-     id="text32">(/carrinho/checkout/confirmar)</text>
-  <ellipse
-     cx="1877.6127"
-     cy="1374.6542"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="131.1127"
-     ry="28.622499"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse32" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="235"
-     x="1760.1127"
-     y="1377.2874"
-     id="text33">UC13 - Visualizar Confirmação de Compra</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="123"
-     x="1816.1127"
-     y="1393.6313"
-     id="text34">(/compra-confirmada)</text>
-  <ellipse
-     cx="1877.5044"
-     cy="1284.4326"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="117.5044"
-     ry="25.9009"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse34" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="202"
-     x="1776.5044"
-     y="1286.4873"
-     id="text35">UC14 - Esvaziar Carrinho Pós-Venda</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="67"
-     x="1844.0044"
-     y="1302.8314"
-     id="text36">(RN-EST-04)</text>
-  <ellipse
-     cx="964.11609"
-     cy="1610.6549"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="121.1161"
-     ry="26.623199"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse36" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="215"
-     x="856.61609"
-     y="1613.7109"
-     id="text37">UC15 - Consultar Catálogo de Serviços</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="58"
-     x="935.11609"
-     y="1630.0551"
-     id="text38">(/servicos)</text>
-  <ellipse
-     cx="1460.6801"
-     cy="1713.4677"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="145.1801"
-     ry="31.436001"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse38" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="253"
-     x="1334.1801"
-     y="1713.3304"
-     id="text39">UC16 - Consultar Disponibilidade de Horários</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="205"
-     x="1358.1801"
-     y="1729.6746"
-     id="text40">(/api/agendamentos/disponibilidade)</text>
-  <ellipse
-     cx="963.76581"
-     cy="1700.3848"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="129.76579"
-     ry="28.353201"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse40" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="240"
-     x="843.76581"
-     y="1705.0569"
-     id="text41">UC17 - Realizar Checkout de Agendamento</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="62"
-     x="932.76581"
-     y="1721.401"
-     id="text42">(/checkout)</text>
-  <ellipse
-     cx="1460.4844"
-     cy="1615.5286"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="145.48441"
-     ry="31.496901"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse42" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="273"
-     x="1323.9844"
-     y="1620.2006"
-     id="text43">UC18 - Visualizar Comprovante do Agendamento</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="118"
-     x="1401.4844"
-     y="1636.5448"
-     id="text44">(/order-confirmation)</text>
-  <ellipse
-     cx="964.15149"
-     cy="524.76202"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="124.1515"
-     ry="27.230301"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse44" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="224"
-     x="852.15149"
-     y="528.3678"
-     id="text45">UC19 - Cadastrar Nova Conta de Cliente</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="61"
-     x="933.65149"
-     y="544.71191"
-     id="text46">(/cadastro)</text>
-  <ellipse
-     cx="963.87268"
-     cy="253.4062"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="117.3727"
-     ry="25.8745"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse46" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="205"
-     x="861.37268"
-     y="256.10172"
-     id="text47">UC20 - Autenticar no Sistema (Login)</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="39"
-     x="944.37268"
-     y="272.4458"
-     id="text48">(/login)</text>
-  <ellipse
-     cx="963.9635"
-     cy="346.62439"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="145.9635"
-     ry="31.592699"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse48" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="274"
-     x="826.9635"
-     y="351.29651"
-     id="text49">UC21 - Consultar Meus Agendamentos e Pedidos</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="131"
-     x="898.4635"
-     y="367.64059"
-     id="text50">(/meus-agendamentos)</text>
-  <ellipse
-     cx="963.95331"
-     cy="437.62231"
-     fill="#ffffff"
-     filter="url(#f1tgj41tyumr5c)"
-     rx="110.9533"
-     ry="24.5907"
-     style="stroke:#2563eb;stroke-width:1.5"
-     id="ellipse50" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="182"
-     x="872.95331"
-     y="438.8511"
-     id="text51">UC22 - Encerrar Sessão (Logout)</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="12px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="47"
-     x="940.45331"
-     y="455.19519"
-     id="text52">(/logout)</text>
-  <circle
-     cx="60.5"
-     cy="812.59961"
-     fill="#e0f2fe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="ellipse52"
-     r="8" />
-  <path
-     d="m 60.5,820.5996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
-     fill="none"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="path52" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="52"
-     x="34.5"
-     y="881.99658"
-     id="text53">Visitante</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="109"
-     x="6"
-     y="899.70258"
-     id="text54">(Não Autenticado)</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-style="italic"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="60"
-     x="30.5"
-     y="798.99762"
-     id="text55">«Público»</text>
-  <circle
-     cx="457.5"
-     cy="406.59961"
-     fill="#e0f2fe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="ellipse55"
-     r="8" />
-  <path
-     d="m 457.5,414.5996 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
-     fill="none"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="path55" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="41"
-     x="437"
-     y="475.99661"
-     id="text56">Cliente</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="131"
-     x="392"
-     y="493.70261"
-     id="text57">(Perfil 4 - Autenticado)</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-style="italic"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="82"
-     x="416.5"
-     y="392.99759"
-     id="text58">«Registrado»</text>
-  <g
-     id="g98"
-     transform="translate(-23.565208,-383.12468)">
-    <path
-       d="m 1728.5,1927.0317 v 74.9094 a 5,5 0 0 0 5,5 h 288 a 5,5 0 0 0 5,-5 v -69.9094 l -10,-10 h -283 a 5,5 0 0 0 -5,5"
-       fill="#fef3c7"
-       filter="url(#f1tgj41tyumr5c)"
-       style="stroke:#d97706;stroke-width:1"
-       id="path61" />
-    <path
-       d="m 2016.5,1922.0317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
-       fill="#fef3c7"
-       style="stroke:#d97706;stroke-width:1"
-       id="path62" />
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       font-weight="bold"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="141"
-       x="1734.5"
-       y="1938.7906"
-       id="text62">RN-EST-03 (Identificação):</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="4"
-       x="1734.5"
-       y="1953.7725"
-       id="text63">-</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       font-weight="bold"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="113"
-       x="1741.5"
-       y="1953.7725"
-       id="text64">Cliente autenticado:</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="112"
-       x="1857.5"
-       y="1953.7725"
-       id="text65">O pedido é associado</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="271"
-       x="1740.5"
-       y="1968.7544"
-       id="text66">automaticamente ao seu ID (tab_pedidos.cliente_id).</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="4"
-       x="1734.5"
-       y="1983.7363"
-       id="text67">-</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       font-weight="bold"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="52"
-       x="1741.5"
-       y="1983.7363"
-       id="text68">Visitante:</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="128"
-       x="1796.5"
-       y="1983.7363"
-       id="text69">Solicita nome_visitante e</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="191"
-       x="1740.5"
-       y="1998.7181"
-       id="text70">telefone_visitante obrigatoriamente.</text>
-  </g>
-  <g
-     id="g97"
-     transform="translate(-20.524536,-384.64502)">
-    <path
-       d="m 1727,1807.0317 v 74.9094 a 5,5 0 0 0 5,5 h 291 a 5,5 0 0 0 5,-5 v -69.9094 l -10,-10 h -286 a 5,5 0 0 0 -5,5"
-       fill="#fef3c7"
-       filter="url(#f1tgj41tyumr5c)"
-       style="stroke:#d97706;stroke-width:1"
-       id="path70" />
-    <g
-       id="g96">
-      <path
-         d="m 2018,1802.0317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
-         fill="#fef3c7"
-         style="stroke:#d97706;stroke-width:1"
-         id="path71" />
-      <text
-         fill="#000000"
-         font-family="Helvetica"
-         font-size="11px"
-         font-weight="bold"
-         lengthAdjust="spacingAndGlyphs"
-         textLength="206"
-         x="1733"
-         y="1818.7906"
-         id="text71">RN-EST-01 e RN-EST-04 (Atomicidade):</text>
-      <text
-         fill="#000000"
-         font-family="Helvetica"
-         font-size="11px"
-         lengthAdjust="spacingAndGlyphs"
-         textLength="238"
-         x="1733"
-         y="1833.7725"
-         id="text72">A persistência do pedido, a inserção dos itens</text>
-      <text
-         fill="#000000"
-         font-family="Helvetica"
-         font-size="11px"
-         lengthAdjust="spacingAndGlyphs"
-         textLength="249"
-         x="1733"
-         y="1848.7544"
-         id="text73">e o decremento do estoque físico (tab_produto)</text>
-      <text
-         fill="#000000"
-         font-family="Helvetica"
-         font-size="11px"
-         lengthAdjust="spacingAndGlyphs"
-         textLength="280"
-         x="1733"
-         y="1863.7363"
-         id="text74">ocorrem em transação atômica única via UnitOfWork.</text>
-      <text
-         fill="#000000"
-         font-family="Helvetica"
-         font-size="11px"
-         lengthAdjust="spacingAndGlyphs"
-         textLength="226"
-         x="1733"
-         y="1878.7181"
-         id="text75">Se o saldo for insuficiente, ocorre Rollback.</text>
-    </g>
-  </g>
-  <g
-     id="g95"
-     transform="translate(-149.69931,169.58755)">
-    <text
-       fill="#000000"
-       font-family="sans-serif"
-       font-size="14px"
-       font-weight="bold"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="282"
-       x="1272.25"
-       y="160.4976"
-       id="text3"
-       transform="translate(49.183076,-10.750399)">Storefront GWJ - Barbearia &amp; Loja Virtual</text>
-    <path
-       d="m 1326.5,62.5317 v 59.9275 a 5,5 0 0 0 5,5 h 258 a 5,5 0 0 0 5,-5 V 67.5317 l -10,-10 h -253 a 5,5 0 0 0 -5,5"
-       fill="#fef3c7"
-       filter="url(#f1tgj41tyumr5c)"
-       style="stroke:#d97706;stroke-width:1"
-       id="path75" />
-    <path
-       d="m 1584.5,57.5317 v 7.5 a 2.5,2.5 0 0 0 2.5,2.5 h 7.5 l -10,-10"
-       fill="#fef3c7"
-       style="stroke:#d97706;stroke-width:1"
-       id="path76" />
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       font-weight="bold"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="89"
-       x="1332.5"
-       y="74.290604"
-       id="text76">Área do Cliente:</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="213"
-       x="1332.5"
-       y="89.272499"
-       id="text77">Permite rever o histórico cronológico de</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="247"
-       x="1332.5"
-       y="104.2544"
-       id="text78">agendamentos e status de pedidos sem acessar</text>
-    <text
-       fill="#000000"
-       font-family="Helvetica"
-       font-size="11px"
-       lengthAdjust="spacingAndGlyphs"
-       textLength="204"
-       x="1332.5"
-       y="119.2363"
-       id="text79">qualquer tela do painel administrativo.</text>
-  </g>
-  <path
-     d="M 75.864779,761.58162 C 119.45337,617.46929 251.96853,460.48644 422.29672,431.06884"
-     fill="none"
-     id="Visitante&lt;-Cliente"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <polygon
-     fill="none"
-     points="63.15,783.8117 57.99,763.2617 71.93,764.5317 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon79"
-     transform="rotate(11.724557,78.870085,818.87659)" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="215"
-     x="146"
-     y="445.42871"
-     id="text80"
-     transform="translate(367.16115,-196.88352)">Especialização com conta e histórico</text>
-  <path
-     d="M 115.39,793.6417 C 320.63259,697.97632 522.43844,655.14573 824.21,658.2117"
-     fill="none"
-     id="Visitante-UC_CatalogoProdutos"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 115.4,824.8217 c 211.56157,-48.65654 293.24003,-61.34853 726.58,-70.25"
-     fill="none"
-     id="Visitante-UC_DetalheProduto"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 115.19,843.5317 c 140.54,0 522.09,0 721.92,0"
-     fill="none"
-     id="Visitante-UC_AddCarrinho"
-     style="stroke:#1d4ed8;stroke-width:1" />
-  <path
-     d="m 115.19,853.5417 c 148.69,27.7 567.16,105.69 754.77,140.65"
-     fill="none"
-     id="Visitante-UC_VerCarrinho"
-     style="stroke:#1d4ed8;stroke-width:1" />
-  <path
-     d="m 115.43,885.4917 c 9.66,6.96 19.78,13.9 29.57,20.04 276.57,173.35 631.06,341.25 764.25,402.56"
-     fill="none"
-     id="Visitante-UC_CheckoutProdutos"
-     style="stroke:#1d4ed8;stroke-width:1" />
-  <path
-     d="m 78.76,903.0517 c 247.35644,411.1888 466.78957,588.9062 772.20832,698.4031"
-     fill="none"
-     id="Visitante-UC_CatalogoServicos"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 62.07,903.0717 c 256.00451,609.1481 251.69605,909.7118 1292.33,832.07"
-     fill="none"
-     id="Visitante-UC_ConsultaDisponibilidade"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 67.19,903.3717 c 223.78607,457.1834 348.35543,658.1549 801.19,777.8"
-     fill="none"
-     id="Visitante-UC_CheckoutAgendamento"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="M 88.23,783.9317 C 222.14493,644.77302 503.64109,538.5741 840.02,525.7517"
-     fill="none"
-     id="Visitante-UC_Cadastro"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="M 56.586541,781.41286 C 54.28351,314.07017 438.64263,242.49446 846.59698,252.55422"
-     fill="none"
-     id="Visitante-UC_LoginCliente"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 1090.42,841.7517 c 77.68,-1.1 176.75,-2.5 252.69,-3.57"
-     fill="none"
-     id="UC_AddCarrinho-&gt;UC_ValidaEstoque"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1343.5405,838.1731 1339.5981,842.2298 1348.54,838.1017 1339.4838,834.2307 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon80" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="835.42871"
-     id="text81">«include»</text>
-  <path
-     d="m 1079.16,1024.0017 c 81.66,8.91 190.9,20.84 271.35,29.63"
-     fill="none"
-     id="UC_VerCarrinho&lt;-UC_AtualizarQtd"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1078.8005,1023.9544 1083.211,1020.4123 1073.83,1023.4117 1082.3426,1028.365 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon81" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="56"
-     x="1185.5"
-     y="1028.4287"
-     id="text82">«extend»</text>
-  <path
-     d="m 1085.48,1003.0017 c 78.98,-5.59 181.61,-12.85 259.38,-18.36"
-     fill="none"
-     id="UC_VerCarrinho&lt;-UC_RemoverItem"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1085.2972,1003.0144 1089.0012,998.7389 1080.31,1003.3717 1089.5728,1006.7184 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon82" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="56"
-     x="1185.5"
-     y="986.42871"
-     id="text83">«extend»</text>
-  <path
-     d="m 1032.86,1036.3817 c 32.77,11.62 72.78,25.27 109.14,36.15 82.43,24.67 178.29,48.47 242.93,63.81"
-     fill="none"
-     id="UC_VerCarrinho&lt;-UC_LimparCarrinho"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1032.791,1036.357 1037.9,1033.9285 1028.08,1034.6817 1035.2195,1041.4661 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon83" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="56"
-     x="1185.5"
-     y="1068.4287"
-     id="text84">«extend»</text>
-  <path
-     d="m 1076.28,1343.5617 c 76.64,7.59 178.58,17.69 258.05,25.57"
-     fill="none"
-     id="UC_CheckoutProdutos-&gt;UC_IdentificarComprador"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1334.5551,1369.1413 1330.1749,1372.721 1339.53,1369.6417 1330.9755,1364.7611 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon84" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="1347.4287"
-     id="text85">«include»</text>
-  <path
-     d="m 1031.13,1355.1617 c 33.15,11.09 73.99,24.4 110.87,35.37 75.03,22.32 160.81,45.12 224.28,61.49"
-     fill="none"
-     id="UC_CheckoutProdutos-&gt;UC_FormaPagamento"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1366.3569,1452.0388 1361.4882,1454.9189 1371.2,1453.2817 1363.4768,1447.17 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon85" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="1386.4287"
-     id="text86">«include»</text>
-  <path
-     d="m 1077.83,1322.2617 c 74.75,-6.8 173.06,-15.75 251.18,-22.85"
-     fill="none"
-     id="UC_CheckoutProdutos-&gt;UC_ConcluirPedido"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1329.1409,1299.3982 1325.5228,1303.7468 1334.12,1298.9417 1324.7924,1295.7802 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon86" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="1301.4287"
-     id="text87">«include»</text>
-  <path
-     d="m 1587.2798,1298.8439 c 65.74,13.78 123.9502,41.0378 190.0302,54.8978"
-     fill="none"
-     id="UC_ConcluirPedido-&gt;UC_CompraConfirmada"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7"
-     sodipodi:nodetypes="cc" />
-  <polygon
-     fill="#1d4ed8"
-     points="1777.5366,1353.7845 1772.8002,1356.8775 1782.43,1354.8117 1774.4437,1349.0481 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon87" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1639"
-     y="1322.4287"
-     id="text88">«include»</text>
-  <path
-     d="m 1597.1,1286.5517 c 50.87,-0.37 108.31,-0.78 157.82,-1.14"
-     fill="none"
-     id="UC_ConcluirPedido-&gt;UC_LimpezaPosVenda"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1755.0002,1285.4145 1751.0346,1289.4487 1760,1285.3717 1750.966,1281.449 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon88" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1639"
-     y="1282.4287"
-     id="text89">«include»</text>
-  <path
-     d="m 1827.3129,1127.1389 c -82.6533,5.9769 -189.0671,65.4941 -253.2598,143.7382"
-     fill="none"
-     id="Sistema&lt;-UC_ConcluirPedido"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <circle
-     cx="1850.6063"
-     cy="1099.7411"
-     fill="#e0f2fe"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="ellipse58"
-     r="8" />
-  <path
-     d="m 1850.6064,1107.741 v 27 m -13,-19 h 26 m -13,19 -13,15 m 13,-15 13,15"
-     fill="none"
-     filter="url(#f1tgj41tyumr5c)"
-     style="stroke:#0284c7;stroke-width:1.5"
-     id="path58" />
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="130"
-     x="1395.5"
-     y="1899.9966"
-     id="text59"
-     transform="translate(390.10636,-730.85852)">Sistema / UnitOfWork</text>
-  <text
-     fill="#000000"
-     font-family="Helvetica"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="138"
-     x="1391.5"
-     y="1917.7026"
-     id="text60"
-     transform="translate(390.10636,-730.85852)">(Controle Transacional)</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="14px"
-     font-style="italic"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="66"
-     x="1427.5"
-     y="1816.9976"
-     id="text61"
-     transform="translate(390.10636,-730.85852)">«Backend»</text>
-  <polygon
-     fill="#1d4ed8"
-     points="1384.2091,1833.4551 1386.5637,1838.5986 1381.4201,1840.9532 1391.25,1840.3417 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon89"
-     transform="rotate(-31.011048,324.39506,689.06784)" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="141"
-     x="1143"
-     y="1663.9287"
-     id="text90"
-     transform="translate(481.94652,-536.29853)">Executa transação ACID</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="101"
-     x="1163"
-     y="1681.6346"
-     id="text91"
-     transform="translate(481.94652,-536.29853)">com UnitOfWork</text>
-  <path
-     d="m 1087.3,1709.8517 c 18.32,1.1 37,2.05 54.7,2.68 54.97,1.95 115.32,2.53 168.51,2.51"
-     fill="none"
-     id="UC_CheckoutAgendamento-&gt;UC_ConsultaDisponibilidade"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7" />
-  <polygon
-     fill="#1d4ed8"
-     points="1310.63,1715.056 1306.6415,1719.0674 1315.63,1715.0417 1306.6186,1711.0674 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon91" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="1708.4287"
-     id="text92">«include»</text>
-  <path
-     d="m 1063.08,1681.8817 c 94.2137,-58.9291 114.5094,-63.49 247.73,-70.07"
-     fill="none"
-     id="UC_CheckoutAgendamento-&gt;UC_ComprovanteAgendamento"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7"
-     sodipodi:nodetypes="cc" />
-  <polygon
-     fill="#1d4ed8"
-     points="1311.1082,1611.7878 1307.3436,1616.0101 1316.1,1611.5017 1306.8859,1608.0232 "
-     style="stroke:#1d4ed8;stroke-width:1"
-     id="polygon92" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="57"
-     x="1185"
-     y="1610.4287"
-     id="text93">«include»</text>
-  <path
-     d="M 501.03513,419.50187 C 613.5152,400.3453 724.89995,378.7695 838.08,362.6517"
-     fill="none"
-     id="Cliente-UC_Historico"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="207"
-     x="554"
-     y="353.42871"
-     id="text94">Consulta atendimentos vinculados</text>
-  <text
-     fill="#000000"
-     font-family="sans-serif"
-     font-size="13px"
-     lengthAdjust="spacingAndGlyphs"
-     textLength="91"
-     x="612"
-     y="371.1347"
-     id="text95">ao seu telefone</text>
-  <path
-     d="M 501.8753,436.01136 852.55,437.5317"
-     fill="none"
-     id="Cliente-UC_LogoutCliente"
-     style="stroke:#1d4ed8;stroke-width:1"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 1566.5284,1398.9412 c 55.0852,58.1336 80.794,85.7403 140.1657,141.4645"
-     fill="none"
-     id="UC_IdentificarComprador-GMN60"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 1573.26,1304.3217 c 70.0347,42.65 102.3932,58.7587 178.8706,112.7967"
-     fill="none"
-     id="UC_ConcluirPedido-GMN63"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7"
-     sodipodi:nodetypes="cc" />
-  <path
-     d="m 1082.8908,328.03814 c 24.1557,-20.01083 54.5061,-36.62971 94.4155,-38.09541"
-     fill="none"
-     id="UC_Historico-GMN66"
-     style="stroke:#1d4ed8;stroke-width:1;stroke-dasharray:7, 7"
-     sodipodi:nodetypes="cc" />
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2020px" preserveAspectRatio="none" style="width:2059px;height:2020px;background:#FEFEFE;" version="1.1" viewBox="0 0 2059 2020" width="2059px" zoomAndPan="magnify"><defs><filter height="300%" id="f9tke9e9myc9u" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="18" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="493" x="795" y="19.2419">Diagrama de Casos de Uso - Storefront (GWJ Barbearia)</text><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="706" x="688.5" y="43.7577">Modulo: Vitrine Pública, E-Commerce de Produtos, Agendamento e Área do Cliente</text><!--MD5=[020296418b6ea056fa8fc033a500a8dd]
+cluster StorefrontBoundary--><rect fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" height="1642" rx="5" ry="5" style="stroke: #000000; stroke-width: 1.5;" width="1270.5" x="778" y="143.5317"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="282" x="1272.25" y="160.4976">Storefront GWJ - Barbearia &amp; Loja Virtual</text><!--MD5=[36048f9fc127ff90c1149d44e811f871]
+cluster Vitrine de Cosméticos & Kits Promocionais--><path d="M813,591.5317 L1104,591.5317 A7.5,7.5 0 0 1 1109,596.5317 L1116,616.5996 L1583.5,616.5996 A5,5 0 0 1 1588.5,621.5996 L1588.5,882.5317 A5,5 0 0 1 1583.5,887.5317 L813,887.5317 A5,5 0 0 1 808,882.5317 L808,596.5317 A5,5 0 0 1 813,591.5317 " fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="808" x2="1116" y1="616.5996" y2="616.5996"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="295" x="812" y="608.4976">Vitrine de Cosméticos &amp; Kits Promocionais</text><!--MD5=[f97105d48e9757d086812310c8f30f25]
+cluster Carrinho de Compras (HttpSession)--><path d="M831,911.5317 L1072,911.5317 A7.5,7.5 0 0 1 1077,916.5317 L1084,936.5996 L1593.5,936.5996 A5,5 0 0 1 1598.5,941.5996 L1598.5,1190.5317 A5,5 0 0 1 1593.5,1195.5317 L831,1195.5317 A5,5 0 0 1 826,1190.5317 L826,916.5317 A5,5 0 0 1 831,911.5317 " fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="826" x2="1084" y1="936.5996" y2="936.5996"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="245" x="830" y="928.4976">Carrinho de Compras (HttpSession)</text><!--MD5=[d0222766ea4afdd071062f0a416ecead]
+cluster Checkout & Pedido de Produtos--><path d="M830,1219.5317 L1048,1219.5317 A7.5,7.5 0 0 1 1053,1224.5317 L1060,1244.5996 L2019.5,1244.5996 A5,5 0 0 1 2024.5,1249.5996 L2024.5,1516.5317 A5,5 0 0 1 2019.5,1521.5317 L830,1521.5317 A5,5 0 0 1 825,1516.5317 L825,1224.5317 A5,5 0 0 1 830,1219.5317 " fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="825" x2="1060" y1="1244.5996" y2="1244.5996"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="222" x="829" y="1236.4976">Checkout &amp; Pedido de Produtos</text><!--MD5=[3b61c85a7feeadf1fa66865d72e00a9a]
+cluster Agendamento Online de Serviços--><path d="M823,1545.5317 L1049,1545.5317 A7.5,7.5 0 0 1 1054,1550.5317 L1061,1570.5996 L1617,1570.5996 A5,5 0 0 1 1622,1575.5996 L1622,1756.5317 A5,5 0 0 1 1617,1761.5317 L823,1761.5317 A5,5 0 0 1 818,1756.5317 L818,1550.5317 A5,5 0 0 1 823,1545.5317 " fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="818" x2="1061" y1="1570.5996" y2="1570.5996"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="230" x="822" y="1562.4976">Agendamento Online de Serviços</text><!--MD5=[91cc3d7469d8ae34bb0510cc3f9aa8d3]
+cluster Área e Conta do Cliente--><path d="M807,189.5317 L966,189.5317 A7.5,7.5 0 0 1 971,194.5317 L978,214.5996 L1121,214.5996 A5,5 0 0 1 1126,219.5996 L1126,562.5317 A5,5 0 0 1 1121,567.5317 L807,567.5317 A5,5 0 0 1 802,562.5317 L802,194.5317 A5,5 0 0 1 807,189.5317 " fill="#FEFEFE" filter="url(#f9tke9e9myc9u)" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="802" x2="978" y1="214.5996" y2="214.5996"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="163" x="806" y="206.4976">Área e Conta do Cliente</text><ellipse cx="964.2245" cy="660.4766" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="140.2245" ry="30.4449" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="262" x="833.2245" y="665.1486">UC01 - Navegar no Catálogo de Produtos e Kits</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="32" x="948.2245" y="681.4928">(/loja)</text><ellipse cx="963.8809" cy="753.3079" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="121.8809" ry="26.7762" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="212" x="857.8809" y="755.3879">UC02 - Visualizar Detalhes do Produto</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="92" x="917.8809" y="771.732">(/single-product)</text><ellipse cx="963.8569" cy="843.7031" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="126.3569" ry="27.6714" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="210" x="858.8569" y="843.5982">UC03 - Adicionar Produto ao Carrinho</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="148" x="889.8569" y="859.9423">(POST /carrinho/adicionar)</text><ellipse cx="1460.6669" cy="836.3651" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="112.1669" ry="24.8334" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="183" x="1369.1669" y="837.3009">UC04 - Validar Saldo em Estoque</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="67" x="1427.1669" y="853.645">(RN-EST-01)</text><ellipse cx="964.1155" cy="1011.3548" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="122.1155" ry="26.8231" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="218" x="855.1155" y="1014.5916">UC05 - Visualizar Carrinho de Compras</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="59" x="934.6155" y="1030.9357">(/carrinho)</text><ellipse cx="1460.5473" cy="1065.3412" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="122.0473" ry="26.8095" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="194" x="1363.5473" y="1064.382">UC06 - Alterar Quantidade do Item</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="145" x="1388.0473" y="1080.7261">(POST /carrinho/atualizar)</text><ellipse cx="1460.257" cy="976.5831" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="120.757" ry="26.5514" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="189" x="1365.757" y="975.3752">UC07 - Remover Item do Carrinho</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="144" x="1388.257" y="991.7193">(POST /carrinho/remover)</text><ellipse cx="1460.6308" cy="1153.3273" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="100.6308" ry="25.7956" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="140" x="1390.6308" y="1150.2809">UC08 - Esvaziar Carrinho</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="132" x="1394.6308" y="1166.625">(POST /carrinho/limpar)</text><ellipse cx="964.1217" cy="1332.556" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="123.1217" ry="27.0243" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="211" x="858.6217" y="1333.9128">UC09 - Realizar Checkout de Produtos</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="113" x="907.6217" y="1350.2569">(/carrinho/checkout)</text><ellipse cx="1460.6095" cy="1381.4536" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="132.6095" ry="28.9219" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="165" x="1378.1095" y="1374.3053">UC10 - Identificar Comprador</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="226" x="1347.6095" y="1390.6495">(Cliente Logado vs Visitante - RN-EST-03)</text><ellipse cx="1460.5034" cy="1475.5324" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="135.5034" ry="29.5007" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="223" x="1349.0034" y="1474.0588">UC11 - Selecionar Forma de Pagamento</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="191" x="1365.0034" y="1490.4029">(PIX, Dinheiro na Retirada, Cartão)</text><ellipse cx="1460.735" cy="1287.7787" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="136.735" ry="29.747" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="238" x="1341.735" y="1288.4178">UC12 - Concluir Pedido com Baixa Atômica</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="172" x="1374.735" y="1304.7619">(/carrinho/checkout/confirmar)</text><ellipse cx="1877.6127" cy="1374.6542" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="131.1127" ry="28.6225" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="235" x="1760.1127" y="1377.2873">UC13 - Visualizar Confirmação de Compra</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="123" x="1816.1127" y="1393.6314">(/compra-confirmada)</text><ellipse cx="1877.5044" cy="1284.4326" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="117.5044" ry="25.9009" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="202" x="1776.5044" y="1286.4873">UC14 - Esvaziar Carrinho Pós-Venda</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="67" x="1844.0044" y="1302.8314">(RN-EST-04)</text><ellipse cx="964.1161" cy="1610.6549" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="121.1161" ry="26.6232" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="215" x="856.6161" y="1613.7109">UC15 - Consultar Catálogo de Serviços</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="935.1161" y="1630.0551">(/servicos)</text><ellipse cx="1460.6801" cy="1713.4677" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="145.1801" ry="31.436" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="253" x="1334.1801" y="1713.3304">UC16 - Consultar Disponibilidade de Horários</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="205" x="1358.1801" y="1729.6745">(/api/agendamentos/disponibilidade)</text><ellipse cx="963.7658" cy="1700.3848" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="129.7658" ry="28.3532" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="240" x="843.7658" y="1705.0569">UC17 - Realizar Checkout de Agendamento</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="932.7658" y="1721.401">(/checkout)</text><ellipse cx="1460.4844" cy="1615.5286" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="145.4844" ry="31.4969" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="273" x="1323.9844" y="1620.2006">UC18 - Visualizar Comprovante do Agendamento</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="118" x="1401.4844" y="1636.5448">(/order-confirmation)</text><ellipse cx="964.1515" cy="524.762" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="124.1515" ry="27.2303" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="224" x="852.1515" y="528.3678">UC19 - Cadastrar Nova Conta de Cliente</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="61" x="933.6515" y="544.7119">(/cadastro)</text><ellipse cx="963.8727" cy="253.4062" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="117.3727" ry="25.8745" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="205" x="861.3727" y="256.1017">UC20 - Autenticar no Sistema (Login)</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="39" x="944.3727" y="272.4458">(/login)</text><ellipse cx="963.9635" cy="346.6244" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="145.9635" ry="31.5927" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="274" x="826.9635" y="351.2965">UC21 - Consultar Meus Agendamentos e Pedidos</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="131" x="898.4635" y="367.6406">(/meus-agendamentos)</text><ellipse cx="963.9533" cy="437.6223" fill="#FFFFFF" filter="url(#f9tke9e9myc9u)" rx="110.9533" ry="24.5907" style="stroke: #2563EB; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="182" x="872.9533" y="438.8511">UC22 - Encerrar Sessão (Logout)</text><text fill="#000000" font-family="Helvetica" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="47" x="940.4533" y="455.1952">(/logout)</text><!--MD5=[65aece90a3e11361bcc4f9f97829be49]
+entity Visitante--><ellipse cx="60.5" cy="812.5996" fill="#E0F2FE" filter="url(#f9tke9e9myc9u)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M60.5,820.5996 L60.5,847.5996 M47.5,828.5996 L73.5,828.5996 M60.5,847.5996 L47.5,862.5996 M60.5,847.5996 L73.5,862.5996 " fill="none" filter="url(#f9tke9e9myc9u)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="52" x="34.5" y="881.9966">Visitante</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="6" y="899.7026">(Não Autenticado)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="60" x="30.5" y="798.9976">«Público»</text><!--MD5=[d9f75b78703733959770a1bae7362de0]
+entity Cliente--><ellipse cx="457.5" cy="406.5996" fill="#E0F2FE" filter="url(#f9tke9e9myc9u)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M457.5,414.5996 L457.5,441.5996 M444.5,422.5996 L470.5,422.5996 M457.5,441.5996 L444.5,456.5996 M457.5,441.5996 L470.5,456.5996 " fill="none" filter="url(#f9tke9e9myc9u)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="41" x="437" y="475.9966">Cliente</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="131" x="392" y="493.7026">(Perfil 4 - Autenticado)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="82" x="416.5" y="392.9976">«Registrado»</text><!--MD5=[52ec6a8b74b13041fc2aa09119826c6e]
+entity Sistema--><ellipse cx="1460.5" cy="1830.5996" fill="#E0F2FE" filter="url(#f9tke9e9myc9u)" rx="8" ry="8" style="stroke: #0284C7; stroke-width: 1.5;"/><path d="M1460.5,1838.5996 L1460.5,1865.5996 M1447.5,1846.5996 L1473.5,1846.5996 M1460.5,1865.5996 L1447.5,1880.5996 M1460.5,1865.5996 L1473.5,1880.5996 " fill="none" filter="url(#f9tke9e9myc9u)" style="stroke: #0284C7; stroke-width: 1.5;"/><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="130" x="1395.5" y="1899.9966">Sistema / UnitOfWork</text><text fill="#000000" font-family="Helvetica" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="1391.5" y="1917.7026">(Controle Transacional)</text><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="66" x="1427.5" y="1816.9976">«Backend»</text><path d="M1728.5,1927.0317 L1728.5,2001.9411 A5,5 0 0 0 1733.5,2006.9411 L2021.5,2006.9411 A5,5 0 0 0 2026.5,2001.9411 L2026.5,1932.0317 L2016.5,1922.0317 L1733.5,1922.0317 A5,5 0 0 0 1728.5,1927.0317 " fill="#FEF3C7" filter="url(#f9tke9e9myc9u)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M2016.5,1922.0317 L2016.5,1929.5317 A2.5,2.5 0 0 0 2019,1932.0317 L2026.5,1932.0317 L2016.5,1922.0317 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="141" x="1734.5" y="1938.7906">RN-EST-03 (Identificação):</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="4" x="1734.5" y="1953.7725">-</text><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="113" x="1741.5" y="1953.7725">Cliente autenticado:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="112" x="1857.5" y="1953.7725">O pedido é associado</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="271" x="1740.5" y="1968.7544">automaticamente ao seu ID (tab_pedidos.cliente_id).</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="4" x="1734.5" y="1983.7363">-</text><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="52" x="1741.5" y="1983.7363">Visitante:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="128" x="1796.5" y="1983.7363">Solicita nome_visitante e</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="191" x="1740.5" y="1998.7182">telefone_visitante obrigatoriamente.</text><path d="M1727,1807.0317 L1727,1881.9411 A5,5 0 0 0 1732,1886.9411 L2023,1886.9411 A5,5 0 0 0 2028,1881.9411 L2028,1812.0317 L2018,1802.0317 L1732,1802.0317 A5,5 0 0 0 1727,1807.0317 " fill="#FEF3C7" filter="url(#f9tke9e9myc9u)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M2018,1802.0317 L2018,1809.5317 A2.5,2.5 0 0 0 2020.5,1812.0317 L2028,1812.0317 L2018,1802.0317 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="206" x="1733" y="1818.7906">RN-EST-01 e RN-EST-04 (Atomicidade):</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="238" x="1733" y="1833.7725">A persistência do pedido, a inserção dos itens</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="249" x="1733" y="1848.7544">e o decremento do estoque físico (tab_produto)</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="280" x="1733" y="1863.7363">ocorrem em transação atômica única via UnitOfWork.</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="226" x="1733" y="1878.7182">Se o saldo for insuficiente, ocorre Rollback.</text><path d="M1326.5,62.5317 L1326.5,122.4592 A5,5 0 0 0 1331.5,127.4592 L1589.5,127.4592 A5,5 0 0 0 1594.5,122.4592 L1594.5,67.5317 L1584.5,57.5317 L1331.5,57.5317 A5,5 0 0 0 1326.5,62.5317 " fill="#FEF3C7" filter="url(#f9tke9e9myc9u)" style="stroke: #D97706; stroke-width: 1.0;"/><path d="M1584.5,57.5317 L1584.5,65.0317 A2.5,2.5 0 0 0 1587,67.5317 L1594.5,67.5317 L1584.5,57.5317 " fill="#FEF3C7" style="stroke: #D97706; stroke-width: 1.0;"/><text fill="#000000" font-family="Helvetica" font-size="11" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="89" x="1332.5" y="74.2906">Área do Cliente:</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="213" x="1332.5" y="89.2725">Permite rever o histórico cronológico de</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="247" x="1332.5" y="104.2544">agendamentos e status de pedidos sem acessar</text><text fill="#000000" font-family="Helvetica" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="204" x="1332.5" y="119.2363">qualquer tela do painel administrativo.</text><!--MD5=[8e154685cde49d532caa133efda8be09]
+reverse link Visitante to Cliente--><path d="M64.98,763.7317 C71.9,698.9417 91.37,609.1817 145,551.5317 C210.01,481.6417 321.42,454.4617 391.89,443.9917 " fill="none" id="Visitante&lt;-Cliente" style="stroke: #1D4ED8; stroke-width: 1.0;"/><polygon fill="none" points="71.93,764.5317,63.15,783.8117,57.99,763.2617,71.93,764.5317" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="215" x="146" y="445.4287">Especialização com conta e histórico</text><!--MD5=[e7ff4fccdec9234742ba729dfbac4951]
+link Visitante to UC_CatalogoProdutos--><path d="M115.39,793.6417 C124.74,786.9917 134.77,780.9617 145,776.5317 C368.94,679.5917 656.49,660.2617 824.21,658.2117 " fill="none" id="Visitante-UC_CatalogoProdutos" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[47f182734bb1e58db7c31a34c3f11eab]
+link Visitante to UC_DetalheProduto--><path d="M115.4,824.8217 C125.16,821.9917 135.31,819.3917 145,817.5317 C389.45,770.5217 681.33,757.8717 841.98,754.5717 " fill="none" id="Visitante-UC_DetalheProduto" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[414cb9beea3e25133088c66c536a874b]
+link Visitante to UC_AddCarrinho--><path d="M115.19,843.5317 C255.73,843.5317 637.28,843.5317 837.11,843.5317 " fill="none" id="Visitante-UC_AddCarrinho" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[27ec1aeb42d6f4ec9893e9d26e92e0fb]
+link Visitante to UC_VerCarrinho--><path d="M115.19,853.5417 C263.88,881.2417 682.35,959.2317 869.96,994.1917 " fill="none" id="Visitante-UC_VerCarrinho" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[eb17cb59191dbb5bae8d59ec3e42aaf4]
+link Visitante to UC_CheckoutProdutos--><path d="M115.43,885.4917 C125.09,892.4517 135.21,899.3917 145,905.5317 C421.57,1078.8817 776.06,1246.7817 909.25,1308.0917 " fill="none" id="Visitante-UC_CheckoutProdutos" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[a6a96479de044beaad9a379114b66a32]
+link Visitante to UC_CatalogoServicos--><path d="M78.76,903.0517 C92.38,943.2117 114.24,995.9017 145,1035.5317 C360.75,1313.5017 469.38,1338.6617 770,1521.5317 C812.87,1547.6117 864.66,1571.1017 903.8,1587.3917 " fill="none" id="Visitante-UC_CatalogoServicos" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[75a1cece1334eff85b995266ccfb964e]
+link Visitante to UC_ConsultaDisponibilidade--><path d="M62.07,903.0717 C64.52,1043.1217 77.45,1388.3817 145,1478.5317 C428.75,1857.2417 1095.74,1781.4217 1354.4,1735.1417 " fill="none" id="Visitante-UC_ConsultaDisponibilidade" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[9e72b8783a4deb9d330983fbafa84f30]
+link Visitante to UC_CheckoutAgendamento--><path d="M67.19,903.3717 C77.98,1006.7617 104.07,1213.4317 145,1272.5317 C320.33,1525.6717 693.22,1639.9217 868.38,1681.1717 " fill="none" id="Visitante-UC_CheckoutAgendamento" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[ad6d5af17a90642b904a06b1a70dfd7f]
+link Visitante to UC_Cadastro--><path d="M88.23,783.9317 C101.93,759.6517 120.88,733.3817 145,716.5317 C357.55,568.0217 669.3,533.1817 840.02,525.7517 " fill="none" id="Visitante-UC_Cadastro" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[da18491a907d2e4f27fb2b313aa18a0e]
+link Visitante to UC_LoginCliente--><path d="M65.59,783.8317 C73.91,680.3417 96.28,473.7617 145,422.5317 C332.88,224.9817 685.97,226.4417 860.28,241.1517 " fill="none" id="Visitante-UC_LoginCliente" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[56c54cfef304a2376ddb1e211a08f427]
+link UC_AddCarrinho to UC_ValidaEstoque--><path d="M1090.42,841.7517 C1168.1,840.6517 1267.17,839.2517 1343.11,838.1817 " fill="none" id="UC_AddCarrinho-&gt;UC_ValidaEstoque" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1348.54,838.1017,1339.4838,834.2307,1343.5405,838.1731,1339.5981,842.2298,1348.54,838.1017" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="835.4287">«include»</text><!--MD5=[aa0fd3a70c1a104e57074b8d7bf8050b]
+reverse link UC_VerCarrinho to UC_AtualizarQtd--><path d="M1079.16,1024.0017 C1160.82,1032.9117 1270.06,1044.8417 1350.51,1053.6317 " fill="none" id="UC_VerCarrinho&lt;-UC_AtualizarQtd" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1073.83,1023.4117,1082.3426,1028.365,1078.8005,1023.9544,1083.211,1020.4123,1073.83,1023.4117" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="1185.5" y="1028.4287">«extend»</text><!--MD5=[98272c148df22541385ecdc994d68e45]
+reverse link UC_VerCarrinho to UC_RemoverItem--><path d="M1085.48,1003.0017 C1164.46,997.4117 1267.09,990.1517 1344.86,984.6417 " fill="none" id="UC_VerCarrinho&lt;-UC_RemoverItem" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1080.31,1003.3717,1089.5728,1006.7184,1085.2972,1003.0144,1089.0012,998.7389,1080.31,1003.3717" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="1185.5" y="986.4287">«extend»</text><!--MD5=[b3663bc7b3b04b163c39328bb5ba1992]
+reverse link UC_VerCarrinho to UC_LimparCarrinho--><path d="M1032.86,1036.3817 C1065.63,1048.0017 1105.64,1061.6517 1142,1072.5317 C1224.43,1097.2017 1320.29,1121.0017 1384.93,1136.3417 " fill="none" id="UC_VerCarrinho&lt;-UC_LimparCarrinho" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1028.08,1034.6817,1035.2195,1041.4661,1032.791,1036.357,1037.9,1033.9285,1028.08,1034.6817" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="56" x="1185.5" y="1068.4287">«extend»</text><!--MD5=[48dc8714392ae409ce6e20a435b15f6b]
+link UC_CheckoutProdutos to UC_IdentificarComprador--><path d="M1076.28,1343.5617 C1152.92,1351.1517 1254.86,1361.2517 1334.33,1369.1317 " fill="none" id="UC_CheckoutProdutos-&gt;UC_IdentificarComprador" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1339.53,1369.6417,1330.9755,1364.7611,1334.5551,1369.1413,1330.1749,1372.721,1339.53,1369.6417" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="1347.4287">«include»</text><!--MD5=[d16e611ef785a2812eb4c58ff924c595]
+link UC_CheckoutProdutos to UC_FormaPagamento--><path d="M1031.13,1355.1617 C1064.28,1366.2517 1105.12,1379.5617 1142,1390.5317 C1217.03,1412.8517 1302.81,1435.6517 1366.28,1452.0217 " fill="none" id="UC_CheckoutProdutos-&gt;UC_FormaPagamento" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1371.2,1453.2817,1363.4768,1447.17,1366.3569,1452.0388,1361.4882,1454.9189,1371.2,1453.2817" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="1386.4287">«include»</text><!--MD5=[561e58ed82c024c8c68d66c97f60e1e5]
+link UC_CheckoutProdutos to UC_ConcluirPedido--><path d="M1077.83,1322.2617 C1152.58,1315.4617 1250.89,1306.5117 1329.01,1299.4117 " fill="none" id="UC_CheckoutProdutos-&gt;UC_ConcluirPedido" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1334.12,1298.9417,1324.7924,1295.7802,1329.1409,1299.3982,1325.5228,1303.7468,1334.12,1298.9417" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="1301.4287">«include»</text><!--MD5=[fa7b9d791c11c4151b3055dbb9c15331]
+link UC_ConcluirPedido to UC_CompraConfirmada--><path d="M1559.06,1307.9817 C1624.8,1321.7617 1711.23,1339.8817 1777.31,1353.7417 " fill="none" id="UC_ConcluirPedido-&gt;UC_CompraConfirmada" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1782.43,1354.8117,1774.4437,1349.0481,1777.5366,1353.7845,1772.8002,1356.8775,1782.43,1354.8117" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1639" y="1322.4287">«include»</text><!--MD5=[ea25d2a98c3eb953c6d63f2a05009a28]
+link UC_ConcluirPedido to UC_LimpezaPosVenda--><path d="M1597.1,1286.5517 C1647.97,1286.1817 1705.41,1285.7717 1754.92,1285.4117 " fill="none" id="UC_ConcluirPedido-&gt;UC_LimpezaPosVenda" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1760,1285.3717,1750.966,1281.449,1755.0002,1285.4145,1751.0346,1289.4487,1760,1285.3717" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1639" y="1282.4287">«include»</text><!--MD5=[9a942a5f7cb522e29890350980d11880]
+reverse link Sistema to UC_ConcluirPedido--><path d="M1386.43,1838.5517 C1318.79,1813.1717 1222.87,1765.0817 1179,1686.0317 C1147.06,1628.4817 1113.15,1517.9317 1315,1334.5317 C1327.77,1322.9317 1343.44,1314.1917 1359.7,1307.6017 " fill="none" id="Sistema&lt;-UC_ConcluirPedido" style="stroke: #1D4ED8; stroke-width: 1.0;"/><polygon fill="#1D4ED8" points="1391.25,1840.3417,1384.2091,1833.4551,1386.5637,1838.5986,1381.4201,1840.9532,1391.25,1840.3417" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="141" x="1143" y="1663.9287">Executa transação ACID</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="101" x="1163" y="1681.6347">com UnitOfWork</text><!--MD5=[266d2935bdb9c5f008d185ed048115a0]
+link UC_CheckoutAgendamento to UC_ConsultaDisponibilidade--><path d="M1087.3,1709.8517 C1105.62,1710.9517 1124.3,1711.9017 1142,1712.5317 C1196.97,1714.4817 1257.32,1715.0617 1310.51,1715.0417 " fill="none" id="UC_CheckoutAgendamento-&gt;UC_ConsultaDisponibilidade" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1315.63,1715.0417,1306.6186,1711.0674,1310.63,1715.056,1306.6415,1719.0674,1315.63,1715.0417" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="1708.4287">«include»</text><!--MD5=[7159304a163efeb777309ff0daa2caff]
+link UC_CheckoutAgendamento to UC_ComprovanteAgendamento--><path d="M1063.08,1681.8817 C1087.1,1675.1617 1112.16,1666.2417 1134,1654.5317 C1138.16,1652.3017 1137.67,1649.4117 1142,1647.5317 C1194.31,1624.8217 1255.88,1615.2017 1310.81,1611.8117 " fill="none" id="UC_CheckoutAgendamento-&gt;UC_ComprovanteAgendamento" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#1D4ED8" points="1316.1,1611.5017,1306.8859,1608.0232,1311.1082,1611.7878,1307.3436,1616.0101,1316.1,1611.5017" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="57" x="1185" y="1610.4287">«include»</text><!--MD5=[935495813c7359ab252bcac32fd42e0d]
+link Cliente to UC_Historico--><path d="M523.08,418.7417 C533.05,416.1317 543.27,413.6317 553,411.5317 C647.92,391.0117 756.51,374.0917 838.08,362.6517 " fill="none" id="Cliente-UC_Historico" style="stroke: #1D4ED8; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="207" x="554" y="353.4287">Consulta atendimentos vinculados</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="91" x="612" y="371.1347">ao seu telefone</text><!--MD5=[81cb3500abf38bfb1805aa5bb9d9e747]
+link Cliente to UC_LogoutCliente--><path d="M523.16,437.5317 C606.25,437.5317 751.77,437.5317 852.55,437.5317 " fill="none" id="Cliente-UC_LogoutCliente" style="stroke: #1D4ED8; stroke-width: 1.0;"/><!--MD5=[a276a08afbdd78d090d0292e4daa5db7]
+link UC_IdentificarComprador to GMN123--><path d="M1577.01,1395.5817 C1596.89,1402.7117 1615.72,1413.2017 1630,1428.5317 C1634.6,1433.4717 1722.68,1899.3517 1727,1904.5317 C1732.37,1910.9717 1738.54,1916.7317 1745.24,1921.8717 " fill="none" id="UC_IdentificarComprador-GMN123" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[0dff19d9dcd4153c018b6b86b8137f44]
+link UC_ConcluirPedido to GMN126--><path d="M1573.26,1304.3217 C1593.7,1311.2017 1613.69,1320.8917 1630,1334.5317 C1649.76,1351.0517 1802.26,1682.0817 1857.01,1801.8017 " fill="none" id="UC_ConcluirPedido-GMN126" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[3a622c4968ce1236474c043d57b97628]
+link UC_Historico to GMN129--><path d="M1061.39,322.9317 C1085.57,315.6817 1111.13,306.8517 1134,296.5317 C1239.48,248.9517 1351.49,172.1617 1412.74,127.6117 " fill="none" id="UC_Historico-GMN129" style="stroke: #1D4ED8; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><!--MD5=[df1ef5338bb76a430279c93c1c516ab3]
+@startuml storefront
+
+left to right direction
+
+skinparam theme cerulean
+skinparam backgroundColor #FEFEFE
+skinparam Handwritten false
+skinparam Monochrome false
+skinparam Shadowing true
+skinparam packageStyle Rectangle
+skinparam defaultTextAlignment center
+skinparam roundCorner 10
+
+skinparam actor {
+    BackgroundColor #E0F2FE
+    BorderColor #0284C7
+    FontName "Helvetica"
+    FontSize 13
+}
+
+skinparam usecase {
+    BackgroundColor #FFFFFF
+    BorderColor #2563EB
+    ArrowColor #1D4ED8
+    FontName "Helvetica"
+    FontSize 12
+}
+
+skinparam note {
+    BackgroundColor #FEF3C7
+    BorderColor #D97706
+    FontName "Helvetica"
+    FontSize 11
+}
+
+
+title **Diagrama de Casos de Uso - Storefront (GWJ Barbearia)**\nModulo: Vitrine Pública, E-Commerce de Produtos, Agendamento e Área do Cliente
+
+actor "Visitante\n(Não Autenticado)" as Visitante <<Público>>
+actor "Cliente\n(Perfil 4 - Autenticado)" as Cliente <<Registrado>>
+
+Cliente -up-|> Visitante : "Especialização com conta e histórico"
+
+rectangle "Storefront GWJ - Barbearia & Loja Virtual" as StorefrontBoundary {
+
+    package "Vitrine de Cosméticos & Kits Promocionais" {
+        usecase "UC01 - Navegar no Catálogo de Produtos e Kits\n(/loja)" as UC_CatalogoProdutos
+        usecase "UC02 - Visualizar Detalhes do Produto\n(/single-product)" as UC_DetalheProduto
+        usecase "UC03 - Adicionar Produto ao Carrinho\n(POST /carrinho/adicionar)" as UC_AddCarrinho
+        usecase "UC04 - Validar Saldo em Estoque\n(RN-EST-01)" as UC_ValidaEstoque
+    }
+
+    package "Carrinho de Compras (HttpSession)" {
+        usecase "UC05 - Visualizar Carrinho de Compras\n(/carrinho)" as UC_VerCarrinho
+        usecase "UC06 - Alterar Quantidade do Item\n(POST /carrinho/atualizar)" as UC_AtualizarQtd
+        usecase "UC07 - Remover Item do Carrinho\n(POST /carrinho/remover)" as UC_RemoverItem
+        usecase "UC08 - Esvaziar Carrinho\n(POST /carrinho/limpar)" as UC_LimparCarrinho
+    }
+
+    package "Checkout & Pedido de Produtos" {
+        usecase "UC09 - Realizar Checkout de Produtos\n(/carrinho/checkout)" as UC_CheckoutProdutos
+        usecase "UC10 - Identificar Comprador\n(Cliente Logado vs Visitante - RN-EST-03)" as UC_IdentificarComprador
+        usecase "UC11 - Selecionar Forma de Pagamento\n(PIX, Dinheiro na Retirada, Cartão)" as UC_FormaPagamento
+        usecase "UC12 - Concluir Pedido com Baixa Atômica\n(/carrinho/checkout/confirmar)" as UC_ConcluirPedido
+        usecase "UC13 - Visualizar Confirmação de Compra\n(/compra-confirmada)" as UC_CompraConfirmada
+        usecase "UC14 - Esvaziar Carrinho Pós-Venda\n(RN-EST-04)" as UC_LimpezaPosVenda
+    }
+
+    package "Agendamento Online de Serviços" {
+        usecase "UC15 - Consultar Catálogo de Serviços\n(/servicos)" as UC_CatalogoServicos
+        usecase "UC16 - Consultar Disponibilidade de Horários\n(/api/agendamentos/disponibilidade)" as UC_ConsultaDisponibilidade
+        usecase "UC17 - Realizar Checkout de Agendamento\n(/checkout)" as UC_CheckoutAgendamento
+        usecase "UC18 - Visualizar Comprovante do Agendamento\n(/order-confirmation)" as UC_ComprovanteAgendamento
+    }
+
+    package "Área e Conta do Cliente" {
+        usecase "UC19 - Cadastrar Nova Conta de Cliente\n(/cadastro)" as UC_Cadastro
+        usecase "UC20 - Autenticar no Sistema (Login)\n(/login)" as UC_LoginCliente
+        usecase "UC21 - Consultar Meus Agendamentos e Pedidos\n(/meus-agendamentos)" as UC_Historico
+        usecase "UC22 - Encerrar Sessão (Logout)\n(/logout)" as UC_LogoutCliente
+    }
+}
+
+actor "Sistema / UnitOfWork\n(Controle Transacional)" as Sistema <<Backend>>
+
+Visitante - - UC_CatalogoProdutos
+Visitante - - UC_DetalheProduto
+Visitante - - UC_AddCarrinho
+Visitante - - UC_VerCarrinho
+Visitante - - UC_CheckoutProdutos
+Visitante - - UC_CatalogoServicos
+Visitante - - UC_ConsultaDisponibilidade
+Visitante - - UC_CheckoutAgendamento
+Visitante - - UC_Cadastro
+Visitante - - UC_LoginCliente
+
+UC_AddCarrinho ..> UC_ValidaEstoque : <<include>>
+UC_VerCarrinho <.. UC_AtualizarQtd : <<extend>>
+UC_VerCarrinho <.. UC_RemoverItem : <<extend>>
+UC_VerCarrinho <.. UC_LimparCarrinho : <<extend>>
+
+UC_CheckoutProdutos ..> UC_IdentificarComprador : <<include>>
+UC_CheckoutProdutos ..> UC_FormaPagamento : <<include>>
+UC_CheckoutProdutos ..> UC_ConcluirPedido : <<include>>
+UC_ConcluirPedido ..> UC_CompraConfirmada : <<include>>
+UC_ConcluirPedido ..> UC_LimpezaPosVenda : <<include>>
+
+UC_ConcluirPedido -left-> Sistema : "Executa transação ACID\ncom UnitOfWork"
+
+UC_CheckoutAgendamento ..> UC_ConsultaDisponibilidade : <<include>>
+UC_CheckoutAgendamento ..> UC_ComprovanteAgendamento : <<include>>
+
+Cliente - - UC_Historico : "Consulta atendimentos vinculados\nao seu telefone"
+Cliente - - UC_LogoutCliente
+
+note right of UC_IdentificarComprador
+  **RN-EST-03 (Identificação):**
+  - **Cliente autenticado:** O pedido é associado
+    automaticamente ao seu ID (tab_pedidos.cliente_id).
+  - **Visitante:** Solicita nome_visitante e
+    telefone_visitante obrigatoriamente.
+end note
+
+note right of UC_ConcluirPedido
+  **RN-EST-01 e RN-EST-04 (Atomicidade):**
+  A persistência do pedido, a inserção dos itens
+  e o decremento do estoque físico (tab_produto)
+  ocorrem em transação atômica única via UnitOfWork.
+  Se o saldo for insuficiente, ocorre Rollback.
+end note
+
+note right of UC_Historico
+  **Área do Cliente:**
+  Permite rever o histórico cronológico de
+  agendamentos e status de pedidos sem acessar
+  qualquer tela do painel administrativo.
+end note
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 07:22:07 BRT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 21.0.12+8-1-deb13u1-Debian
+Operating System: Linux
+Default Encoding: UTF-8
+Language: pt
+Country: BR
+--></g></svg>
