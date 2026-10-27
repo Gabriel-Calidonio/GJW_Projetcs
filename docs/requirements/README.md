@@ -4,6 +4,14 @@ Este diretório contém as especificações formais de **Requisitos Funcionais (
 
 ---
 
+## 🧭 Matriz de Rastreabilidade Integrada (RF, RNF e Regras de Negócio)
+
+Para auditorias de engenharia de software e avaliação acadêmica (ISO/IEC/IEEE 29148), disponibilizamos a **matriz consolidada que conecta Requisitos Funcionais, Não-Funcionais, 21 Regras de Negócio, Casos de Uso e Código Java**:
+
+👉 **Acesse a [Matriz de Rastreabilidade de Requisitos (RF, RNF e RN)](./matriz_rastreabilidade_rf_rnf_rn.md)**
+
+---
+
 ## 🎯 1. Requisitos Funcionais (RF)
 
 Localizados em [`docs/requirements/functional/`](/docs/requirements/functional/):

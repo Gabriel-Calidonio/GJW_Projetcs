@@ -1,6 +1,8 @@
 # 🧭 Matriz de Rastreabilidade de Casos de Uso (Traceability Matrix)
 
-Esta matriz estabelece a **rastreabilidade bidirecional** entre os elementos visuais dos Diagramas de Casos de Uso PlantUML ([`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml) e [`storefront.puml`](/docs/business/use-cases/storefront.puml)), as **Especificações Detalhadas de Casos de Uso**, os **Controladores/Serviços Java (Spring Boot)** e as **Regras de Negócio / Requisitos de Engenharia de Software**.
+Esta matriz estabelece a **rastreabilidade bidirecional** entre os elementos visuais dos Diagramas de Casos de Uso PlantUML ([`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml) e [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)), as **Especificações Detalhadas de Casos de Uso**, os **Controladores/Serviços Java (Spring Boot)** e as **Regras de Negócio / Requisitos de Engenharia de Software**.
+
+> 💡 **Consulte também:** A [**Matriz de Rastreabilidade de Requisitos (RF, RNF e Regras de Negócio)**](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/matriz_rastreabilidade_rf_rnf_rn.md) para a visão formal orientada a requisitos funcionais, SLAs técnicos e regras de domínio.
 
 ---
 
