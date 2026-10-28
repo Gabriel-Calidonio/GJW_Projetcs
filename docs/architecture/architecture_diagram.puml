@@ -1,62 +1,92 @@
 @startuml Diagrama de Arquitetura - GWJ Dinâmico (Proposta)
 
-' --- Configurações Visuais ---
-skinparam backgroundColor White
-skinparam theme cerulean
-skinparam Handwritten false
-skinparam Monochrome false
-skinparam Shadowing true
-skinparam packageStyle Frame
+' --- Configurações Visuais Gerais ---
+skinparam backgroundColor #FFFFFF
+skinparam roundcorner 8
+skinparam packageStyle rectangle
 skinparam ComponentStyle uml2
+skinparam shadowing true
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
 
 title Arquitetura Proposta do Projeto Integrador GWJ (Com Padrões de Projeto & Escalabilidade)
 
-' --- Camadas ---
+skinparam titleFontColor #0F172A
+skinparam titleFontSize 16
+skinparam titleFontStyle bold
 
-package "Apresentação (View - Frontend)" as ViewLayer {
-    component "Thymeleaf Templates\n(HTML5 + Bootstrap)" as Templates
-    component "JavaScript (delete.js, etc.)\n(Requisições Fetch/AJAX)" as JS
+skinparam package {
+    FontColor #0F172A
+    FontStyle bold
+    FontSize 13
 }
 
-package "Controle (Controllers & Interceptors)" as ControllerLayer {
-    component "GenericViewController\n(Rotas Dinâmicas de View)" as GenericView
-    component "JsonController\n(API REST - Operações CRUD)" as JsonCtrl
-    component "LoginController\n(Autenticação e Sessão)" as LoginCtrl
-    component "AdminInterceptor\n(Controle de Acesso/Segurança)" as Interceptor
+skinparam arrow {
+    Color #475569
+    FontColor #334155
+    FontSize 11
 }
 
-package "Mapeamento HTTP/Request (DTO / Reflection)" as UtilLayer {
-    component "EntityMapper\n(Popula entidades via HTTP Request)" as HTTPMapper
-    component "SimpleObjectFactory\n(Instanciação dinâmica de IEntity)" as Factory
+skinparam note {
+    BackgroundColor #FEF9C3
+    BorderColor #EAB308
+    FontColor #713F12
+    FontSize 11
 }
 
-package "Serviços (Service Layer & Transações)" as ServiceLayer {
-    interface "IService<T>\n(Interface Base de Serviço)" as IService
-    component "GenericService\n(Orquestrador CRUD Genérico)" as GenService
-    component "Serviços Específicos\n(UsuarioService, ClienteService,\netc. - Regras de Negócio)" as SpecServices
-    component "ServiceRegistry\n(Resolução Dinâmica de Serviços)" as ServiceRegistry
-    component "UnitOfWork\n(Controle de Transações & ThreadLocal)" as UoW
+skinparam legend {
+    BackgroundColor #F8FAFC
+    BorderColor #CBD5E1
+    FontColor #1E293B
+    FontSize 11
 }
 
-package "Acesso a Dados (Repository Layer)" as RepositoryLayer {
-    interface "IRepository<T>\n(Interface de Repositório)" as IRepo
-    component "GenericRepository\n(Persistência Base Dinâmica)" as GenRepo
-    component "Repositórios Específicos\n(UsuarioRepository, ClienteRepository,\netc. - Consultas Customizadas)" as SpecRepos
+' --- Camadas com Cores Semânticas Modernas ---
+
+package "Apresentação (View - Frontend)" as ViewLayer #FFF7ED;line:F97316 {
+    component "Thymeleaf Templates\n(HTML5 + Bootstrap)" as Templates #FFEDD5;line:EA580C
+    component "JavaScript (delete.js, etc.)\n(Requisições Fetch/AJAX)" as JS #FFEDD5;line:EA580C
 }
 
-package "Mapeador de Banco (Data Mapper)" as MapperLayer {
-    component "DataMapper\n(Mapeamento SQL <=> Objetos de Domínio)" as DataMapper
-    component "QueryBuilder\n(Construção dinâmica de SQL)" as QueryBuilder
-    component "SchemaValidator\n(Validação de Schema/Tabelas)" as Validator
-    component "ConnectionDB\n(Gerenciador de Conexão JDBC)" as DBConn
+package "Controle (Controllers & Interceptors)" as ControllerLayer #F0F9FF;line:0284C7 {
+    component "GenericViewController\n(Rotas Dinâmicas de View)" as GenericView #E0F2FE;line:0369A1
+    component "JsonController\n(API REST - Operações CRUD)" as JsonCtrl #E0F2FE;line:0369A1
+    component "LoginController\n(Autenticação e Sessão)" as LoginCtrl #E0F2FE;line:0369A1
+    component "AdminInterceptor\n(Controle de Acesso/Segurança)" as Interceptor #E0F2FE;line:0369A1
 }
 
-package "Domínio (Model - Entities)" as ModelLayer {
-    interface "IEntity\n(Interface Base)" as IEntity
-    component "Entidades do Domínio\n(Usuario, Cliente, Perfil,\nPermissao, Servico, Agenda, etc.)" as Entities
+package "Mapeamento HTTP/Request (DTO / Reflection)" as UtilLayer #F5F3FF;line:7C3AED {
+    component "EntityMapper\n(Popula entidades via HTTP Request)" as HTTPMapper #EDE9FE;line:6D28D9
+    component "SimpleObjectFactory\n(Instanciação dinâmica de IEntity)" as Factory #EDE9FE;line:6D28D9
 }
 
-database "MySQL Database" as DB
+package "Serviços (Service Layer & Transações)" as ServiceLayer #F0FDF4;line:16A34A {
+    interface "IService<T>\n(Interface Base de Serviço)" as IService #DCFCE7;line:15803D
+    component "GenericService\n(Orquestrador CRUD Genérico)" as GenService #DCFCE7;line:15803D
+    component "Serviços Específicos\n(UsuarioService, ClienteService,\netc. - Regras de Negócio)" as SpecServices #DCFCE7;line:15803D
+    component "ServiceRegistry\n(Resolução Dinâmica de Serviços)" as ServiceRegistry #DCFCE7;line:15803D
+    component "UnitOfWork\n(Controle de Transações & ThreadLocal)" as UoW #DCFCE7;line:15803D
+}
+
+package "Acesso a Dados (Repository Layer)" as RepositoryLayer #FEFCE8;line:CA8A04 {
+    interface "IRepository<T>\n(Interface de Repositório)" as IRepo #FEF08A;line:A16207
+    component "GenericRepository\n(Persistência Base Dinâmica)" as GenRepo #FEF9C3;line:A16207
+    component "Repositórios Específicos\n(UsuarioRepository, ClienteRepository,\netc. - Consultas Customizadas)" as SpecRepos #FEF9C3;line:A16207
+}
+
+package "Mapeador de Banco (Data Mapper)" as MapperLayer #FAF5FF;line:9333EA {
+    component "DataMapper\n(Mapeamento SQL <=> Objetos de Domínio)" as DataMapper #F3E8FF;line:7E22CE
+    component "QueryBuilder\n(Construção dinâmica de SQL)" as QueryBuilder #F3E8FF;line:7E22CE
+    component "SchemaValidator\n(Validação de Schema/Tabelas)" as Validator #F3E8FF;line:7E22CE
+    component "ConnectionDB\n(Gerenciador de Conexão JDBC)" as DBConn #F3E8FF;line:7E22CE
+}
+
+package "Domínio (Model - Entities)" as ModelLayer #FFF1F2;line:E11D48 {
+    interface "IEntity\n(Interface Base)" as IEntity #FFE4E6;line:BE123C
+    component "Entidades do Domínio\n(Usuario, Cliente, Perfil,\nPermissao, Servico, Agenda, etc.)" as Entities #FFE4E6;line:BE123C
+}
+
+database "MySQL Database" as DB #F1F5F9;line:475569
 
 ' --- Relacionamentos e Fluxo de Dados ---
 
@@ -120,5 +150,18 @@ note right of MapperLayer
   deixando a camada de Repositórios limpa e focada
   apenas no contrato de dados.
 end note
+
+legend bottom right
+  <size:12><b>Legenda de Camadas</b></size>
+  |= Cor |= Camada / Responsabilidade |
+  |<#FFF7ED>  | Apresentação (UI / Frontend) |
+  |<#F0F9FF>  | Controle (Controllers & Interceptors) |
+  |<#F5F3FF>  | Mapeamento HTTP (DTO & Reflexão) |
+  |<#F0FDF4>  | Negócio & Transações (Services & Unit of Work) |
+  |<#FEFCE8>  | Acesso a Dados (Repositories) |
+  |<#FAF5FF>  | Mapeamento Objeto-Relacional (Data Mapper & JDBC) |
+  |<#FFF1F2>  | Modelo de Domínio (Entidades) |
+  |<#F1F5F9>  | Infraestrutura / Banco de Dados (MySQL) |
+endlegend
 
 @enduml
