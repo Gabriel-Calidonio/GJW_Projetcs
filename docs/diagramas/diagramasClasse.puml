@@ -1,32 +1,123 @@
 @startuml
- 
-skinparam monochrome true
+
+' Configurações Gerais e Estilos Visuais do PlantUML
 skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam PackageStyle rectangle
+skinparam backgroundColor #F9FAFB
+
+' Estilo do Título
+skinparam titleFontColor #1F2937
+skinparam titleFontSize 18
+skinparam titleFontStyle bold
+
+' Estilo dos Pacotes
+skinparam package {
+    FontColor #4B5563
+    BorderColor #D1D5DB
+    BackgroundColor #FFFFFF
+}
+
+' Estilo Padrão para Classes e Interfaces
+skinparam class {
+    FontColor #1F2937
+    BorderColor #E5E7EB
+    BackgroundColor #FFFFFF
+    HeaderBackgroundColor #F3F4F6
+}
+
+skinparam interface {
+    FontColor #1F2937
+    BorderColor #E5E7EB
+    BackgroundColor #FFFFFF
+    HeaderBackgroundColor #F3F4F6
+}
+
+' Estilo dos Relacionamentos
+skinparam arrowColor #6B7280
+skinparam arrowFontColor #4B5563
+
+' Estilos Customizados por Estereótipo (Camadas)
+skinparam class<<controller>> {
+    BackgroundColor #E0F2FE
+    HeaderBackgroundColor #BAE6FD
+    BorderColor #7DD3FC
+}
+skinparam interface<<controller>> {
+    BackgroundColor #E0F2FE
+    HeaderBackgroundColor #BAE6FD
+    BorderColor #7DD3FC
+}
+
+skinparam class<<service>> {
+    BackgroundColor #DCFCE7
+    HeaderBackgroundColor #BBF7D0
+    BorderColor #86EFAC
+}
+skinparam interface<<service>> {
+    BackgroundColor #DCFCE7
+    HeaderBackgroundColor #BBF7D0
+    BorderColor #86EFAC
+}
+
+skinparam class<<repository>> {
+    BackgroundColor #FEF3C7
+    HeaderBackgroundColor #FDE68A
+    BorderColor #FCD34D
+}
+skinparam interface<<repository>> {
+    BackgroundColor #FEF3C7
+    HeaderBackgroundColor #FDE68A
+    BorderColor #FCD34D
+}
+
+skinparam class<<dao>> {
+    BackgroundColor #F3E8FF
+    HeaderBackgroundColor #E9D5FF
+    BorderColor #D8B4FE
+}
+skinparam interface<<dao>> {
+    BackgroundColor #F3E8FF
+    HeaderBackgroundColor #E9D5FF
+    BorderColor #D8B4FE
+}
+
+skinparam class<<domain>> {
+    BackgroundColor #FEE2E2
+    HeaderBackgroundColor #FECDD3
+    BorderColor #FCA5A5
+}
+skinparam interface<<domain>> {
+    BackgroundColor #FEE2E2
+    HeaderBackgroundColor #FECDD3
+    BorderColor #FCA5A5
+}
 
 title Diagrama de Classes - Projeto Integrador GWJ (Nova Arquitetura)
 
 package com.gwj.controller {
-    class GenericViewController {
+    class GenericViewController <<controller>> {
         +create(entity: String, request: HttpServletRequest, model: Model): String
         +listar(entity: String, request: HttpServletRequest, model: Model): String
         +detalhe(entity: String, request: HttpServletRequest, model: Model): String
         +editar(entity: String, request: HttpServletRequest, model: Model): String
     }
 
-    class JsonController {
+    class JsonController <<controller>> {
         +create(entityName: String, request: HttpServletRequest): ResponseEntity
         +read(entityName: String, request: HttpServletRequest): ResponseEntity
         +update(request: HttpServletRequest): ResponseEntity
         +delete(entityName: String, request: HttpServletRequest): ResponseEntity
     }
 
-    class LoginController {
+    class LoginController <<controller>> {
         +showLoginForm(session: HttpSession): String
         +processLogin(email: String, senha: String, request: HttpServletRequest, model: Model): String
         +logout(request: HttpServletRequest): String
     }
 
-    class Router {
+    class Router <<controller>> {
         +home(model: Model): String
         +servico(model: Model): String
         +shop(model: Model): String
@@ -35,31 +126,31 @@ package com.gwj.controller {
 }
 
 package com.gwj.service {
-    interface IService<T> {
+    interface IService<T> <<service>> {
         +create(entity: T): T
         +read(entity: T): List<T>
         +update(entity: T): Long
         +delete(entity: T): Long
     }
 
-    class GenericService<T> {
+    class GenericService<T> <<service>> {
         #repository: IRepository<T>
         +GenericService(entityClass: Class)
         +GenericService(repository: IRepository<T>)
     }
 
-    class UsuarioService {
+    class UsuarioService <<service>> {
         +UsuarioService()
     }
 
-    class ServiceRegistry {
+    class ServiceRegistry <<service>> {
         {static} -registry: Map<String, IService>
         {static} +getService(entityName: String): IService<T>
     }
 }
 
 package com.gwj.service.transaction {
-    class UnitOfWork {
+    class UnitOfWork <<service>> {
         {static} -currentConnection: ThreadLocal<Connection>
         {static} -inTransaction: ThreadLocal<Boolean>
         {static} +getConnection(): Connection
@@ -71,25 +162,25 @@ package com.gwj.service.transaction {
 }
 
 package com.gwj.model.repository {
-    interface IRepository<T> {
+    interface IRepository<T> <<repository>> {
         +save(entity: T): T
         +query(entity: T): List<T>
         +update(entity: T): Long
         +delete(entity: T): Long
     }
 
-    class GenericRepository<T> {
+    class GenericRepository<T> <<repository>> {
         -entityClass: Class<T>
         +GenericRepository(entityClass: Class<T>)
     }
 
-    class UsuarioRepository {
+    class UsuarioRepository <<repository>> {
         +UsuarioRepository()
     }
 }
 
 package com.gwj.model.dataAccessObject {
-    class DataMapper {
+    class DataMapper <<dao>> {
         {static} +getEntityHierarchy(startClass: Class): List<Class>
         {static} +getTableName(clazz: Class): String
         {static} +getColumnName(clazz: Class, method: Method, isEntityValue: boolean): String
@@ -98,13 +189,13 @@ package com.gwj.model.dataAccessObject {
         {static} +capitalize(str: String): String
     }
 
-    class ConnectionDB {
+    class ConnectionDB <<dao>> {
         {static} -instance: ConnectionDB
         +getConnection(): Connection
         {static} +getInstance(): ConnectionDB
     }
 
-    class QueryBuilder {
+    class QueryBuilder <<dao>> {
         +select(fields: String): QueryBuilder
         +from(table: String): QueryBuilder
         +where(condition: String): QueryBuilder
@@ -115,24 +206,24 @@ package com.gwj.model.dataAccessObject {
 }
 
 package com.gwj.model.dataTransferObject {
-    class EntityMapper {
+    class EntityMapper <<domain>> {
         {static} +fillEntity(entity: IEntity, request: HttpServletRequest): IEntity
     }
 }
 
 package com.gwj.model.domain {
-    interface IEntity {
+    interface IEntity <<domain>> {
         +getId(): Long
         +setId(id: Long)
     }
 }
 
 package com.gwj.model.domain.factory {
-    class SimpleObjectFactory {
+    class SimpleObjectFactory <<domain>> {
         {static} +create(name: String): IEntity
     }
 
-    class SchemaValidator {
+    class SchemaValidator <<domain>> {
         {static} +validateAllEntities()
     }
 }
