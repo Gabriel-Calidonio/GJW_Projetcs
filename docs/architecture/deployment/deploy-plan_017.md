@@ -56,7 +56,7 @@ Cada commit ou Pull Request deve ser submetido à seguinte esteira estrita:
 | :--- | :--- | :--- | :--- |
 | **JDK** | OpenJDK 21 (Debian 13) | Eclipse Temurin 21 Container | Eclipse Temurin 21 Container |
 | **Banco de Dados** | MariaDB Local / Postgres descartável | PostgreSQL Container | MariaDB/PostgreSQL Cluster |
-| **Porta HTTP** | `8089` | `8080` | `80` / `443` (via Nginx Reverse Proxy) |
+| **Porta HTTP** | `8089` | `8089` | `80` / `443` (via Nginx Reverse Proxy) |
 | **Perfil Spring** | `dev` | `staging` | `prod` |
 | **MockMvc / Mocks** | Habilitados para testes ágeis | Testcontainers com dados sintetizados | Desabilitados |
 

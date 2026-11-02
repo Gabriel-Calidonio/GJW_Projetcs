@@ -26,7 +26,7 @@ Criar uma ferramenta de diagnóstico automatizado (pré-voo / health-check) para
 - Classe executável autônoma (`main`) que executa as seguintes checagens:
   1. **Java Runtime:** Valida versão do JDK ($\ge 21$), arquitetura e vendor.
   2. **Configuração (`application.properties`):** Valida leitura das propriedades do DataSource, porta HTTP e caminhos de entidades.
-  3. **Porta do Servidor Web:** Testa se a porta configurada (ex: `8089` ou `8080`) está livre ou em conflito.
+  3. **Porta do Servidor Web:** Testa se a porta configurada (ex: `8089` ou `8089`) está livre ou em conflito.
   4. **Porta do Banco de Dados:** Testa conectividade de socket na porta do banco (`3306`).
   5. **Conexão JDBC & Autenticação:** Conecta usando `AppConfig` / `ConnectionDB` com o usuário `desenvolvedor` e senha configurada.
   6. **Banco de Dados & Tabelas:** Verifica se o banco `gwj2` existe e se as tabelas principais das entidades (`tab_usuario`, `tab_cliente`, `tab_produto`, `tab_setting`, `tab_pedidos`, etc.) foram criadas.

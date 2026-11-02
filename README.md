@@ -53,7 +53,7 @@ Abra o arquivo src/main/resources/application.properties e adicione esta linha c
 ```
 propertiesserver.port=8089
 ```
-Observação: Se você alterar a porta, os comandos a seguir devem ser alterados pela porta nova, por exemplo, ao invés de 8080, digita 8089.
+Observação: Se você alterar a porta, os comandos a seguir devem ser alterados pela porta nova, por exemplo, ao invés de 8089, digita 8089.
 
 
 Se não houver mensagens de erro, basta testar no navegador:\
@@ -172,3 +172,29 @@ Caça bugs silenciosos, vazamento de recursos (streams/conexões) e potenciais `
 A especificação comportamental dos cenários de teste em linguagem natural (Gherkin / Português) encontra-se em:
 - [Especificação de Requisitos BDD](/src/test/resources/features/login.feature)
 
+
+
+## Realizar teste visuais E2E com PlayWrite:
+
+#### Teste no agendamento do salão:
+
+```bash
+mvn test -Dtest=AgendamentoVideoE2ETest
+```
+#### Teste no painel administrativo
+> [!Warning] Atenção: Você deve configurar as entradas do teste com a rota administrativa e as credenciais do administrador atribuídas durante a instalação. Essas credenciais nunca devem ser utilizadas em produção ou outros ambientes.
+[PainelAdministrativo.java](src/test/java/com/gwj/e2e/PainelAdministrativo.java)
+
+
+```bash
+mvn test -Dtest=PainelAdministrativo
+```
+
+### Dicas Importantes
+
+- **`setSlowMo(...)`**: Se o objetivo do vídeo for apresentação ou demonstração para clientes/banca avaliadora, configure entre `300ms` a `600ms`. Sem o *slowMo*, as ações acontecem em milissegundos e o vídeo fica muito rápido para visualização humana.
+- **Formato do Arquivo**: O Playwright gera nativamente contêineres `.webm`. Se precisar converter para `.mp4`, basta rodar no Linux (Debian 14).
+
+  ```bash
+  ffmpeg -i target/videos/ciclo-agendamento-1080p.webm -c:v libx264 target/videos/ciclo-agendamento.mp4
+  ```

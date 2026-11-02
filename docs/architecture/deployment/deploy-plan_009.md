@@ -155,11 +155,11 @@ Este plano estabelece a estratégia completa para:
 
 ### Manual Verification
 - Iniciar a aplicação Spring Boot e verificar a renderização de:
-  - Home: `http://localhost:8080/`
-  - Serviços: `http://localhost:8080/servicos`
-  - Loja & Produto: `http://localhost:8080/loja`
-  - Carrinho & Checkout: `http://localhost:8080/carrinho`
-  - Login & Cadastro Site: `http://localhost:8080/login`, `http://localhost:8080/cadastro`
-  - Login Admin: `http://localhost:8080/MRYnZpAsC9sp/login`
-  - Dashboard Admin: `http://localhost:8080/MRYnZpAsC9sp/dashboard`
+  - Home: `http://localhost:8089/`
+  - Serviços: `http://localhost:8089/servicos`
+  - Loja & Produto: `http://localhost:8089/loja`
+  - Carrinho & Checkout: `http://localhost:8089/carrinho`
+  - Login & Cadastro Site: `http://localhost:8089/login`, `http://localhost:8089/cadastro`
+  - Login Admin: `http://localhost:8089/MRYnZpAsC9sp/login`
+  - Dashboard Admin: `http://localhost:8089/MRYnZpAsC9sp/dashboard`
   - Navegação do Sidebar do Admin nos novos módulos dedicados.
