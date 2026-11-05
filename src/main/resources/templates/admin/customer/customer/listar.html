@@ -16,10 +16,10 @@
                 <p style="color: var(--gwj-text-muted); margin: 0;">Base de clientes cadastrados na barbearia</p>
             </div>
             <div class="gwj-d-flex gwj-gap-2">
-                <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                     <i class="bi bi-arrow-left"></i> Painel
                 </a>
-                <a th:href="@{/MRYnZpAsC9sp/clientes/novo}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/clientes/novo|}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
                     <i class="bi bi-plus-lg"></i> Novo Cliente
                 </a>
             </div>
@@ -52,11 +52,11 @@
                                 <td th:text="${cli.cpf != null ? cli.cpf : '—'}">123.456.789-00</td>
                                 <td th:text="${cli.telefone != null ? cli.telefone : '—'}">(11) 99999-9999</td>
                                 <td class="gwj-text-end" style="padding-right: 2rem;">
-                                    <a th:href="@{/MRYnZpAsC9sp/clientes/editar/{id}(id=${cli.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/clientes/editar/${cli.id}|}" 
                                        class="gwj-btn gwj-btn-outline-primary gwj-btn-sm" title="Editar">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a th:href="@{/MRYnZpAsC9sp/clientes/excluir/{id}(id=${cli.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/clientes/excluir/${cli.id}|}" 
                                        onclick="return confirm('Deseja realmente excluir este cliente?');"
                                        class="gwj-btn gwj-btn-outline-danger gwj-btn-sm" title="Excluir">
                                         <i class="bi bi-trash"></i>

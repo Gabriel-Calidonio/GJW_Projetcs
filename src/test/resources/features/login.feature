@@ -24,7 +24,7 @@ Funcionalidade: Autenticação de Usuários e Gestão de Sessão de Login
     E o usuário preenche a senha com "Senha@123"
     E clica no botão de entrar
     Então o sistema deve autenticar o usuário
-    E deve redirecionar para o painel administrativo ("/MRYnZpAsC9sp")
+    E deve redirecionar para o painel administrativo ("/${admin.route.prefix}")
 
   @falha @seguranca @anti_enumeracao
   Cenário: Tentativa de login com senha incorreta
@@ -44,7 +44,7 @@ Funcionalidade: Autenticação de Usuários e Gestão de Sessão de Login
 
   @seguranca @restricao_perfil
   Cenário: Cliente tentando autenticar na área restrita administrativa
-    Dado que o cliente acessa a rota administrativa restrita ("/MRYnZpAsC9sp/login")
+    Dado que o cliente acessa a rota administrativa restrita ("/${admin.route.prefix}/login")
     Quando o cliente preenche as credenciais válidas de sua conta de cliente
     E clica no botão de entrar
     Então o sistema deve exibir a mensagem "Acesso negado: esta área é restrita a administradores."

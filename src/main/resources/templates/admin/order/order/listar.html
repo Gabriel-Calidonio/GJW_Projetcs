@@ -15,7 +15,7 @@
                 <h1 style="font-size: 1.8rem; margin: 0;">Gestão de Pedidos</h1>
                 <p style="color: var(--gwj-text-muted); margin: 0;">Gerencie os pedidos feitos no mini-shopping da barbearia</p>
             </div>
-            <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+            <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                 <i class="bi bi-arrow-left"></i> Voltar ao Painel
             </a>
         </div>
@@ -64,7 +64,7 @@
                                     <span th:if="${pedido.status == 'Cancelado'}" class="gwj-badge gwj-badge-danger">Cancelado</span>
                                 </td>
                                 <td class="gwj-text-end" style="padding-right: 2rem;">
-                                    <a th:href="@{/MRYnZpAsC9sp/pedidos/detalhe(id=${pedido.id})}" class="gwj-btn gwj-btn-sm gwj-btn-primary">
+                                    <a th:href="@{|/${adminPrefix}/pedidos/detalhe|(id=${pedido.id})}" class="gwj-btn gwj-btn-sm gwj-btn-primary">
                                         <i class="bi bi-eye"></i> Detalhes
                                     </a>
                                 </td>

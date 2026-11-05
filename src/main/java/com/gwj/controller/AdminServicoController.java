@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/servicos")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/servicos")
 public class AdminServicoController {
 
   @GetMapping({"", "/"})
@@ -43,7 +43,7 @@ public class AdminServicoController {
       model.addAttribute("servico", resultados.get(0));
       return "admin/catalog/service/form";
     }
-    return "redirect:/MRYnZpAsC9sp/servicos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/servicos";
   }
 
   @PostMapping("/salvar")
@@ -54,7 +54,7 @@ public class AdminServicoController {
     } else {
       service.update(servico);
     }
-    return "redirect:/MRYnZpAsC9sp/servicos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/servicos";
   }
 
   @GetMapping("/excluir/{id}")
@@ -63,6 +63,6 @@ public class AdminServicoController {
     Servico filtro = new Servico();
     filtro.setId(id);
     service.delete(filtro);
-    return "redirect:/MRYnZpAsC9sp/servicos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/servicos";
   }
 }

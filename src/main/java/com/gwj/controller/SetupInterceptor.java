@@ -42,7 +42,7 @@ public class SetupInterceptor implements HandlerInterceptor {
     // 3. Se o sistema JÁ ESTÁ configurado:
     if (uri.startsWith("/setup")) {
       // Trava de segurança: impede reconfiguração maliciosa
-      response.sendRedirect(request.getContextPath() + "/MRYnZpAsC9sp/login");
+      response.sendRedirect(request.getContextPath() + "/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login");
       return false;
     }
 

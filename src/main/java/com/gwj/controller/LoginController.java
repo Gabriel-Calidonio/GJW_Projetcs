@@ -1,5 +1,6 @@
 package com.gwj.controller;
 
+import com.gwj.AppConfig;
 import com.gwj.model.domain.entities.Cliente;
 import com.gwj.model.domain.entities.Usuario;
 import com.gwj.service.IService;
@@ -28,7 +29,7 @@ public class LoginController {
       if (usuario.getPerfil() != null && usuario.getPerfil().getId() == 4L) {
         return "redirect:/";
       }
-      return "redirect:/MRYnZpAsC9sp";
+      return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX;
     }
     if (sucesso != null && !sucesso.isBlank()) {
       model.addAttribute("sucesso", "Cadastro realizado com sucesso! Faça login para continuar.");
@@ -135,7 +136,7 @@ public class LoginController {
         if (usuarioBanco.getPerfil() != null && usuarioBanco.getPerfil().getId() == 4L) {
           return "redirect:/"; // Clientes vão para a home
         }
-        return "redirect:/MRYnZpAsC9sp"; // Administradores vão para o painel principal
+        return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX; // Administradores vão para o painel principal
       }
     }
 
@@ -154,19 +155,19 @@ public class LoginController {
 
   // --- MASCARAMENTO E ROTAS DE LOGIN ADMINISTRATIVO ---
 
-  @GetMapping("/MRYnZpAsC9sp/login")
+  @GetMapping("/${admin.route.prefix:MRYnZpAsC9sp}/login")
   public String showAdminLoginForm(HttpSession session) {
     if (session != null && session.getAttribute("usuarioLogado") != null) {
       Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
       if (usuario.getPerfil() != null && usuario.getPerfil().getId() == 4L) {
         return "redirect:/";
       }
-      return "redirect:/MRYnZpAsC9sp";
+      return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX;
     }
     return "admin/auth/login";
   }
 
-  @PostMapping("/MRYnZpAsC9sp/login")
+  @PostMapping("/${admin.route.prefix:MRYnZpAsC9sp}/login")
   public String processAdminLogin(
       @RequestParam("email") String email,
       @RequestParam("senha") String senha,
@@ -199,7 +200,7 @@ public class LoginController {
 
         HttpSession session = request.getSession();
         session.setAttribute("usuarioLogado", usuarioBanco);
-        return "redirect:/MRYnZpAsC9sp";
+        return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX;
       }
     }
 
@@ -207,12 +208,12 @@ public class LoginController {
     return "admin/auth/login";
   }
 
-  @GetMapping("/MRYnZpAsC9sp/logout")
+  @GetMapping("/${admin.route.prefix:MRYnZpAsC9sp}/logout")
   public String adminLogout(HttpServletRequest request) {
     HttpSession session = request.getSession(false);
     if (session != null) {
       session.invalidate();
     }
-    return "redirect:/MRYnZpAsC9sp/login";
+    return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX + "/login";
   }
 }

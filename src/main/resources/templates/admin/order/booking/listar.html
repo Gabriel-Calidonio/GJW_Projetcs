@@ -16,10 +16,10 @@
                 <p style="color: var(--gwj-text-muted); margin: 0;">Acompanhe todos os horários marcados na barbearia</p>
             </div>
             <div class="gwj-d-flex gwj-gap-2">
-                <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                     <i class="bi bi-arrow-left"></i> Painel
                 </a>
-                <a th:href="@{/MRYnZpAsC9sp/agendamentos/novo}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/agendamentos/novo|}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
                     <i class="bi bi-plus-lg"></i> Novo Agendamento
                 </a>
             </div>
@@ -66,17 +66,17 @@
                                     <span th:if="${ag.status == null or (!ag.status.equalsIgnoreCase('Confirmado') and !ag.status.equalsIgnoreCase('Agendado') and !ag.status.equalsIgnoreCase('Concluido') and !ag.status.equalsIgnoreCase('Cancelado'))}" class="gwj-badge gwj-badge-warning" th:text="${ag.status != null ? ag.status : 'Pendente'}">Pendente</span>
                                 </td>
                                 <td class="gwj-text-end" style="padding-right: 2rem;">
-                                    <a th:href="@{/MRYnZpAsC9sp/agendamentos/editar/{id}(id=${ag.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/agendamentos/editar/${ag.id}|}" 
                                        class="gwj-btn gwj-btn-outline-primary gwj-btn-sm" title="Editar">
                                         <i class="bi bi-pencil"></i>
                                     </a>
                                     <a th:if="${ag.status == null || !ag.status.equalsIgnoreCase('Cancelado')}"
-                                       th:href="@{/MRYnZpAsC9sp/agendamentos/cancelar/{id}(id=${ag.id})}" 
+                                       th:href="@{|/${adminPrefix}/agendamentos/cancelar/${ag.id}|}" 
                                        onclick="return confirm('Deseja cancelar este agendamento?');"
                                        class="gwj-btn gwj-btn-outline-warning gwj-btn-sm" title="Cancelar">
                                         <i class="bi bi-x-circle"></i>
                                     </a>
-                                    <a th:href="@{/MRYnZpAsC9sp/agendamentos/excluir/{id}(id=${ag.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/agendamentos/excluir/${ag.id}|}" 
                                        onclick="return confirm('Deseja realmente excluir este agendamento?');"
                                        class="gwj-btn gwj-btn-outline-danger gwj-btn-sm" title="Excluir">
                                         <i class="bi bi-trash"></i>

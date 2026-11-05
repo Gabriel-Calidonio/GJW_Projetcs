@@ -15,7 +15,7 @@
                 <h1 style="font-size: 1.8rem; margin: 0; font-weight: 700;">Configurações da Loja</h1>
                 <p style="color: var(--gwj-text-muted); margin: 0;">Personalize os dados da barbearia, contatos, horários e textos exibidos no site</p>
             </div>
-            <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+            <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                 <i class="bi bi-arrow-left"></i> Voltar ao Painel
             </a>
         </div>
@@ -29,7 +29,7 @@
             <i class="bi bi-exclamation-triangle-fill gwj-mr-2"></i> <span th:text="${erro}">Erro ao salvar configurações.</span>
         </div>
 
-        <form th:action="@{/MRYnZpAsC9sp/configuracoes/salvar}" method="POST">
+        <form th:action="@{|/${adminPrefix}/configuracoes/salvar|}" method="POST">
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 1.5rem;">
                 
@@ -152,7 +152,7 @@
 
             <!-- Botões Fixos / Flutuantes de Ação -->
             <div class="gwj-d-flex gwj-justify-end gwj-gap-2 gwj-mt-4" style="position: sticky; bottom: 1.5rem; background: rgba(15, 16, 21, 0.85); backdrop-filter: blur(8px); padding: 1rem 1.5rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
-                <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary">
+                <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary">
                     Cancelar
                 </a>
                 <button type="submit" class="gwj-btn gwj-btn-primary" style="font-weight: 600; padding: 0.6rem 1.75rem;">

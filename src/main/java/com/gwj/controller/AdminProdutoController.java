@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/produtos")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/produtos")
 public class AdminProdutoController {
 
   @GetMapping({"", "/"})
@@ -41,7 +41,7 @@ public class AdminProdutoController {
       model.addAttribute("produto", resultados.get(0));
       return "admin/catalog/product/form";
     }
-    return "redirect:/MRYnZpAsC9sp/produtos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/produtos";
   }
 
   @PostMapping("/salvar")
@@ -52,7 +52,7 @@ public class AdminProdutoController {
     } else {
       service.update(produto);
     }
-    return "redirect:/MRYnZpAsC9sp/produtos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/produtos";
   }
 
   @GetMapping("/excluir/{id}")
@@ -61,6 +61,6 @@ public class AdminProdutoController {
     Produto filtro = new Produto();
     filtro.setId(id);
     service.delete(filtro);
-    return "redirect:/MRYnZpAsC9sp/produtos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/produtos";
   }
 }

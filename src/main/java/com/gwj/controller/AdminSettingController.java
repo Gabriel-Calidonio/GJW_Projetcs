@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/configuracoes")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/configuracoes")
 public class AdminSettingController {
 
   @GetMapping({"", "/"})
@@ -45,6 +45,6 @@ public class AdminSettingController {
           "erro", "Erro ao salvar configurações: " + e.getMessage());
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/configuracoes";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/configuracoes";
   }
 }

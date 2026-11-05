@@ -479,6 +479,21 @@
                                 <input type="password" class="form-control" id="adminPasswordConfirm" name="adminPasswordConfirm" placeholder="Repita a senha" required>
                             </div>
                         </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label" for="adminRoutePrefix">Prefixo da Rota Administrativa (Segurança por Obscuridade)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-shield-shaded"></i></span>
+                                <span class="input-group-text text-secondary font-monospace">/</span>
+                                <input type="text" class="form-control font-monospace" id="adminRoutePrefix" name="adminRoutePrefix" value="adm_6b85358db772" placeholder="adm_6b85358db772" required>
+                                <button class="btn btn-outline-warning" type="button" id="btnGenAdminPrefix" title="Gerar rota aleatória">
+                                    <i class="bi bi-shuffle me-1"></i> Gerar Rota
+                                </button>
+                            </div>
+                            <div class="form-text text-secondary" style="font-size: 0.75rem;">
+                                URL restrita de acesso ao painel (ex: <code class="text-warning">/adm_6b85358db772/login</code>). Protege contra varreduras de bots.
+                            </div>
+                        </div>
                     </div>
 
                     <div id="adminValidationAlert" class="alert alert-danger mt-3 d-none small"></div>
@@ -507,9 +522,13 @@
                                 <span class="text-secondary">Usuário BD:</span>
                                 <span class="fw-semibold" id="summaryDbUser">desenvolvedor</span>
                             </li>
-                            <li class="py-1 d-flex justify-content-between">
+                            <li class="py-1 d-flex justify-content-between border-bottom border-secondary border-opacity-25">
                                 <span class="text-secondary">Administrador Master:</span>
                                 <span class="fw-semibold text-warning" id="summaryAdminEmail">admin@tgosbarbearia.com</span>
+                            </li>
+                            <li class="py-1 d-flex justify-content-between">
+                                <span class="text-secondary">Rota Administrativa:</span>
+                                <span class="fw-semibold text-warning font-monospace" id="summaryAdminRoutePrefix">/adm_6b85358db772</span>
                             </li>
                         </ul>
                     </div>
@@ -637,6 +656,8 @@
                 (document.getElementById('dbName').value || 'gwj2') + ')';
             document.getElementById('summaryDbUser').innerText = document.getElementById('dbUser').value || (dbType === 'postgres' ? 'postgres' : 'desenvolvedor');
             document.getElementById('summaryAdminEmail').innerText = document.getElementById('adminEmail').value || '';
+            const routePrefix = (document.getElementById('adminRoutePrefix').value.trim() || 'adm_6b85358db772').replace(/^\/+|\/+$/g, '');
+            document.getElementById('summaryAdminRoutePrefix').innerText = '/' + routePrefix;
         }
     }
 
@@ -778,7 +799,8 @@
             adminName: document.getElementById('adminName').value.trim(),
             adminEmail: document.getElementById('adminEmail').value.trim(),
             adminPassword: document.getElementById('adminPassword').value,
-            adminPasswordConfirm: document.getElementById('adminPasswordConfirm').value
+            adminPasswordConfirm: document.getElementById('adminPasswordConfirm').value,
+            adminRoutePrefix: (document.getElementById('adminRoutePrefix').value.trim() || 'adm_6b85358db772').replace(/^\/+|\/+$/g, '')
         };
 
         setTimeout(() => {
@@ -803,7 +825,8 @@
                 alertBox.innerHTML = '<strong>Sucesso!</strong> ' + data.message + ' Redirecionando para o login...';
 
                 setTimeout(() => {
-                    window.location.href = data.redirectUrl || '/MRYnZpAsC9sp/login';
+                    const finalPrefix = (document.getElementById('adminRoutePrefix').value.trim() || 'adm_6b85358db772').replace(/^\/+|\/+$/g, '');
+                    window.location.href = data.redirectUrl || ('/' + finalPrefix + '/login');
                 }, 1500);
             } else {
                 progressBar.style.width = '0%';
@@ -825,6 +848,18 @@
             alertBox.classList.add('alert', 'alert-danger');
             alertBox.innerHTML = '<i class="bi bi-wifi-off me-2"></i>Erro na requisição: ' + err.message;
         }
+    }
+
+    const btnGen = document.getElementById('btnGenAdminPrefix');
+    if (btnGen) {
+        btnGen.addEventListener('click', () => {
+            const chars = '0123456789abcdef';
+            let hash = '';
+            for (let i = 0; i < 12; i++) {
+                hash += chars[Math.floor(Math.random() * chars.length)];
+            }
+            document.getElementById('adminRoutePrefix').value = 'adm_' + hash;
+        });
     }
 </script>
 

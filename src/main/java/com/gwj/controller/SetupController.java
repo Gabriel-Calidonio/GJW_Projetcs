@@ -23,7 +23,7 @@ public class SetupController {
   @GetMapping
   public String index(Model model) {
     if (setupService.isConfigured()) {
-      return "redirect:/MRYnZpAsC9sp/login";
+      return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login";
     }
 
     SetupDTO dto = new SetupDTO();
@@ -91,7 +91,7 @@ public class SetupController {
       setupService.completeSetup(dto);
       response.put("success", true);
       response.put("message", "Assistente concluído com sucesso!");
-      response.put("redirectUrl", "/MRYnZpAsC9sp/login");
+      response.put("redirectUrl", "/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login");
     } catch (Exception e) {
       response.put("success", false);
       response.put("message", e.getMessage());

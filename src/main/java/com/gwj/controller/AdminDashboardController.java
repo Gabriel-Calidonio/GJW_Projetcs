@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AdminDashboardController {
 
-  @GetMapping({"/MRYnZpAsC9sp", "/MRYnZpAsC9sp/"})
+  @GetMapping({"/${admin.route.prefix:MRYnZpAsC9sp}", "/${admin.route.prefix:MRYnZpAsC9sp}/"})
   public String dashboard(Model model) {
     try {
       IService<Agendamento> agService = ServiceRegistry.getService("Agendamento");

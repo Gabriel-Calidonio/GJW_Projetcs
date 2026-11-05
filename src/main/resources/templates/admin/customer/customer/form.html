@@ -15,7 +15,7 @@
                 <h1 style="font-size: 1.8rem; margin: 0;" th:text="${cliente.id != null ? 'Editar Cliente #' + cliente.id : 'Cadastrar Novo Cliente'}">Novo Cliente</h1>
                 <p style="color: var(--gwj-text-muted); margin: 0;">Dados cadastrais do cliente</p>
             </div>
-            <a th:href="@{/MRYnZpAsC9sp/clientes}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+            <a th:href="@{|/${adminPrefix}/clientes|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                 <i class="bi bi-arrow-left"></i> Voltar à Lista
             </a>
         </div>
@@ -26,7 +26,7 @@
                 <h5 class="gwj-card-title">Informações do Cliente</h5>
             </div>
             <div class="gwj-card-body">
-                <form th:action="@{/MRYnZpAsC9sp/clientes/salvar}" method="POST">
+                <form th:action="@{|/${adminPrefix}/clientes/salvar|}" method="POST">
                     <input type="hidden" name="id" th:value="${cliente.id}">
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="gwj-d-flex gwj-justify-end gwj-gap-2 gwj-mt-4">
-                        <a th:href="@{/MRYnZpAsC9sp/clientes}" class="gwj-btn gwj-btn-outline-secondary">Cancelar</a>
+                        <a th:href="@{|/${adminPrefix}/clientes|}" class="gwj-btn gwj-btn-outline-secondary">Cancelar</a>
                         <button type="submit" class="gwj-btn gwj-btn-primary">
                             <i class="bi bi-check-lg"></i> Salvar Cliente
                         </button>

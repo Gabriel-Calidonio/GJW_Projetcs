@@ -145,4 +145,30 @@ public class SetupServiceTest {
     verify(updateStmt).setLong(4, 7L);
     verify(updateStmt).executeUpdate();
   }
+
+  @Test
+  public void testAdminRoutePrefixInSetupDTO() {
+    SetupDTO dto = new SetupDTO();
+    dto.setAdminRoutePrefix("adm_custom_hash123");
+    assertEquals("adm_custom_hash123", dto.getAdminRoutePrefix());
+  }
+
+  @Test
+  public void testAppConfigAdminRoutePrefixHandling() {
+    String original = com.gwj.AppConfig.ADMIN_ROUTE_PREFIX;
+    try {
+      com.gwj.AppConfig.setAdminRoutePrefix("/painel_secreto_teste/");
+      assertEquals("painel_secreto_teste", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
+      assertEquals("painel_secreto_teste", System.getProperty("ADMIN_ROUTE_PREFIX"));
+      assertEquals("painel_secreto_teste", System.getProperty("admin.route.prefix"));
+
+      com.gwj.AppConfig.setAdminRoutePrefix("   ");
+      assertEquals("MRYnZpAsC9sp", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
+
+      com.gwj.AppConfig.setAdminRoutePrefix(null);
+      assertEquals("MRYnZpAsC9sp", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
+    } finally {
+      com.gwj.AppConfig.setAdminRoutePrefix(original);
+    }
+  }
 }

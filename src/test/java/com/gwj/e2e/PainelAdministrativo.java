@@ -61,7 +61,7 @@ public class PainelAdministrativo {
     @Test
     @DisplayName("Tour do Gestor pelo Painel Administrativo e Edição de Agendamento")
     void tourGestorPainelAdministrativo() {
-        String baseUrl = "http://localhost:" + port + "/MRYnZpAsC9sp";
+        String baseUrl = "http://localhost:" + port + "/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX;
 
         // =========================================================================
         // 1. LOGIN ADMINISTRATIVO
@@ -75,7 +75,7 @@ public class PainelAdministrativo {
         page.locator("button[type='submit']").click();
 
         // Aguarda entrada no Dashboard
-        page.waitForURL("**/MRYnZpAsC9sp**");
+        page.waitForURL("**/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "**");
         page.waitForTimeout(1000);
 
         // =========================================================================

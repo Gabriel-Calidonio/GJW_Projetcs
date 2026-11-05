@@ -16,6 +16,7 @@ public final class AppConfig {
   public static volatile String DB_DRIVER = "org.mariadb.jdbc.Driver";
   public static volatile String TABLE_PREFIX = "tab_";
   public static volatile String ENTITIES_PATH = "com.gwj.model.domain.entities";
+  public static volatile String ADMIN_ROUTE_PREFIX = "MRYnZpAsC9sp";
 
   public static final int LIMITE_USUARIOS = 100;
   public static final double VERSAO = 1.0;
@@ -50,6 +51,32 @@ public final class AppConfig {
     TABLE_PREFIX = resolveValue("app.database.prefix", "APP_DB_PREFIX", "tab_");
     ENTITIES_PATH =
         resolveValue("app.entities.path", "APP_ENTITIES_PATH", "com.gwj.model.domain.entities");
+
+    String rawAdminPrefix =
+        resolveValue("admin.route.prefix", "ADMIN_ROUTE_PREFIX", "MRYnZpAsC9sp");
+    setAdminRoutePrefix(rawAdminPrefix);
+  }
+
+  /**
+   * Define e higieniza o prefixo da rota administrativa (removendo barras extras)
+   * e sincroniza com as propriedades do sistema.
+   */
+  public static void setAdminRoutePrefix(String prefix) {
+    if (prefix != null) {
+      prefix = prefix.trim();
+      while (prefix.startsWith("/")) {
+        prefix = prefix.substring(1);
+      }
+      while (prefix.endsWith("/")) {
+        prefix = prefix.substring(0, prefix.length() - 1);
+      }
+    }
+    if (prefix == null || prefix.isBlank()) {
+      prefix = "MRYnZpAsC9sp";
+    }
+    ADMIN_ROUTE_PREFIX = prefix;
+    System.setProperty("ADMIN_ROUTE_PREFIX", prefix);
+    System.setProperty("admin.route.prefix", prefix);
   }
 
   /** Carrega as variáveis do arquivo .env para System Properties do Java. */

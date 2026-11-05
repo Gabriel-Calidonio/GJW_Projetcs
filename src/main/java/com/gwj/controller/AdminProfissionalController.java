@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/profissionais")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/profissionais")
 public class AdminProfissionalController {
 
   @GetMapping({"", "/"})
@@ -42,7 +42,7 @@ public class AdminProfissionalController {
       model.addAttribute("profissional", resultados.get(0));
       return "admin/staff/edit";
     }
-    return "redirect:/MRYnZpAsC9sp/profissionais";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/profissionais";
   }
 
   @PostMapping("/salvar")
@@ -53,7 +53,7 @@ public class AdminProfissionalController {
     } else {
       service.update(prof);
     }
-    return "redirect:/MRYnZpAsC9sp/profissionais";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/profissionais";
   }
 
   @GetMapping("/excluir/{id}")
@@ -62,6 +62,6 @@ public class AdminProfissionalController {
     Profissional filtro = new Profissional();
     filtro.setId(id);
     service.delete(filtro);
-    return "redirect:/MRYnZpAsC9sp/profissionais";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/profissionais";
   }
 }

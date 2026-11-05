@@ -107,7 +107,8 @@ public class SetupService {
         throw e;
       }
     } else {
-      String urlWithDb = "jdbc:mariadb://" + host + ":" + port + "/" + dbName;
+      String mariaDbParams = "?allowPublicKeyRetrieval=true&useSSL=false";
+      String urlWithDb = "jdbc:mariadb://" + host + ":" + port + "/" + dbName + mariaDbParams;
       try {
         try (Connection conn = DriverManager.getConnection(urlWithDb, user, password)) {
           if (conn.isValid(3)) {
@@ -118,7 +119,7 @@ public class SetupService {
         // Se o erro for de banco desconhecido (ER_BAD_DB_ERROR / 1049), testa a conexão raiz do
         // servidor
         if (e.getErrorCode() == 1049 || "42000".equals(e.getSQLState())) {
-          String rootUrl = "jdbc:mariadb://" + host + ":" + port + "/";
+          String rootUrl = "jdbc:mariadb://" + host + ":" + port + "/" + mariaDbParams;
           try (Connection rootConn = DriverManager.getConnection(rootUrl, user, password)) {
             if (rootConn.isValid(3)) {
               return; // Servidor acessível, o banco será criado automaticamente no finish
@@ -169,6 +170,21 @@ public class SetupService {
         dto.getTablePrefix() != null && !dto.getTablePrefix().isBlank()
             ? dto.getTablePrefix().trim()
             : "tab_";
+    String adminRoutePrefix =
+        dto.getAdminRoutePrefix() != null && !dto.getAdminRoutePrefix().isBlank()
+            ? dto.getAdminRoutePrefix().trim()
+            : (AppConfig.ADMIN_ROUTE_PREFIX != null && !AppConfig.ADMIN_ROUTE_PREFIX.isBlank()
+                ? AppConfig.ADMIN_ROUTE_PREFIX
+                : "MRYnZpAsC9sp");
+    while (adminRoutePrefix.startsWith("/")) {
+      adminRoutePrefix = adminRoutePrefix.substring(1);
+    }
+    while (adminRoutePrefix.endsWith("/")) {
+      adminRoutePrefix = adminRoutePrefix.substring(0, adminRoutePrefix.length() - 1);
+    }
+    if (adminRoutePrefix.isBlank()) {
+      adminRoutePrefix = "MRYnZpAsC9sp";
+    }
 
     DriverManager.setLoginTimeout(5);
 
@@ -198,10 +214,11 @@ public class SetupService {
       }
     } else {
       driverClass = "org.mariadb.jdbc.Driver";
-      jdbcUrl = "jdbc:mariadb://" + host + ":" + port + "/" + dbName;
+      String mariaDbParams = "?allowPublicKeyRetrieval=true&useSSL=false";
+      jdbcUrl = "jdbc:mariadb://" + host + ":" + port + "/" + dbName + mariaDbParams;
 
       // 1. Conecta ao servidor e cria o banco se necessário
-      String serverUrl = "jdbc:mariadb://" + host + ":" + port + "/";
+      String serverUrl = "jdbc:mariadb://" + host + ":" + port + "/" + mariaDbParams;
       try (Connection rootConn = DriverManager.getConnection(serverUrl, user, password);
           Statement stmt = rootConn.createStatement()) {
         stmt.execute(
@@ -212,7 +229,7 @@ public class SetupService {
     }
 
     // 2. Grava o arquivo .env
-    writeEnvFile(serverPort, jdbcUrl, user, password, driverClass, tablePrefix);
+    writeEnvFile(serverPort, jdbcUrl, user, password, driverClass, tablePrefix, adminRoutePrefix);
 
     // 3. Recarrega as configurações em tempo de execução
     AppConfig.reload();
@@ -254,7 +271,8 @@ public class SetupService {
       String dbUser,
       String dbPassword,
       String driverClass,
-      String prefix)
+      String prefix,
+      String adminRoutePrefix)
       throws Exception {
     File envFile = new File(".env");
     StringBuilder sb = new StringBuilder();
@@ -263,6 +281,8 @@ public class SetupService {
     sb.append("# Gerado automaticamente pelo Assistente de Instalação (Setup Wizard)\n");
     sb.append("# ===================================================================\n\n");
     sb.append("SERVER_PORT=").append(serverPort).append("\n\n");
+    sb.append("# Rota ofuscada do Painel Administrativo\n");
+    sb.append("ADMIN_ROUTE_PREFIX=").append(adminRoutePrefix).append("\n\n");
     sb.append("DB_URL=").append(dbUrl).append("\n");
     sb.append("DB_USERNAME=").append(dbUser).append("\n");
     sb.append("DB_PASSWORD=").append(dbPassword).append("\n");

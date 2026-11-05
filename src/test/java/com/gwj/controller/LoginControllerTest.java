@@ -102,7 +102,7 @@ class LoginControllerTest {
     }
 
     @Test
-    @DisplayName("Deve redirecionar Administrador com sessão ativa para o painel (/MRYnZpAsC9sp)")
+    @DisplayName("Deve redirecionar Administrador com sessão ativa para o painel")
     void deveRedirecionarAdminLogadoParaPainel() throws Exception {
       MockHttpSession session = new MockHttpSession();
       session.setAttribute("usuarioLogado", criarUsuarioMock("admin@teste.com", "12345", 1L));
@@ -110,7 +110,7 @@ class LoginControllerTest {
       mockMvc
           .perform(get("/login").session(session))
           .andExpect(status().is3xxRedirection())
-          .andExpect(redirectedUrl("/MRYnZpAsC9sp"));
+          .andExpect(redirectedUrl("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX));
     }
   }
 
@@ -135,7 +135,7 @@ class LoginControllerTest {
     }
 
     @Test
-    @DisplayName("Deve autenticar Administrador e redirecionar para o painel (/MRYnZpAsC9sp)")
+    @DisplayName("Deve autenticar Administrador e redirecionar para o painel")
     void deveAutenticarAdminComSucesso() throws Exception {
       Usuario admin = criarUsuarioMock("admin@teste.com", "Senha@123", 1L);
       when(usuarioServiceMock.read(any(Usuario.class))).thenReturn(List.of(admin));
@@ -143,7 +143,7 @@ class LoginControllerTest {
       mockMvc
           .perform(post("/login").param("email", "admin@teste.com").param("senha", "Senha@123"))
           .andExpect(status().is3xxRedirection())
-          .andExpect(redirectedUrl("/MRYnZpAsC9sp"))
+          .andExpect(redirectedUrl("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX))
           .andExpect(request().sessionAttribute("usuarioLogado", admin));
     }
 
@@ -209,10 +209,10 @@ class LoginControllerTest {
   }
 
   // =========================================================================
-  // 3. FLUXO DE LOGIN ADMINISTRATIVO MASCARADO (/MRYnZpAsC9sp/login)
+  // 3. FLUXO DE LOGIN ADMINISTRATIVO MASCARADO
   // =========================================================================
   @Nested
-  @DisplayName("3. Login Administrativo Restrito (/MRYnZpAsC9sp/login)")
+  @DisplayName("3. Login Administrativo Restrito")
   class LoginAdministrativo {
 
     @Test
@@ -223,11 +223,11 @@ class LoginControllerTest {
 
       mockMvc
           .perform(
-              post("/MRYnZpAsC9sp/login")
+              post("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login")
                   .param("email", "admin@empresa.com")
                   .param("senha", "Senha@Admin123"))
           .andExpect(status().is3xxRedirection())
-          .andExpect(redirectedUrl("/MRYnZpAsC9sp"))
+          .andExpect(redirectedUrl("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX))
           .andExpect(request().sessionAttribute("usuarioLogado", admin));
     }
 
@@ -240,7 +240,7 @@ class LoginControllerTest {
 
       mockMvc
           .perform(
-              post("/MRYnZpAsC9sp/login")
+              post("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login")
                   .param("email", "cliente@teste.com")
                   .param("senha", "Senha@123"))
           .andExpect(status().isOk())
@@ -258,7 +258,7 @@ class LoginControllerTest {
 
       mockMvc
           .perform(
-              post("/MRYnZpAsC9sp/login")
+              post("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login")
                   .param("email", "admin@teste.com")
                   .param("senha", "SenhaErrada"))
           .andExpect(status().isOk())
@@ -295,9 +295,9 @@ class LoginControllerTest {
       session.setAttribute("usuarioLogado", criarUsuarioMock("admin@teste.com", "12345", 1L));
 
       mockMvc
-          .perform(get("/MRYnZpAsC9sp/logout").session(session))
+          .perform(get("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/logout").session(session))
           .andExpect(status().is3xxRedirection())
-          .andExpect(redirectedUrl("/MRYnZpAsC9sp/login"));
+          .andExpect(redirectedUrl("/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/login"));
 
       assertThat(session.isInvalid()).isTrue();
     }

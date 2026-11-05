@@ -16,10 +16,10 @@
                 <p style="color: var(--gwj-text-muted); margin: 0;">Catálogo de produtos vendidos no mini-shopping da barbearia</p>
             </div>
             <div class="gwj-d-flex gwj-gap-2">
-                <a th:href="@{/MRYnZpAsC9sp/}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/|}" class="gwj-btn gwj-btn-outline-secondary gwj-btn-sm">
                     <i class="bi bi-arrow-left"></i> Painel
                 </a>
-                <a th:href="@{/MRYnZpAsC9sp/produtos/novo}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
+                <a th:href="@{|/${adminPrefix}/produtos/novo|}" class="gwj-btn gwj-btn-primary gwj-btn-sm">
                     <i class="bi bi-plus-lg"></i> Novo Produto
                 </a>
             </div>
@@ -68,11 +68,11 @@
                                     <span class="gwj-badge gwj-badge-info" th:text="${produto.categoria != null and !produto.categoria.isBlank() ? produto.categoria : (produto.marca != null ? produto.marca : 'Geral')}">Geral</span>
                                 </td>
                                 <td class="gwj-text-end" style="padding-right: 2rem;">
-                                    <a th:href="@{/MRYnZpAsC9sp/produtos/editar/{id}(id=${produto.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/produtos/editar/${produto.id}|}" 
                                        class="gwj-btn gwj-btn-outline-primary gwj-btn-sm" title="Editar">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a th:href="@{/MRYnZpAsC9sp/produtos/excluir/{id}(id=${produto.id})}" 
+                                    <a th:href="@{|/${adminPrefix}/produtos/excluir/${produto.id}|}" 
                                        onclick="return confirm('Deseja realmente excluir este produto?');"
                                        class="gwj-btn gwj-btn-outline-danger gwj-btn-sm" title="Excluir">
                                         <i class="bi bi-trash"></i>

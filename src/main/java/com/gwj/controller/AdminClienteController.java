@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/clientes")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/clientes")
 public class AdminClienteController {
 
   @GetMapping({"", "/"})
@@ -41,7 +41,7 @@ public class AdminClienteController {
       model.addAttribute("cliente", resultados.get(0));
       return "admin/customer/customer/form";
     }
-    return "redirect:/MRYnZpAsC9sp/clientes";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/clientes";
   }
 
   @PostMapping("/salvar")
@@ -53,7 +53,7 @@ public class AdminClienteController {
     } else {
       service.update(cliente);
     }
-    return "redirect:/MRYnZpAsC9sp/clientes";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/clientes";
   }
 
   @GetMapping("/excluir/{id}")
@@ -62,6 +62,6 @@ public class AdminClienteController {
     Cliente filtro = new Cliente();
     filtro.setId(id);
     service.delete(filtro);
-    return "redirect:/MRYnZpAsC9sp/clientes";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/clientes";
   }
 }

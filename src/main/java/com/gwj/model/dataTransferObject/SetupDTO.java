@@ -16,6 +16,7 @@ public class SetupDTO {
 
   private Integer serverPort = 8089;
   private String tablePrefix = "tab_";
+  private String adminRoutePrefix = "adm_6b85358db772";
 
   public String getDbHost() {
     return dbHost;
@@ -111,5 +112,13 @@ public class SetupDTO {
 
   public void setDbType(String dbType) {
     this.dbType = dbType;
+  }
+
+  public String getAdminRoutePrefix() {
+    return adminRoutePrefix;
+  }
+
+  public void setAdminRoutePrefix(String adminRoutePrefix) {
+    this.adminRoutePrefix = adminRoutePrefix;
   }
 }

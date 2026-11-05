@@ -1,5 +1,6 @@
 package com.gwj.controller;
 
+import com.gwj.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,10 +18,11 @@ public class WebConfig implements WebMvcConfigurer {
     // SetupInterceptor executa antes de todos para garantir o fluxo de primeiro boot
     registry.addInterceptor(setupInterceptor).order(1);
 
+    String prefix = AppConfig.ADMIN_ROUTE_PREFIX;
     registry
         .addInterceptor(adminInterceptor)
-        .addPathPatterns("/MRYnZpAsC9sp/**")
-        .excludePathPatterns("/MRYnZpAsC9sp/login")
+        .addPathPatterns("/" + prefix + "/**")
+        .excludePathPatterns("/" + prefix + "/login")
         .order(2);
   }
 }

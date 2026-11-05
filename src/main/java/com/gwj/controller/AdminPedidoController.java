@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AdminPedidoController {
 
-  @GetMapping("/MRYnZpAsC9sp/pedidos")
+  @GetMapping("/${admin.route.prefix:MRYnZpAsC9sp}/pedidos")
   public String listarPedidos(Model model) {
     try {
       IService<Pedido> service = ServiceRegistry.getService("Pedido");
@@ -29,7 +29,7 @@ public class AdminPedidoController {
     return "admin/order/order/listar";
   }
 
-  @GetMapping("/MRYnZpAsC9sp/pedidos/detalhe")
+  @GetMapping("/${admin.route.prefix:MRYnZpAsC9sp}/pedidos/detalhe")
   public String detalhePedido(@RequestParam("id") Long id, Model model) {
     try {
       IService<Pedido> service = ServiceRegistry.getService("Pedido");
@@ -45,7 +45,7 @@ public class AdminPedidoController {
     return "admin/order/order/detalhe";
   }
 
-  @PostMapping("/MRYnZpAsC9sp/pedidos/atualizar-status")
+  @PostMapping("/${admin.route.prefix:MRYnZpAsC9sp}/pedidos/atualizar-status")
   public String atualizarStatus(
       @RequestParam("id") Long id, @RequestParam("status") String status) {
     try {
@@ -61,6 +61,6 @@ public class AdminPedidoController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/pedidos/detalhe?id=" + id;
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/pedidos/detalhe?id=" + id;
   }
 }

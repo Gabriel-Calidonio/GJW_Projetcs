@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/MRYnZpAsC9sp/agendamentos")
+@RequestMapping("/${admin.route.prefix:MRYnZpAsC9sp}/agendamentos")
 public class AdminAgendamentoController {
 
   private void populateDropdowns(Model model) {
@@ -83,7 +83,7 @@ public class AdminAgendamentoController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/agendamentos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/agendamentos";
   }
 
   @PostMapping("/salvar")
@@ -156,7 +156,7 @@ public class AdminAgendamentoController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/agendamentos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/agendamentos";
   }
 
   @GetMapping("/cancelar/{id}")
@@ -174,7 +174,7 @@ public class AdminAgendamentoController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/agendamentos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/agendamentos";
   }
 
   @GetMapping("/excluir/{id}")
@@ -187,6 +187,6 @@ public class AdminAgendamentoController {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return "redirect:/MRYnZpAsC9sp/agendamentos";
+    return "redirect:/" + com.gwj.AppConfig.ADMIN_ROUTE_PREFIX + "/agendamentos";
   }
 }

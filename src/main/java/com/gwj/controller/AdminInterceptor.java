@@ -1,5 +1,6 @@
 package com.gwj.controller;
 
+import com.gwj.AppConfig;
 import com.gwj.model.domain.entities.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,10 +18,11 @@ public class AdminInterceptor implements HandlerInterceptor {
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
       throws Exception {
     HttpSession session = request.getSession(false);
+    String adminPrefix = AppConfig.ADMIN_ROUTE_PREFIX;
 
     // Se a sessão não existir ou não tiver o usuário logado, barra o acesso
     if (session == null || session.getAttribute("usuarioLogado") == null) {
-      response.sendRedirect(request.getContextPath() + "/MRYnZpAsC9sp/login");
+      response.sendRedirect(request.getContextPath() + "/" + adminPrefix + "/login");
       return false; // Interrompe o fluxo (não chega no Controller)
     }
 
@@ -41,17 +43,18 @@ public class AdminInterceptor implements HandlerInterceptor {
     String uri = request.getRequestURI();
     String modulo = null;
     String permissaoNecessaria = null;
+    String prefix = "/" + adminPrefix;
 
-    if (uri.contains("/MRYnZpAsC9sp/clientes")) {
+    if (uri.contains(prefix + "/clientes")) {
       modulo = "Clientes";
       permissaoNecessaria = "GERENCIAR_CLIENTES";
-    } else if (uri.contains("/MRYnZpAsC9sp/servicos")) {
+    } else if (uri.contains(prefix + "/servicos")) {
       modulo = "Serviços";
       permissaoNecessaria = "GERENCIAR_SERVICOS";
-    } else if (uri.contains("/MRYnZpAsC9sp/produtos")) {
+    } else if (uri.contains(prefix + "/produtos")) {
       modulo = "Produtos / Estoque";
       permissaoNecessaria = "GERENCIAR_ESTOQUE";
-    } else if (uri.contains("/MRYnZpAsC9sp/agendamentos")) {
+    } else if (uri.contains(prefix + "/agendamentos")) {
       modulo = "Agendamentos";
       // Permite quem tem permissão de gerenciar agendas ou agendar horário
       if (!usuarioLogado.hasPermissao("GERENCIAR_TODAS_AGENDAS")
@@ -59,8 +62,8 @@ public class AdminInterceptor implements HandlerInterceptor {
           && !usuarioLogado.hasPermissao("VISUALIZAR_PROPRIA_AGENDA")) {
         permissaoNecessaria = "GERENCIAR_TODAS_AGENDAS";
       }
-    } else if (uri.contains("/MRYnZpAsC9sp/profissionais")
-        || uri.contains("/MRYnZpAsC9sp/configuracoes")) {
+    } else if (uri.contains(prefix + "/profissionais")
+        || uri.contains(prefix + "/configuracoes")) {
       modulo = "Administração / Configurações";
       permissaoNecessaria = "ADMIN_ONLY";
     }
@@ -78,7 +81,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         flashMapManager.saveOutputFlashMap(flashMap, request, response);
       }
 
-      response.sendRedirect(request.getContextPath() + "/MRYnZpAsC9sp");
+      response.sendRedirect(request.getContextPath() + "/" + adminPrefix);
       return false;
     }
 
