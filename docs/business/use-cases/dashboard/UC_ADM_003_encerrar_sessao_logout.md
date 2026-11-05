@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_003` (ref. `UC03` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_003` (ref. `UC03` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Encerrar Sessão (Logout Administrativo) |
 | **Módulo** | Controle de Acesso & Sessão |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*), Barbeiro (*Perfil 2*) |
 | **Atores Secundários** | Servidor de Aplicação (`HttpSession`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Ao término de cada turno de trabalho ou saída do operador da estação de atendimento |
-| **Rastreabilidade** | [`RF004`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-04-encerramento-de-sess%C3%A3o-logout) |
+| **Rastreabilidade** | [`RF004`](/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-04`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-04-encerramento-de-sess%C3%A3o-logout) |
 
 ---
 
@@ -50,7 +50,7 @@ Permite que o colaborador encerre voluntariamente sua sessão autenticada no pai
 | :---: | :--- | :--- |
 | **1** | Operador | Clica na opção "Sair" no menu administrativo. |
 | **2** | Navegador | Envia uma requisição HTTP GET para a rota `/MRYnZpAsC9sp/logout`. |
-| **3** | Sistema | O método `adminLogout` de [`LoginController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java) intercepta a requisição. |
+| **3** | Sistema | O método `adminLogout` de [`LoginController`](/src/main/java/com/gwj/controller/LoginController.java) intercepta a requisição. |
 | **4** | Sistema | Obtém a sessão atual via `request.getSession(false)`. |
 | **5** | Sistema | Caso a sessão exista, invoca o método `session.invalidate()`, destruindo o contexto da sessão. |
 | **6** | Sistema | Retorna uma instrução de redirecionamento HTTP (302) para `/MRYnZpAsC9sp/login`. |

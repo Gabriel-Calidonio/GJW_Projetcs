@@ -723,8 +723,6 @@ INSERT IGNORE INTO `tab_usuario` (`id`, `perfil_id`, `nome_usuario`, `email`, `s
 (3, 4, 'cliente1', 'marcos@email.com', '{sha256}pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=', 1, 'byscKmvPh87emtl7fAjYKJHkOFfzPlYH83TDsZtX372c0lmEVkgfzKALwGjCBT9S', '192.168.0.1', '2026-05-07 19:28:21'),
 (4, 1, 'Pedro123', 'pedro.cefas@yahoo.com.br', '4321', 1, '111', NULL, '2026-05-13 18:35:00'),
 (6, 1, 'Teste', 'teste@teste.com', '123456', 1, NULL, NULL, '2026-05-25 18:45:20'),
-(7, 1, 'Gabriel', 'gabriel@admin.com', '{sha256}CsTZVEv8fvog4F4xISxq3jbQHsrxfStz9x6Yd0vPWvo=', 1, NULL, NULL, '2026-06-06 16:57:50'),
-(8, 1, 'Wallace', 'wallace@admin.com', '{sha256}UfLgCc5Yfrh7z7g4eCFkVwhlFSGPuNjMGB048x7OjTw=', 1, NULL, NULL, '2026-06-06 18:11:23'),
 (9, 3, 'tiago', 'tiago.3554@gmail.com', '{sha256}jZae727K08KaOmKSgOaGzww/XVqGr/PKEgIMkjrcbJI=', 1, NULL, NULL, '2026-06-11 19:56:53'),
 (10, 4, 'luiz.garcia@gmail.com', 'luiz.garcia@gmail.com', '{sha256}FeKw08M4keuw8e9gnsQZQgwg4yDOlMZfvIwzEkSOsiU=', 1, NULL, NULL, '2026-06-14 15:29:52');
 

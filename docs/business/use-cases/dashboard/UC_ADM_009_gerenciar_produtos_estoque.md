@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_009` (ref. `UC18` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_009` (ref. `UC18` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Catálogo de Produtos e Controle de Estoque |
 | **Módulo** | Módulos de Gestão Estratégica & Configurações |
 | **Atores Primários** | Administrador Geral (*Perfil 1*) |
 | **Atores Secundários** | Sistema de Inventário e Loja Virtual (`ProdutoService`) |
 | **Tipo** | Estratégico / Concreto |
 | **Frequência de Uso** | Regular (ao receber novas remessas de cosméticos, cadastrar kits ou ajustar saldos) |
-| **Rastreabilidade** | [`AdminProdutoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminProdutoController.java), [`Produto.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Produto.java), [`RN-EST-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-02-estrutura-de-kits-promocionais), [`RN-SEG-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
+| **Rastreabilidade** | [`AdminProdutoController.java`](/src/main/java/com/gwj/controller/AdminProdutoController.java), [`Produto.java`](/src/main/java/com/gwj/model/domain/entities/Produto.java), [`RN-EST-01`](/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-02`](/docs/business/regras_negocio_loja_estoque.md#rn-est-02-estrutura-de-kits-promocionais), [`RN-SEG-03`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
 
 ---
 
@@ -46,7 +46,7 @@ Permite ao Administrador gerenciar o inventário físico e os produtos comercial
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Administrador | Acessa `/MRYnZpAsC9sp/produtos`. |
-| **2** | Sistema | [`AdminProdutoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminProdutoController.java) invoca `ProdutoService.read(new Produto())` e envia a lista para a view `admin/catalog/product/listar`. |
+| **2** | Sistema | [`AdminProdutoController`](/src/main/java/com/gwj/controller/AdminProdutoController.java) invoca `ProdutoService.read(new Produto())` e envia a lista para a view `admin/catalog/product/listar`. |
 | **3** | Administrador | Clica em "Novo Produto" (`/novo`). |
 | **4** | Sistema | Renderiza a tela de formulário `admin/catalog/product/form`. |
 | **5** | Administrador | Informa o nome do produto (ou kit), descrição, preço unitário, quantidade em estoque e URL da imagem ilustrativa. |

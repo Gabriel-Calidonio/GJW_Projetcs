@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_007` (ref. `UC16` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_007` (ref. `UC16` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Base de Clientes da Barbearia |
 | **Módulo** | Módulos de Gestão Operacional |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*) |
 | **Atores Secundários** | Serviço de Clientes (`ClienteService`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Alta (durante o atendimento e cadastramento de novos clientes) |
-| **Rastreabilidade** | [`AdminClienteController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminClienteController.java), [`Cliente.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Cliente.java), [`RN-SEG-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
+| **Rastreabilidade** | [`AdminClienteController.java`](/src/main/java/com/gwj/controller/AdminClienteController.java), [`Cliente.java`](/src/main/java/com/gwj/model/domain/entities/Cliente.java), [`RN-SEG-03`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
 
 ---
 
@@ -47,7 +47,7 @@ Fornece a interface administrativa para gerenciamento do cadastro dos clientes d
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Operador | Acessa a rota `/MRYnZpAsC9sp/clientes`. |
-| **2** | Sistema | [`AdminClienteController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminClienteController.java) invoca `ClienteService.read(new Cliente())` e exibe a lista na view `admin/customer/customer/listar`. |
+| **2** | Sistema | [`AdminClienteController`](/src/main/java/com/gwj/controller/AdminClienteController.java) invoca `ClienteService.read(new Cliente())` e exibe a lista na view `admin/customer/customer/listar`. |
 | **3** | Operador | Clica em "Novo Cliente" (`/MRYnZpAsC9sp/clientes/novo`). |
 | **4** | Sistema | Apresenta o formulário de cadastro (`admin/customer/customer/form`). |
 | **5** | Operador | Preenche nome, sobrenome, e-mail, telefone e submete o formulário (`POST /salvar`). |

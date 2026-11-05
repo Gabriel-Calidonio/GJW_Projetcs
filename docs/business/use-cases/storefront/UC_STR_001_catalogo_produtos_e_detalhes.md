@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_001` (engloba `UC01` e `UC02` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_001` (engloba `UC01` e `UC02` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Navegar no Catálogo de Produtos/Kits e Visualizar Detalhes |
 | **Módulo** | Vitrine de Cosméticos & Kits Promocionais |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Sistema de Catálogo (`Router`, `ProdutoService`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Muito Alta (porta de entrada para compras na loja virtual da barbearia) |
-| **Rastreabilidade** | [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java), [`Produto.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Produto.java), [`RN-EST-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-02-estrutura-de-kits-promocionais) |
+| **Rastreabilidade** | [`Router.java`](/src/main/java/com/gwj/controller/Router.java), [`Produto.java`](/src/main/java/com/gwj/model/domain/entities/Produto.java), [`RN-EST-01`](/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-02`](/docs/business/regras_negocio_loja_estoque.md#rn-est-02-estrutura-de-kits-promocionais) |
 
 ---
 
@@ -47,13 +47,13 @@ Permite que qualquer visitante ou cliente autenticado explore o catálogo de cos
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Usuário | Acessa a URL pública `/loja`. |
-| **2** | Sistema | O método `shop` de [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) consulta o serviço `ProdutoService` via `ServiceRegistry`. |
+| **2** | Sistema | O método `shop` de [`Router.java`](/src/main/java/com/gwj/controller/Router.java) consulta o serviço `ProdutoService` via `ServiceRegistry`. |
 | **3** | Sistema | Recupera a lista de produtos e injeta no modelo sob o atributo `produtos`. |
 | **4** | Sistema | Renderiza a view Thymeleaf `site/catalog/loja.html`. |
 | **5** | Usuário | Visualiza a grade de produtos com foto, nome, preço e selo indicativo de kit (quando aplicável). |
 | **6** | Usuário | Clica sobre a foto ou nome de um produto específico para conhecer seus detalhes. |
 | **7** | Sistema | Dispara requisição GET para `/single-product?id={id}`. |
-| **8** | Sistema | O método `singleProduct` de [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) busca o produto pelo ID. |
+| **8** | Sistema | O método `singleProduct` de [`Router.java`](/src/main/java/com/gwj/controller/Router.java) busca o produto pelo ID. |
 | **9** | Sistema | Renderiza a view `site/catalog/single-product.html` exibindo descrição técnica, preço unitário e seletor de quantidade para o carrinho. |
 
 ---

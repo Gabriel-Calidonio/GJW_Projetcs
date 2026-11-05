@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_006` (engloba `UC14` e `UC15` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_006` (engloba `UC14` e `UC15` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Pedidos da Loja e Atualização de Status |
 | **Módulo** | Módulos de Gestão Operacional |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*) |
 | **Atores Secundários** | Sistema de Pedidos (`AdminPedidoController`, `PedidoService`) |
 | **Tipo** | Essencial / Concreto (com Extensão de Atualização de Status) |
 | **Frequência de Uso** | Diária (a cada nova compra gerada no e-commerce ou retirada presencial) |
-| **Rastreabilidade** | [`AdminPedidoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminPedidoController.java), [`RN-EST-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-03-identifica%C3%A7%C3%A3o-de-comprador-cliente-vs-visitante), [`RN-EST-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-04-atomicidade-e-limpeza-de-sess%C3%A3o) |
+| **Rastreabilidade** | [`AdminPedidoController.java`](/src/main/java/com/gwj/controller/AdminPedidoController.java), [`RN-EST-01`](/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-03`](/docs/business/regras_negocio_loja_estoque.md#rn-est-03-identifica%C3%A7%C3%A3o-de-comprador-cliente-vs-visitante), [`RN-EST-04`](/docs/business/regras_negocio_loja_estoque.md#rn-est-04-atomicidade-e-limpeza-de-sess%C3%A3o) |
 
 ---
 
@@ -48,7 +48,7 @@ Permite que a equipe de atendimento acompanhe as ordens de compra originadas na 
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Operador | Navega até `/MRYnZpAsC9sp/pedidos`. |
-| **2** | Sistema | [`AdminPedidoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminPedidoController.java) invoca `PedidoService.read(new Pedido())`. |
+| **2** | Sistema | [`AdminPedidoController`](/src/main/java/com/gwj/controller/AdminPedidoController.java) invoca `PedidoService.read(new Pedido())`. |
 | **3** | Sistema | Ordena a lista de pedidos por ID de forma decrescente para priorizar as compras mais recentes. |
 | **4** | Sistema | Carrega a view `admin/order/order/listar` enviando a coleção `pedidos` no modelo. |
 | **5** | Operador | Visualiza ID do Pedido, Data da Compra, Comprador, Valor Total e Status Atual. |
@@ -73,7 +73,7 @@ Permite que a equipe de atendimento acompanhe as ordens de compra originadas na 
 * **Fluxo Operacional de Transição:**
   1. Na tela de detalhes do pedido (`/MRYnZpAsC9sp/pedidos/detalhe?id={id}`), o operador inspeciona a lista de itens e seleciona a nova situação no dropdown `status`.
   2. O formulário envia requisição via `POST /MRYnZpAsC9sp/pedidos/atualizar-status` contendo `id={id}` e `status={novoStatus}`.
-  3. O controlador [`AdminPedidoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminPedidoController.java) recupera o pedido via `PedidoService.read(filtro)`.
+  3. O controlador [`AdminPedidoController`](/src/main/java/com/gwj/controller/AdminPedidoController.java) recupera o pedido via `PedidoService.read(filtro)`.
   4. Se o pedido for localizado, atribui o novo status (`pedido.setStatus(status)`) e executa `PedidoService.update(pedido)`.
   5. Adiciona mensagem flash de sucesso e redireciona de volta para a tela de detalhes: `redirect:/MRYnZpAsC9sp/pedidos/detalhe?id={id}`.
 * **Campos de Entrada:** `id` *(Long, Obrigatório)*, `status` *(String: "Aguardando Retirada", "Retirado", "Cancelado")*.

@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_011` (ref. `UC20` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_011` (ref. `UC20` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Configurações Gerais e Parâmetros da Barbearia |
 | **Módulo** | Módulos de Gestão Estratégica & Configurações |
 | **Atores Primários** | Administrador Geral (*Perfil 1*) |
 | **Atores Secundários** | Serviço de Configurações (`SettingService`), Mecanismo de Flash Messages |
 | **Tipo** | Estratégico / Concreto |
 | **Frequência de Uso** | Eventual (ajustes de horários de funcionamento, dados de contato ou políticas institucionais) |
-| **Rastreabilidade** | [`AdminSettingController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminSettingController.java), [`SettingService.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/SettingService.java), [`RN-AGE-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-02-respeito-ao-hor%C3%A1rio-de-encerramento-do-expediente), [`RN-CAN-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-01-prazo-limite-de-cancelamento-online-anteced%C3%AAncia-m%C3%ADnima) |
+| **Rastreabilidade** | [`AdminSettingController.java`](/src/main/java/com/gwj/controller/AdminSettingController.java), [`SettingService.java`](/src/main/java/com/gwj/service/SettingService.java), [`RN-AGE-02`](/docs/business/regras_negocio_agendamento.md#rn-age-02-respeito-ao-hor%C3%A1rio-de-encerramento-do-expediente), [`RN-CAN-01`](/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-01-prazo-limite-de-cancelamento-online-anteced%C3%AAncia-m%C3%ADnima) |
 
 ---
 
@@ -46,7 +46,7 @@ Permite exclusivamente ao Administrador Geral configurar os parâmetros operacio
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Administrador | Acessa `/MRYnZpAsC9sp/configuracoes`. |
-| **2** | Sistema | [`AdminSettingController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminSettingController.java) invoca `SettingService.getAllAsMap()`. |
+| **2** | Sistema | [`AdminSettingController`](/src/main/java/com/gwj/controller/AdminSettingController.java) invoca `SettingService.getAllAsMap()`. |
 | **3** | Sistema | Carrega a view `admin/setting/store-setting/form` populando o mapa de parâmetros nos inputs da tela. |
 | **4** | Administrador | Edita parâmetros institucionais (nome, telefone, WhatsApp, horários de expediente, tolerâncias). |
 | **5** | Administrador | Submete o formulário via `POST /salvar`. |

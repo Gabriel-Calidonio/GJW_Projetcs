@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_003` (engloba `UC09` a `UC14` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_003` (engloba `UC09` a `UC14` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Realizar Checkout de Produtos, Baixa Atômica de Estoque e Confirmação |
 | **Módulo** | Checkout & Pedido de Produtos |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Sistema de Transação (`UnitOfWork`), Serviço de Pedidos (`PedidoService`) |
 | **Tipo** | Essencial / Concreto (com Inclusões Transacionais e Pós-Venda) |
 | **Frequência de Uso** | Alta (a cada finalização de compra de cosméticos no e-commerce) |
-| **Rastreabilidade** | [`CarrinhoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java), [`UnitOfWork.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/transaction/UnitOfWork.java), [`RN-EST-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-03-identifica%C3%A7%C3%A3o-de-comprador-cliente-vs-visitante), [`RN-EST-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-04-atomicidade-e-limpeza-de-sess%C3%A3o) |
+| **Rastreabilidade** | [`CarrinhoController.java`](/src/main/java/com/gwj/controller/CarrinhoController.java), [`UnitOfWork.java`](/src/main/java/com/gwj/service/transaction/UnitOfWork.java), [`RN-EST-01`](/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel), [`RN-EST-03`](/docs/business/regras_negocio_loja_estoque.md#rn-est-03-identifica%C3%A7%C3%A3o-de-comprador-cliente-vs-visitante), [`RN-EST-04`](/docs/business/regras_negocio_loja_estoque.md#rn-est-04-atomicidade-e-limpeza-de-sess%C3%A3o) |
 
 ---
 
@@ -49,7 +49,7 @@ Permite a finalização da compra dos cosméticos e kits acumulados no carrinho 
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Usuário | Clica em "Finalizar Compra" em `/carrinho`. |
-| **2** | Sistema | [`CarrinhoController.checkout`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java) verifica o total de itens. Se zero, redireciona para `/loja`. |
+| **2** | Sistema | [`CarrinhoController.checkout`](/src/main/java/com/gwj/controller/CarrinhoController.java) verifica o total de itens. Se zero, redireciona para `/loja`. |
 | **3** | Sistema (*UC10*) | Identifica o perfil do comprador (`RN-EST-03`): se houver `usuarioLogado` na sessão, injeta os dados do `Cliente` no modelo; se for visitante, habilita os campos de identificação avulsa. |
 | **4** | Sistema | Renderiza a view `site/cart/carrinho-checkout.html` exibindo o resumo do pedido e as opções de pagamento. |
 | **5** | Usuário (*UC11*) | Seleciona a forma de pagamento (PIX, Dinheiro na Retirada ou Cartão), informa seus dados (se visitante) e submete o formulário via botão "Confirmar Pedido". |
@@ -78,7 +78,7 @@ Permite a finalização da compra dos cosméticos e kits acumulados no carrinho 
 
 ### **UC13 - Visualizar Confirmação de Compra (`/compra-confirmada`)**
 * **Objetivo:** Apresentar o comprovante formal do pedido ao cliente com orientações de retirada.
-* **Mecanismo:** Redirecionamento HTTP 302 para `GET /compra-confirmada?id={pedidoId}` processado por [`Router.compraConfirmada`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java).
+* **Mecanismo:** Redirecionamento HTTP 302 para `GET /compra-confirmada?id={pedidoId}` processado por [`Router.compraConfirmada`](/src/main/java/com/gwj/controller/Router.java).
 * **Dados Exibidos:** Número de protocolo do pedido, data da compra, discriminação de cosméticos adquiridos, endereço físico da barbearia e status atualizado (`Aguardando Retirada`).
 
 ### **UC14 - Esvaziar Carrinho Pós-Venda (RN-EST-04)**

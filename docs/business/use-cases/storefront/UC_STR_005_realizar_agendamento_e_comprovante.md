@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_005` (engloba `UC17` e `UC18` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_005` (engloba `UC17` e `UC18` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Realizar Checkout de Agendamento, Prevenção de Double-Booking e Comprovante |
 | **Módulo** | Vitrine de Serviços e Agendamento Online Autônomo |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Motor Transacional (`UnitOfWork`), Serviço de Agendamento (`AgendamentoService`) |
 | **Tipo** | Essencial / Concreto (com Inclusões de Prevenção de Conflito) |
 | **Frequência de Uso** | Muito Alta (conclusão do fluxo de reserva de horário de atendimento) |
-| **Rastreabilidade** | [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java), [`AgendamentoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendamentoController.java), [`AgendamentoService.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-03-bloqueio-de-hor%C3%A1rios-no-passado), [`RN-AGE-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional), [`RN-AGE-05`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-05-preven%C3%A7%C3%A3o-at%C3%B4mica-de-double-booking), [`RN-ATE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status) |
+| **Rastreabilidade** | [`Router.java`](/src/main/java/com/gwj/controller/Router.java), [`AgendamentoController.java`](/src/main/java/com/gwj/controller/AgendamentoController.java), [`AgendamentoService.java`](/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-03`](/docs/business/regras_negocio_agendamento.md#rn-age-03-bloqueio-de-hor%C3%A1rios-no-passado), [`RN-AGE-04`](/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional), [`RN-AGE-05`](/docs/business/regras_negocio_agendamento.md#rn-age-05-preven%C3%A7%C3%A3o-at%C3%B4mica-de-double-booking), [`RN-ATE-01`](/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status) |
 
 ---
 
@@ -48,16 +48,16 @@ Permite ao cliente revisar os dados do agendamento escolhido na grade (serviço,
 | :---: | :--- | :--- |
 | **1** | Usuário | Clica em um horário vago na grade de `/servicos`. |
 | **2** | Sistema | Redireciona para `GET /checkout?servicoId={id}&profissionalId={id}&dataHora={iso}`. |
-| **3** | Sistema | [`Router.checkout`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) carrega o serviço e profissional, formata a data para padrão legível (ex: *"15 de Junho, às 14:20"*) e verifica se há cliente autenticado na sessão para pré-preencher nome, e-mail e telefone. |
+| **3** | Sistema | [`Router.checkout`](/src/main/java/com/gwj/controller/Router.java) carrega o serviço e profissional, formata a data para padrão legível (ex: *"15 de Junho, às 14:20"*) e verifica se há cliente autenticado na sessão para pré-preencher nome, e-mail e telefone. |
 | **4** | Sistema | Renderiza a view `site/cart/checkout.html`. |
 | **5** | Usuário | Confere os detalhes do agendamento, preenche/revisa os campos de contato (`nome`, `sobrenome`, `email`, `telefone`) e clica em "Confirmar Agendamento". |
 | **6** | Sistema | Submete requisição via `POST /checkout/confirmar`. |
-| **7** | Sistema | [`AgendamentoController.confirmarReserva`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendamentoController.java) invoca `AgendamentoService.confirmarReserva(...)`. |
+| **7** | Sistema | [`AgendamentoController.confirmarReserva`](/src/main/java/com/gwj/controller/AgendamentoController.java) invoca `AgendamentoService.confirmarReserva(...)`. |
 | **8** | Sistema (*RN-AGE-04*) | Se `profissionalId` for nulo ou zero, o sistema seleciona o primeiro profissional ativo livre para toda a duração do serviço. |
 | **9** | Sistema (*RN-AGE-05*) | Dentro de uma transação `UnitOfWork`, executa a query de bloqueio de double-booking verificando se algum outro cliente reservou a mesma vaga. |
 | **10** | Sistema | Persiste a entidade `Agendamento` com status `"Confirmado"`, data, hora de início e hora calculada de término (`RN-ATE-01`). |
 | **11** | Sistema | Confirma o commit transacional e redireciona o usuário para `GET /order-confirmation?id={agendamentoId}`. |
-| **12** | Sistema (*UC18*) | [`Router.orderConfirmation`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) renderiza a view `site/cart/order-confirmation.html`. |
+| **12** | Sistema (*UC18*) | [`Router.orderConfirmation`](/src/main/java/com/gwj/controller/Router.java) renderiza a view `site/cart/order-confirmation.html`. |
 | **13** | Usuário | Visualiza o comprovante oficial com endereço da barbearia, horário marcado e recomendações de pontualidade. |
 
 ---

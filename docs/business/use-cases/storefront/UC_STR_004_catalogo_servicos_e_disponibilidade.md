@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_004` (engloba `UC15` e `UC16` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_004` (engloba `UC15` e `UC16` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Consultar Catálogo de Serviços e Disponibilidade de Horários em Tempo Real |
 | **Módulo** | Vitrine de Serviços e Agendamento Online Autônomo |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Motor de Disponibilidade (`AgendamentoService`), API REST de Agendamento (`AgendamentoController`) |
 | **Tipo** | Essencial / Concreto (com Consulta Assíncrona via API) |
 | **Frequência de Uso** | Muito Alta (passo preliminar indispensável para marcação de corte ou barba) |
-| **Rastreabilidade** | [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java), [`AgendamentoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AgendamentoController.java), [`AgendamentoService.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos) a [`RN-AGE-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional) |
+| **Rastreabilidade** | [`Router.java`](/src/main/java/com/gwj/controller/Router.java), [`AgendamentoController.java`](/src/main/java/com/gwj/controller/AgendamentoController.java), [`AgendamentoService.java`](/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-01`](/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos) a [`RN-AGE-04`](/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional) |
 
 ---
 
@@ -46,12 +46,12 @@ Permite que o cliente consulte os serviços oferecidos pela barbearia (`/servico
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Usuário | Acessa `/servicos`. |
-| **2** | Sistema (*UC15*) | [`Router.servico`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) consulta a lista de serviços e a lista de profissionais ativos e renderiza `site/booking/servicos.html`. |
+| **2** | Sistema (*UC15*) | [`Router.servico`](/src/main/java/com/gwj/controller/Router.java) consulta a lista de serviços e a lista de profissionais ativos e renderiza `site/booking/servicos.html`. |
 | **3** | Usuário | Seleciona o serviço desejado (ex: *Corte + Barba*, duração 40 min). |
 | **4** | Usuário | Escolhe um profissional específico OU deixa selecionada a opção *"Qualquer profissional livre"* (`profissionalId = null` ou `0`). |
 | **5** | Usuário | Escolhe uma data no calendário (ex: hoje ou data futura). |
 | **6** | Interface (JS) (*UC16*) | Dispara requisição GET assíncrona para `/api/agendamentos/disponibilidade?servicoId={id}&profissionalId={id}&data={data}`. |
-| **7** | Sistema | [`AgendamentoService.getHorariosDisponiveis`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java) processa as regras de negócio: |
+| **7** | Sistema | [`AgendamentoService.getHorariosDisponiveis`](/src/main/java/com/gwj/service/AgendamentoService.java) processa as regras de negócio: |
 | **7.1** | *RN-AGE-01* | Calcula a quantidade de blocos necessários: $\lceil \text{duracao} / 20 \rceil$. |
 | **7.2** | *RN-AGE-02* | Descarta horários cujo término extrapole o fechamento do dia. |
 | **7.3** | *RN-AGE-03* | Se a data for hoje, descarta horários que já passaram da hora atual. |

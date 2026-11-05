@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_002` (ref. `UC02` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_002` (ref. `UC02` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Validar Sessão e Permissões RBAC |
 | **Módulo** | Controle de Acesso & Sessão |
 | **Atores Primários** | `AdminInterceptor` (*Sistema de Segurança / Interceptador Spring*) |
 | **Atores Secundários** | Usuário Requisitante (*Administrador, Recepcionista, Barbeiro ou Cliente não autorizado*) |
 | **Tipo** | Essencial / Abstrato (Incluso ou Executado Automaticamente) |
 | **Frequência de Uso** | A cada requisição HTTP para endpoints administrativos (`/MRYnZpAsC9sp/*`) |
-| **Rastreabilidade** | [`RF004`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas), [`RN-SEG-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
+| **Rastreabilidade** | [`RF004`](/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-02`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas), [`RN-SEG-03`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
 
 ---
 
@@ -27,7 +27,7 @@ Atua como barreira de segurança perimetral inspecionando toda e qualquer requis
 ## 2. ⚡ Pré-Condições
 
 1. O cliente HTTP (navegador) dispara uma requisição para uma URI que coincide com o padrão de interceptação configurado em `WebConfig` (`/MRYnZpAsC9sp/**`).
-2. O framework Spring MVC repassa o fluxo de processamento para o método `preHandle` do [`AdminInterceptor`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java).
+2. O framework Spring MVC repassa o fluxo de processamento para o método `preHandle` do [`AdminInterceptor`](/src/main/java/com/gwj/controller/AdminInterceptor.java).
 
 ---
 

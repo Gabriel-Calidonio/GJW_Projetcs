@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_002` (engloba `UC03` a `UC08` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_002` (engloba `UC03` a `UC08` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Adicionar Produtos ao Carrinho e Gerenciar Itens na Sessão HTTP |
 | **Módulo** | Carrinho de Compras (`HttpSession`) |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Gerenciador de Sessão HTTP (`HttpSession`), Controlador do Carrinho (`CarrinhoController`) |
 | **Tipo** | Essencial / Concreto (com Extensões de Manipulação) |
 | **Frequência de Uso** | Muito Alta (a cada iteração de compra na vitrine) |
-| **Rastreabilidade** | [`CarrinhoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java), [`Carrinho.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/Carrinho.java), [`RN-EST-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel) |
+| **Rastreabilidade** | [`CarrinhoController.java`](/src/main/java/com/gwj/controller/CarrinhoController.java), [`Carrinho.java`](/src/main/java/com/gwj/model/domain/Carrinho.java), [`RN-EST-01`](/docs/business/regras_negocio_loja_estoque.md#rn-est-01-valida%C3%A7%C3%A3o-e-trava-de-estoque-dispon%C3%ADvel) |
 
 ---
 
@@ -49,7 +49,7 @@ Permite que o usuário monte sua sacola de compras de cosméticos e kits promoci
 | :---: | :--- | :--- |
 | **1** | Usuário | Clica em "Adicionar ao Carrinho" em um produto ou kit. |
 | **2** | Interface (JS) | Dispara requisição HTTP POST assíncrona (AJAX) para `/carrinho/adicionar` enviando `produtoId` e `quantidade`. |
-| **3** | Sistema | [`CarrinhoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java) localiza o produto no banco via `ProdutoService`. |
+| **3** | Sistema | [`CarrinhoController`](/src/main/java/com/gwj/controller/CarrinhoController.java) localiza o produto no banco via `ProdutoService`. |
 | **4** | Sistema (*UC04*) | Valida o saldo em estoque (`RN-EST-01`): a quantidade requisitada somada à já existente no carrinho não pode exceder `produto.getEstoque()`. |
 | **5** | Sistema | Obtém o carrinho da sessão (`getCarrinhoFromSession`) e adiciona o item (`carrinho.adicionarItem(produto, quantidade)`). |
 | **6** | Sistema | Devolve payload JSON contendo: `sucesso = true`, `quantidadeTotal` e `valorTotal`. |
@@ -63,7 +63,7 @@ Permite que o usuário monte sua sacola de compras de cosméticos e kits promoci
 * **Objetivo:** Exibir ao usuário o extrato analítico dos itens adicionados, subtotais individuais, valor total consolidado e opções de navegação para continuidade das compras ou avanço ao checkout.
 * **Fluxo Operacional:**
   1. O usuário clica no ícone de sacola/carrinho no cabeçalho ou navega diretamente para `/carrinho` (ou `/cart`).
-  2. O controlador [`CarrinhoController.carrinho`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/CarrinhoController.java) recupera a instância de `Carrinho` da `HttpSession`.
+  2. O controlador [`CarrinhoController.carrinho`](/src/main/java/com/gwj/controller/CarrinhoController.java) recupera a instância de `Carrinho` da `HttpSession`.
   3. Injeta o objeto `carrinho` no modelo Thymeleaf.
   4. Renderiza a view `site/cart/carrinho.html`. Se o carrinho estiver vazio, exibe o estado vazio (*empty state*) com botão convidando o cliente a explorar a `/loja`.
 * **Saída:** Tabela detalhada de itens contendo: foto miniatura, nome do produto/kit, valor unitário, seletor de quantidade `[-] Qtd [+]`, subtotal em reais e botão de remoção.

@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_001` (ref. `UC01` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_001` (ref. `UC01` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Autenticar no Painel Administrativo |
 | **Módulo** | Controle de Acesso & Sessão |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*), Barbeiro (*Perfil 2*) |
 | **Atores Secundários** | Sistema de Segurança (`AdminInterceptor`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Contínua (a cada início de turno/sessão de trabalho ou expiração de cookie) |
-| **Rastreabilidade** | [`RF004`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-01-hashing-criptogr%C3%A1fico-mandat%C3%B3rio-de-senhas), [`RN-SEG-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas) |
+| **Rastreabilidade** | [`RF004`](/docs/requirements/functional/RF004_autenticacao_e_permissoes.md), [`RN-SEG-01`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-01-hashing-criptogr%C3%A1fico-mandat%C3%B3rio-de-senhas), [`RN-SEG-02`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas) |
 
 ---
 
@@ -40,7 +40,7 @@ Permite que colaboradores da barbearia (Administradores, Recepcionistas e Barbei
 ## 4. 🚀 Gatilho (Trigger)
 
 * O colaborador navega diretamente até a URL do painel administrativo (`/MRYnZpAsC9sp/login`); OU
-* O colaborador tenta acessar qualquer rota protegida sob `/MRYnZpAsC9sp/*` sem uma sessão válida e é interceptado e redirecionado pelo [`AdminInterceptor`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java).
+* O colaborador tenta acessar qualquer rota protegida sob `/MRYnZpAsC9sp/*` sem uma sessão válida e é interceptado e redirecionado pelo [`AdminInterceptor`](/src/main/java/com/gwj/controller/AdminInterceptor.java).
 
 ---
 
@@ -51,8 +51,8 @@ Permite que colaboradores da barbearia (Administradores, Recepcionistas e Barbei
 | **1** | Operador | Acessa a rota `/MRYnZpAsC9sp/login`. |
 | **2** | Sistema | Apresenta a tela de autenticação administrativa (`admin/auth/login.html`) contendo os campos de e-mail e senha. |
 | **3** | Operador | Preenche suas credenciais corporativas (`email` e `senha`) e submete o formulário via botão "Entrar". |
-| **4** | Sistema | [`LoginController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java) recebe a requisição HTTP POST e aplica a função hash SHA-256 na senha digitada (`"{sha256}" + PasswordUtil.hash(senha)`). |
-| **5** | Sistema | Consulta o serviço [`UsuarioService`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/UsuarioService.java) filtrando pelo e-mail informado. |
+| **4** | Sistema | [`LoginController`](/src/main/java/com/gwj/controller/LoginController.java) recebe a requisição HTTP POST e aplica a função hash SHA-256 na senha digitada (`"{sha256}" + PasswordUtil.hash(senha)`). |
+| **5** | Sistema | Consulta o serviço [`UsuarioService`](/src/main/java/com/gwj/service/UsuarioService.java) filtrando pelo e-mail informado. |
 | **6** | Sistema | Compara a senha criptografada calculada com a senha armazenada na base de dados (`tab_usuario`). |
 | **7** | Sistema | Valida que o perfil do usuário **não** é de "Cliente" (`perfil_id != 4`). |
 | **8** | Sistema | Registra o objeto do usuário na sessão HTTP atual (`session.setAttribute("usuarioLogado", usuarioBanco)`). |

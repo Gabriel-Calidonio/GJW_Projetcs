@@ -327,7 +327,7 @@ public class SetupService {
     }
   }
 
-  private void createAdminUser(
+  void createAdminUser(
       Connection conn, String name, String email, String plainPassword, boolean isPg)
       throws SQLException {
     String hashedPassword = "{sha256}" + PasswordUtil.hash(plainPassword);
@@ -343,25 +343,72 @@ public class SetupService {
     } catch (Exception ignored) {
     }
 
-    // Cria ou atualiza o usuário administrador
-    String sql;
-    if (isPg) {
-      sql =
-          "INSERT INTO tab_usuario (perfil_id, nome_usuario, email, senha, status, data_cadastro) "
-              + "VALUES (1, ?, ?, ?, TRUE, NOW()) "
-              + "ON CONFLICT (email) DO UPDATE SET senha = EXCLUDED.senha, perfil_id = 1, nome_usuario = EXCLUDED.nome_usuario";
-    } else {
-      sql =
-          "INSERT INTO `tab_usuario` (`perfil_id`, `nome_usuario`, `email`, `senha`, `status`, `data_cadastro`) "
-              + "VALUES (1, ?, ?, ?, 1, NOW()) "
-              + "ON DUPLICATE KEY UPDATE `senha` = VALUES(`senha`), `perfil_id` = 1, `nome_usuario` = VALUES(`nome_usuario`)";
+    // 1. Remove eventuais contas residuais de teste (@admin.com) que possam colidir
+    try (PreparedStatement delStmt =
+        conn.prepareStatement(
+            "DELETE FROM tab_usuario WHERE email IN ('gabriel@admin.com', 'wallace@admin.com') AND email <> ?")) {
+      delStmt.setString(1, email);
+      delStmt.executeUpdate();
+    } catch (Exception ignored) {
     }
 
-    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-      pstmt.setString(1, name);
-      pstmt.setString(2, email);
-      pstmt.setString(3, hashedPassword);
-      pstmt.executeUpdate();
+    // 2. Busca se já existe usuário pelo e-mail ou pelo nome de usuário
+    Long idByEmail = null;
+    Long idByName = null;
+    try (PreparedStatement checkStmt =
+        conn.prepareStatement(
+            "SELECT id, email, nome_usuario FROM tab_usuario WHERE LOWER(email) = LOWER(?) OR LOWER(nome_usuario) = LOWER(?)")) {
+      checkStmt.setString(1, email);
+      checkStmt.setString(2, name);
+      try (ResultSet rs = checkStmt.executeQuery()) {
+        while (rs.next()) {
+          long id = rs.getLong("id");
+          String em = rs.getString("email");
+          String nm = rs.getString("nome_usuario");
+          if (em != null && em.equalsIgnoreCase(email)) {
+            idByEmail = id;
+          }
+          if (nm != null && nm.equalsIgnoreCase(name)) {
+            idByName = id;
+          }
+        }
+      }
+    }
+
+    // Se houver conflito entre duas contas distintas, libera o nome na conta antiga
+    if (idByEmail != null && idByName != null && !idByEmail.equals(idByName)) {
+      try (PreparedStatement freeStmt =
+          conn.prepareStatement(
+              "UPDATE tab_usuario SET nome_usuario = CONCAT(nome_usuario, '_old_', id) WHERE id = ?")) {
+        freeStmt.setLong(1, idByName);
+        freeStmt.executeUpdate();
+      }
+    }
+
+    Long targetId = idByEmail != null ? idByEmail : idByName;
+    if (targetId != null) {
+      String updateSql =
+          isPg
+              ? "UPDATE tab_usuario SET perfil_id = 1, nome_usuario = ?, email = ?, senha = ?, status = TRUE WHERE id = ?"
+              : "UPDATE `tab_usuario` SET `perfil_id` = 1, `nome_usuario` = ?, `email` = ?, `senha` = ?, `status` = 1 WHERE `id` = ?";
+      try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+        updateStmt.setString(1, name);
+        updateStmt.setString(2, email);
+        updateStmt.setString(3, hashedPassword);
+        updateStmt.setLong(4, targetId);
+        updateStmt.executeUpdate();
+      }
+    } else {
+      String insertSql =
+          isPg
+              ? "INSERT INTO tab_usuario (perfil_id, nome_usuario, email, senha, status, data_cadastro) VALUES (1, ?, ?, ?, TRUE, NOW())"
+              : "INSERT INTO `tab_usuario` (`perfil_id`, `nome_usuario`, `email`, `senha`, `status`, `data_cadastro`) VALUES (1, ?, ?, ?, 1, NOW())";
+      try (PreparedStatement insertStmt = conn.prepareStatement(insertSql)) {
+        insertStmt.setString(1, name);
+        insertStmt.setString(2, email);
+        insertStmt.setString(3, hashedPassword);
+        insertStmt.executeUpdate();
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
 
 ## 📌 1. Motivação e Diagnóstico Inicial
 
-Ao executar o comando de análise estática `./mvnw spotbugs:check`, o analisador identificou **56 violações e fragilidades** no código-fonte, registradas no arquivo de histórico [exemplo-erro.md](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/examples/exemplo-erro.md).
+Ao executar o comando de análise estática `./mvnw spotbugs:check`, o analisador identificou **56 violações e fragilidades** no código-fonte, registradas no arquivo de histórico [exemplo-erro.md](/examples/exemplo-erro.md).
 
 O objetivo desta iteração foi realizar uma intervenção em dois passos:
 1. **Passo 1:** Eliminar os defeitos lógicos reais, falhas de serialização, código morto e potenciais `NullPointerException`.
@@ -77,7 +77,7 @@ public class Produto implements IEntity, java.io.Serializable {
 #### A. Arquivo `spotbugs-exclude.xml`
 Na Engenharia de Software com Java/JPA, entidades de domínio e DTOs precisam expor referências diretas de suas listas e objetos relacionados para que frameworks de persistência (DataMapper, Hibernate, Jackson, Thymeleaf) consigam realizar data-binding e mapeamento reflexivo. Criar cópias defensivas em cada getter e setter de entidade degradaria a performance e quebraria o mapeamento bidirecional.
 
-Configuramos o arquivo [spotbugs-exclude.xml](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/spotbugs-exclude.xml) para filtrar `EI_EXPOSE_REP`/`EI_EXPOSE_REP2` nas entidades e modelos:
+Configuramos o arquivo [spotbugs-exclude.xml](/spotbugs-exclude.xml) para filtrar `EI_EXPOSE_REP`/`EI_EXPOSE_REP2` nas entidades e modelos:
 
 ```xml
 <FindBugsFilter>
@@ -101,7 +101,7 @@ Configuramos o arquivo [spotbugs-exclude.xml](file:///var/www/html/tgos-barbeari
 </FindBugsFilter>
 ```
 
-Configurado no [pom.xml](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/pom.xml#L180):
+Configurado no [pom.xml](/pom.xml#L180):
 ```xml
 <configuration>
     <effort>Max</effort>

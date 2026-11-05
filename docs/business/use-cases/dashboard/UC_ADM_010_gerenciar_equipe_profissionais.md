@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_010` (ref. `UC19` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_010` (ref. `UC19` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Equipe de Profissionais e Barbeiros |
 | **Módulo** | Módulos de Gestão Estratégica & Configurações |
 | **Atores Primários** | Administrador Geral (*Perfil 1*) |
 | **Atores Secundários** | Motor de Agendamento (`AgendamentoService`) |
 | **Tipo** | Estratégico / Concreto |
 | **Frequência de Uso** | Moderada (contratações, desligamentos ou alterações de especialidade) |
-| **Rastreabilidade** | [`AdminProfissionalController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminProfissionalController.java), [`Profissional.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Profissional.java), [`RN-AGE-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional) |
+| **Rastreabilidade** | [`AdminProfissionalController.java`](/src/main/java/com/gwj/controller/AdminProfissionalController.java), [`Profissional.java`](/src/main/java/com/gwj/model/domain/entities/Profissional.java), [`RN-AGE-04`](/docs/business/regras_negocio_agendamento.md#rn-age-04-atribui%C3%A7%C3%A3o-autom%C3%A1tica-qualquer-profissional) |
 
 ---
 
@@ -46,7 +46,7 @@ Permite ao Administrador gerenciar a equipe de colaboradores e barbeiros da barb
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Administrador | Acessa `/MRYnZpAsC9sp/profissionais`. |
-| **2** | Sistema | [`AdminProfissionalController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminProfissionalController.java) invoca `ProfissionalService.read(new Profissional())` e renderiza `admin/staff/listar`. |
+| **2** | Sistema | [`AdminProfissionalController`](/src/main/java/com/gwj/controller/AdminProfissionalController.java) invoca `ProfissionalService.read(new Profissional())` e renderiza `admin/staff/listar`. |
 | **3** | Administrador | Clica em "Novo Profissional" (`/novo`). |
 | **4** | Sistema | Apresenta a view `admin/staff/create` com o campo `status` pré-selecionado como ativo (`true`). |
 | **5** | Administrador | Informa nome completo, telefone/contato, especialidade e status. |

@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_008` (ref. `UC17` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_008` (ref. `UC17` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Catálogo de Serviços da Barbearia |
 | **Módulo** | Módulos de Gestão Estratégica & Configurações |
 | **Atores Primários** | Administrador Geral (*Perfil 1*) |
 | **Atores Secundários** | Motor de Grade de Horários (`AgendamentoService`) |
 | **Tipo** | Estratégico / Concreto |
 | **Frequência de Uso** | Moderada (ao cadastrar novos procedimentos, reajustar tabelas de preços ou tempos de atendimento) |
-| **Rastreabilidade** | [`AdminServicoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminServicoController.java), [`Servico.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Servico.java), [`RN-AGE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos), [`RN-SEG-03`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
+| **Rastreabilidade** | [`AdminServicoController.java`](/src/main/java/com/gwj/controller/AdminServicoController.java), [`Servico.java`](/src/main/java/com/gwj/model/domain/entities/Servico.java), [`RN-AGE-01`](/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos), [`RN-SEG-03`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-03-autoriza%C3%A7%C3%A3o-granular-por-entidade-no-crud-din%C3%A2mico) |
 
 ---
 
@@ -46,7 +46,7 @@ Permite ao Administrador gerenciar a tabela de serviços oferecidos pela barbear
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Administrador | Acessa `/MRYnZpAsC9sp/servicos`. |
-| **2** | Sistema | [`AdminServicoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminServicoController.java) busca os registros com `ServicoService.read(new Servico())` e exibe na view `admin/catalog/service/listar`. |
+| **2** | Sistema | [`AdminServicoController`](/src/main/java/com/gwj/controller/AdminServicoController.java) busca os registros com `ServicoService.read(new Servico())` e exibe na view `admin/catalog/service/listar`. |
 | **3** | Administrador | Clica em "Novo Serviço" (`/novo`). |
 | **4** | Sistema | Inicializa uma instância padrão de `Servico` com `ativo = true` e `duracao = 30` minutos, exibindo a view `admin/catalog/service/form`. |
 | **5** | Administrador | Preenche o título do serviço, descrição, preço (R$) e a duração em minutos. |

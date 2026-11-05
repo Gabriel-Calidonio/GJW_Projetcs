@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_006` (engloba `UC19`, `UC20` e `UC22` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_006` (engloba `UC19`, `UC20` e `UC22` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Cadastrar Nova Conta, Autenticar e Encerrar Sessão do Cliente |
 | **Módulo** | Área e Conta do Cliente |
 | **Atores Primários** | Visitante (*Público Geral*), Cliente Registrado (*Perfil 4*) |
 | **Atores Secundários** | Serviço de Usuários (`UsuarioService`), Serviço de Clientes (`ClienteService`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Alta (acesso inicial e identificação em compras e agendamentos) |
-| **Rastreabilidade** | [`LoginController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java), [`PasswordUtil.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/PasswordUtil.java), [`RN-SEG-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-01-hashing-criptogr%C3%A1fico-mandat%C3%B3rio-de-senhas), [`RN-SEG-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas), [`RN-SEG-04`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-04-encerramento-de-sess%C3%A3o-logout) |
+| **Rastreabilidade** | [`LoginController.java`](/src/main/java/com/gwj/controller/LoginController.java), [`PasswordUtil.java`](/src/main/java/com/gwj/controller/PasswordUtil.java), [`RN-SEG-01`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-01-hashing-criptogr%C3%A1fico-mandat%C3%B3rio-de-senhas), [`RN-SEG-02`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-02-bloqueio-de-clientes-nas-rotas-administrativas), [`RN-SEG-04`](/docs/business/regras_negocio_seguranca_perfis.md#rn-seg-04-encerramento-de-sess%C3%A3o-logout) |
 
 ---
 
@@ -51,7 +51,7 @@ Permite que novos clientes criem uma conta pessoal no sistema (`/cadastro`), efe
 | **1** | Visitante | Acessa `/cadastro`. |
 | **2** | Sistema | Exibe a tela de cadastro `site/auth/cadastro.html`. |
 | **3** | Visitante | Preenche nome, sobrenome, e-mail, telefone, define uma senha e clica em "Cadastrar". |
-| **4** | Sistema | [`LoginController.processRegister`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/LoginController.java) instancia `Cliente`. |
+| **4** | Sistema | [`LoginController.processRegister`](/src/main/java/com/gwj/controller/LoginController.java) instancia `Cliente`. |
 | **5** | Sistema (*RN-SEG-01*) | Aplica o hash criptográfico através de `novoCliente.criptografarSenha()`, prefixando `{sha256}`. |
 | **6** | Sistema | Persiste a conta via `ClienteService.create(novoCliente)`. |
 | **7** | Sistema | Redireciona para `/login?sucesso=true` com notificação de cadastro realizado. |

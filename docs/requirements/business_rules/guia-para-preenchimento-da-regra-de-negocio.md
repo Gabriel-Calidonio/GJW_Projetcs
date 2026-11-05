@@ -29,7 +29,7 @@ Segundo o *Business Rules Group*, uma **Regra de Negócio** é uma declaração 
 Ao redigir uma Regra de Negócio, siga impreterivelmente as seguintes diretrizes:
 
 1. **Linguagem Ubíqua (Domain-Driven Design):**
-   * Utilize rigorosamente os termos do [`docs/business/glossary.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/glossary.md).
+   * Utilize rigorosamente os termos do [`docs/business/glossary.md`](/docs/business/glossary.md).
    * Diga *"Slot de Horário"*, *"Double-Booking"*, *"Comanda"*, *"Kit Promocional"*, e nunca jargões genéricos desprovidos de contexto.
 2. **Atomicidade e Coesão:**
    * Cada regra deve tratar de **uma única lógica ou restrição**.
@@ -55,11 +55,11 @@ $$\mathbf{RN\text{-}[MÓDULO]\text{-}[SEQUENCIAL]}$$
 
 | Prefixo | Domínio de Aplicação | Arquivo de Consolidação |
 | :--- | :--- | :--- |
-| **`RN-AGE`** | Agendamento de Horários, Grade Base de 20 min, Vagas e Disponibilidade | [`regras_negocio_agendamento.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md) |
-| **`RN-EST`** | Loja Virtual, E-Commerce, Estoque e Kits Promocionais | [`regras_negocio_loja_estoque.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_loja_estoque.md) |
-| **`RN-SEG`** | Autenticação, Criptografia de Senhas, Permissões e RBAC | [`regras_negocio_seguranca_perfis.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_seguranca_perfis.md) |
-| **`RN-ATE`** | Atendimento Presencial, Check-in, Comandas e Comissões | [`regras_negocio_atendimento_comandas.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_atendimento_comandas.md) |
-| **`RN-CAN`** | Cancelamentos, Tolerâncias e Reagendamento de Horários | [`regras_negocio_cancelamento_reagendamento.md`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_cancelamento_reagendamento.md) |
+| **`RN-AGE`** | Agendamento de Horários, Grade Base de 20 min, Vagas e Disponibilidade | [`regras_negocio_agendamento.md`](/docs/business/regras_negocio_agendamento.md) |
+| **`RN-EST`** | Loja Virtual, E-Commerce, Estoque e Kits Promocionais | [`regras_negocio_loja_estoque.md`](/docs/business/regras_negocio_loja_estoque.md) |
+| **`RN-SEG`** | Autenticação, Criptografia de Senhas, Permissões e RBAC | [`regras_negocio_seguranca_perfis.md`](/docs/business/regras_negocio_seguranca_perfis.md) |
+| **`RN-ATE`** | Atendimento Presencial, Check-in, Comandas e Comissões | [`regras_negocio_atendimento_comandas.md`](/docs/business/regras_negocio_atendimento_comandas.md) |
+| **`RN-CAN`** | Cancelamentos, Tolerâncias e Reagendamento de Horários | [`regras_negocio_cancelamento_reagendamento.md`](/docs/business/regras_negocio_cancelamento_reagendamento.md) |
 | **`RN-FIN`** | Faturamento, Métodos de Pagamento e Rateio Financeiro | `/docs/business/` |
 
 ---

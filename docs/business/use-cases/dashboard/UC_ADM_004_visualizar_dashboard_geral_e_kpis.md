@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_004` (engloba `UC04` a `UC10` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_004` (engloba `UC04` a `UC10` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Visualizar Dashboard Geral e Indicadores em Tempo Real |
 | **Módulo** | Dashboard & Indicadores em Tempo Real |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*) |
 | **Atores Secundários** | `ServiceRegistry` (Camada de Serviços do Sistema) |
 | **Tipo** | Essencial / Concreto (com Inclusões Estruturadas) |
 | **Frequência de Uso** | Muito Alta (tela inicial do painel e hub central de monitoramento diário) |
-| **Rastreabilidade** | [`AdminDashboardController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminDashboardController.java), [`RNF001`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/non_functional/RNF001_performance.md), [`RNF004`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/requirements/non_functional/RNF004_usabilidade_e_responsividade.md) |
+| **Rastreabilidade** | [`AdminDashboardController.java`](/src/main/java/com/gwj/controller/AdminDashboardController.java), [`RNF001`](/docs/requirements/non_functional/RNF001_performance.md), [`RNF004`](/docs/requirements/non_functional/RNF004_usabilidade_e_responsividade.md) |
 
 ---
 
@@ -56,8 +56,8 @@ Além dos cartões de métricas, o Dashboard atua como *Hub de Navegação*, dis
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Operador | Requisita a URL `/MRYnZpAsC9sp` (ou clica em "Dashboard"). |
-| **2** | Sistema | [`AdminInterceptor`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminInterceptor.java) valida a sessão e autoriza a requisição. |
-| **3** | Sistema | [`AdminDashboardController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminDashboardController.java) inicia o processamento dos 6 KPIs: |
+| **2** | Sistema | [`AdminInterceptor`](/src/main/java/com/gwj/controller/AdminInterceptor.java) valida a sessão e autoriza a requisição. |
+| **3** | Sistema | [`AdminDashboardController`](/src/main/java/com/gwj/controller/AdminDashboardController.java) inicia o processamento dos 6 KPIs: |
 | **3.1** | *UC05* | Obtém `AgendamentoService` via `ServiceRegistry`, invoca `read(new Agendamento())` e armazena `totalAgendamentos` no `Model`. |
 | **3.2** | *UC06* | Obtém `PedidoService` via `ServiceRegistry`, invoca `read(new Pedido())` e armazena `totalPedidos` no `Model`. |
 | **3.3** | *UC07* | Obtém `ServicoService` via `ServiceRegistry`, invoca `read(new Servico())` e armazena `totalServicos` no `Model`. |
@@ -71,7 +71,7 @@ Além dos cartões de métricas, o Dashboard atua como *Hub de Navegação*, dis
 
 ## 6. 🔀 Casos de Uso Incluídos (`<<include>>`)
 
-Os 6 indicadores essenciais (KPIs) computados no Dashboard operam de maneira desacoplada através de blocos `try/catch` independentes no controlador [`AdminDashboardController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminDashboardController.java), assegurando alta resiliência e tolerância a falhas parciais:
+Os 6 indicadores essenciais (KPIs) computados no Dashboard operam de maneira desacoplada através de blocos `try/catch` independentes no controlador [`AdminDashboardController`](/src/main/java/com/gwj/controller/AdminDashboardController.java), assegurando alta resiliência e tolerância a falhas parciais:
 
 ### **UC05 - Consultar Total de Agendamentos**
 * **Objetivo:** Computar o volume acumulado de reservas de horários registradas no sistema.

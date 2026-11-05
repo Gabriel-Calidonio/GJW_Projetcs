@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_ADM_005` (engloba `UC11`, `UC12` e `UC13` em [`general_dashboard.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/general_dashboard.puml)) |
+| **Identificador** | `UC_ADM_005` (engloba `UC11`, `UC12` e `UC13` em [`general_dashboard.puml`](/docs/business/use-cases/general_dashboard.puml)) |
 | **Nome** | Gerenciar Agendamentos, Filtragem de Grade e Transição de Status |
 | **Módulo** | Módulos de Gestão Operacional |
 | **Atores Primários** | Administrador Geral (*Perfil 1*), Recepcionista (*Perfil 3*), Barbeiro (*Perfil 2 - agenda individual*) |
 | **Atores Secundários** | Motor de Disponibilidade (`AgendamentoService`), Grade de Horários (`GradeHorarios`) |
 | **Tipo** | Essencial / Concreto (com Extensões Operacionais) |
 | **Frequência de Uso** | Muito Alta (uso constante ao longo do expediente da barbearia) |
-| **Rastreabilidade** | [`AdminAgendamentoController.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminAgendamentoController.java), [`AgendamentoService.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos) a [`RN-AGE-05`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_agendamento.md#rn-age-05-preven%C3%A7%C3%A3o-at%C3%B4mica-de-double-booking), [`RN-ATE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status), [`RN-CAN-02`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-02-libera%C3%A7%C3%A3o-imediata-de-slots-na-grade-p%C3%BAblica) |
+| **Rastreabilidade** | [`AdminAgendamentoController.java`](/src/main/java/com/gwj/controller/AdminAgendamentoController.java), [`AgendamentoService.java`](/src/main/java/com/gwj/service/AgendamentoService.java), [`RN-AGE-01`](/docs/business/regras_negocio_agendamento.md#rn-age-01-ocupa%C3%A7%C3%A3o-de-m%C3%BAltiplos-blocos-consecutivos) a [`RN-AGE-05`](/docs/business/regras_negocio_agendamento.md#rn-age-05-preven%C3%A7%C3%A3o-at%C3%B4mica-de-double-booking), [`RN-ATE-01`](/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status), [`RN-CAN-02`](/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-02-libera%C3%A7%C3%A3o-imediata-de-slots-na-grade-p%C3%BAblica) |
 
 ---
 
@@ -49,7 +49,7 @@ Permite o controle completo da agenda do estabelecimento no painel administrativ
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Operador | Acessa `/MRYnZpAsC9sp/agendamentos`. |
-| **2** | Sistema | [`AdminAgendamentoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminAgendamentoController.java) invoca `AgendamentoService.read(new Agendamento())`. |
+| **2** | Sistema | [`AdminAgendamentoController`](/src/main/java/com/gwj/controller/AdminAgendamentoController.java) invoca `AgendamentoService.read(new Agendamento())`. |
 | **3** | Sistema | Ordena a coleção de agendamentos cronologicamente do mais recente para o mais antigo (por data e hora de início). |
 | **4** | Sistema | Encaminha a lista para a view `admin/order/booking/listar`. |
 | **5** | Operador | Visualiza tabela com ID, Cliente, Telefone, Serviço, Profissional, Data, Horário e Status. |
@@ -70,7 +70,7 @@ Permite o controle completo da agenda do estabelecimento no painel administrativ
 * **Fluxo Operacional:**
   1. Na tela de agendamentos (`/MRYnZpAsC9sp/agendamentos`), o operador seleciona um filtro de data no seletor de calendário e/ou escolhe um profissional no menu suspenso.
   2. Ao submeter a filtragem, a requisição envia os parâmetros `?data={data}&profissionalId={id}` via GET.
-  3. O controlador [`AdminAgendamentoController`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/AdminAgendamentoController.java) instancia `Agendamento` como critério de filtro preenchendo `dataAgendamento` e `profissionalId`.
+  3. O controlador [`AdminAgendamentoController`](/src/main/java/com/gwj/controller/AdminAgendamentoController.java) instancia `Agendamento` como critério de filtro preenchendo `dataAgendamento` e `profissionalId`.
   4. Caso o usuário logado seja um Barbeiro (*Perfil 2*), o sistema força `profissionalId` igual ao seu próprio identificador (`RN-SEG-03`), impedindo que o profissional visualize atendimentos de outras cadeiras.
   5. A lista filtrada é retornada à view mantendo a ordenação cronológica das cadeiras.
 * **Campos de Entrada:** `data` *(LocalDate, formato YYYY-MM-DD)*, `profissionalId` *(Long, Opcional)*.

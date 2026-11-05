@@ -4,14 +4,14 @@
 
 | Atributo | Detalhe |
 | :--- | :--- |
-| **Identificador** | `UC_STR_007` (ref. `UC21` em [`storefront.puml`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/use-cases/storefront.puml)) |
+| **Identificador** | `UC_STR_007` (ref. `UC21` em [`storefront.puml`](/docs/business/use-cases/storefront.puml)) |
 | **Nome** | Consultar Meus Agendamentos e Histórico de Atendimentos |
 | **Módulo** | Área e Conta do Cliente |
 | **Atores Primários** | Cliente Registrado (*Perfil 4 - Autenticado*) |
 | **Atores Secundários** | Serviço de Agendamentos (`AgendamentoService`), Serviço de Clientes (`ClienteService`) |
 | **Tipo** | Essencial / Concreto |
 | **Frequência de Uso** | Alta (para conferir horários marcados, status de atendimentos e históricos) |
-| **Rastreabilidade** | [`Router.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java), [`Agendamento.java`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/model/domain/entities/Agendamento.java), [`RN-CAN-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-01-prazo-limite-de-cancelamento-online-anteced%C3%AAncia-m%C3%ADnima), [`RN-ATE-01`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status) |
+| **Rastreabilidade** | [`Router.java`](/src/main/java/com/gwj/controller/Router.java), [`Agendamento.java`](/src/main/java/com/gwj/model/domain/entities/Agendamento.java), [`RN-CAN-01`](/docs/business/regras_negocio_cancelamento_reagendamento.md#rn-can-01-prazo-limite-de-cancelamento-online-anteced%C3%AAncia-m%C3%ADnima), [`RN-ATE-01`](/docs/business/regras_negocio_atendimento_comandas.md#rn-ate-01-ciclo-de-vida-do-atendimento-e-transi%C3%A7%C3%A3o-de-status) |
 
 ---
 
@@ -46,7 +46,7 @@ Permite que o cliente autenticado visualize em uma área exclusiva (`/meus-agend
 | Passo | Ator | Ação do Sistema |
 | :---: | :--- | :--- |
 | **1** | Cliente | Clica na opção "Meus Agendamentos" ou navega até `/meus-agendamentos`. |
-| **2** | Sistema | [`Router.meusAgendamentos`](file:///var/www/html/tgos-barbearia/ProjetoIntegrador.GWJ.JAVA.Spring.Boot.dinamico/src/main/java/com/gwj/controller/Router.java) verifica se o usuário está autenticado na `HttpSession`. |
+| **2** | Sistema | [`Router.meusAgendamentos`](/src/main/java/com/gwj/controller/Router.java) verifica se o usuário está autenticado na `HttpSession`. |
 | **3** | Sistema | Busca a entidade `Cliente` completa vinculada ao `usuarioLogado.getId()`. |
 | **4** | Sistema | Consulta `AgendamentoService` filtrando pelo telefone do cliente (`aFiltro.setClienteTelefone(cliente.getTelefone())`). |
 | **5** | Sistema | Ordena os agendamentos por data e horário de início decrescente (do mais recente para o mais antigo). |
