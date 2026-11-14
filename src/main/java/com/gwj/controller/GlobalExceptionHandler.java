@@ -19,6 +19,7 @@ public class GlobalExceptionHandler {
     model.addAttribute(
         "message", "Desculpe, a página que você está procurando não existe ou foi movida.");
     model.addAttribute("path", request.getRequestURI());
+    model.addAttribute("adminPrefix", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
 
     return "site/errors/error"; // Renderiza templates/site/errors/error.html
   }
@@ -32,6 +33,7 @@ public class GlobalExceptionHandler {
     model.addAttribute(
         "message", "O recurso (CSS, JS, Imagem, etc.) que o navegador tentou carregar não existe.");
     model.addAttribute("path", request.getRequestURI());
+    model.addAttribute("adminPrefix", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
 
     return "site/errors/error";
   }
@@ -49,6 +51,7 @@ public class GlobalExceptionHandler {
     model.addAttribute(
         "message", "Ocorreu um erro inesperado em nossos servidores. Nossa equipe foi notificada.");
     model.addAttribute("path", request.getRequestURI());
+    model.addAttribute("adminPrefix", com.gwj.AppConfig.ADMIN_ROUTE_PREFIX);
 
     return "site/errors/error"; // Renderiza templates/site/errors/error.html
   }
