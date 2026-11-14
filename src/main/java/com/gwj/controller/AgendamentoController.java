@@ -66,7 +66,14 @@ public class AgendamentoController {
       Agendamento agendamentoSalva =
           agendamentoService.confirmarReserva(
               servicoId, profissionalId, dataStr, horaStr, nome, sobrenome, email, telefone);
-      return "redirect:/order-confirmation?id=" + agendamentoSalva.getId();
+      String metodoPagamento =
+          (pagamento != null && !pagamento.isBlank()) ? pagamento.trim().toLowerCase() : "pix";
+      String metodoEncoded =
+          java.net.URLEncoder.encode(metodoPagamento, java.nio.charset.StandardCharsets.UTF_8);
+      return "redirect:/order-confirmation?id="
+          + agendamentoSalva.getId()
+          + "&pagamento="
+          + metodoEncoded;
     } catch (Exception e) {
       e.printStackTrace();
       redirectAttributes.addFlashAttribute("erro", e.getMessage());

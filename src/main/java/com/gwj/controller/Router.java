@@ -145,7 +145,22 @@ public class Router {
   }
 
   @GetMapping("/order-confirmation")
-  public String orderConfirmation(@RequestParam("id") Long agendamentoId, Model model) {
+  public String orderConfirmation(
+      @RequestParam("id") Long agendamentoId,
+      @RequestParam(value = "pagamento", required = false, defaultValue = "presencial")
+          String pagamento,
+      Model model) {
+    String metodoNormalizado =
+        (pagamento != null && !pagamento.isBlank()) ? pagamento.trim().toLowerCase() : "presencial";
+    String formaPagamentoLabel =
+        switch (metodoNormalizado) {
+          case "pix" -> "PIX (QR Code)";
+          case "cartao" -> "Cartão de Crédito";
+          default -> "Pagar na Barbearia";
+        };
+    model.addAttribute("pagamento", metodoNormalizado);
+    model.addAttribute("formaPagamentoLabel", formaPagamentoLabel);
+
     try {
       IService<com.gwj.model.domain.entities.Agendamento> agendamentoService =
           ServiceRegistry.getService("Agendamento");

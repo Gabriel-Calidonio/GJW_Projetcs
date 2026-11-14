@@ -4,6 +4,7 @@
 <head>
     <title>Checkout - Barbearia</title>
     <script th:src="@{/js/masks.js}" defer></script>
+    <script th:src="@{/js/pix-payment.js}" defer></script>
 </head>
 
 <body>
@@ -68,38 +69,92 @@
 
                             <div class="payment-panel">
                                 <div class="payment-options"
-                                    style="display: flex; flex-direction: column; gap: 1.5rem;">
-                                    <!-- Opção: Cartão de Crédito -->
+                                    style="display: flex; flex-direction: column; gap: 1.25rem;">
+
+                                    <!-- Opção 1: PIX via QR Code (Simulado) -->
                                     <div class="payment-option-group">
                                         <label class="payment-method-label"
-                                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">
-                                            <input type="radio" name="pagamento" value="cartao" checked> Cartão de
-                                            Crédito
+                                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer; font-weight: 600;">
+                                            <input type="radio" name="pagamento" value="pix" checked>
+                                            <span><i class="bi bi-qr-code" style="margin-right: 4px;"></i> PIX via QR Code (Instantâneo)</span>
                                         </label>
 
-                                        <!-- Detalhes do Cartão -->
-                                        <div id="creditCardDetails" class="payment-details-box"
-                                            style="margin-top: 1rem; padding-left: 1.5rem; transition: all 0.3s ease;">
-                                            <input type="text" id="cardNumber"
-                                                placeholder="Número do Cartão (0000 0000 0000 0000)"
-                                                class="custom-input mb-4" required>
-                                            <div class="custom-form-row">
-                                                <input type="text" id="cardExpiry" placeholder="Validade (MM/AA)"
-                                                    class="custom-input" required>
-                                                <input type="text" id="cardCvc" placeholder="CVC" class="custom-input"
-                                                    required>
+                                        <div id="pixDetails" class="payment-details-box"
+                                            style="margin-top: 0.75rem; padding: 1.25rem; background: #fffdfa; border: 1px solid #e5d8b0; border-radius: 8px; text-align: center;">
+                                            <p style="margin: 0 0 0.75rem 0; font-size: 0.9rem; color: #444;">
+                                                Escaneie o QR Code abaixo no aplicativo do seu banco ou copie o código <strong>Pix Copia e Cola</strong>:
+                                            </p>
+
+                                            <div id="agendamentoPixQr"
+                                                th:attr="data-pix-valor=${servico != null ? servico.preco : '0.00'}, data-pix-txid=${'AGD' + (servicoId != null ? servicoId : '01')}"
+                                                style="display: inline-block; padding: 10px; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 0.75rem;">
+                                            </div>
+
+                                            <div style="font-size: 0.85rem; color: #555; margin-bottom: 0.75rem;">
+                                                <div>Chave PIX (Simulada): <strong>contato@tgosbarbearia.com</strong></div>
+                                                <div th:if="${servico}">Valor a pagar: <strong class="has-theme-3-color"
+                                                        th:text="'R$ ' + ${#numbers.formatDecimal(servico.preco, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</strong>
+                                                </div>
+                                            </div>
+
+                                            <div style="display: flex; gap: 0.5rem; align-items: center; max-width: 440px; margin: 0 auto 0.75rem auto; flex-wrap: wrap;">
+                                                <input type="text" id="agendamentoPixPayload" class="custom-input" readonly
+                                                    style="flex: 1; font-family: monospace; font-size: 0.8rem; background: #f8f9fa;">
+                                                <button type="button" id="btnCopyPixAgendamento" class="wp-element-button"
+                                                    style="padding: 0.65rem 1rem; font-size: 0.85rem; white-space: nowrap;">
+                                                    <i class="bi bi-clipboard"></i> Copiar Código PIX
+                                                </button>
+                                            </div>
+
+                                            <span id="copyFeedbackAgendamento"
+                                                style="display: none; font-size: 0.85rem; color: #198754; font-weight: 600; margin-bottom: 0.75rem;"></span>
+
+                                            <div style="margin-top: 0.5rem;">
+                                                <input type="hidden" id="pixPagoSimuladoAgendamento" name="pixPagoSimulado" value="false">
+                                                <button type="button" id="btnSimulatePixAgendamento"
+                                                    style="background: #1a1a1a; color: #d4af37; border: 1px solid #d4af37; padding: 0.55rem 1rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+                                                    Já realizei o pagamento (Simular)
+                                                </button>
+                                                <div id="badgePixSimuladoAgendamento"
+                                                    style="display: none; margin-top: 0.75rem; padding: 0.6rem 0.9rem; background: rgba(25, 135, 84, 0.12); border: 1px solid #198754; color: #146c43; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">
+                                                    ✓ Pagamento PIX confirmado (Simulação)! Agora clique em Confirmar Reserva.
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <hr class="divider" style="margin: 0.5rem 0;">
+                                    <hr class="divider" style="margin: 0.25rem 0;">
 
-                                    <!-- Opção: Presencial -->
+                                    <!-- Opção 2: Cartão de Crédito -->
+                                    <div class="payment-option-group">
+                                        <label class="payment-method-label"
+                                            style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">
+                                            <input type="radio" name="pagamento" value="cartao">
+                                            <span><i class="bi bi-credit-card" style="margin-right: 4px;"></i> Cartão de Crédito</span>
+                                        </label>
+
+                                        <!-- Detalhes do Cartão -->
+                                        <div id="creditCardDetails" class="payment-details-box"
+                                            style="display: none; margin-top: 1rem; padding-left: 1.5rem; transition: all 0.3s ease;">
+                                            <input type="text" id="cardNumber"
+                                                placeholder="Número do Cartão (0000 0000 0000 0000)"
+                                                class="custom-input mb-4">
+                                            <div class="custom-form-row">
+                                                <input type="text" id="cardExpiry" placeholder="Validade (MM/AA)"
+                                                    class="custom-input">
+                                                <input type="text" id="cardCvc" placeholder="CVC" class="custom-input">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="divider" style="margin: 0.25rem 0;">
+
+                                    <!-- Opção 3: Pagar na Barbearia -->
                                     <div class="payment-option-group">
                                         <label class="payment-method-label"
                                             style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0; cursor: pointer;">
-                                            <input type="radio" name="pagamento" value="presencial"> Pagar na Barbearia
-                                            (Dinheiro ou Pix)
+                                            <input type="radio" name="pagamento" value="presencial">
+                                            <span><i class="bi bi-shop" style="margin-right: 4px;"></i> Pagar na Barbearia (Dinheiro, Cartão ou Pix)</span>
                                         </label>
 
                                         <!-- Detalhes Presencial -->
@@ -107,9 +162,7 @@
                                             style="display: none; margin-top: 1rem; padding-left: 1.5rem; transition: all 0.3s ease;">
                                             <p class="text-muted"
                                                 style="margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5;">
-                                                ✨ <strong>Pagamento no local:</strong> Você poderá pagar via Pix, Cartão
-                                                ou Dinheiro diretamente no balcão da barbearia após a realização do
-                                                serviço.
+                                                ✨ <strong>Pagar na Barbearia:</strong> Você poderá pagar em Dinheiro, Cartão ou Pix diretamente no balcão da barbearia após a realização do serviço.
                                             </p>
                                         </div>
                                     </div>
@@ -154,69 +207,33 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                const paymentRadios = document.querySelectorAll('input[name="pagamento"]');
-                const creditCardDetails = document.getElementById('creditCardDetails');
-                const presencialDetails = document.getElementById('presencialDetails');
-
-                // Inputs do cartão
-                const cardInputs = [
-                    document.getElementById('cardNumber'),
-                    document.getElementById('cardExpiry'),
-                    document.getElementById('cardCvc')
-                ];
-
-                const togglePaymentDetails = () => {
-                    const selectedRadio = document.querySelector('input[name="pagamento"]:checked');
-                    const selectedMethod = selectedRadio ? selectedRadio.value : 'cartao';
-                    if (selectedMethod === 'cartao') {
-                        creditCardDetails.style.display = 'block';
-                        presencialDetails.style.display = 'none';
-                        cardInputs.forEach(input => {
-                            if (input) input.setAttribute('required', 'required');
-                        });
-                    } else {
-                        creditCardDetails.style.display = 'none';
-                        presencialDetails.style.display = 'block';
-                        cardInputs.forEach(input => {
-                            if (input) input.removeAttribute('required');
-                        });
-                    }
-                };
-
-                paymentRadios.forEach(radio => {
-                    radio.addEventListener('change', togglePaymentDetails);
-                });
-
-                // Executa na inicialização
-                togglePaymentDetails();
-
-                // Máscara básica opcional para os campos de cartão de crédito
-                const cardNumberInput = document.getElementById('cardNumber');
-                const cardExpiryInput = document.getElementById('cardExpiry');
-                const cardCvcInput = document.getElementById('cardCvc');
-
-                if (cardNumberInput) {
-                    cardNumberInput.addEventListener('input', (e) => {
-                        let value = e.target.value.replace(/\D/g, '');
-                        value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
-                        e.target.value = value.substring(0, 19); // 16 dígitos + 3 espaços
+                if (window.GWJPix) {
+                    window.GWJPix.init({
+                        qrContainerId: 'agendamentoPixQr',
+                        payloadInputId: 'agendamentoPixPayload',
+                        copyBtnId: 'btnCopyPixAgendamento',
+                        copyFeedbackId: 'copyFeedbackAgendamento',
+                        simulateBtnId: 'btnSimulatePixAgendamento',
+                        simulateBadgeId: 'badgePixSimuladoAgendamento',
+                        simulatedInputId: 'pixPagoSimuladoAgendamento'
                     });
-                }
 
-                if (cardExpiryInput) {
-                    cardExpiryInput.addEventListener('input', (e) => {
-                        let value = e.target.value.replace(/\D/g, '');
-                        if (value.length > 2) {
-                            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    window.GWJPix.bindPaymentSelector({
+                        radioName: 'pagamento',
+                        defaultValue: 'pix',
+                        cardValue: 'cartao',
+                        cardInputIds: ['cardNumber', 'cardExpiry', 'cardCvc'],
+                        panels: {
+                            pix: 'pixDetails',
+                            cartao: 'creditCardDetails',
+                            presencial: 'presencialDetails'
                         }
-                        e.target.value = value.substring(0, 5);
                     });
-                }
 
-                if (cardCvcInput) {
-                    cardCvcInput.addEventListener('input', (e) => {
-                        let value = e.target.value.replace(/\D/g, '');
-                        e.target.value = value.substring(0, 4);
+                    window.GWJPix.bindCardMasks({
+                        numberId: 'cardNumber',
+                        expiryId: 'cardExpiry',
+                        cvcId: 'cardCvc'
                     });
                 }
             });

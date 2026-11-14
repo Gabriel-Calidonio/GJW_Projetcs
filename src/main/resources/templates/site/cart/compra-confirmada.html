@@ -4,6 +4,7 @@
       layout:decorate="~{site/layouts/main-layout}">
 <head>
     <title>Compra Confirmada - Barbearia</title>
+    <script th:src="@{/js/pix-payment.js}" defer></script>
 </head>
 <body>
 
@@ -66,6 +67,29 @@
                     </div>
                 </div>
 
+                <!-- QR Code PIX Simulado da Compra -->
+                <div th:if="${pedido != null and pedido.formaPagamento == 'PIX'}"
+                     style="background-color: #fffdfa; border: 1px solid #e5d8b0; border-radius: 8px; padding: 1.5rem; text-align: center; margin-bottom: 2rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--text-main);">Pagamento via PIX (Simulado)</h3>
+                    <p style="margin: 0 0 1rem 0; font-size: 0.9rem; color: var(--text-muted);">
+                        Escaneie o QR Code ou copie o código Pix Copia e Cola para concluir o pagamento antes da retirada:
+                    </p>
+                    <div id="compraPixQr"
+                         th:attr="data-pix-valor=${pedido.valorTotal}, data-pix-txid=${'PED' + pedido.id}"
+                         style="display: inline-block; padding: 10px; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 0.75rem;">
+                    </div>
+                    <div style="display: flex; gap: 0.5rem; align-items: center; max-width: 440px; margin: 0 auto 0.5rem auto; flex-wrap: wrap;">
+                        <input type="text" id="compraPixPayload" class="custom-input" readonly
+                               style="flex: 1; font-family: monospace; font-size: 0.8rem; background: #f8f9fa;">
+                        <button type="button" id="btnCopyPixCompra" class="wp-element-button"
+                                style="padding: 0.65rem 1rem; font-size: 0.85rem; white-space: nowrap;">
+                            Copiar Código PIX
+                        </button>
+                    </div>
+                    <span id="copyFeedbackCompra"
+                          style="display: none; font-size: 0.85rem; color: #198754; font-weight: 600;"></span>
+                </div>
+
                 <!-- Painel de Instruções de Retirada -->
                 <div class="details-panel" style="background-color: #fffdfa; border: 1px solid #eee; border-radius: 8px; padding: 2rem; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); margin-bottom: 2.5rem;">
                     <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.2rem; color: var(--text-main); border-bottom: 1px solid #eee; padding-bottom: 0.8rem;">Instruções de Retirada</h3>
@@ -79,9 +103,17 @@
                             <span style="color: var(--primary-color); font-weight: bold;">•</span>
                             <span style="color: var(--text-muted); font-size: 0.95rem;">Apresente o seu <strong>número de pedido</strong> ou <strong>nome</strong> ao atendente.</span>
                         </li>
-                        <li style="display: flex; gap: 10px; align-items: flex-start;">
+                        <li th:if="${pedido != null and pedido.formaPagamento == 'PIX'}" style="display: flex; gap: 10px; align-items: flex-start;">
                             <span style="color: var(--primary-color); font-weight: bold;">•</span>
-                            <span style="color: var(--text-muted); font-size: 0.95rem;">O pagamento final será processado no balcão da barbearia.</span>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">Se ainda não realizou o pagamento via PIX, utilize o QR Code acima ou conclua diretamente no balcão.</span>
+                        </li>
+                        <li th:if="${pedido != null and pedido.formaPagamento == 'Cartão de Crédito'}" style="display: flex; gap: 10px; align-items: flex-start;">
+                            <span style="color: var(--primary-color); font-weight: bold;">•</span>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">Pagamento pré-autorizado via Cartão de Crédito (simulação).</span>
+                        </li>
+                        <li th:if="${pedido == null or (pedido.formaPagamento != 'PIX' and pedido.formaPagamento != 'Cartão de Crédito')}" style="display: flex; gap: 10px; align-items: flex-start;">
+                            <span style="color: var(--primary-color); font-weight: bold;">•</span>
+                            <span style="color: var(--text-muted); font-size: 0.95rem;">O pagamento final será processado presencialmente no balcão da barbearia (Dinheiro, Cartão ou Pix) no ato da retirada.</span>
                         </li>
                     </ul>
                 </div>
@@ -92,6 +124,19 @@
                 </div>
             </div>
         </main>
+
+        <script th:if="${pedido != null and pedido.formaPagamento == 'PIX'}">
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.GWJPix) {
+                    window.GWJPix.init({
+                        qrContainerId: 'compraPixQr',
+                        payloadInputId: 'compraPixPayload',
+                        copyBtnId: 'btnCopyPixCompra',
+                        copyFeedbackId: 'copyFeedbackCompra'
+                    });
+                }
+            });
+        </script>
     </section>
 
 </body>

@@ -4,6 +4,7 @@
       layout:decorate="~{site/layouts/main-layout}">
 <head>
     <title>Reserva Confirmada - Barbearia</title>
+    <script th:src="@{/js/pix-payment.js}" defer></script>
 </head>
 <body>
 
@@ -44,14 +45,43 @@
                              <span class="detail-label">Total a Pagar</span>
                              <strong class="has-theme-3-color" th:text="'R$ ' + ${#numbers.formatDecimal(agendamento.servico.preco, 1, 'POINT', 2, 'COMMA')}">R$ 80,00</strong>
                          </div>
+                         <div class="detail-item">
+                             <span class="detail-label">Forma de Pagamento</span>
+                             <strong th:text="${formaPagamentoLabel != null ? formaPagamentoLabel : 'Pagar na Barbearia'}">Pagar na Barbearia</strong>
+                         </div>
                      </div>
+
+                    <!-- QR Code PIX Simulado para Agendamento -->
+                    <div th:if="${pagamento == 'pix'}"
+                         style="margin: 1.5rem 0; padding: 1.25rem; background: #fffdfa; border: 1px solid #e5d8b0; border-radius: 8px; text-align: center;">
+                        <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Pagamento via PIX (Simulado)</h4>
+                        <p style="margin: 0 0 0.75rem 0; font-size: 0.9rem; color: #555;">
+                            Caso ainda não tenha concluído a transferência, utilize o QR Code ou copie o código abaixo:
+                        </p>
+                        <div id="confirmPixQr"
+                             th:attr="data-pix-valor=${agendamento.servico != null ? agendamento.servico.preco : '0.00'}, data-pix-txid=${'TGO' + agendamento.id}"
+                             style="display: inline-block; padding: 10px; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 0.75rem;">
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: center; max-width: 440px; margin: 0 auto 0.5rem auto; flex-wrap: wrap;">
+                            <input type="text" id="confirmPixPayload" class="custom-input" readonly
+                                   style="flex: 1; font-family: monospace; font-size: 0.8rem; background: #f8f9fa;">
+                            <button type="button" id="btnCopyPixConfirm" class="wp-element-button"
+                                    style="padding: 0.65rem 1rem; font-size: 0.85rem; white-space: nowrap;">
+                                Copiar Código PIX
+                            </button>
+                        </div>
+                        <span id="copyFeedbackConfirm"
+                              style="display: none; font-size: 0.85rem; color: #198754; font-weight: 600;"></span>
+                    </div>
 
                     <div class="instructions-panel">
                         <h4>Instruções Importantes</h4>
                         <ul class="instructions-list">
                             <li>Por favor, chegue com <strong>10 minutos de antecedência</strong>.</li>
                             <li>Temos uma tolerância de atraso máxima de 15 minutos.</li>
-                            <li>O pagamento final será feito no balcão da barbearia.</li>
+                            <li th:if="${pagamento == 'pix'}">Caso ainda não tenha concluído o PIX, utilize o QR Code acima ou pague diretamente no balcão.</li>
+                            <li th:if="${pagamento == 'cartao'}">Pagamento pré-autorizado via Cartão de Crédito (simulação).</li>
+                            <li th:if="${pagamento == null or (pagamento != 'pix' and pagamento != 'cartao')}">O pagamento final será feito presencialmente no balcão da barbearia (Dinheiro, Cartão ou Pix).</li>
                         </ul>
                     </div>
                 </div>
@@ -59,6 +89,19 @@
                 <a th:href="@{/}" class="wp-element-button btn-primary-inline">Voltar para o Início</a>
             </div>
         </main>
+
+        <script th:if="${pagamento == 'pix' and agendamento != null}">
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.GWJPix) {
+                    window.GWJPix.init({
+                        qrContainerId: 'confirmPixQr',
+                        payloadInputId: 'confirmPixPayload',
+                        copyBtnId: 'btnCopyPixConfirm',
+                        copyFeedbackId: 'copyFeedbackConfirm'
+                    });
+                }
+            });
+        </script>
     </section>
 
 </body>

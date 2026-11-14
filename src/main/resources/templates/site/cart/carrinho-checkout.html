@@ -4,6 +4,8 @@
       layout:decorate="~{site/layouts/main-layout}">
 <head>
     <title>Finalizar Compra - Barbearia</title>
+    <script th:src="@{/js/masks.js}" defer></script>
+    <script th:src="@{/js/pix-payment.js}" defer></script>
 </head>
 <body>
 
@@ -46,31 +48,92 @@
                             <hr class="divider">
                             
                             <h3 class="panel-title">Forma de Pagamento</h3>
-                            <p class="panel-subtitle">Todos os pedidos da loja online são pagos na retirada no balcão da barbearia. Selecione a forma de pagamento de sua preferência:</p>
+                            <p class="panel-subtitle">Selecione como deseja pagar pelos produtos selecionados:</p>
                             
-                            <div class="payment-panel flex-col gap-1" style="display: flex; flex-direction: column; gap: 0.8rem;">
-                                <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; padding: 0.8rem; background: #ffffff; border: 1px solid #ddd; border-radius: 6px;">
-                                    <input type="radio" name="formaPagamento" value="PIX" checked style="accent-color: var(--primary-color);">
-                                    <span><i class="bi bi-qr-code" style="margin-right: 6px;"></i> PIX (na retirada)</span>
-                                </label>
+                            <div class="payment-panel flex-col gap-1" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <!-- Opção 1: PIX via QR Code (Simulado) -->
+                                <div class="payment-option-group" style="background: #ffffff; border: 1px solid #ddd; border-radius: 6px; padding: 0.9rem;">
+                                    <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: 600; margin: 0; cursor: pointer;">
+                                        <input type="radio" name="formaPagamento" value="PIX" checked style="accent-color: var(--primary-color);">
+                                        <span><i class="bi bi-qr-code" style="margin-right: 6px;"></i> PIX via QR Code (Instantâneo)</span>
+                                    </label>
+
+                                    <div id="lojaPixDetails" style="margin-top: 1rem; padding: 1.25rem; background: #fffdfa; border: 1px solid #e5d8b0; border-radius: 8px; text-align: center;">
+                                        <p style="margin: 0 0 0.75rem 0; font-size: 0.9rem; color: #444;">
+                                            Escaneie o QR Code abaixo ou copie o código <strong>Pix Copia e Cola</strong>:
+                                        </p>
+
+                                        <div id="lojaPixQr"
+                                             th:attr="data-pix-valor=${carrinho.valorTotal}, data-pix-txid=${'LOJA01'}"
+                                             style="display: inline-block; padding: 10px; background: #ffffff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 0.75rem;">
+                                        </div>
+
+                                        <div style="font-size: 0.85rem; color: #555; margin-bottom: 0.75rem;">
+                                            <div>Chave PIX (Simulada): <strong>contato@tgosbarbearia.com</strong></div>
+                                            <div>Valor total: <strong style="color: var(--primary-color);"
+                                                    th:text="'R$ ' + ${#numbers.formatDecimal(carrinho.valorTotal, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</strong>
+                                            </div>
+                                        </div>
+
+                                        <div style="display: flex; gap: 0.5rem; align-items: center; max-width: 440px; margin: 0 auto 0.75rem auto; flex-wrap: wrap;">
+                                            <input type="text" id="lojaPixPayload" class="custom-input" readonly
+                                                   style="flex: 1; font-family: monospace; font-size: 0.8rem; background: #f8f9fa;">
+                                            <button type="button" id="btnCopyPixLoja" class="wp-element-button"
+                                                    style="padding: 0.65rem 1rem; font-size: 0.85rem; white-space: nowrap;">
+                                                <i class="bi bi-clipboard"></i> Copiar Código PIX
+                                            </button>
+                                        </div>
+
+                                        <span id="copyFeedbackLoja"
+                                              style="display: none; font-size: 0.85rem; color: #198754; font-weight: 600; margin-bottom: 0.75rem;"></span>
+
+                                        <div style="margin-top: 0.5rem;">
+                                            <input type="hidden" id="pixPagoSimuladoLoja" name="pixPagoSimulado" value="false">
+                                            <button type="button" id="btnSimulatePixLoja"
+                                                    style="background: #1a1a1a; color: #d4af37; border: 1px solid #d4af37; padding: 0.55rem 1rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+                                                Já realizei o pagamento (Simular)
+                                            </button>
+                                            <div id="badgePixSimuladoLoja"
+                                                 style="display: none; margin-top: 0.75rem; padding: 0.6rem 0.9rem; background: rgba(25, 135, 84, 0.12); border: 1px solid #198754; color: #146c43; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">
+                                                ✓ Pagamento PIX confirmado (Simulação)! Agora clique em Confirmar Pedido.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 
-                                <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; padding: 0.8rem; background: #ffffff; border: 1px solid #ddd; border-radius: 6px;">
-                                    <input type="radio" name="formaPagamento" value="Cartão de Crédito" style="accent-color: var(--primary-color);">
-                                    <span><i class="bi bi-credit-card" style="margin-right: 6px;"></i> Cartão de Crédito</span>
-                                </label>
+                                <!-- Opção 2: Cartão de Crédito -->
+                                <div class="payment-option-group" style="background: #ffffff; border: 1px solid #ddd; border-radius: 6px; padding: 0.9rem;">
+                                    <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; cursor: pointer;">
+                                        <input type="radio" name="formaPagamento" value="Cartão de Crédito" style="accent-color: var(--primary-color);">
+                                        <span><i class="bi bi-credit-card" style="margin-right: 6px;"></i> Cartão de Crédito</span>
+                                    </label>
+
+                                    <div id="lojaCreditCardDetails" style="display: none; margin-top: 1rem; padding-left: 1.5rem;">
+                                        <input type="text" id="lojaCardNumber" placeholder="Número do Cartão (0000 0000 0000 0000)"
+                                               class="custom-input" style="margin-bottom: 0.75rem;">
+                                        <div class="custom-form-row">
+                                            <input type="text" id="lojaCardExpiry" placeholder="Validade (MM/AA)" class="custom-input">
+                                            <input type="text" id="lojaCardCvc" placeholder="CVC" class="custom-input">
+                                        </div>
+                                    </div>
+                                </div>
                                 
-                                <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; padding: 0.8rem; background: #ffffff; border: 1px solid #ddd; border-radius: 6px;">
-                                    <input type="radio" name="formaPagamento" value="Cartão de Débito" style="accent-color: var(--primary-color);">
-                                    <span><i class="bi bi-credit-card-2-front" style="margin-right: 6px;"></i> Cartão de Débito</span>
-                                </label>
-                                
-                                <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; padding: 0.8rem; background: #ffffff; border: 1px solid #ddd; border-radius: 6px;">
-                                    <input type="radio" name="formaPagamento" value="Dinheiro" style="accent-color: var(--primary-color);">
-                                    <span><i class="bi bi-cash" style="margin-right: 6px;"></i> Dinheiro</span>
-                                </label>
+                                <!-- Opção 3: Pagar na Barbearia -->
+                                <div class="payment-option-group" style="background: #ffffff; border: 1px solid #ddd; border-radius: 6px; padding: 0.9rem;">
+                                    <label class="payment-method-label" style="display: flex; align-items: center; gap: 10px; font-weight: normal; margin: 0; cursor: pointer;">
+                                        <input type="radio" name="formaPagamento" value="Pagar na Barbearia" style="accent-color: var(--primary-color);">
+                                        <span><i class="bi bi-shop" style="margin-right: 6px;"></i> Pagar na Barbearia (Na retirada — Dinheiro, Cartão ou Pix)</span>
+                                    </label>
+
+                                    <div id="lojaPresencialDetails" style="display: none; margin-top: 0.75rem; padding-left: 1.5rem;">
+                                        <p class="text-muted" style="margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5;">
+                                            ✨ <strong>Pagamento na retirada:</strong> Seus produtos ficarão reservados e o pagamento será feito diretamente no balcão da barbearia em Dinheiro, Cartão ou Pix.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <button type="submit" class="wp-element-button btn-block" style="width: 100%; border: none; font-weight: bold; background-color: var(--text-main); color: var(--card-bg); cursor: pointer; border-radius: 6px; padding: 1.2rem; transition: opacity 0.2s;">
+                            <button type="submit" class="wp-element-button btn-block" style="width: 100%; border: none; font-weight: bold; background-color: var(--text-main); color: var(--card-bg); cursor: pointer; border-radius: 6px; padding: 1.2rem; margin-top: 1.5rem; transition: opacity 0.2s;">
                                 Confirmar Pedido
                             </button>
                         </form>
@@ -100,6 +163,40 @@
                 </div>
             </div>
         </main>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.GWJPix) {
+                    window.GWJPix.init({
+                        qrContainerId: 'lojaPixQr',
+                        payloadInputId: 'lojaPixPayload',
+                        copyBtnId: 'btnCopyPixLoja',
+                        copyFeedbackId: 'copyFeedbackLoja',
+                        simulateBtnId: 'btnSimulatePixLoja',
+                        simulateBadgeId: 'badgePixSimuladoLoja',
+                        simulatedInputId: 'pixPagoSimuladoLoja'
+                    });
+
+                    window.GWJPix.bindPaymentSelector({
+                        radioName: 'formaPagamento',
+                        defaultValue: 'PIX',
+                        cardValue: 'Cartão de Crédito',
+                        cardInputIds: ['lojaCardNumber', 'lojaCardExpiry', 'lojaCardCvc'],
+                        panels: {
+                            'PIX': 'lojaPixDetails',
+                            'Cartão de Crédito': 'lojaCreditCardDetails',
+                            'Pagar na Barbearia': 'lojaPresencialDetails'
+                        }
+                    });
+
+                    window.GWJPix.bindCardMasks({
+                        numberId: 'lojaCardNumber',
+                        expiryId: 'lojaCardExpiry',
+                        cvcId: 'lojaCardCvc'
+                    });
+                }
+            });
+        </script>
     </section>
 
 </body>
