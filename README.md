@@ -9,7 +9,7 @@ Esta é a outra forma de CRUD mais dinâmica e enxuta.
 
 ---
 
-## 🛠️ Diagnóstico Rápido de Ambiente (Recomendado para Alunos)
+##  Diagnóstico Rápido de Ambiente 
 
 Antes de iniciar a aplicação, execute o verificador de ambiente para garantir que o **Java 21**, as portas e a conexão com o banco de dados estão corretos:
 
@@ -27,7 +27,7 @@ Antes de iniciar a aplicação, execute o verificador de ambiente para garantir 
   .\check.ps1
   ```
 
-O verificador emitirá um relatório completo (✅ SUCESSO / ⚠️ AVISO / ❌ FALHA) e indicará a solução exata para qualquer pendência encontrada.
+O verificador emitirá um relatório completo ( SUCESSO /  AVISO /  FALHA) e indicará a solução exata para qualquer pendência encontrada.
 
 ---
 
@@ -124,11 +124,11 @@ Fase 3 (Painel Administrativo & Tratamento de Erros):
 
 ---
 
-## 🧪 Fase 4: Suíte de Testes Automatizados, BDD e Qualidade de Código
+## Fase 4: Suíte de Testes Automatizados, BDD e Qualidade de Código
 
 Para garantir a confiabilidade da aplicação e aplicar boas práticas de Engenharia de Software (TDD, BDD e Clean Code), o projeto conta com uma suíte de testes e ferramentas de análise estática configuradas no `pom.xml`.
 
-### 📌 Comandos Essenciais para o Aluno e Desenvolvedor:
+### Comandos Essenciais para o Aluno e Desenvolvedor:
 
 > **Nota:** Como o ambiente Debian 13 pode ter múltiplas versões de Java instaladas, certifique-se de executar os comandos com o runtime **Java 21 LTS**:
 > ```bash
