@@ -18,12 +18,9 @@ public class GlobalModelAdvice {
     return AppConfig.ADMIN_ROUTE_PREFIX;
   }
 
-  /**
-   * Alias de conveniência para templates que utilizem 'adminRoutePrefix'.
-   */
+  /** Alias de conveniência para templates que utilizem 'adminRoutePrefix'. */
   @ModelAttribute("adminRoutePrefix")
   public String getAdminRoutePrefix() {
     return AppConfig.ADMIN_ROUTE_PREFIX;
   }
 }
-

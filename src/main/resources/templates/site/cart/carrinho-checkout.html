@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-      xmlns:layout="http://ultraq.net.nz"
-      layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, ~{::head/script}, ~{this :: content})}">
 <head>
     <title>Finalizar Compra - Barbearia</title>
     <script th:src="@{/js/masks.js}" defer></script>
@@ -9,7 +8,7 @@
 </head>
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <main class="wp-block-group alignfull page-main-bg">
             <div class="alignwide">
                 <h1 class="mb-40">Finalizar Compra</h1>

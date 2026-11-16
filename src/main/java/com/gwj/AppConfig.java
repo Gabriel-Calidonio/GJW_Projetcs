@@ -58,8 +58,8 @@ public final class AppConfig {
   }
 
   /**
-   * Define e higieniza o prefixo da rota administrativa (removendo barras extras)
-   * e sincroniza com as propriedades do sistema.
+   * Define e higieniza o prefixo da rota administrativa (removendo barras extras) e sincroniza com
+   * as propriedades do sistema.
    */
   public static void setAdminRoutePrefix(String prefix) {
     if (prefix != null) {

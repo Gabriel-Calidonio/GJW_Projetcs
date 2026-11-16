@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-    xmlns:layout="http://ultraq.net.nz"
-    layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, null, ~{this :: content})}">
 <head>
     <title th:text="${produto != null ? produto.nome + ' - Nossa Loja' : 'Produto Não Encontrado'}">Detalhes do Produto</title>
 </head>
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <main class="wp-block-group alignfull single-product-main">
             <div class="alignwide">
                 <!-- Breadcrumbs Dinâmico -->

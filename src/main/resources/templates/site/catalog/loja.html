@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz" layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, null, ~{this :: content})}">
 
 <head>
     <title>Nosso mini shopping</title>
@@ -7,7 +8,7 @@
 
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
 
         <main class="wp-block-group alignfull"
             style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50)">

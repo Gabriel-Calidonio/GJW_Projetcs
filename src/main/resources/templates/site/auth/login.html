@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz" layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, ~{::head/script}, ~{this :: content})}">
 
 <head>
     <title>Login - Barbearia GWJ</title>
@@ -8,7 +9,7 @@
 </head>
 
 <body>
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <div class="cadastro-container">
             <div class="cadastro-card">
                 <div style="text-align: center; margin-bottom: 1.5rem;">
