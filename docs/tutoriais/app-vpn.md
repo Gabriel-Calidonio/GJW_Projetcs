@@ -47,7 +47,7 @@ sudo apt-get install -y build-essential libz-dev zlib1g-dev curl zip unzip
 A forma mais prática de gerenciar o GraalVM 21 sem interferir no OpenJDK padrão do sistema é com o **SDKMAN!**:
 
 ```bash
-curl -s "https://sdkman.io" | bash
+curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Liste as distribuições GraalVM 21 disponíveis (ex.: 21.0.2-graalce ou 21-graal)
@@ -105,7 +105,7 @@ Você tem **duas estratégias** para lidar com isso:
 3. Enquanto a aplicação roda, navegue pelos fluxos principais no navegador (Home, Loja, Agendamento, Checkout/PIX, Login, `/setup` e Painel Administrativo) para que o agente registre todas as classes, campos e recursos acessados por reflexão.
 4. Encerre com `Ctrl+C`. Os arquivos `reflect-config.json` e `resource-config.json` serão salvos em `src/main/resources/META-INF/native-image/` e incorporados automaticamente no próximo build nativo.
 
-### Estratégia B: Alternativa Pragmática — Deploy via Fat JAR com Limite de RAM
+### Estratégia B: Alternativa Pragmática: Deploy via Fat JAR com Limite de RAM
 
 Se você quiser subir rapidamente para a VPS sem precisar manter arquivos de hints AOT sempre que adicionar uma nova entidade ou biblioteca, pode gerar um **Fat JAR tradicional** e rodar com **OpenJDK 21 JRE** na VPS limitando o consumo de memória:
 

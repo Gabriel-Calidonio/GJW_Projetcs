@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-      xmlns:layout="http://ultraq.net.nz"
-      layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, ~{::head/script}, ~{this :: content})}">
 <head>
     <title>Compra Confirmada - Barbearia</title>
     <script th:src="@{/js/pix-payment.js}" defer></script>
 </head>
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <main class="wp-block-group alignfull page-main-bg">
             <div class="alignwide confirmation-wrapper" style="max-width: 600px; margin: 0 auto; padding: 4rem 1rem;">
                 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, null, ~{this :: content})}">
 
 <head>
     <title>Página de Erro - GWJ</title>
 </head>
 
 <body>
-    <section layout:fragment="content" class="container mt-5 error-container">
+    <section th:fragment="content" class="container mt-5 error-container">
         <div class="card shadow-lg p-5 text-center error-card">
             <div class="error-icon">⚠️</div>
 

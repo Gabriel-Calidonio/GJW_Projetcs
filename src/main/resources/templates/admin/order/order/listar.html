@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-      xmlns:layout="http://ultraq.net.nz" 
-      layout:decorate="~{admin/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{admin/layouts/main-layout :: layout(~{::title}, ~{this :: content})}">
 <head>
     <title>Gestão de Pedidos - Admin</title>
 </head>
 <body>
     
-    <main layout:fragment="content" class="gwj-p-4">
+    <div th:fragment="content" class="gwj-p-4">
         
         <!-- Breadcrumb / Header -->
         <div class="gwj-d-flex gwj-justify-between gwj-align-center gwj-mb-4">
@@ -81,7 +80,7 @@
             </div>
         </div>
 
-    </main>
+    </div>
 
 </body>
 </html>

@@ -25,13 +25,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<!-- Dialeto de Layout para permitir o padrão de "decorador" (usar um arquivo como base) -->
-		<dependency>
-			<groupId>nz.net.ultraq.thymeleaf</groupId>
-			<artifactId>thymeleaf-layout-dialect</artifactId>
-			<!-- A versão pode variar, 3.x é recomendado para Thymeleaf 3 -->
-			<version>3.0.0</version>
-		</dependency>
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
 			<artifactId>jakarta.persistence-api</artifactId>
@@ -178,6 +171,14 @@
 					<threshold>Medium</threshold>
 					<failOnError>true</failOnError>
 					<excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<configuration>
+					<imageName>tgos-barbearia</imageName>
+					<mainClass>com.gwj.StartApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

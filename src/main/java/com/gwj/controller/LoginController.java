@@ -136,7 +136,8 @@ public class LoginController {
         if (usuarioBanco.getPerfil() != null && usuarioBanco.getPerfil().getId() == 4L) {
           return "redirect:/"; // Clientes vão para a home
         }
-        return "redirect:/" + AppConfig.ADMIN_ROUTE_PREFIX; // Administradores vão para o painel principal
+        return "redirect:/"
+            + AppConfig.ADMIN_ROUTE_PREFIX; // Administradores vão para o painel principal
       }
     }
 

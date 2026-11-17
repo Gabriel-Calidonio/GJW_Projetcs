@@ -62,8 +62,7 @@ public class AdminInterceptor implements HandlerInterceptor {
           && !usuarioLogado.hasPermissao("VISUALIZAR_PROPRIA_AGENDA")) {
         permissaoNecessaria = "GERENCIAR_TODAS_AGENDAS";
       }
-    } else if (uri.contains(prefix + "/profissionais")
-        || uri.contains(prefix + "/configuracoes")) {
+    } else if (uri.contains(prefix + "/profissionais") || uri.contains(prefix + "/configuracoes")) {
       modulo = "Administração / Configurações";
       permissaoNecessaria = "ADMIN_ONLY";
     }

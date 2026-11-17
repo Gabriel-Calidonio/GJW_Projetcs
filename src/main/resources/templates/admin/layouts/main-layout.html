@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-    xmlns:layout="http://ultraq.net.nz">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Painel Administrativo - GWJ</title>
     <!-- 1. CSS de uso geral (carrega primeiro) -->
     <link rel="stylesheet" th:href="@{/css/styles-admin.css}">
     
@@ -20,9 +22,9 @@
         <!-- Chama o fragmento da Sidebar -->
         <th:block th:replace="~{admin/fragments/sidebar :: sidebar}"></th:block>
 
-        <!-- Área principal onde o conteúdo será injetado pelo Thymeleaf Layout -->
-        <main class="gwj-main-content" layout:fragment="content">
-            <!-- Conteúdo principal sempre aparece -->
+        <!-- Área principal onde o conteúdo será injetado pelo Thymeleaf -->
+        <main class="gwj-main-content">
+            <th:block th:replace="${content}"></th:block>
         </main>
     </div>
 </body>

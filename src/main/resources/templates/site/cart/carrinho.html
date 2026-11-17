@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-      xmlns:layout="http://ultraq.net.nz"
-      layout:decorate="~{site/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{site/layouts/main-layout :: layout(~{::title}, null, ~{this :: content})}">
 <head>
     <title>Carrinho - Barbearia</title>
 </head>
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <main class="wp-block-group alignfull page-main-bg">
             <div class="alignwide">
                 <h1 class="mb-40">Seu Carrinho</h1>
@@ -71,10 +70,8 @@
 
             </div>
         </main>
-    </section>
 
-    <!-- Scripts da Página do Carrinho -->
-    <th:block layout:fragment="scripts">
+        <!-- Scripts da Página do Carrinho -->
         <script>
             function atualizarQuantidadePagina(produtoId, quantidade) {
                 const qtyVal = parseInt(quantidade);
@@ -120,7 +117,7 @@
                 .catch(err => console.error(err));
             }
         </script>
-    </th:block>
+    </section>
 
 </body>
 </html>

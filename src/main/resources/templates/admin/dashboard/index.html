@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org" 
-    xmlns:layout="http://ultraq.net.nz"
-    layout:decorate="~{admin/layouts/main-layout}">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{admin/layouts/main-layout :: layout(~{::title}, ~{this :: content})}">
 <head>
     <title>Painel Administrativo - GWJ</title>
 </head>
 <body>
 
-    <section layout:fragment="content">
+    <section th:fragment="content">
         <div class="gwj-mb-4">
             <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">Painel de Controle</h1>
             <p style="color: var(--gwj-text-muted); margin: 0;">Bem-vindo ao painel administrativo. Acesse e gerencie as operações da barbearia:</p>
