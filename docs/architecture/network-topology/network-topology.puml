@@ -1,0 +1,76 @@
+@startuml
+title Topologia de Rede e Segurança - T'gos Barbearia (VPS Debian + WireGuard + Cloudflare + Nginx + Spring Boot GraalVM)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam defaultTextAlignment center
+skinparam backgroundColor #FEFEFE
+
+
+actor "Clientes &\nAdministradores" as Client
+actor "Dev / SRE\n(Debian • 10.10.0.2)" as Dev
+
+cloud "Cloudflare (Borda Web)" as CF #Orange {
+    component "WAF / Proteção DDoS\n& Proxy DNS (Full Strict)" as CF_Proxy
+}
+
+node "Servidor VPS (Debian Linux - Produção)" {
+
+    component "Firewall UFW\n(Default: Deny Incoming)\nPúblico: 80, 443, 51820/udp\n(Portas 22, 8089 e 3306 Fechadas)" as UFW #Tomato
+    component "Fail2Ban (systemd)\n(Proteção Brute-Force\nOpenSSH & Nginx -> UFW)" as Fail2Ban #LightCoral
+    component "Nginx\n(Reverse Proxy, Terminação SSL\nCertbot / Origin CA • Upload 10M)" as Nginx #LightBlue
+
+    package "Túnel VPN & Acesso Administrativo" as Admin {
+        component "Interface WireGuard (wg0)\nSub-rede: 10.10.0.1/24\n(UDP 51820 Silencioso)" as WG #Lavender
+        component "Daemon OpenSSH\n(Porta Customizada: 2244)\n[00-hardening.conf • Chave Ed25519]\nRestrito à interface wg0" as SSH #Wheat
+    }
+
+    package "Aplicação & Configuração (Bind: 127.0.0.1)" as Apps {
+        component "T'gos Barbearia (tgos-barbearia.service)\nSpring Boot 3.2.5 + Java 21\nBinário Nativo GraalVM (127.0.0.1:8089)\n[Thymeleaf SSR • Setup /setup • PIX QR\nRota Admin Ofuscada + Honeypot /admin]" as App #LightGreen
+        file "Configuração Runtime\n/opt/tgos-barbearia/.env\n(SERVER_PORT, ADMIN_ROUTE_PREFIX,\nDB_URL, DB_DRIVER, APP_DB_PREFIX)" as EnvFile #HoneyDew
+    }
+
+    package "Persistência (Bind: 127.0.0.1)" as Dados {
+        database "MariaDB\nBanco: gwj2 (tabelas tab_*)\n(127.0.0.1:3306)\n[Alt: PostgreSQL 5432]" as DB #LightGray
+    }
+}
+
+' Força alinhamento horizontal limpo das camadas
+Nginx -[hidden]right-> WG
+
+' Fluxo Externo (Web via Cloudflare)
+Client -down-> CF_Proxy : HTTPS (443)
+Dev -down-> CF_Proxy : HTTPS (443)\nPainel Admin Ofuscado
+CF_Proxy -down-> UFW : HTTPS (443) / HTTP (80)
+UFW -down-> Nginx : Tráfego Web Permitido
+
+' Fluxo Externo (VPN WireGuard -> SSH Ofuscado)
+Dev -down-> UFW : Túnel WireGuard\n(UDP 51820)
+UFW -down-> WG : Tráfego VPN (51820/udp)
+WG -down-> SSH : SSH via wg0 (10.10.0.1:2244)\nDeploy (scp) & Túnel DB
+
+' Monitoramento de Segurança
+Fail2Ban ..> SSH : Monitora journald\ne bloqueia no UFW
+Fail2Ban ..> Nginx : Monitora varreduras\ne força bruta
+
+' Roteamento Interno do Nginx e Aplicação
+Nginx -down-> App : HTTP Interno\n(127.0.0.1:8089)
+App -right-> EnvFile : Leitura no boot\n(AppConfig.loadEnv)
+App -down-> DB : JDBC (org.mariadb.jdbc.Driver)\nTCP 127.0.0.1:3306
+
+' Notas de Boas Práticas
+note right of UFW
+  Bloqueia acesso externo direto às portas
+  internas (8089 e 3306) e à porta SSH padrão (22).
+  Recomendado: restringir 80/443 aos IPs da Cloudflare
+  ou usar Certbot Let's Encrypt diretamente no Nginx.
+end note
+
+note bottom of SSH
+  Hardening: /etc/ssh/sshd_config.d/00-hardening.conf,
+  PasswordAuthentication no, PermitRootLogin no,
+  usuário deploy com chave Ed25519 e túnel SSH para MariaDB (3306).
+end note
+
+@enduml
