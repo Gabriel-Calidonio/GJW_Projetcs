@@ -1,9 +1,9 @@
-# Roteiro de Apresentação — Disciplina: Programação para Web
+# Roteiro de Apresentação, Disciplina: Programação para Web
 
 **Projeto:** Tgo's Barbearia (`GWJ Java Spring Boot Dinâmico`)  
 **Duração Total:** **15 minutos** (**12 min 30 s** de apresentação ao vivo + **2 min 30 s** para perguntas)  
 **Integrantes:** Gabriel Calidonio André, Josias da Conceição Sobrinho e Wallace Francis Miranda  
-**Formato:** **Demonstração ao vivo no navegador** + **DevTools (`F12` — aba Network, Console e Modo Responsivo)**
+**Formato:** **Demonstração ao vivo no navegador** + **DevTools (`F12`, aba Network, Console e Modo Responsivo)**
 
 > [!TIP]
 > **Diferencial deste roteiro para Programação para Web:**  
@@ -68,7 +68,7 @@
 * **Passo a passo ao vivo:**
   1. **Persistência de Estado na Sessão HTTP:**
      * Na `/loja`, clicar para adicionar 1 ou 2 produtos.
-     * Mostrar no **Network** a chamada assíncrona `POST /carrinho/adicionar` (`CarrinhoController`) e a atualização dinâmica do fragmento do mini-carrinho (`/carrinho/mini-cart-fragment`) — explicando como o estado do carrinho fica associado à **`HttpSession` (Cookie `JSESSIONID`)** sem exigir login prévio.
+     * Mostrar no **Network** a chamada assíncrona `POST /carrinho/adicionar` (`CarrinhoController`) e a atualização dinâmica do fragmento do mini-carrinho (`/carrinho/mini-cart-fragment`), explicando como o estado do carrinho fica associado à **`HttpSession` (Cookie `JSESSIONID`)** sem exigir login prévio.
   2. **Manipulação de Quantidade e API Externa de CEP (`automatic-address.js`):**
      * Abrir `/carrinho`, alterar a quantidade de um item (mostrando `POST /carrinho/atualizar` recalculando o subtotal em JSON).
      * No `/carrinho/checkout`, mostrar as opções **PIX**, **Cartão de Crédito** (com máscaras dinâmicas ativando/desativando campos `required` via JS) e **Pagar na Barbearia**, e comentar o uso de `automatic-address.js` para consulta assíncrona de CEP (ViaCEP) quando há formulário de endereço.

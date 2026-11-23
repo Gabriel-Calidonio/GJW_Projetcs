@@ -26,11 +26,10 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<!-- Dialeto de Layout para permitir o padrão de "decorador" (usar um arquivo como base) -->
+		<!-- Versão gerenciada pelo Spring Boot 3.2.5 (3.3.0+ com Groovy 4 Indy e suporte GraalVM Native) -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
-			<!-- A versão pode variar, 3.x é recomendado para Thymeleaf 3 -->
-			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.persistence</groupId>
@@ -178,6 +177,18 @@
 					<threshold>Medium</threshold>
 					<failOnError>true</failOnError>
 					<excludeFilterFile>spotbugs-exclude.xml</excludeFilterFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<configuration>
+					<imageName>tgos-barbearia</imageName>
+					<mainClass>com.gwj.StartApplication</mainClass>
+					<buildArgs>
+						<buildArg>--initialize-at-build-time=org.codehaus.groovy,org.apache.groovy,groovy,groovyjarjarantlr,groovyjarjarantlr4,groovyjarjarasm,java.beans.Introspector,java.beans.ThreadGroupContext,com.sun.beans</buildArg>
+						<buildArg>--initialize-at-run-time=org.codehaus.groovy.vmplugin.v8.Java8$LookupHolder</buildArg>
+					</buildArgs>
 				</configuration>
 			</plugin>
 		</plugins>

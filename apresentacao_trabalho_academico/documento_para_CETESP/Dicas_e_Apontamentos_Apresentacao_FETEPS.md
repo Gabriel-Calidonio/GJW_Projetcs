@@ -55,7 +55,7 @@ A banca desconta pontos se apenas um aluno falar. Dividam as falas de forma equi
 
 ### Pergunta 2: *"Por que usar Java 21 e Spring Boot para uma barbearia? Não é uma tecnologia muito 'pesada' para um pequeno negócio?"*
 * **Como responder:**
-  > *"Escolhemos Java 21 LTS e Spring Boot 3 pela confiabilidade transacional e segurança. Em sistemas de agendamento e e-commerce, concorrência de acessos e atomicidade são pontos críticos — não podemos permitir que dois clientes reservem o mesmo slot ao mesmo tempo. Com Java, implementamos padrões consolidados como DataMapper e Unit of Work com controle ACID de transações, garantindo que o sistema seja extremamente estável, seguro contra injeções SQL e pronto para escalar para dezenas de barbearias sem reescrever o código."*
+  > *"Escolhemos Java 21 LTS e Spring Boot 3 pela confiabilidade transacional e segurança. Em sistemas de agendamento e e-commerce, concorrência de acessos e atomicidade são pontos críticos, não podemos permitir que dois clientes reservem o mesmo slot ao mesmo tempo. Com Java, implementamos padrões consolidados como DataMapper e Unit of Work com controle ACID de transações, garantindo que o sistema seja extremamente estável, seguro contra injeções SQL e pronto para escalar para dezenas de barbearias sem reescrever o código."*
 
 ### Pergunta 3: *"Como vocês garantem tecnicamente que não vai ocorrer agendamento duplicado (double-booking)?"*
 * **Como responder:**

@@ -1,4 +1,4 @@
-# 🌐 Topologia de Rede, Proxy Reverso, VPN e Segurança Perimetral — T'gos Barbearia
+# 🌐 Topologia de Rede, Proxy Reverso, VPN e Segurança Perimetral, T'gos Barbearia
 
 Este documento descreve a arquitetura de rede, túnel VPN privado (**WireGuard**), hardening de **SSH**, exposição controlada de portas, terminação SSL/TLS e camadas de defesa aplicadas ao servidor de produção (**VPS Debian Linux**) da aplicação **T'gos Barbearia (`com.gwj:projeto`)**, compilada com **GraalVM Native Image** (Java 21 + Spring Boot 3.2.5).
 

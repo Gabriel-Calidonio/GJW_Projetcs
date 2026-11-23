@@ -30,14 +30,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.mock.web.MockFilterChain;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 
 @WebMvcTest({CarrinhoController.class, Router.class})
 @DisplayName("Testes do Carrinho, Mini-Carrinho e Checkout da Loja")
 class CarrinhoControllerTest {
 
   @Autowired private MockMvc mockMvc;
+
+  @Autowired private ForwardedHeaderFilter forwardedHeaderFilter;
 
   @MockBean private SetupService setupService;
 
@@ -189,5 +195,26 @@ class CarrinhoControllerTest {
         .andExpect(status().isOk())
         .andExpect(content().string(containsString("redirectCountdown")))
         .andExpect(content().string(containsString("Voltar para a Página Principal")));
+  }
+
+  @Test
+  @DisplayName("Deve reconhecer esquema HTTPS quando atrás de Cloudflare/Nginx (X-Forwarded-Proto)")
+  void deveReconhecerHttpsViaProxyReverso() throws Exception {
+    assertThat(forwardedHeaderFilter).isNotNull();
+
+    MockHttpServletRequest request = new MockHttpServletRequest("GET", "/carrinho/checkout");
+    request.addHeader("X-Forwarded-Proto", "https");
+    request.addHeader("X-Forwarded-Host", "barbearia.exemplo.com.br");
+    request.addHeader("X-Forwarded-Port", "443");
+
+    MockHttpServletResponse response = new MockHttpServletResponse();
+    MockFilterChain chain = new MockFilterChain();
+    forwardedHeaderFilter.doFilter(request, response, chain);
+
+    assertThat(chain.getRequest()).isNotNull();
+    assertThat(chain.getRequest().getScheme()).isEqualTo("https");
+    assertThat(chain.getRequest().isSecure()).isTrue();
+    assertThat(chain.getRequest().getServerName()).isEqualTo("barbearia.exemplo.com.br");
+    assertThat(chain.getRequest().getServerPort()).isEqualTo(443);
   }
 }
