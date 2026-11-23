@@ -26,7 +26,7 @@ public class CarrinhoController {
 
   @GetMapping("/carrinho/mini-cart-fragment")
   public String obterMiniCartFragment() {
-    return "parts/header :: #miniCartItems";
+    return "site/fragments/header :: #miniCartItems";
   }
 
   private Carrinho getCarrinhoFromSession() {
@@ -175,6 +175,8 @@ public class CarrinhoController {
         List<Cliente> clientes = clienteService.read(cFiltro);
         if (!clientes.isEmpty()) {
           pedido.setCliente(clientes.get(0));
+        } else {
+          pedido.setNomeVisitante(usuarioLogado.getNomeUsuario());
         }
       } else {
         pedido.setNomeVisitante(nomeVisitante);
@@ -192,11 +194,16 @@ public class CarrinhoController {
       Pedido pedidoSalvo = pedidoService.create(pedido);
 
       carrinho.limpar();
+      session.setAttribute("carrinho", carrinho);
 
       return "redirect:/compra-confirmada?id=" + pedidoSalvo.getId();
     } catch (Exception e) {
       e.printStackTrace();
-      return "redirect:/carrinho/checkout?erro=" + e.getMessage();
+      String erroCodificado =
+          java.net.URLEncoder.encode(
+              e.getMessage() != null ? e.getMessage() : "Erro ao finalizar pedido",
+              java.nio.charset.StandardCharsets.UTF_8);
+      return "redirect:/carrinho/checkout?erro=" + erroCodificado;
     }
   }
 }

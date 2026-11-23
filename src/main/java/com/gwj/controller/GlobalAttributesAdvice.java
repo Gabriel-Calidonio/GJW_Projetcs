@@ -59,6 +59,7 @@ public class GlobalAttributesAdvice {
         "Acreditamos que um bom corte de cabelo e uma barba bem feita são fundamentais para a autoestima do homem contemporâneo. Aqui, cada cliente é tratado como um amigo. Sente-se, tome um café ou uma cerveja gelada e deixe o visual por nossa conta.");
     configMap.put(
         "sobre_imagem", "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80");
+    configMap.put("logo_url", "");
     configMap.put("logo_alt", "Fatec-FV");
     // Se a rota for do assistente de setup, retorna imediatamente os valores padrão
     if (request != null

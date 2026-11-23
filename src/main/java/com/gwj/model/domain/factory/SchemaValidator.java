@@ -281,8 +281,10 @@ public class SchemaValidator {
                 + "  id BIGSERIAL PRIMARY KEY,"
                 + "  pedido_id BIGINT NOT NULL,"
                 + "  produto_id BIGINT NOT NULL,"
+                + "  nome_produto VARCHAR(150) NOT NULL DEFAULT '',"
                 + "  quantidade INT NOT NULL,"
                 + "  preco_unitario DECIMAL(10, 2) NOT NULL,"
+                + "  preco_total_item DECIMAL(10, 2) NOT NULL DEFAULT 0.00,"
                 + "  FOREIGN KEY (pedido_id) REFERENCES tab_pedidos(id) ON DELETE CASCADE"
                 + ");";
       } else {
@@ -291,16 +293,50 @@ public class SchemaValidator {
                 + "  `id` BIGINT AUTO_INCREMENT PRIMARY KEY,"
                 + "  `pedido_id` BIGINT NOT NULL,"
                 + "  `produto_id` BIGINT NOT NULL,"
+                + "  `nome_produto` VARCHAR(150) NOT NULL DEFAULT '',"
                 + "  `quantidade` INT NOT NULL,"
                 + "  `preco_unitario` DECIMAL(10, 2) NOT NULL,"
+                + "  `preco_total_item` DECIMAL(10, 2) NOT NULL DEFAULT 0.00,"
                 + "  FOREIGN KEY (`pedido_id`) REFERENCES `tab_pedidos`(`id`) ON DELETE CASCADE"
                 + ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
       }
       stmt.execute(createItensSql);
+      ensureColumnExists(
+          stmt,
+          "tab_itens_pedido",
+          "nome_produto",
+          AppConfig.isPostgreSql()
+              ? "ALTER TABLE tab_itens_pedido ADD COLUMN IF NOT EXISTS nome_produto VARCHAR(150) NOT NULL DEFAULT ''"
+              : "ALTER TABLE `tab_itens_pedido` ADD COLUMN `nome_produto` VARCHAR(150) NOT NULL DEFAULT ''");
+      ensureColumnExists(
+          stmt,
+          "tab_itens_pedido",
+          "preco_total_item",
+          AppConfig.isPostgreSql()
+              ? "ALTER TABLE tab_itens_pedido ADD COLUMN IF NOT EXISTS preco_total_item DECIMAL(10, 2) NOT NULL DEFAULT 0.00"
+              : "ALTER TABLE `tab_itens_pedido` ADD COLUMN `preco_total_item` DECIMAL(10, 2) NOT NULL DEFAULT 0.00");
       System.out.println("✅ Tabela tab_itens_pedido criada ou já existente.");
 
     } catch (Exception e) {
       System.err.println("Erro ao inicializar tabelas de pedidos: " + e.getMessage());
+    }
+  }
+
+  private static void ensureColumnExists(
+      java.sql.Statement stmt, String tableName, String columnName, String alterSql) {
+    try {
+      stmt.execute(alterSql);
+    } catch (java.sql.SQLException e) {
+      // Ignora erro caso a coluna já exista (1060 MySQL/MariaDB ou 42701 PostgreSQL)
+      if (e.getErrorCode() != 1060 && !"42701".equals(e.getSQLState())) {
+        System.err.println(
+            "Aviso ao verificar coluna '"
+                + columnName
+                + "' em '"
+                + tableName
+                + "': "
+                + e.getMessage());
+      }
     }
   }
 }

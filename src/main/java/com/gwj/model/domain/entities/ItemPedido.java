@@ -30,23 +30,38 @@ public class ItemPedido implements IEntity {
 
   private Integer quantidade;
   private BigDecimal precoUnitario;
+  private BigDecimal precoTotalItem;
 
   public ItemPedido() {}
 
   public ItemPedido(Produto produto, Integer quantidade) {
     this.produto = produto;
     this.precoUnitario =
-        (produto != null) ? produto.getPreco() : BigDecimal.ZERO; // Protege contra alterações
-    // futuras de preço no estoque
+        (produto != null && produto.getPreco() != null)
+            ? produto.getPreco()
+            : BigDecimal.ZERO; // Protege contra alterações futuras de preço no estoque
     this.nomeProduto = (produto != null) ? produto.getNome() : "";
     this.quantidade = quantidade;
+    recalcularPrecoTotal();
+  }
+
+  private void recalcularPrecoTotal() {
+    if (this.precoUnitario == null || this.quantidade == null) {
+      this.precoTotalItem = BigDecimal.ZERO;
+    } else {
+      this.precoTotalItem = this.precoUnitario.multiply(new BigDecimal(this.quantidade));
+    }
   }
 
   public BigDecimal getPrecoTotalItem() {
-    if (this.precoUnitario == null || this.quantidade == null) {
-      return BigDecimal.ZERO;
+    if (this.precoTotalItem == null) {
+      recalcularPrecoTotal();
     }
-    return this.precoUnitario.multiply(new BigDecimal(this.quantidade));
+    return this.precoTotalItem;
+  }
+
+  public void setPrecoTotalItem(BigDecimal precoTotalItem) {
+    this.precoTotalItem = precoTotalItem;
   }
 
   @Override
@@ -92,6 +107,7 @@ public class ItemPedido implements IEntity {
 
   public void setQuantidade(Integer quantidade) {
     this.quantidade = quantidade;
+    recalcularPrecoTotal();
   }
 
   public BigDecimal getPrecoUnitario() {
@@ -100,5 +116,6 @@ public class ItemPedido implements IEntity {
 
   public void setPrecoUnitario(BigDecimal precoUnitario) {
     this.precoUnitario = precoUnitario;
+    recalcularPrecoTotal();
   }
 }

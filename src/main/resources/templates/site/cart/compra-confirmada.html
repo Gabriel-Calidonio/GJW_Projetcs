@@ -19,9 +19,20 @@
 
                 <h1 style="margin-bottom: 1rem; color: var(--text-main); font-weight: 700;">Pedido Recebido!</h1>
                 
-                <p class="confirmation-msg" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;">
-                    Seus produtos foram reservados com sucesso. Eles já estão separados e aguardando você no balcão da barbearia para retirada e pagamento.
+                <p class="confirmation-msg" style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Seus produtos foram reservados com sucesso e o seu carrinho foi esvaziado. Eles já estão separados e aguardando você no balcão da barbearia para retirada.
                 </p>
+
+                <!-- Aviso de redirecionamento automático para a página principal -->
+                <div id="redirectBanner" style="background-color: rgba(212, 175, 55, 0.12); border: 1px solid var(--primary-color); border-radius: 8px; padding: 0.9rem 1.2rem; margin-bottom: 2rem; font-size: 0.95rem; color: var(--text-main); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.75rem;">
+                    <span>
+                        Retornando automaticamente para a <strong>página principal</strong> em <strong id="redirectCountdown">5</strong>s...
+                    </span>
+                    <button type="button" id="btnCancelRedirect"
+                            style="background: transparent; border: 1px solid var(--text-main); color: var(--text-main); padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer;">
+                        Permanecer nesta página
+                    </button>
+                </div>
 
                 <!-- Resumo do Pedido Salvo -->
                 <div class="details-panel" th:if="${pedido}" style="background-color: #fffdfa; border: 1px solid #eee; border-radius: 8px; padding: 2rem; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); margin-bottom: 2rem;">
@@ -118,21 +129,66 @@
                     </ul>
                 </div>
 
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a th:href="@{/loja}" class="wp-element-button btn-primary-inline" style="background-color: var(--text-main); color: var(--card-bg); text-decoration: none; padding: 0.8rem 2rem; border-radius: 6px; font-weight: bold; transition: opacity 0.2s;">Voltar para a Loja</a>
-                    <a th:href="@{/}" class="wp-element-button btn-primary-inline" style="background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); text-decoration: none; padding: 0.8rem 2rem; border-radius: 6px; font-weight: bold; transition: background-color 0.2s;">Início</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a th:href="@{/}" class="wp-element-button btn-primary-inline" style="background-color: var(--primary-color); color: #1a1a1a; text-decoration: none; padding: 0.85rem 2rem; border-radius: 6px; font-weight: bold; transition: opacity 0.2s;">Voltar para a Página Principal</a>
+                    <a th:href="@{/loja}" class="wp-element-button btn-primary-inline" style="background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); text-decoration: none; padding: 0.85rem 2rem; border-radius: 6px; font-weight: bold; transition: background-color 0.2s;">Continuar na Loja</a>
                 </div>
             </div>
         </main>
 
-        <script th:if="${pedido != null and pedido.formaPagamento == 'PIX'}">
+        <script>
             document.addEventListener('DOMContentLoaded', () => {
-                if (window.GWJPix) {
+                if (window.GWJPix && document.getElementById('compraPixQr')) {
                     window.GWJPix.init({
                         qrContainerId: 'compraPixQr',
                         payloadInputId: 'compraPixPayload',
                         copyBtnId: 'btnCopyPixCompra',
                         copyFeedbackId: 'copyFeedbackCompra'
+                    });
+                }
+
+                // Redirecionamento automático para a página principal após 5 segundos
+                const countdownEl = document.getElementById('redirectCountdown');
+                const bannerEl = document.getElementById('redirectBanner');
+                const cancelBtn = document.getElementById('btnCancelRedirect');
+                const copyBtn = document.getElementById('btnCopyPixCompra');
+                const homeUrl = /*[[@{/}]]*/ '/';
+
+                let secondsLeft = 5;
+                let timerId = null;
+
+                function stopAutoRedirect(reasonText) {
+                    if (timerId !== null) {
+                        clearInterval(timerId);
+                        timerId = null;
+                    }
+                    if (bannerEl) {
+                        bannerEl.innerHTML = '<span>' + reasonText + '</span>';
+                    }
+                }
+
+                if (countdownEl) {
+                    timerId = setInterval(() => {
+                        secondsLeft -= 1;
+                        if (secondsLeft <= 0) {
+                            clearInterval(timerId);
+                            timerId = null;
+                            window.location.href = homeUrl;
+                        } else {
+                            countdownEl.textContent = String(secondsLeft);
+                        }
+                    }, 1000);
+                }
+
+                if (cancelBtn) {
+                    cancelBtn.addEventListener('click', () => {
+                        stopAutoRedirect('Redirecionamento automático cancelado. Use os botões abaixo quando quiser sair.');
+                    });
+                }
+
+                if (copyBtn) {
+                    copyBtn.addEventListener('click', () => {
+                        stopAutoRedirect('Código PIX copiado! Redirecionamento automático pausado para você concluir o pagamento.');
                     });
                 }
             });

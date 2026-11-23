@@ -14,7 +14,7 @@
         <div class="header-container alignwide">
             <div class="header-logo">
                 <a th:href="@{/}" style="display: flex; align-items: center; gap: 10px;">
-                    <img th:if="${empresa != null and empresa.logo_url != null and !empresa.logo_url.isEmpty()}" th:src="${empresa.logo_url}" th:alt="${empresa.logo_alt != null ? empresa.logo_alt : (empresa.nome != null ? empresa.nome : 'Tgo''s Barbearia')}" style="max-height: 40px;">
+                    <img th:if="${empresa != null and empresa['logo_url'] != null and !empresa['logo_url'].isEmpty()}" th:src="${empresa['logo_url']}" th:alt="${empresa['logo_alt'] != null ? empresa['logo_alt'] : (empresa['nome'] != null ? empresa['nome'] : 'Tgo''s Barbearia')}" style="max-height: 40px;">
                     <span th:text="${empresa != null ? empresa.nome : 'Tgo''s Barbearia'}">Tgo's Barbearia</span>
                 </a>
             </div>
@@ -170,13 +170,20 @@
 
                 // Buscar fragmento atualizado
                 fetch('/carrinho/mini-cart-fragment')
-                    .then(r => r.text())
+                    .then(r => {
+                        if (!r.ok) {
+                            throw new Error('HTTP ' + r.status);
+                        }
+                        return r.text();
+                    })
                     .then(html => {
                         const oldElement = document.getElementById('miniCartItems');
                         if (oldElement) {
                             oldElement.outerHTML = html;
                         }
-                        
+                    })
+                    .catch(err => console.error('Erro ao atualizar mini-carrinho:', err))
+                    .finally(() => {
                         // Recarregar a página se estiver no carrinho
                         if (window.location.pathname === '/carrinho' || window.location.pathname === '/cart') {
                             window.location.reload();

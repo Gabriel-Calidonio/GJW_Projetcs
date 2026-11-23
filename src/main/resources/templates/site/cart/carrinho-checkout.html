@@ -13,6 +13,11 @@
         <main class="wp-block-group alignfull page-main-bg">
             <div class="alignwide">
                 <h1 class="mb-40">Finalizar Compra</h1>
+
+                <div th:if="${param.erro != null}" style="background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+                    <strong>Não foi possível concluir o pedido:</strong>
+                    <span th:text="${param.erro}">Erro inesperado.</span>
+                </div>
                 
                 <div class="layout-grid">
                     
