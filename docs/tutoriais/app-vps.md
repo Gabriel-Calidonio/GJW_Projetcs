@@ -7,6 +7,15 @@ Este tutorial descreve o passo a passo completo para compilar, configurar e publ
 
 ---
 
+## Fluxo alternativo (2ª deploy) para atualizações pequenas
+Passos:
+3. Compilando o Executável Localmente (Na máquina)
+5.1. Copiando o executável para o servidor (Scp)
+Reiniciando o serviço
+```bash
+ sudo systemctl start tgos-barbearia
+```
+
 ## Visão Geral da Arquitetura em Produção
 
 | Componente / Parâmetro | Valor no Projeto TGOS Barbearia |
@@ -16,7 +25,7 @@ Este tutorial descreve o passo a passo completo para compilar, configurar e publ
 | **Java / Spring Boot** | Java `21` LTS / Spring Boot `3.2.5` |
 | **Build Tool** | Maven Wrapper (`./mvnw`) |
 | **Porta Interna da Aplicação** | `8089` (`SERVER_PORT=8089`, atrás do Nginx) |
-| **Banco de Dados Principal** | MariaDB 10.11+ / 11+ (`org.mariadb.jdbc.Driver`, banco `gwj2`) — suporte alternativo a PostgreSQL |
+| **Banco de Dados Principal** | MariaDB 10.11+ / 11+ (`org.mariadb.jdbc.Driver`, banco `gwj2`), suporte alternativo a PostgreSQL |
 | **Configuração Dinâmica** | Arquivo `.env` carregado por `com.gwj.AppConfig` + Setup Wizard (`/setup`) |
 | **Segurança do Painel Admin** | Rota ofuscada via `ADMIN_ROUTE_PREFIX` + Honeypot em `/admin` |
 
@@ -82,7 +91,7 @@ O `spring-boot-starter-parent` (`3.2.5`) já traz o profile `native` pré-config
 ```
 
 > [!IMPORTANT]
-> **Ponto Crítico do Projeto — Reflexão Dinâmica e Varredura de Entidades**
+> **Ponto Crítico do Projeto, Reflexão Dinâmica e Varredura de Entidades**
 >
 > O motor de persistência e CRUD dinâmico do **TGOS Barbearia** (`DataMapper`, `QueryBuilder`, `EntityMapper`, `DtoMapper`, `SimpleObjectFactory`, `GenericRepository` e as entidades em `com.gwj.model.domain.entities.*`), além do `thymeleaf-layout-dialect`, fazem uso intenso de **Java Reflection** em tempo de execução. Além disso, o método `SchemaValidator.getClassesFromPackage(...)` varre arquivos `.class` diretamente no classpath durante o boot.
 >
@@ -105,7 +114,7 @@ Você tem **duas estratégias** para lidar com isso:
 3. Enquanto a aplicação roda, navegue pelos fluxos principais no navegador (Home, Loja, Agendamento, Checkout/PIX, Login, `/setup` e Painel Administrativo) para que o agente registre todas as classes, campos e recursos acessados por reflexão.
 4. Encerre com `Ctrl+C`. Os arquivos `reflect-config.json` e `resource-config.json` serão salvos em `src/main/resources/META-INF/native-image/` e incorporados automaticamente no próximo build nativo.
 
-### Estratégia B: Alternativa Pragmática — Deploy via Fat JAR com Limite de RAM
+### Estratégia B: Alternativa Pragmática, Deploy via Fat JAR com Limite de RAM
 
 Se você quiser subir rapidamente para a VPS sem precisar manter arquivos de hints AOT sempre que adicionar uma nova entidade ou biblioteca, pode gerar um **Fat JAR tradicional** e rodar com **OpenJDK 21 JRE** na VPS limitando o consumo de memória:
 
@@ -125,18 +134,18 @@ Na VPS, basta instalar `openjdk-21-jre-headless` e executar com `-Xms128m -Xmx38
 
 Na raiz do projeto, execute o comando correspondente à estratégia escolhida:
 
-* **Compilação Nativa Linux (GraalVM, máquina local Debian -> VPS Debian):**
+* **Cenário A: Compilação Nativa Linux (GraalVM, máquina local Debian -> VPS Debian):**
   ```bash
   ./mvnw -Pnative native:compile -DskipTests
   ```
   O binário autônomo será gerado em `target/tgos-barbearia` (ou `target/projeto` caso não tenha definido `<imageName>`).
 
-* **Compilação Nativa via Docker / Buildpacks (útil ao compilar no Windows/macOS ou outra arquitetura):**
+* **Cenário B: Compilação Nativa via Docker / Buildpacks (útil ao compilar no Windows/macOS ou outra arquitetura):**
   ```bash
   ./mvnw -Pnative spring-boot:build-image -DskipTests
   ```
 
-* **Compilação Fat JAR Tradicional (Alternativa JVM):**
+* **Cenário C: Compilação Fat JAR Tradicional (Alternativa JVM):**
   ```bash
   ./mvnw clean package -DskipTests
   ```
@@ -161,7 +170,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y mariadb-server nginx ufw certbot python3-certbot-nginx curl
 ```
 
-*(Caso utilize a **Estratégia B — Fat JAR**, instale também o runtime Java 21 sem interface gráfica: `sudo apt-get install -y openjdk-21-jre-headless`.)*
+*(Caso utilize a **Estratégia B, Fat JAR**, instale também o runtime Java 21 sem interface gráfica: `sudo apt-get install -y openjdk-21-jre-headless`.)*
 
 ### 4.2. Configurar o MariaDB (`gwj2`)
 
@@ -240,7 +249,7 @@ sudo chmod 600 /opt/tgos-barbearia/.env
 ```
 
 > [!TIP]
-> Se desejar realizar a configuração inicial pela interface web em `https://barbearia.seudominio.com.br/setup`, deixe a pasta `/opt/tgos-barbearia` com dono `www-data:www-data` e suba sem criar o `.env` manualmente — o **Setup Wizard** gravará o `.env` automaticamente ao concluir a instalação.
+> Se desejar realizar a configuração inicial pela interface web em `https://barbearia.seudominio.com.br/setup`, deixe a pasta `/opt/tgos-barbearia` com dono `www-data:www-data` e suba sem criar o `.env` manualmente, o **Setup Wizard** gravará o `.env` automaticamente ao concluir a instalação.
 
 ---
 
@@ -260,7 +269,7 @@ ssh usuario@ip-da-vps "sudo mv /tmp/tgos-barbearia /opt/tgos-barbearia/tgos-barb
   sudo chmod +x /opt/tgos-barbearia/tgos-barbearia"
 ```
 
-*(Na **Estratégia B — Fat JAR**, envie `target/projeto-0.0.1-SNAPSHOT.jar` para `/opt/tgos-barbearia/projeto-0.0.1-SNAPSHOT.jar` com dono `www-data:www-data`.)*
+*(Na **Estratégia B, Fat JAR**, envie `target/projeto-0.0.1-SNAPSHOT.jar` para `/opt/tgos-barbearia/projeto-0.0.1-SNAPSHOT.jar` com dono `www-data:www-data`.)*
 
 ### 5.2. Criar a unit `tgos-barbearia.service`
 

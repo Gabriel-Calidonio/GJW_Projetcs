@@ -188,7 +188,7 @@ O escopo contratado e efetivamente implementado compreende os seguintes módulos
 
 ### 8.1. Classificação Teórica (SPT, SIG e SIE)
 O software opera em múltiplos níveis da pirâmide de sistemas de informação:
-* **Sistema de Processamento de Transações (SPT)**: Execução rápida, confiável e atômica das rotinas operacionais cotidianas — agendamento de horários, cálculo de slots livres, cadastro de clientes, baixa de estoque e fechamento de comandas.
+* **Sistema de Processamento de Transações (SPT)**: Execução rápida, confiável e atômica das rotinas operacionais cotidianas, agendamento de horários, cálculo de slots livres, cadastro de clientes, baixa de estoque e fechamento de comandas.
 * **Sistema de Informação Gerencial (SIG)**: Consolidação de relatórios administrativos, apuração da quantidade de agendamentos por barbeiro, levantamento dos serviços mais executados e controle de faturamento diário/mensal.
 * **Sistema de Informação Executiva (SIE)**: Suporte à tomada de decisão estratégica do proprietário da barbearia (identificação de horários ociosos, necessidade de contratação de profissionais e criação de promoções direcionadas).
 
