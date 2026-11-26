@@ -56,7 +56,7 @@ sudo apt-get install -y build-essential libz-dev zlib1g-dev curl zip unzip
 A forma mais prática de gerenciar o GraalVM 21 sem interferir no OpenJDK padrão do sistema é com o **SDKMAN!**:
 
 ```bash
-curl -s "https://sdkman.io" | bash
+curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Liste as distribuições GraalVM 21 disponíveis (ex.: 21.0.2-graalce ou 21-graal)
@@ -86,6 +86,10 @@ O `spring-boot-starter-parent` (`3.2.5`) já traz o profile `native` pré-config
     <configuration>
         <imageName>tgos-barbearia</imageName>
         <mainClass>com.gwj.StartApplication</mainClass>
+        <buildArgs>
+            <buildArg>--initialize-at-build-time=org.codehaus.groovy,org.apache.groovy,groovy,groovyjarjarantlr,groovyjarjarantlr4,groovyjarjarasm,java.beans.Introspector,java.beans.ThreadGroupContext,com.sun.beans</buildArg>
+            <buildArg>--initialize-at-run-time=org.codehaus.groovy.vmplugin.v8.Java8$LookupHolder</buildArg>
+        </buildArgs>
     </configuration>
 </plugin>
 ```
@@ -93,9 +97,9 @@ O `spring-boot-starter-parent` (`3.2.5`) já traz o profile `native` pré-config
 > [!IMPORTANT]
 > **Ponto Crítico do Projeto, Reflexão Dinâmica e Varredura de Entidades**
 >
-> O motor de persistência e CRUD dinâmico do **TGOS Barbearia** (`DataMapper`, `QueryBuilder`, `EntityMapper`, `DtoMapper`, `SimpleObjectFactory`, `GenericRepository` e as entidades em `com.gwj.model.domain.entities.*`), além do `thymeleaf-layout-dialect`, fazem uso intenso de **Java Reflection** em tempo de execução. Além disso, o método `SchemaValidator.getClassesFromPackage(...)` varre arquivos `.class` diretamente no classpath durante o boot.
+> O motor de persistência e CRUD dinâmico do **TGOS Barbearia** (`DataMapper`, `QueryBuilder`, `EntityMapper`, `DtoMapper`, `SimpleObjectFactory`, `GenericRepository` e as entidades em `com.gwj.model.domain.entities.*`) faz uso intenso de **Java Reflection** em tempo de execução, e `StartApplication.GwjRuntimeHints` + `@RegisterReflectionForBinding` já registram essas classes e os recursos (`templates/**`, `static/**`, `db/**`) para AOT.
 >
-> Em compilação nativa (AOT), métodos e atributos acessados apenas via reflexão não são incluídos no binário a menos que estejam declarados em metadados de reflexão.
+> Além disso, o `thymeleaf-layout-dialect` deve permanecer na versão gerenciada pelo Spring Boot `3.2.5` (**`3.3.0+`**, sem fixar `3.0.0`), pois versões antigas usam Groovy 3 sem *invokedynamic* e tentam definir classes dinâmicas em runtime (o que falha em Native Image).
 
 Você tem **duas estratégias** para lidar com isso:
 
@@ -134,18 +138,18 @@ Na VPS, basta instalar `openjdk-21-jre-headless` e executar com `-Xms128m -Xmx38
 
 Na raiz do projeto, execute o comando correspondente à estratégia escolhida:
 
-* **Cenário A: Compilação Nativa Linux (GraalVM, máquina local Debian -> VPS Debian):**
+* **Ambiente Linux: Compilação Nativa Linux (GraalVM, máquina local Debian -> VPS Debian):**
   ```bash
   ./mvnw -Pnative native:compile -DskipTests
   ```
   O binário autônomo será gerado em `target/tgos-barbearia` (ou `target/projeto` caso não tenha definido `<imageName>`).
 
-* **Cenário B: Compilação Nativa via Docker / Buildpacks (útil ao compilar no Windows/macOS ou outra arquitetura):**
+* **Ambiente Docker: Compilação Nativa via Docker / Buildpacks (útil ao compilar no Windows/macOS ou outra arquitetura):**
   ```bash
   ./mvnw -Pnative spring-boot:build-image -DskipTests
   ```
 
-* **Cenário C: Compilação Fat JAR Tradicional (Alternativa JVM):**
+* **Ambiente Windows: Compilação Fat JAR Tradicional (Alternativa JVM):**
   ```bash
   ./mvnw clean package -DskipTests
   ```
@@ -225,6 +229,7 @@ APP_DEBUG=false
 # Porta interna (acessada apenas via Nginx Reverse Proxy)
 SERVER_HOST=127.0.0.1
 SERVER_PORT=8089
+SESSION_COOKIE_SECURE=true
 
 # Rota ofuscada do Painel Administrativo (nunca use /admin em produção)
 ADMIN_ROUTE_PREFIX=adm_6b85358db772
@@ -326,20 +331,60 @@ sudo journalctl -u tgos-barbearia -f
 
 ---
 
-## 6. Proxy Reverso com Nginx, Firewall (UFW) e HTTPS (SSL)
+## 6. Proxy Reverso com Nginx (Sempre HTTPS), Cloudflare Full (Strict) e Firewall (UFW)
 
-Nunca exponha a porta `8089` nem a porta `3306` diretamente na internet. Deixe apenas o Nginx recebendo tráfego nas portas `80`/`443` e encaminhando internamente para `127.0.0.1:8089`.
+Nunca exponha a porta `8089` nem a porta `3306` diretamente na internet. Deixe apenas o Nginx recebendo tráfego na porta `443` (HTTPS), redirecionando qualquer requisição HTTP (`80`) para `https://` (`301`) e encaminhando internamente para `127.0.0.1:8089`.
 
-### 6.1. Criar o Virtual Host no Nginx
+> [!IMPORTANT]
+> **Configuração Obrigatória na Cloudflare (para evitar loop `ERR_TOO_MANY_REDIRECTS`):**
+> * Em **SSL/TLS → Overview**, selecione **`Full (strict)`** (nunca use `Flexible`, pois com `Flexible` a Cloudflare envia HTTP na porta 80 e o Nginx redireciona de volta para HTTPS em loop infinito).
+> * Em **SSL/TLS → Edge Certificates**, ative **`Always Use HTTPS`** e **`Minimum TLS Version: 1.2`**.
+
+### 6.1. Instalar o Certificado SSL na VPS (Cloudflare Origin CA ou Certbot)
+
+**Opção A — Certificado Cloudflare Origin CA (Recomendado quando o proxy laranja da Cloudflare está ativo):**
+1. No painel da Cloudflare, acesse **SSL/TLS → Origin Server → Create Certificate** (validade de 15 anos).
+2. Salve a chave pública e a chave privada na VPS:
+   ```bash
+   sudo mkdir -p /etc/ssl/cloudflare
+   sudo nano /etc/ssl/cloudflare/origin.pem   # cole o Origin Certificate
+   sudo nano /etc/ssl/cloudflare/origin.key   # cole a Private Key
+   sudo chmod 600 /etc/ssl/cloudflare/origin.key
+   ```
+
+**Opção B — Let's Encrypt via Certbot (caso use DNS direto sem proxy da Cloudflare):**
+Execute usando `sudo certbot --nginx -d barbearia.seudominio.com.br -d www.barbearia.seudominio.com.br`.
+
+### 6.2. Criar o Virtual Host no Nginx (Forçando HTTPS)
 
 ```bash
 sudo nano /etc/nginx/sites-available/tgos-barbearia
 ```
 
 ```nginx
+# 1. Bloco HTTP (porta 80): força todas as requisições para HTTPS (301)
 server {
     listen 80;
+    listen [::]:80;
     server_name barbearia.seudominio.com.br www.barbearia.seudominio.com.br;
+
+    return 301 https://$host$request_uri;
+}
+
+# 2. Bloco HTTPS (porta 443): SSL + Proxy Reverso para 127.0.0.1:8089
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name barbearia.seudominio.com.br www.barbearia.seudominio.com.br;
+
+    # Certificados Cloudflare Origin CA (ou ajuste para /etc/letsencrypt/live/... se usar Certbot)
+    ssl_certificate     /etc/ssl/cloudflare/origin.pem;
+    ssl_certificate_key /etc/ssl/cloudflare/origin.key;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    # HSTS: instrui o navegador a usar sempre HTTPS
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
 
     # Tamanho máximo de upload (ex.: imagens de produtos/serviços)
     client_max_body_size 10M;
@@ -351,7 +396,9 @@ server {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port 443;
 
         proxy_connect_timeout 60s;
         proxy_read_timeout 60s;
@@ -368,7 +415,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-### 6.2. Configurar o Firewall (UFW)
+### 6.3. Configurar o Firewall (UFW)
 
 ```bash
 sudo ufw allow OpenSSH
@@ -377,21 +424,7 @@ sudo ufw enable
 sudo ufw status verbose
 ```
 
-Com isso, as portas `8089` (Spring Boot) e `3306` (MariaDB) permanecem fechadas para acesso externo.
-
-### 6.3. Ativar HTTPS gratuito com Certbot (Let's Encrypt)
-
-Com o DNS do domínio `barbearia.seudominio.com.br` apontado para o IP público da VPS, emita e configure o certificado SSL automaticamente:
-
-```bash
-sudo certbot --nginx -d barbearia.seudominio.com.br -d www.barbearia.seudominio.com.br
-```
-
-Teste a renovação automática do certificado:
-
-```bash
-sudo certbot renew --dry-run
-```
+Com isso, as portas `8089` (Spring Boot) e `3306` (MariaDB) permanecem fechadas para acesso externo, enquanto `80` apenas redireciona para `443` (HTTPS).
 
 ---
 
@@ -468,5 +501,8 @@ chmod +x deploy.sh
 | `RSA public key is not available client side` | Políticas de autenticação do banco sem SSL/chave pública em cliente JDBC. | Mantenha `?allowPublicKeyRetrieval=true&useSSL=false` na string `DB_URL`. |
 | `BindException: Address already in use` na porta `8089` | Outro processo já está ouvindo na porta `8089`. | Identifique com `sudo ss -tulpn 'sport = :8089'` e encerre o processo antigo ou altere `SERVER_PORT` no `.env` e no Nginx. |
 | Erro de permissão ao finalizar `/setup` | O usuário `www-data` não tem permissão de escrita em `/opt/tgos-barbearia/.env`. | Execute `sudo chown -R www-data:www-data /opt/tgos-barbearia` e reinicie o serviço. |
-| `ClassNotFoundException` / falha de binding no Thymeleaf em **Native Image** | Classe de entidade (`com.gwj.model.domain.entities.*`) ou getter/setter sem metadata de reflexão no build AOT. | Rode novamente com `-agentlib:native-image-agent=...` percorrendo a tela afetada ou utilize a **Estratégia B (Fat JAR)**. |
+| `ClassNotFoundException` / falha de binding no Thymeleaf em **Native Image** | Classe de entidade (`com.gwj.model.domain.entities.*`) ou getter/setter sem metadata de reflexão no build AOT. | Mantenha `@RegisterReflectionForBinding` em `StartApplication`, rode com `-agentlib:native-image-agent=...` ou utilize a **Estratégia B (Fat JAR)**. |
+| `Classes that should be initialized at run time got initialized during image building` (`groovy` / `java.beans`) | `thymeleaf-layout-dialect` usa Groovy internamente durante inicialização AOT / metadados gerados pelo agente. | Configure `--initialize-at-build-time=org.codehaus.groovy,org.apache.groovy,groovy,groovyjarjarantlr,groovyjarjarantlr4,groovyjarjarasm,java.beans.Introspector,java.beans.ThreadGroupContext,com.sun.beans` e `--initialize-at-run-time=org.codehaus.groovy.vmplugin.v8.Java8$LookupHolder` no `<buildArgs>` do `native-maven-plugin`. |
+| `UnsupportedFeatureError: No classes have been predefined during the image build to load from bytecodes at runtime` (`CallSiteGenerator`) | `thymeleaf-layout-dialect` fixado na versão `3.0.0` (Groovy 3 sem `invokedynamic`). | Remova `<version>3.0.0</version>` no `pom.xml` para usar a versão **`3.3.0`** gerenciada pelo Spring Boot 3.2.5 (Groovy 4 Indy com suporte nativo ao GraalVM). |
 | Erro `502 Bad Gateway` no Nginx | O serviço `tgos-barbearia` ainda está iniciando ou caiu. | Rode `sudo systemctl status tgos-barbearia` e `sudo journalctl -u tgos-barbearia -n 50 --no-pager` para ver o erro exato no boot. |
+| Loop `ERR_TOO_MANY_REDIRECTS` ou redirect caindo para `http://` | Cloudflare em modo `Flexible` (enviando HTTP na porta 80) ou `X-Forwarded-Proto` ausente no Nginx. | Defina **Cloudflare SSL/TLS → `Full (strict)`**, ative **`Always Use HTTPS`**, garanta `X-Forwarded-Proto https` no Nginx e `server.forward-headers-strategy=framework` no `application.properties`. |

@@ -2,7 +2,9 @@ package com.gwj.controller;
 
 import com.gwj.AppConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.ForwardedHeaderFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,6 +14,15 @@ public class WebConfig implements WebMvcConfigurer {
   @Autowired private SetupInterceptor setupInterceptor;
 
   @Autowired private AdminInterceptor adminInterceptor;
+
+  /**
+   * Processa cabeçalhos X-Forwarded-Proto / X-Forwarded-Host / X-Forwarded-Port enviados pelo
+   * Nginx / Cloudflare para garantir que redirects e esquema de URL reconheçam HTTPS.
+   */
+  @Bean
+  public ForwardedHeaderFilter forwardedHeaderFilter() {
+    return new ForwardedHeaderFilter();
+  }
 
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
